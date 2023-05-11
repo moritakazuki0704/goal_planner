@@ -44,7 +44,7 @@
 6. 日記を書き、自身がどんな気持ちで日々を過ごしているか、より良い日々を過ごす為の毎日の行動を見つめ直す
 
 ## 設計書
-[プランナーウェブアプリケーション要件定義書](https://docs.google.com/document/d/1ya752KQIkbWpw4MJBj5inDQyiCoJRhLV6o5tLnVFQWM/edit?usp=sharing)
+[プランナーウェブアプリケーション要件定義書](https://docs.google.com/document/d/1ya752KQIkbWpw4MJBj5inDQyiCoJRhLV6o5tLnVFQWM/edit?usp=sharing). 
 [実装機能リスト](https://docs.google.com/spreadsheets/d/1lnincYNbwHcknXC4WvPcvN8z-GBd_lEvnDzA-QGDLCc/edit?usp=sharing)
 
 ## 開発環境
