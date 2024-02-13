@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        理想のライフスタイル<br>
+      </p>
+      <p>
+        ライフスタイル　／　Lifestyle<br>
+        英語から直訳すると<br>
+        「生き方」という意味となります
+      </p>
+      <p>
+        さらに言葉の意味はかなり広く<br>
+        「衣食住」だけでなく<br>
+        人生観・価値観・習慣などを含めた
+        個人の生き方<br>
+        という意味で使われているそうです
+      </p>
+      <p>
+        何を大切にするかによってライフスタイルはわかります
+      </p>
+      <p>
+        難しく考える必要はどこにもありません<br>
+        あなたの理想の生活を考えるだけでいいのです
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想のライフスタイルを<br>
+          3つ教えて下さい
+        </u>
+      </h5>
+      <p>
+        どうしてそのライフスタイルに憧れているのか<br>
+        理由も教えて下さい
+      </p>
+      <p>
+        やりたいこと、憧れていること<br>
+        今の生活と比べてどうなりたいのか
+      </p>
+      <p>
+        ただそれだけです
+      </p>
+      <%= form_with model: @ideal,url: step5_time_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :lifestyle_1 %><br />
+          <%= f.text_area :lifestyle_1,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :lifestyle_2 %><br />
+          <%= f.text_area :lifestyle_2,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :lifestyle_3 %><br />
+          <%= f.text_area :lifestyle_3,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

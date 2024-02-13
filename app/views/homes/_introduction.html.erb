@@ -1,0 +1,88 @@
+<!--左のページ-->
+<div class="left-page col text-center m-5 p-5">
+  <p>
+    この本はあなたの分身です。
+  </p>
+  <p>
+    叶えたい思い<br>
+    叶えたい目標
+  </p>
+  <p>
+    自分とは何かを書き込み<br>
+    なりたい姿を描いていく
+  </p>
+  <p>
+    この本はきっとあなたにとって<br>
+    大きな大きな高い壁となって<br>
+    立ち塞がることでしょう
+  </p>
+  <p>
+    でも恐れないで<br>
+    高い壁であると同時に<br>
+    あなた自身でもある
+  </p>
+  <p>
+    迷った時<br>
+    挫けそうな時
+  </p>
+  <p>
+    この本があなたの背中を押してくれる
+  </p>
+  <p>
+    あなたがこの本と向き合っている限り<br>
+    あなたの味方となります<br>
+    なりたい姿に一歩でも近づけるように
+  </p>
+</div>
+
+<!--右のページ-->
+<div class="right-page col text-center m-5 p-5">
+  <p>
+    あなたのなりたい姿<br>
+    目標を教えてください
+  </p>
+  <p>
+    空欄ができないように<br>
+    全て埋めてください
+  </p>
+  <p>
+    それはいくつ年を重ねようと<br>
+    変わらない心の渇望
+  </p>
+  <p>
+    目標達成する姿を想像して
+  </p>
+  <p>
+    その時のあなたは<br>
+    どんな生き方をしていますか<br>
+    どんな時間を過ごしていますか
+  </p>
+  <p>
+    あなたの将来の理想を知って<br>
+    叶えたい目標を見つけましょう<br>
+    それはこころをみつめる
+  </p>
+  <p>
+    さぁ深呼吸して<br>
+    リラックスして
+  </p>
+  <p>
+    はじめましょう
+  </p>
+
+  <div class="my-4">
+    <!--理想のテーブルを作成していない場合-->
+    <% if !current_user.ideal.present? %>
+      <%= link_to "あなたの理想を教えてください",step1_keyword_ideal_path,class: "btn btn-lg btn-block btn-outline-primary" %>
+
+    <!--ミッションステートメントを作成していない場合-->
+    <% elsif !current_user.mission_statement.present? %>
+      <%= link_to "人生の指針を教えてください",new_user_path,class: "btn btn-lg btn-block btn-outline-primary" %>
+
+    <!--目標を作成していない場合-->
+    <% else %>
+      <%= link_to "あなたの目標を教えてください",new_problem_path,class: "btn btn-lg btn-block btn-outline-primary" %>
+    <% end %>
+
+  </div>
+</div>

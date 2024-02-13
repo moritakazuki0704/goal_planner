@@ -1,0 +1,46 @@
+<!--左のページ-->
+<div class="left-page col text-center m-5 p-5">
+  <div>
+    <h5 class="smart-frame mb-5">
+      <u>
+        どの目標に対する予定か選んでください
+      </u>
+    </h5>
+  </div>
+  <div>
+    <%= problems.each do |problem| %>
+      <div class="title-frame">
+        <span class="custom-control custom-radio custom-control-inline">
+          <%= radio_button :problem_id, problem.id, class: "custom-control-input" %>
+          <%= problem.commitment %>
+        </span>
+        <p>
+          <%= problem.purpose %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!--右のページ-->
+<div class="right-page col text-center m-5 p-5">
+  <p class="alert alert-warning"><%= alert %></p>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true,class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :finish_time %>
+    <%= f.datetime_select :finish_time, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body,class: "form-control" %>
+  </div>
+    <%= f.submit "登録",class: "btn btn-outline-primary" %>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        あなたはきっと<br>
+        仕事  ・  勉強   ・  娯楽  ・  趣味
+      </p>
+      <p>
+        いろいろなことに時間をかけてきたことと<br>
+        思います<br>
+        そしてそれにかける情熱やお金も
+      </p>
+      <p>
+        それはとてもいいことで<br>
+        とても素晴らしいことです
+      </p>
+      <p>
+        仕事ができなければ<br>
+        お金を稼ぐことができません
+      </p>
+      <p>
+        勉強ができなければ<br>
+        学ぶことができません
+      </p>
+      <p>
+        娯楽ができなければ<br>
+        楽しむことができません
+      </p>
+      <p>
+        趣味ができなければ<br>
+        情熱をかけることができません
+      </p>
+      <p>
+        全てとても重要で大切なものです
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの時間やエネルギーをかけたいことを<br>
+          3つ教えて下さい
+        </u>
+      </h5>
+      <p>
+        より具体的の教えていただけると<br>
+        時間やエネルギーをかけたいことの<br>
+        イメージが深まります
+      </p>
+      <p>
+        どのようなことに時間をかけたいですか</br>
+        どのようなことにエネルギー<br>
+        情熱をかけて取り組みたいですか
+      </p>
+      <p>
+        ゆったりとした時間でも<br>
+        激しく過ごす時間でも<br>
+        なんでも構いません
+      </p>
+      <%= form_with model: @ideal,url: step6_working_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :time_1 %><br />
+          <%= f.text_area :time_1,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :time_2 %><br />
+          <%= f.text_area :time_2,rows: "3",autofocus: true,class: "form-control" %>
+          </div>
+        <div class="form-group">
+          <%= f.label :time_3 %><br />
+          <%= f.text_area :time_3,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

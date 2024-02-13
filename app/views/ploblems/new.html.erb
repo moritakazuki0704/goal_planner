@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        最後に決めるのは理想の将来です
+      </p>
+      <p>
+        あくまで今まで教えていただいた理想は<br>
+        理想の将来である目標を叶える通過点であり<br>
+        目標を叶えた先に得られるものです
+      </p>
+      <p>
+        目標の大きさはそれぞれであり
+        大小や難易度なんてものは
+        あなた自身が決めるものです
+      </p>
+      <p>
+        誰がなんと言おうと叶えたいと思えるならば<br>
+        そんなことは大したことではありません
+      </p>
+      <p>
+        あなたの心から渇望する目標となり<br>
+        あなたの将来を達成するための目標です
+      </p>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame mb-5">
+        <u>
+          あなたの叶えたい目標を<br>
+          教えて下さい
+        </u>
+      </h5>
+      <%= form_with model: @problem, url: confirm_problems_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :commitment %><br />
+          <%= f.text_field :commitment,autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :purpose %><br />
+          <%= f.text_area :purpose,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit "次に進む",class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

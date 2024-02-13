@@ -1,0 +1,102 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        あなたのこれから叶えていく目標を<br>
+        教えていただきました
+      </p>
+      <p>
+        教えていただいた目標を<br>
+        叶え続けた先に理想の未来が手に入ります
+      </p>
+      <p>
+        ここが一つのスタートラインとなるのです
+      </p>
+      <p>
+        大きな目標として<br>
+        この目標を大事にしてください
+      </p>
+      <p>
+        これからこのアプリケーションを<br>
+        使用していくにあたり
+      </p>
+      <p>
+        他にも達成したい目標<br>
+        目標を達成するための目標<br>
+        が出てくると思います
+      </p>
+      <p>
+        その時には新たに目標を立ててください
+      </p>
+      <div class="danger-title-frame">
+        <span>書き直す、削除はできません</span>
+        <p>
+          間違いないことを<br>
+          改めて確認してください
+        </p>
+      </div>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+
+      <!--commitmentとpurposeが入力されている場合-->
+      <% if session[:commitment].present? && session[:purpose].present? %>
+      <h5 class="smart-frame">
+        <u>
+          <%= session[:commitment] %>
+        </u>
+      </h5>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= session[:purpose] %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= form_with model: @problem, url: problems_path, method: :post do |f| %>
+            <%= f.hidden_field :progress_stetas, :value => 0 %>
+            <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんがこの目標いいですか", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+        </div>
+      </div>
+
+      <!--commitmentとpurposeのどちらか、もしくは両方に空欄があった場合-->
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            目標の作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた内容に空欄があったみたいです。
+        </p>
+        <p>
+          これから叶えていく目標は<br>
+          あなた自身が見つけていくものです<br>
+          深く考える必要はありません
+        </p>
+        <p>
+          ちょっとした気持ち、感情が動いた時<br>
+          それはすでにあなたの中にあります
+        </p>
+        <p>
+          あとはそれを<br>
+          言葉にして形にするだけです
+        </p>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>

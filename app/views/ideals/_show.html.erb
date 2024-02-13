@@ -1,0 +1,256 @@
+
+<!--タブ表示機能-->
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">キー</a>
+    <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">性格</a>
+    <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">外見</a>
+    <a class="nav-item nav-link" id="nav-lifestyle-tab" data-toggle="tab" href="#nav-lifestyle" role="tab" aria-controls="nav-lifestyle" aria-selected="false">生き方</a>
+    <a class="nav-item nav-link" id="nav-time-tab" data-toggle="tab" href="#nav-time" role="tab" aria-controls="nav-time" aria-selected="false">時間</a>
+    <a class="nav-item nav-link" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="false">勤務</a>
+    <a class="nav-item nav-link" id="nav-residence-tab" data-toggle="tab" href="#nav-residence" role="tab" aria-controls="nav-residence" aria-selected="false">住居</a>
+    <a class="nav-item nav-link" id="nav-relationship-tab" data-toggle="tab" href="#nav-relationship" role="tab" aria-controls="nav-relationship" aria-selected="false">関係</a>
+    <a class="nav-item nav-link" id="nav-partner-tab" data-toggle="tab" href="#nav-partner" role="tab" aria-controls="nav-partner" aria-selected="false">相方</a>
+    <a class="nav-item nav-link" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="false">モデル</a>
+  </div>
+</nav>
+
+<!--タブ表示する内容-->
+<div class="tab-content" id="nav-tabContent">
+
+  <!--キーワードタブ-->
+  <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+    <div class="smart-content text-center font-weight-bold">
+      <h3>理想を示すキーワード</h3>
+    </div>
+    <table class="table">
+      <tbody class="form-group cross-frame font-weight-bold">
+        <tr>
+          <td><%= ideal.keyword_1 %></th>
+          <td><%= ideal.keyword_2 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_3 %></th>
+          <td><%= ideal.keyword_4 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_5 %></th>
+          <td><%= ideal.keyword_6 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_7 %></th>
+          <td><%= ideal.keyword_8 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_9 %></th>
+          <td><%= ideal.keyword_10 %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--理想の性格のタブ-->
+  <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
+    <div>
+
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>１つ目の理想の性格</p>
+          <p><%= ideal.personality_1 %></p>
+        </div>
+        <div>
+          <p>２つ目の理想の性格</p>
+          <p><%= ideal.personality_2 %></p>
+        </div>
+        <div>
+          <p>３つ目の理想の性格</p>
+          <p><%= ideal.personality_3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想の姿のタブ-->
+  <div class="tab-pane fade" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想の姿</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>理想の髪型・メイク</p>
+          <p><%= ideal.hair_make %></p>
+        </div>
+        <div>
+          <p>理想の体型</p>
+          <p><%= ideal.body_make %></p>
+        </div>
+        <div>
+          <p>理想のファッション</p>
+          <p><%= ideal.fashion_make %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想のライフスタイルのタブ-->
+  <div class="tab-pane fade" id="nav-lifestyle" role="tabpanel" aria-labelledby="nav-lifestyle-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想のライフスタイル</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>１つ目の理想のライフスタイル</p>
+          <p><%= ideal.lifestyle_1 %></p>
+        </div>
+        <div>
+          <p>２つ目の理想のライフスタイル</p>
+          <p><%= ideal.lifestyle_2 %></p>
+        </div>
+        <div>
+          <p>３つ目の理想のライフスタイル</p>
+          <p><%= ideal.lifestyle_3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想の時間の使い方のタブ-->
+  <div class="tab-pane fade" id="nav-time" role="tabpanel" aria-labelledby="nav-time-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想の時間</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>１つ目の理想の時間の使い方</p>
+          <p><%= ideal.time_1 %></p>
+        </div>
+        <div>
+          <p>２つ目の理想の時間の使い方</p>
+          <p><%= ideal.time_2 %></p>
+        </div>
+        <div>
+          <p>３つ目の理想の時間の使い方</p>
+          <p><%= ideal.time_3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想の働き方のタブ-->
+  <div class="tab-pane fade" id="nav-working" role="tabpanel" aria-labelledby="nav-working-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想の働き方</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>１つ目の理想の働き方</p>
+          <p><%= ideal.working_1 %></p>
+        </div>
+        <div>
+          <p>２つ目の理想の働き方</p>
+          <p><%= ideal.working_2 %></p>
+        </div>
+        <div>
+          <p>３つ目の理想の働き方</p>
+          <p><%= ideal.working_3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想の住まいのタブ-->
+  <div class="tab-pane fade" id="nav-residence" role="tabpanel" aria-labelledby="nav-residence-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想の住まい</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>１つ目の理想の住まい</p>
+          <p><%= ideal.residence_1 %></p>
+        </div>
+        <div>
+          <p>２つ目の理想の住まい</p>
+          <p><%= ideal.residence_2 %></p>
+        </div>
+        <div>
+          <p>３つ目の理想の住まい</p>
+          <p><%= ideal.residence_3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想の人間関係のタブ-->
+  <div class="tab-pane fade" id="nav-relationship" role="tabpanel" aria-labelledby="nav-relationship-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想の人間関係</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>１つ目の理想の人間関係</p>
+          <p><%= ideal.relationship_1 %></p>
+        </div>
+        <div>
+          <p>２つ目の理想の人間関係</p>
+          <p><%= ideal.relationship_2 %></p>
+        </div>
+        <div>
+          <p>３つ目の理想の人間関係</p>
+          <p><%= ideal.relationship_3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想のパートナーのタブ-->
+  <div class="tab-pane fade" id="nav-partner" role="tabpanel" aria-labelledby="nav-partner-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想のパートナー</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>１つ目の理想のパートナー</p>
+          <p><%= ideal.partner_1 %></p>
+        </div>
+        <div>
+          <p>２つ目の理想のパートナー</p>
+          <p><%= ideal.partner_2 %></p>
+        </div>
+        <div>
+          <p>３つ目の理想のパートナー</p>
+          <p><%= ideal.partner_3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--理想のロールモデルのタブ-->
+  <div class="tab-pane fade" id="nav-role_model" role="tabpanel" aria-labelledby="nav-role_model-tab">
+    <div>
+      <div class="smart-content text-center font-weight-bold">
+        <h3>理想のロールモデル</h3>
+      </div>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <p>理想のパートナー像</p>
+          <p><%= ideal.partner_model %></p>
+        </div>
+        <div>
+          <p>理想の家族像</p>
+          <p><%= ideal.family_model %></p>
+        </div>
+        <div>
+          <p>理想の友達像</p>
+          <p><%= ideal.friend_model %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

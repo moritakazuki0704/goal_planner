@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        あなたが叶えていく目標
+      </p>
+      <p>
+        大きな大きな一歩一歩がここに記されています
+      </p>
+      <p>
+        これは理想を現実に<br>
+        叶えるための道標となります
+      </p>
+      <p>
+        進行中の目標<br>
+        達成した目標<br>
+        保留にしている目標
+      </p>
+      <p>
+        それぞれがあなたが<br>
+        これまで理想を叶えるために歩んできた<br>
+        一つの軌跡
+      </p>
+      <div>
+        <%= link_to '新たに目標を定める',new_problem_path %>
+      </div>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame mb-5">
+        <u>
+          目標一覧表
+        </u>
+      </h5>
+
+      <!--タブ表示機能-->
+      <div class="position-static tab-room">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="true">進行中の目標</a>
+            <a class="nav-item nav-link" id="nav-finish-tab" data-toggle="tab" href="#nav-finish" role="tab" aria-controls="nav-finish" aria-selected="false">達成した目標</a>
+            <a class="nav-item nav-link" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="false">保留した目標</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+          <!--進行中の目標のタブ-->
+          <div class="tab-pane fade show active" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <p>進行中の目標</p>
+              </div>
+              <!--position:stickyを使用して、スクロール機能をつける-->
+              <% @problems.activity.each do |activity| %>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= link_to problem_path(activity.id) do %>
+                      <%= activity.commitment %>
+                    <% end %>
+                  </li>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+
+          <!--達成した目標のタブ-->
+          <div class="tab-pane fade" id="nav-finish" role="tabpanel" aria-labelledby="nav-finish-tab">
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <p>達成した目標</p>
+              </div>
+              <% @problems.finish.each do |finish| %>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= link_to problem_path(finish.id) do %>
+                      <%= finish.commitment %>
+                    <% end %>
+                  </li>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+
+          <!--保留にした目標のタブ-->
+          <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <p>保留した目標</p>
+              </div>
+              <% @problems.pending.each do |pending| %>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= link_to problem_path(pending.id) do %>
+                      <%= pending.commitment %>
+                    <% end %>
+                  </li>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

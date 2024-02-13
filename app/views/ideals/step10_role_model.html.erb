@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        きっと誰しも思ったことがあるでしょう
+      </p>
+      <p>
+        いいなぁ<br>
+        憧れるなぁ
+      </p>
+      <p>
+        それは理想を叶えている姿です
+      </p>
+      <p>
+        理想を体現している人がいるのならば<br>
+        あなたがその人のことをよく知って<br>
+        その人の行動<br>
+        その人の考え方
+      </p>
+      <p>
+       それを真似すればいいだけです
+      </p>
+      <p>
+        何もわからない手探りの状態より<br>
+        簡単だと思いませんか
+      </p>
+      <p>
+        まずは話し方からでも<br>
+        歩き方でも<br>
+        箸の持ち方や<br>
+        一つの考え方でも
+      </p>
+      <p>
+        はじめの一歩はなんでもいい<br>
+        一歩ずつ歩んでいけばいいのですから
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想のパートナー像<br>
+          あなたの理想の家族像<br>
+          あなたの理想の親友像を<br>
+          教えて下さい
+        </u>
+      </h5>
+      <p>
+        パートナーは夫婦像とも言えるでしょう<br>
+        相棒のような存在ということです
+      </p>
+      <p>
+        あなたにとっての理想はきっと<br>
+        理想を想像、妄想<br>
+        いっぱい考えていれば
+      </p>
+      <p>
+        その理想はきっと<br>
+        あなたの手の届くところに寄ってきます
+      </p>
+      <%= form_with model: @ideal,url: ideal_path, method: :post do |f| %>
+        <div class="form-group">
+          <%= f.label :partner_model %><br />
+          <%= f.text_area :partner_model,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :family_model %><br />
+          <%= f.text_area :family_model,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :friend_model %><br />
+          <%= f.text_area :friend_model,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

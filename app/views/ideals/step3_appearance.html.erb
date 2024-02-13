@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        きっと<br>
+        あなたが思い描く将来の姿には<br>
+        あなた自身がいることと思います
+      </p>
+      <p>
+        どんな表情をしていますか<br>
+        髪の長さやセットはどのようなものですか
+      </p>
+      <p>
+        メイクはどのようなメイクですか<br>
+      </p>
+      <p>
+        体型は標準ですか<br>
+        それともモデル体型、もしくは筋肉質ですか
+      </p>
+      <p>
+        持っている服装は<br>
+        着ている服装やアクセサリーはしていますか
+      </p>
+      <p>
+        思い描く未来は想像する未来のあなたの姿を教えて下さい
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたがなりたいと思う<br>
+          理想の姿を教えて下さい
+        </u>
+      </h5>
+      <p>
+        憧れる人<br>
+        尊敬する人
+      </p>
+      <p>
+        あなたの中にあるイメージをそのまま教えて下さい<br>
+        すでに体現している人がいるなら
+      </p>
+      <p>
+        その人も教えて下さい
+      </p>
+      <%= form_with model: @ideal,url: step4_lifestyle_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :hair_make %><br />
+          <%= f.text_area :hair_make,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body_make %><br />
+          <%= f.text_area :body_make,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :fashion_make %><br />
+          <%= f.text_area :fashion_make,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

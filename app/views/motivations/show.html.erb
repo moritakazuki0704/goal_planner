@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <% if @motivation.motivation.stetas(0) %>
+        <%= render 'motivation_template/positive_text' %>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to "新規作成", positive_new_motivations_path %>
+          </div>
+          <div>
+            <%= link_to "ポジティブモチベーションへ戻る", list_motivations_path(positive: true) %>
+          </div>
+        </div>
+      <% elsif @motivation.motivation.stetas(1) %>
+        <%= render 'motivation_template/negative_text' %>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to "新規作成", negative_new_motivations_path %>
+          </div>
+          <div>
+            <%= link_to "ネガティブモチベーションへ戻る", list_motivations_path(negative: true) %>
+          </div>
+        </div>
+      <% elsif @motivation.motivation.stetas(2) %>
+        <%= render 'motivation_template/to_do_text' %>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to "新規作成", to_do_new_motivations_path %>
+          </div>
+          <div>
+            <%= link_to "したいことリストへ戻る", list_motivations_path(to_do: true) %>
+          </div>
+        </div>
+      <% elsif @motivation.motivation.stetas(3) %>
+        <%= render 'motivation_template/want_text' %>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to "新規作成", want_new_motivations_path %>
+          </div>
+          <div>
+            <%= link_to "欲しいものリストへ戻る", list_motivations_path(want: true) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          <%= @motivation.appetite %>
+        </u>
+      </h5>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= @motivation.memory %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= link_to "戻る",motivations_path %>
+        </div>
+        <div>
+          <%= link_to "この記録を消す", motivation_path(@motivation.id), method: :delete %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <div class="card">
+        <div class="card-header">
+          <%= @problem.commitment %>
+        </div>
+        <div class="card-body">
+          <%= @problem.purpose %>
+        </div>
+        <div class="card-footer d-flex justify-content-around">
+          <%= form_with model: @problem, url: problem_path(@problem.id), method: :patch do |f| %>
+            <div class="form-check form-check-inline">
+              <%= f.radio_button :progress_stetas, 0, class: "form-check-input"  %>
+              <%= f.label :progress_status_process, Plan.progress_status_i18n[:process], class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= f.radio_button :progress_stetas, 1, class: "form-check-input"  %>
+              <%= f.label :progress_status_finish, Plan.progress_status_i18n[:finish], class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= f.radio_button :progress_stetas, 2, class: "form-check-input"  %>
+              <%= f.label :progress_status_pending, Plan.progress_status_i18n[:pending], class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= f.submit "保存する",class: "btn btn-secondary btn-sm" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <p>課題件数：<%= @problem.schedules.conut %></p>
+      </div>
+
+    <!--タブ表示機能-->
+    <div class="position-static tab-room">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="true">未設定</a>
+          <a class="nav-item nav-link" id="nav-completion-tab" data-toggle="tab" href="#nav-completion" role="tab" aria-controls="nav-completion" aria-selected="false">完了</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">未完了</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <!--未設定の課題のタブ-->
+        <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+          <p class="fixed-top">未設定課題件数：<%= @problem.schedules.pending.conut %></p>
+          <p>詳細内容と日付が未入力な予定</p>
+          <p>タイトルをクリックして詳細を設定してください</p>
+          <%= @problem.schedules.pending.each do |pending| %>
+            <div>
+              <%= link_to edit_schedule_path(pending.id) do %>
+                <h5><%= pending.title %></h5>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <!--完了した課題のタブ-->
+        <div class="tab-pane fade" id="nav-completion" role="tabpanel" aria-labelledby="nav-completion-tab">
+          <p class="fixed-top">完了課題件数：<%= @problem.schedules.completion.conut %></p>
+          <p>終わった予定</p>
+          <%= @problem.schedules.completion.each do |completion| %>
+            <div>
+              <%= link_to schedule_path do %>
+                <h5><%= completion.title %></h5>
+              <% end %>
+              <h6 class="mb-2 text-muted">
+                <%= completion.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= completion.finish_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+              </h6>
+            </div>
+          <% end %>
+        </div>
+
+        <!--未完了の課題のタブ-->
+        <div class="tab-pane fade" id="nav-imperfect" role="tabpanel" aria-labelledby="nav-imperfect-tab">
+          <p class="fixed-top">未完了課題件数：<%= @problem.schedules.imperfect.conut %></p>
+          <p>将来の予定</p>
+          <%= @problem.schedules.imperfect.each do |imperfect| %>
+            <div>
+              <%= link_to schedule_path do %>
+                <h5><%= imperfect.title %></h5>
+              <% end %>
+              <h6 class="mb-2 text-muted">
+                <%= imperfect.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= imperfect.finish_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+              </h6>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+    <div class="d-flex justify-content-around my-3">
+      <div>
+        <%= link_to "戻る",problems_path %>
+      </div>
+    </div>
+  </div>
+
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame mb-5">
+        <u>
+          目標を叶えるためにするべきことを<br>
+          教えてください
+        </u>
+      </h5>
+      <p class="alert alert-warning"><%= alert %></p>
+      <div class="form-inline">
+        <%= form_with model: [@problem,@mission],url: problem_missions_path(@problem.id), method: :post do |f| %>
+          <%= f.text_field :memo,class: "form-control" %>
+          <%= f.submit "メモする",class: "btn btn-secondary btn-sm" %>
+        <% end %>
+      </div>
+      <div>
+        <p>メモ件数：<%= @problem.missions.conut %></p>
+      </div>
+      <div class="position-static tab-room">
+        <% @problem.missions.each do |mission| %>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= mission.memo %>
+              <span>
+                <%= link_to "課題にする", upload_problem_mission_path(@problem.id,mission.id), method: :post %>
+                <%= link_to "削除する", problem_mission_path(@problem.id,mission.id) method: :delete %>
+              </span>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+
+      <% if @problem.missions.present? %>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to "全て課題にする", bulk_upload_problem_missions_path(@problem.id), method: :post %>
+          </div>
+          <div>
+            <%= link_to "メモを全て破棄する", bulk_destroy_problem_missions_path(@problem.id), method: :delete %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

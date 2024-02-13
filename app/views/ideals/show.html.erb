@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        あなたにとって<br>
+        大事にしていること<br>
+        理想の自分の姿
+      </p>
+      <p>
+        何度でも見返して<br>
+        まるで現実のように思えるぐらい<br>
+        明確に想像してください
+      </p>
+      <p>
+        いつしか<br>
+        想像は現実に<br>
+        取って代わっていきます
+      </p>
+      <h5 class="smart-frame">
+        <u>
+          <%= @user.mission_statement %>
+        </u>
+      </h5>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= @user.mission_detail %>
+        </div>
+      </div>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <div>
+        <%= render 'show', ideal: @ideal %>
+      </div>
+      <div>
+        <%= link_to 'もう一度理想を考え直す', ideal_path, method: :delete %>
+      </div>
+    </div>
+

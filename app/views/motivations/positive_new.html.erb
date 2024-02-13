@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <%= render 'motivation_template/positive' %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの感情がポジティブに動いた瞬間を教えてください
+        </u>
+      </h5>
+      <p>
+        それはあなたが感じたことが全てです。
+      </p>
+      <p>
+        感動して泣きそうになってしまうこと<br>
+        音楽を聴いて嬉しくなり楽しくなること<br>
+        好きな絵を見てドキドキすること<br>
+        言われたら嬉しい言葉<br>
+        自分に伝えたい言葉
+      </p>
+      <p>
+        どんなことでも構いません
+      </p>
+      <p>
+        きっとそれは<br>
+        ありふれた<br>
+        普段の中にたくさんあります
+      </p>
+      <p class="alert alert-warning"><%= alert %></p>
+      <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
+        <%= f.hidden_field :emotion_stetas, :value => "0"  %>
+        <%= render 'motivation_template/form' %>
+      <% end %>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= link_to "戻る",motivations_path %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

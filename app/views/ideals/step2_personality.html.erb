@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        なりたい人<br>
+        憧れる人<br>
+        こういう人になりたい<br>
+        こういうことができる人になりたい
+      </p>
+      <p>
+        そういったことを考えたことはありませんか
+      </p>
+      <p>
+        その人はどういった性格をしていて<br>
+        どういった行動をすることができて<br>
+        あなたを憧れさせたのでしょうか
+      </p>
+      <p>
+        あなたはあなた自身です<br>
+        あなたはその人になることはできません
+      </p>
+      <p>
+        ですがその人のようになることはできます
+      </p>
+      <p>
+        人は変わることができるんです<br>
+        悩むことはありません
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想の性格を<br>
+          3つ教えてください
+        </u>
+      </h5>
+      <p>
+        どうしてその性格になりたいのか<br>
+        その理由も教えて下さい
+      </p>
+      <p>
+        理由を知ることで</br>
+        どうしてそう思ったのか<br>
+        どうしてそうなりたいのか
+      </p>
+      <p>詳しく理解することができます</p>
+      <%= form_with model: @ideal,url: step3_appearance_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :personality_1 %><br />
+          <%= f.text_area :personality_1,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :personality_2 %><br />
+          <%= f.text_area :personality_2,rows: "3",autofocus: true,class: "form-control" %>
+          </div>
+        <div class="form-group">
+          <%= f.label :personality_3 %><br />
+          <%= f.text_area :personality_3,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

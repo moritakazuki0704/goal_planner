@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <%= render 'motivation_template/negative' %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの感情がネガティブに動いた瞬間を教えてください
+        </u>
+      </h5>
+      <p>
+        ネガティブな感情には一般的な定義がなく<br>
+        「自分にとって良いか悪いか」<br>
+        「人にとって良いか悪いか」<br>
+        ただそれだけです
+      </p>
+      <p>
+        そしてこの基準は千差万別です
+      </p>
+      <p>
+        あなたの基準もきっと<br>
+        その時置かれている環境や状況<br>
+        そして年齢とともに変わっていくでしょう
+      </p>
+      <p class="alert alert-warning"><%= alert %></p>
+      <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
+        <%= f.hidden_field :emotion_stetas, :value => "1"  %>
+        <%= render 'motivation_template/form' %>
+      <% end %>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= link_to "戻る",motivations_path %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

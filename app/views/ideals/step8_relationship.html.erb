@@ -1,0 +1,116 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        人間関係とはたくさんあります<br>
+      </p>
+      <p>
+        自身を高めてくれる人<br>
+        大切に思う<br>
+        なんでも楽しめ、話せる人<br>
+        喧嘩ができる人
+      </p>
+      <p>
+        いい人間関係があれば<br>
+        悪い人間関係もあります
+      </p>
+      <p>
+        怒ってくる人<br>
+        傷つけてくる人<br>
+        生理的に合わない人
+      </p>
+      <p>
+        これからたくさんの人と出会っていきます<br>
+        その中で付き合っていく人を<br>
+        選んでいく必要があり<br>
+        選ばれる必要もあります
+      </p>
+      <p>
+        選ばれることは<br>
+        今まで教えていただいた理想を叶えていくと<br>
+        自然と選ばれていきます<br>
+        そしてあなたに必要な人は
+      </p>
+      <p>
+        必ず集まってきます
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想の人間関係を教えて下さい
+        </u>
+      </h5>
+      <p>
+        先輩、後輩、上司、家族、友人、親友、夫婦<br>
+        ひとつ人間関係といっても<br>
+        いくつも存在しています
+      </p>
+      <p>
+        ですが、ここでの人間関係は</br>
+        どういう関係性を持ってかかわりを持つ<br>
+        ということです
+      </p>
+      <p>
+        自身を高めてくれる関係<br>
+        なんでも話せる関係<br>
+        相談し合える関係<br>
+        楽しめる関係
+      </p>
+      <p>
+        そういう人間関係を教えて下さい
+      </p>
+      <%= form_with model: @ideal,url: step9_partner_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :relationship_1 %><br />
+          <%= f.text_area :relationship_1,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :relationship_2 %><br />
+          <%= f.text_area :relationship_2,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :relationship_3 %><br />
+          <%= f.text_area :relationship_3,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

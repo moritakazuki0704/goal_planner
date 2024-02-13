@@ -1,0 +1,121 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        人生における<br>
+        これだけは大切にしていること
+      </p>
+      <p>
+        たとえ何があったとしても<br>
+        あなたの行動において<br>
+        これだけは何があっても守り通したいこと
+      </p>
+      <p>
+        あなたの中の人生の指針となる<br>
+        考えや思いを教えてください
+      </p>
+
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">例1</a>
+          <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">例2</a>
+          <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">例3</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <!--例題１のタブ-->
+        <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <div class="smart-content text-center font-weight-bold">
+            <p>
+              人に優しく自分に厳しく
+            </p>
+            <p>
+              周りに優しく<br>
+              対応することを心がけ
+              自分に厳しく<br>
+              成長できることを行う
+            </p>
+          </div>
+        </div>
+
+        <!--例題2のタブ-->
+        <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
+          <div class="smart-content text-center font-weight-bold">
+            <p>
+              情けは人の為ならず
+            </p>
+            <p>
+              人に尽くすことは<br>
+              周りに回って自分に返ってくるので<br>
+              自分のためでもある
+            </p>
+          </div>
+        </div>
+
+        <!--例題3のタブ-->
+        <div class="tab-pane fade" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
+          <div class="smart-content text-center font-weight-bold">
+            <p>
+              道理に向かう刃無し
+            </p>
+            <p>
+              人として正しい行動が<br>
+              最も重要な基準である
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        この考え方は人生の生き方を表しています
+      </p>
+      <p>
+        そしてあなたがあなた自身と<br>
+        約束する守りたいことを<br>
+        教えて下さい
+      </p>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの人生の指針<br>
+          守りたい思いを教えて下さい
+        </u>
+      </h5>
+      <p>
+        これまでの生き方<br>
+        これまでの考え方
+      </p>
+      <p>
+        どういった性格で何を大事にしてきたのか
+      </p>
+      <p>
+        そしてそれは</br>
+        どういう考えを持っていたのか
+      </p>
+      <p>
+        それはあなたの中にあります
+      </p>
+      <%= form_with model: @user, url: confirm_user_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :mission_statement %><br />
+          <%= f.text_field :mission_statement,autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :mission_detail %><br />
+          <%= f.text_area :mission_detail,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

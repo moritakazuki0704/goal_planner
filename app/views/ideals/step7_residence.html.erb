@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        住まいとはなんでしょう
+      </p>
+      <p>
+        それは癒し<br>
+        それは自分の場所<br>
+        それは落ち着く場所<br>
+        それは楽しめる場所
+      </p>
+      <p>
+        住まいというのは<br>
+        ただ食事をとって寝る場所ではありません
+      </p>
+      <p>
+        自身がここにいるときだけ<br>
+        あなたらしくいられる場所でもあるのです
+      </p>
+      <p>
+        心と体をリセットできる空間でもあり<br>
+        趣味や娯楽を楽しめる空間でもあり<br>
+        知識と経験を学ぶ場所になり得ます
+      </p>
+      <p>
+        将来を思い描いてみましょう<br>
+        そしたらそこにはあなたの住んでいる場所があります
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想の住まいに<br>
+          欠かせないものを教えて下さい
+        </u>
+      </h5>
+      <p>
+        それはどうして欠かせないのか<br>
+        どうして必要なのか
+      </p>
+      <p>
+        理想の住まいと言えど<br>
+        住まいでできることはたくさんあります
+      </p>
+      <p>
+        どうしてなのかという理由を<br>
+        より鮮明に思い描くことができるならば
+      </p>
+      <p>
+        きっと将来それは得ることができます
+      </p>
+      <%= form_with model: @ideal,url: step8_relationship_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :residence_1 %><br />
+          <%= f.text_area :residence_1,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :residence_2 %><br />
+          <%= f.text_area :residence_2,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :residence_3 %><br />
+          <%= f.text_area :residence_3,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

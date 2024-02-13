@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        基本的に<br>
+        人は1人でなんでもできるわけではありません
+      </p>
+      <p>
+        精神的  ・  仕事的
+      </p>
+      <p>
+        それらは関わる人と切っても切り離せないものとなっています
+      </p>
+      <p>
+        その中で<br>
+        あなたにとってのパートナーとは<br>
+        どういった存在なのでしょうか
+      </p>
+      <p>
+        相棒  恋人  夫婦  親友
+      </p>
+      <p>
+        あなたにとっての唯一のパートナーを考えてみて下さい
+      </p>
+      <p>
+        それはあなたがあなたであるために<br>
+        必要な存在であると思います<br>
+        そしてあなたが理想を追い求める上で<br>
+        必要な存在となると思います
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想のパートナーとの関係を教えて下さい
+        </u>
+      </h5>
+      <p>
+        パートナーとの関係性はなんですか<br>
+        パートナーとの関わり方はなんですか
+      </p>
+      <p>
+        どうしてパートナーが必要と思いますか
+      </p>
+      <p>
+        その人とはきっと切っても切れない関係です
+      </p>
+      <p>
+        あなたの将来を考えた時に<br>
+        一緒にいる人がきっとその人です
+      </p>
+      <%= form_with model: @ideal,url: step10_role_model_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :partner_1 %><br />
+          <%= f.text_area :partner_1,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :partner_2 %><br />
+          <%= f.text_area :partner_2,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :partner_3 %><br />
+          <%= f.text_area :partner_3,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

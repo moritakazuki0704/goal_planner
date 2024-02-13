@@ -1,16 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GoalPlanner</title>
+    <title>GoalPlanner3</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/ce14fd86a0.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="container-fluid">
+    <div class="background-paper"></div>
+    <div class="row no-gutters justify-content-center">
+      <% if user_signed_in? && current_user.problems.present? %>
+        <div class ="sidebar col-1">
+          <ul>
+            <li class="my-logo">
+              <%= current_user.planner_name %>
+            </li>
+            <li>
+              <%= current_user.mission_statement %>
+            </li>
+            <hr>
+            <li>
+              <%= link_to "カレンダー", schedules_path %>
+            </li>
+            <li>
+              <%= link_to "私の目標／課題", problems_path %>
+            </li>
+            <li>
+              <%= link_to "私の理想", ideal_path %>
+            </li>
+            <li>
+              <%= link_to "スクラップブック", scrap_books_path %>
+            </li>
+            <li>
+              <%= link_to "モチベーション", motivations_path %>
+            </li>
+            <hr>
+            <li>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
+              <%= link_to "退会",withdrawal_user_path %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+      <main class="col-9">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

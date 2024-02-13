@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        働くということは<br>
+        何かを対価にお金を得るということです
+      </p>
+      <p>
+        ですがそれは<br>
+        時に負担になるような事もあります
+      </p>
+      <p>
+        人間関係が負担になる<br>
+        働き方が負担になる<br>
+        働く時間帯、勤務時間が負担になる<br>
+        自身の実力不足を痛感して負担になる
+      </p>
+      <p>
+        それらは恥ずべきことではありません<br>
+        無理なものは無理なのですから
+      </p>
+      <p>
+        いい事ももちろんあります
+      </p>
+      <p>
+        仕事の成果を褒められた<br>
+        やりがいを感じた<br>
+        自身の成長を感じた
+      </p>
+      <p>
+        楽しい事も嬉しい事もあれば<br>
+        悲しい事も辛い事もあります
+      </p>
+      <p>
+        辞めること、逃げることは恥ではありません<br>
+        より良い場所がきっとあなたには待っています
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想の働き方を教えて下さい
+        </u>
+      </h5>
+      <p>
+        働く時間  仕事内容<br>
+        働く場所  給料
+      </p>
+      <p>
+        それを実現した時に<br>
+        ワクワクする<br>
+        嬉しく感じることを
+      </p>
+      <p>
+        あなたが求めているもの<br>
+        あなたを求めているもの
+      </p>
+      <p>
+        それが必ずあるのですから
+      </p>
+      <p>
+        詳しく教えて下さい
+      </p>
+
+      <%= form_with model: @ideal,url: step7_residence_ideal_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :working_1 %><br />
+          <%= f.text_area :working_1,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :working_2 %><br />
+          <%= f.text_area :working_2,rows: "3",autofocus: true,class: "form-control" %>
+          </div>
+        <div class="form-group">
+          <%= f.label :working_3 %><br />
+          <%= f.text_area :working_3,rows: "3",autofocus: true,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

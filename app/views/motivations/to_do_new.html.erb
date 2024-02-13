@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <%= render 'motivation_template/to_do' %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          してみたいと思うこと<br>
+          やってみたいと思うこと教えてください
+        </u>
+      </h5>
+      <p>
+        人によっては<br>
+        小さいと思えるようなことでも<br>
+        できるわけがないと思われるようなことでも
+      </p>
+      <p>
+        なんでも構いません
+      </p>
+      <p>
+        あなたにとって<br>
+        それが大切であるのですから
+      </p>
+      <p class="alert alert-warning"><%= alert %></p>
+      <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
+        <%= f.hidden_field :emotion_stetas, :value => "2"  %>
+        <%= render 'motivation_template/form' %>
+      <% end %>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= link_to "戻る",motivations_path %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
