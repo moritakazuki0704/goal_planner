@@ -1,0 +1,2 @@
+module IdealsHelper
+end
