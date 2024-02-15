@@ -4,17 +4,18 @@
       <div class="smart-content text-center font-weight-bold">
         <h1>本当に退会しますか？</h1>
       </div>
-      <div class="cross-frame text-center font-weight-bold">
-        <h3>
+      <div class="cross-frame text-center font-weight-bold p-5">
+        <h5>
           全てのデータが削除されます<br>
-          退会する場合は、「退会する」をクリックしてください。
-        </h3>
-        <div class="d-flex justify-content-around my-3">
+          退会する場合は<br>
+          「退会する」をクリックしてください。
+        </h5>
+        <div class="d-flex justify-content-around mt-5">
           <div>
             <%= link_to "退会しない",welcome_path, class: "btn btn-info" %>
           </div>
           <div>
-            <%= link_to "退会する",user_destroy_path,method: :delete,"data-confirm" =>"本当によろしいですか?", class: "btn btn-dark" %>
+            <%= link_to "退会する",user_path,method: :delete,"data-confirm" =>"本当によろしいですか?", class: "btn btn-dark" %>
           </div>
         </div>
       </div>

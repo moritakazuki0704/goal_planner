@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :scrap_books,dependent: :destroy
 
   validates :planner_name, presence: true
+
   # context: :create_mission_statementをsaveに引数として渡した場合のみバリデーションする
   with_options presence: true, on: :update do
     validates :mission_statement

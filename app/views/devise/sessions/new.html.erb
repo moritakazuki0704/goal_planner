@@ -11,6 +11,10 @@
           <p class="alert"><%= alert %></p>
           <div class="row">
             <div class="col px-5 mx-5">
+              <div class="field form-group p-3">
+                <%= f.label :planner_name %>
+                <%= f.text_field :planner_name, autofocus: true,class: "form-control" %>
+              </div>
               <div class="field p-3 form-group">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>

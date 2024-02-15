@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :mission_statement_uncreated_user!,except: [:withdrawal,:destroy]
-  before_action :ideal_uncreated_user!
+  before_action :ideal_uncreated_user!,except: [:withdrawal,:destroy]
+  before_action :mission_statement_created_user!,except: [:withdrawal,:destroy]
 
   def new
     @user = current_user
@@ -38,8 +38,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # ログインユーザーがmission_statementのカラムを作成していない場合のアクセス制限
-  def mission_statement_uncreated_user!
+  # ログインユーザーがmission_statementのカラムを作成している場合のアクセス制限
+  def mission_statement_created_user!
     if current_user.mission_statement.present?
       redirect_to welcome_path
     end

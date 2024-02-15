@@ -6,6 +6,7 @@
   border-top: solid 5px #5d627b;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
+
 .cross-frame {
   margin:2em 0;
   position: relative;
@@ -14,6 +15,7 @@
   border-top: solid 2px black;
   border-bottom: solid 2px black;
 }
+
 .cross-frame:before, .cross-frame:after{
   content: '';
   position: absolute;
@@ -23,12 +25,14 @@
   height: calc(100% + 20px);
   background-color: black;
 }
+
 .cross-frame:before {left: 10px;}
 .cross-frame:after {right: 10px;}
 .cross-frame p {
   margin: 30px;
   padding: 0;
 }
+
 .smart-frame {
     padding: 0.5em 1em;
     margin: 0 0 1em;
@@ -37,6 +41,16 @@
     border-top: solid 5px #5d627b;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
+
+.sidebar {
+    padding: 0.5em;
+    margin: 5em 0px;
+    background: #09487f;
+    border-bottom: solid 6px #04223e;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+}
+
 .title-frame {
     position: relative;
     margin: 2em 0;
@@ -44,6 +58,7 @@
     border: solid 3px #95ccff;
     border-radius: 8px;
 }
+
 .title-frame span {
     position: absolute;
     display: inline-block;
@@ -64,6 +79,7 @@
     border: solid 3px red;
     border-radius: 8px;
 }
+
 .danger-title-frame span {
     position: absolute;
     display: inline-block;
@@ -76,11 +92,16 @@
     color: red;
     font-weight: bold;
 }
+.danger-title-frame p {
+    margin-top:1rem;
+}
+
 .sticky-note {
     margin: 2em 0;
     background: #f1f1f1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
 }
+
 .sticky-note .sticky-title {
     font-size: 1.2em;
     background: #5fc2f5;
@@ -90,10 +111,12 @@
     font-weight: bold;
     letter-spacing: 0.05em;
 }
+
 .sticky-note .sticky-body {
     padding: 15px 20px;
     margin: 0;
 }
+
 .cloth-frame{
     padding: 0.2em 0.5em;
     margin: 2em 0;
@@ -101,6 +124,7 @@
     box-shadow: 0px 0px 0px 10px #d6ebff;
     border: dashed 2px white;
 }
+
 .masking-tape{
     position: relative;
     background: #fff0cd;
@@ -109,6 +133,7 @@
     padding: 0.2em 0.5em;
     color: #454545;
 }
+
 .masking-tape:after{
     position: absolute;
     content: '';

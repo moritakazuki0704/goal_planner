@@ -47,16 +47,13 @@
   height: 100vh;
 }
 
-.mylogo {
-  background-image: url("../../assets/images/logo.jpg");
-}
-
 .book-cover {
   background-image: url("../../assets/images/book-cover.jpeg");
   background-size: 100% 100%;
   background-position: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .open-book {
   background-image: url("../../assets/images/open-book.jpg");
   background-size: 100% 100%;

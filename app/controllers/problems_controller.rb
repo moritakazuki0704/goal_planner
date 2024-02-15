@@ -50,9 +50,9 @@ class ProblemsController < ApplicationController
 
   private
 
-  # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
+  # ログインユーザーがidealテーブル、またはmission_statementのカラム、または目標を作成していない場合のアクセス制限
   def not_design_your_ideal_life!
-    if !current_user.ideal.present? && !current_user.mission_statement.present?
+    if !current_user.ideal.present? || !current_user.mission_statement.present? || !current_user.problems.present?
       redirect_to welcome_path
     end
   end

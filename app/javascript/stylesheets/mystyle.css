@@ -5,3 +5,7 @@
 .comment-box {
   height: 300px;
 }
+
+img {
+  width: -webkit-fill-available;
+}

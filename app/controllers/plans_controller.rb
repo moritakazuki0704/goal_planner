@@ -1,5 +1,7 @@
 class PlansController < ApplicationController
 
+  before_action :not_design_your_ideal_life!
+
   def create
     schedule = Schedule.find(params[:schedule_id])
     plan = Plan.new(plan_params)
@@ -52,6 +54,13 @@ class PlansController < ApplicationController
   end
 
   private
+
+  # ログインユーザーがidealテーブル、またはmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  def not_design_your_ideal_life!
+    if !current_user.ideal.present? || !current_user.mission_statement.present? || !current_user.problems.present?
+      redirect_to welcome_path
+    end
+  end
 
   def plan_params
     params.require(:plan).permit(:challenge,:priority_status,:progress_status,:programme)

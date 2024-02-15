@@ -22,14 +22,11 @@ document.addEventListener('turbolinks:load', function() {
               center: 'title',
               end: 'today'
             },
-            expandRows: true,
-            stickyHeaderDates: true,
             buttonText: {
               today: '今日'
             },
             allDayText: '終日',
             height: "auto",
-            navLinks: true,
             events: '/schedules.json',
 
         });

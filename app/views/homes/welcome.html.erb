@@ -4,10 +4,11 @@
     <!--目標を作成済の場合-->
     <% if @problem.present? %>
       <%= render 'homes/wizard_welcomes/welcome' %>
-    <% else %>
 
     <!--目標作成を行なっていない場合-->
+    <% else %>
       <%= render 'homes/wizard_welcomes/introduction' %>
+
     <% end %>
   </div>
 </div>

@@ -1,5 +1,7 @@
 class MissionsController < ApplicationController
 
+  before_action :not_design_your_ideal_life!
+
   def create
     problem = Problem.find(params[:problem_id])
     mission = Mission.new(mission_param)
@@ -66,6 +68,13 @@ class MissionsController < ApplicationController
   end
 
   private
+  
+  # ログインユーザーがidealテーブル、またはmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  def not_design_your_ideal_life!
+    if !current_user.ideal.present? || !current_user.mission_statement.present? || !current_user.problems.present?
+      redirect_to welcome_path
+    end
+  end
 
   def mission_params
     params.require(:mission).permit(:memo)

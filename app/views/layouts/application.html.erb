@@ -14,44 +14,36 @@
   <body class="container-fluid">
     <div class="background-paper"></div>
     <div class="row no-gutters justify-content-center">
-      <% if user_signed_in? && current_user.problems.present? %>
-        <div class ="sidebar col-1">
-          <ul>
-            <li class="my-logo">
-              <%= current_user.planner_name %>
+      <% if user_signed_in? %>
+        <div class ="sidebar text-center col-2 h-100">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-action">
+              <%= image_tag ('logo.jpg') %>
+              <p class="font-weight-bold">"<%= current_user.planner_name %>"</p>
+              <p class="font-weight-bold"><%= current_user.mission_statement %></p>
             </li>
-            <li>
-              <%= current_user.mission_statement %>
-            </li>
-            <hr>
-            <li>
-              <%= link_to "カレンダー", schedules_path %>
-            </li>
-            <li>
-              <%= link_to "私の目標／課題", problems_path %>
-            </li>
-            <li>
-              <%= link_to "私の理想", ideal_path %>
-            </li>
-            <li>
-              <%= link_to "スクラップブック", scrap_books_path %>
-            </li>
-            <li>
-              <%= link_to "モチベーション", motivations_path %>
-            </li>
-            <hr>
-            <li>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </li>
-            <li>
-              <%= link_to "退会",withdrawal_user_path %>
-            </li>
+
+            <!--ユーザーがログインしつつ、ログインユーザーがproblemテーブルを作成した時のみ表示-->
+            <% if user_signed_in? && current_user.problems.present? %>
+              <%= link_to "カレンダー", schedules_path, class: "list-group-item list-group-item-action list-group-item-info" %>
+              <%= link_to "私の目標／課題", problems_path, class: "list-group-item list-group-item-action list-group-item-info" %>
+              <%= link_to "私の理想", ideal_path, class: "list-group-item list-group-item-action list-group-item-info" %>
+              <%= link_to "スクラップブック", scrap_books_path, class: "list-group-item list-group-item-action list-group-item-info" %>
+              <%= link_to "モチベーション", motivations_path, class: "list-group-item list-group-item-action list-group-item-info" %>
+            <% end %>
+
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action list-group-item-warning" %>
+            <%= link_to "退会",withdrawal_user_path, class: "list-group-item list-group-item-action list-group-item-danger" %>
           </ul>
         </div>
       <% end %>
-      <main class="col-9">
+
+      <main class="col-8">
         <%= yield %>
       </main>
+      <% if user_signed_in? %>
+        <div class="offset-2"></div>
+      <% end %>
     </div>
   </body>
 </html>
