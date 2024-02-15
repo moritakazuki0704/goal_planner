@@ -26,16 +26,11 @@
         あなたにとって<br>
         それが大切であるのですから
       </p>
-      <p class="alert alert-warning"><%= alert %></p>
-      <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
+
+      <%= form_with model: @motivation,url: motivations_path, method: :post do |f| %>
         <%= f.hidden_field :emotion_stetas, :value => "2"  %>
-        <%= render 'motivations/motivations_template/form' %>
+        <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
-      <div class="d-flex justify-content-around my-3">
-        <div>
-          <%= link_to "戻る",motivations_path %>
-        </div>
-      </div>
     </div>
 
   </div>

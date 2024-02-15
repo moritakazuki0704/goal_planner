@@ -15,15 +15,14 @@ class ProblemsController < ApplicationController
   def create
     problem = Problem.new(
       commitment: session[:commitment],
-      purpose: session[:purpose],
-      progress_stetas: params[:progress_stetas]
+      purpose: session[:purpose]
       )
     problem.user_id = current_user.id
 
     # 初回にproblemテーブルを作成した場合
     if !current_user.problems.present?
       problem.save!
-      redirect_to problem_path(problem.id)
+      redirect_to welcome_path
 
     # problemテーブルをすでに持っている場合
     else
@@ -50,9 +49,9 @@ class ProblemsController < ApplicationController
 
   private
 
-  # ログインユーザーがidealテーブル、またはmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  # ログインユーザーがidealテーブル、またはmission_statementのカラムを作成していない場合のアクセス制限
   def not_design_your_ideal_life!
-    if !current_user.ideal.present? || !current_user.mission_statement.present? || !current_user.problems.present?
+    if !current_user.ideal.present? || !current_user.mission_statement.present?
       redirect_to welcome_path
     end
   end

@@ -3,7 +3,6 @@ class Motivation < ApplicationRecord
 
   enum stetas: { positive: 0, negative: 1, to_do: 2, want: 3 }
 
-  validates :emotion_stetas,presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :appetite, uniqueness: { scope: :user }
   validates :memory, presence: true
 

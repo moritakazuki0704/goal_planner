@@ -14,15 +14,15 @@
           <%= form_with model: @problem, url: problem_path(@problem.id), method: :patch do |f| %>
             <div class="form-check form-check-inline">
               <%= f.radio_button :progress_stetas, 0, class: "form-check-input"  %>
-              <%= f.label :progress_status_process, Plan.progress_status_i18n[:process], class: "form-check-label" %>
+              <%= f.label :progress_stetas_process, Plan.progress_stetas_i18n[:process], class: "form-check-label" %>
             </div>
             <div class="form-check form-check-inline">
               <%= f.radio_button :progress_stetas, 1, class: "form-check-input"  %>
-              <%= f.label :progress_status_finish, Plan.progress_status_i18n[:finish], class: "form-check-label" %>
+              <%= f.label :progress_stetas_finish, Plan.progress_stetas_i18n[:finish], class: "form-check-label" %>
             </div>
             <div class="form-check form-check-inline">
               <%= f.radio_button :progress_stetas, 2, class: "form-check-input"  %>
-              <%= f.label :progress_status_pending, Plan.progress_status_i18n[:pending], class: "form-check-label" %>
+              <%= f.label :progress_stetas_pending, Plan.progress_stetas_i18n[:pending], class: "form-check-label" %>
             </div>
             <div class="form-check form-check-inline">
               <%= f.submit "保存する",class: "btn btn-secondary btn-sm" %>
@@ -125,8 +125,8 @@
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <%= mission.memo %>
               <span>
-                <%= link_to "課題にする", upload_problem_mission_path(@problem.id,mission.id), method: :post %>
-                <%= link_to "削除する", problem_mission_path(@problem.id,mission.id) method: :delete %>
+                <%= link_to "課題にする", upload_problem_mission_path(mission.problem.id,mission.id), method: :post %>
+                <%= link_to "削除する", problem_mission_path(mission.problem.id,mission.id) method: :delete %>
               </span>
             </li>
           </ul>

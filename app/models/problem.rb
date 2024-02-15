@@ -3,9 +3,8 @@ class Problem < ApplicationRecord
   has_many :missions,dependent: :destroy
   has_many :schedules,dependent: :destroy
 
-  enum progress_stetas: { process: 0, finish: 1, pending: 2 }
+  enum progress_stetas: { progress: 0, finish: 1, pending: 2 }
 
-  validates :progress_stetas, presence: true,numericality: { only_integer: true },inclusion: { in: 0..2 }, allow_blank: true
   with_options presence: true do
     validates :commitment
     validates :purpose

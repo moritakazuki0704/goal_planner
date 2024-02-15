@@ -102,7 +102,7 @@ ja:
         memory: モチベーションの思い出
   enums:
     problem: # モデル名
-      process_states: # カラム名
+      progress_stetas: # カラム名
         progress: '進行中' # enumの値
         finish: '達成' # enumの値
         pending: '保留' # enumの値

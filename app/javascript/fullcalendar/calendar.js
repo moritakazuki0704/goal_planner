@@ -27,6 +27,7 @@ document.addEventListener('turbolinks:load', function() {
             },
             allDayText: '終日',
             height: "auto",
+            navLinks: false,
             events: '/schedules.json',
 
         });

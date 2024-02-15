@@ -38,7 +38,7 @@
       <!--タブ表示機能-->
       <div class="position-static tab-room">
         <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <div class="nav nav-tabs strip-paper" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-positive-tab" data-toggle="tab" href="#nav-positive" role="tab" aria-controls="nav-positive" aria-selected="true">ポジティブ</a>
             <a class="nav-item nav-link" id="nav-negative-tab" data-toggle="tab" href="#nav-negative" role="tab" aria-controls="nav-negative" aria-selected="false">ネガティブ</a>
             <a class="nav-item nav-link" id="nav-to_do-tab" data-toggle="tab" href="#nav-to_do" role="tab" aria-controls="nav-to_do" aria-selected="false">やりたいこと</a>
@@ -58,9 +58,6 @@
                   <%= positive.appetite %>
                 </div>
               <% end %>
-              <div>
-                <%= link_to "ポジティブモチベーション作成", positive_new_motivations_path %>
-              </div>
             </div>
           </div>
 
@@ -75,9 +72,6 @@
                   <%= negative.appetite %>
                 </div>
               <% end %>
-              <div>
-                <%= link_to "ネガティブモチベーション作成", negative_new_motivations_path %>
-              </div>
             </div>
           </div>
 
@@ -92,9 +86,6 @@
                   <%= to_do.appetite %>
                 </div>
               <% end %>
-              <div>
-                <%= link_to "したいことモチベーション作成", to_do_new_motivations_path %>
-              </div>
             </div>
           </div>
 
@@ -109,9 +100,6 @@
                   <%= want.appetite %>
                 </div>
               <% end %>
-              <div>
-                <%= link_to "欲しいものモチベーション作成", want_new_motivations_path %>
-              </div>
             </div>
           </div>
         </div>
@@ -142,19 +130,14 @@
             必要な要素です
           </p>
         </div>
-        <div class="d-flex justify-content-around my-3">
-          <div>
-            <%= link_to "ポジティブモチベーション作成", positive_new_motivations_path %>
-          </div>
-          <div>
-            <%= link_to "ネガティブモチベーション作成", negative_new_motivations_path %>
-          </div>
-          <div>
-            <%= link_to "したいことモチベーション作成", to_do_new_motivations_path %>
-          </div>
-          <div>
-            <%= link_to "欲しいものモチベーション作成", want_new_motivations_path %>
-          </div>
-        </div>
       <% end %>
+
+        <div class="d-flex justify-content-around my-5 strip-paper">
+            <%= link_to "ポジティブ", positive_new_motivations_path, class: "btn btn-outline-success" %>
+            <%= link_to "ネガティブ", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
+            <%= link_to "したいこと", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
+            <%= link_to "欲しいもの", want_new_motivations_path, class: "btn btn-outline-warning" %>
+        </div>
     </div>
+  </div>
+</div>

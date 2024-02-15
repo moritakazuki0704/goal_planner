@@ -1,11 +1,7 @@
-.tab-room {
-  background-color:red;
-  height:500px;
-}
-.comment-box {
-  height: 300px;
-}
-
 img {
   width: -webkit-fill-available;
+}
+
+.strip-paper a {
+  writing-mode: vertical-rl;
 }

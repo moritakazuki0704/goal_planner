@@ -57,7 +57,6 @@
       <div class="d-flex justify-content-around my-3">
         <div>
           <%= form_with model: @problem, url: problems_path, method: :post do |f| %>
-            <%= f.hidden_field :progress_stetas, :value => 0 %>
             <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんがこの目標いいですか", class: "btn btn-primary" %>
           <% end %>
         </div>
