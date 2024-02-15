@@ -144,3 +144,8 @@
     border-color: #ffdb88 #fff #ffdb88;
     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
 }
+
+.scroll-box {
+    overflow: auto;
+    height: 14rem;
+}
