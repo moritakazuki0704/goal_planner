@@ -62,4 +62,5 @@ class ProblemsController < ApplicationController
       v[:progress_stetas] = v[:progress_stetas].to_i
     end
   end
+
 end
