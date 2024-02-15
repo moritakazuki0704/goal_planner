@@ -3,7 +3,7 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <%= render 'motivation_template/positive' %>
+      <%= render 'motivations/motivations_template/positive' %>
     </div>
 
     <!--右のページ-->
@@ -34,7 +34,7 @@
       <p class="alert alert-warning"><%= alert %></p>
       <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
         <%= f.hidden_field :emotion_stetas, :value => "0"  %>
-        <%= render 'motivation_template/form' %>
+        <%= render 'motivations/motivations_template/form' %>
       <% end %>
       <div class="d-flex justify-content-around my-3">
         <div>

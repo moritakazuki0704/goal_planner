@@ -4,28 +4,28 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <% if params[:positive] %>
-        <%= render 'motivation_template/positive' %>
+        <%= render 'motivations/motivations_template/positive' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", positive_new_motivations_path %>
           </div>
         </div>
       <% elsif params[:negative] %>
-        <%= render 'motivation_template/negative' %>
+        <%= render 'motivations/motivations_template/negative' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", negative_new_motivations_path %>
           </div>
         </div>
       <% elsif params[:to_do] %>
-        <%= render 'motivation_template/to_do' %>
+        <%= render 'motivations/motivations_template/to_do' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", to_do_new_motivations_path %>
           </div>
         </div>
       <% elsif params[:want] %>
-        <%= render 'motivation_template/want' %>
+        <%= render 'motivations/motivations_template/want' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", want_new_motivations_path %>

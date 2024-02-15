@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :design_your_ideal_life!,except: [:withdrawal,:destroy]
+  before_action :mission_statement_uncreated_user!,except: [:withdrawal,:destroy]
   before_action :ideal_uncreated_user!
 
   def new
@@ -31,16 +31,16 @@ class UsersController < ApplicationController
 
   private
 
-  # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
-  def design_your_ideal_life!
-    if current_user.ideal.present? && current_user.mission_statement.present?
+  # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
+  def ideal_uncreated_user!
+    if !current_user.ideal.present?
       redirect_to welcome_path
     end
   end
 
-  # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
-  def ideal_uncreated_user!
-    if !current_user.ideal.present?
+  # ログインユーザーがmission_statementのカラムを作成していない場合のアクセス制限
+  def mission_statement_uncreated_user!
+    if current_user.mission_statement.present?
       redirect_to welcome_path
     end
   end

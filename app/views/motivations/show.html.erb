@@ -4,7 +4,7 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <% if @motivation.motivation.stetas(0) %>
-        <%= render 'motivation_template/positive_text' %>
+        <%= render 'motivations/motivations_template/positive_text' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", positive_new_motivations_path %>
@@ -14,7 +14,7 @@
           </div>
         </div>
       <% elsif @motivation.motivation.stetas(1) %>
-        <%= render 'motivation_template/negative_text' %>
+        <%= render 'motivations/motivations_template/negative_text' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", negative_new_motivations_path %>
@@ -24,7 +24,7 @@
           </div>
         </div>
       <% elsif @motivation.motivation.stetas(2) %>
-        <%= render 'motivation_template/to_do_text' %>
+        <%= render 'motivations/motivations_template/to_do_text' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", to_do_new_motivations_path %>
@@ -34,7 +34,7 @@
           </div>
         </div>
       <% elsif @motivation.motivation.stetas(3) %>
-        <%= render 'motivation_template/want_text' %>
+        <%= render 'motivations/motivations_template/want_text' %>
         <div class="d-flex justify-content-around my-3">
           <div>
             <%= link_to "新規作成", want_new_motivations_path %>
