@@ -52,7 +52,6 @@ Rails.application.routes.draw do
   end
   resources :motivations,except: [:new,:edit,:update] do
     collection do
-      get 'list'
       get 'positive_new'
       get 'negative_new'
       get 'to_do_new'

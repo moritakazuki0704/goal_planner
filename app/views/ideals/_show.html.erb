@@ -56,15 +56,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想の性格</p>
-          <p><%= ideal.personality_1 %></p>
+          <p><%= safe_join(ideal.personality_1.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>２つ目の理想の性格</p>
-          <p><%= ideal.personality_2 %></p>
+          <p><%= safe_join(ideal.personality_2.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>３つ目の理想の性格</p>
-          <p><%= ideal.personality_3 %></p>
+          <p><%= safe_join(ideal.personality_3.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -79,15 +79,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>理想の髪型・メイク</p>
-          <p><%= ideal.hair_make %></p>
+          <p><%= safe_join(ideal.hair_make.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>理想の体型</p>
-          <p><%= ideal.body_make %></p>
+          <p><%= safe_join(ideal.body_make.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>理想のファッション</p>
-          <p><%= ideal.fashion_make %></p>
+          <p><%= safe_join(ideal.fashion_make.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -102,15 +102,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想のライフスタイル</p>
-          <p><%= ideal.lifestyle_1 %></p>
+          <p><%= safe_join(ideal.lifestyle_1.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>２つ目の理想のライフスタイル</p>
-          <p><%= ideal.lifestyle_2 %></p>
+          <p><%= safe_join(ideal.lifestyle_2.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>３つ目の理想のライフスタイル</p>
-          <p><%= ideal.lifestyle_3 %></p>
+          <p><%= safe_join(ideal.lifestyle_3.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -125,15 +125,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想の時間の使い方</p>
-          <p><%= ideal.time_1 %></p>
+          <p><%= safe_join(ideal.time_1.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>２つ目の理想の時間の使い方</p>
-          <p><%= ideal.time_2 %></p>
+          <p><%= safe_join(ideal.time_2.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>３つ目の理想の時間の使い方</p>
-          <p><%= ideal.time_3 %></p>
+          <p><%= safe_join(ideal.time_3.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -148,15 +148,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想の働き方</p>
-          <p><%= ideal.working_1 %></p>
+          <p><%= safe_join(ideal.working_1.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>２つ目の理想の働き方</p>
-          <p><%= ideal.working_2 %></p>
+          <p><%= safe_join(ideal.working_2.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>３つ目の理想の働き方</p>
-          <p><%= ideal.working_3 %></p>
+          <p><%= safe_join(ideal.working_3.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -171,15 +171,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想の住まい</p>
-          <p><%= ideal.residence_1 %></p>
+          <p><%= safe_join(ideal.residence_1.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>２つ目の理想の住まい</p>
-          <p><%= ideal.residence_2 %></p>
+          <p><%= safe_join(ideal.residence_2.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>３つ目の理想の住まい</p>
-          <p><%= ideal.residence_3 %></p>
+          <p><%= safe_join(ideal.residence_3.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -194,15 +194,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想の人間関係</p>
-          <p><%= ideal.relationship_1 %></p>
+          <p><%= safe_join(ideal.relationship_1.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>２つ目の理想の人間関係</p>
-          <p><%= ideal.relationship_2 %></p>
+          <p><%= safe_join(ideal.relationship_2.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>３つ目の理想の人間関係</p>
-          <p><%= ideal.relationship_3 %></p>
+          <p><%= safe_join(ideal.relationship_3.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -217,15 +217,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想のパートナー</p>
-          <p><%= ideal.partner_1 %></p>
+          <p><%= safe_join(ideal.partner_1.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>２つ目の理想のパートナー</p>
-          <p><%= ideal.partner_2 %></p>
+          <p><%= safe_join(ideal.partner_2.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>３つ目の理想のパートナー</p>
-          <p><%= ideal.partner_3 %></p>
+          <p><%= safe_join(ideal.partner_3.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>
@@ -240,15 +240,15 @@
       <div class="cross-frame font-weight-bold">
         <div>
           <p>理想のパートナー像</p>
-          <p><%= ideal.partner_model %></p>
+          <p><%= safe_join(ideal.partner_model.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>理想の家族像</p>
-          <p><%= ideal.family_model %></p>
+          <p><%= safe_join(ideal.family_model.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <p>理想の友達像</p>
-          <p><%= ideal.friend_model %></p>
+          <p><%= safe_join(ideal.friend_model.split("\n"),tag(:br)) %></p>
         </div>
       </div>
     </div>

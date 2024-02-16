@@ -3,8 +3,10 @@ class Motivation < ApplicationRecord
 
   enum stetas: { positive: 0, negative: 1, to_do: 2, want: 3 }
 
-  validates :appetite, uniqueness: { scope: :user }
-  validates :memory, presence: true
+  with_options presence: true do
+    validates :appetite, uniqueness: { scope: :user }
+    validates :memory
+  end
 
   # ポジティブモチベーションを表示
   scope :positives, -> {where(emotion_stetas: 0)}

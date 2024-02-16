@@ -21,35 +21,13 @@ class MotivationsController < ApplicationController
     motivation.user_id = current_user.id
     if motivation.save
       redirect_to motivation_path(motivation.id)
-    elsif motivation.motivation.stetas(0)
-      render :positive_new
-    elsif motivation.motivation.stetas(1)
-      render :negative_new
-    elsif motivation.motivation.stetas(2)
-      render :to_do_new
-    elsif motivation.motivation.stetas(3)
-      render :want_new
+    else
+      redirect_to motivations_path(error: true)
     end
   end
 
   def index
-    @motivations = @user_motivation.order("RANDOM()").limit(5)
-  end
-
-
-  def list
-
-    # リンクから渡されたデータによって、表示する内容を変更
-    if params[:positive]
-      @motivations = @user_motivation.positives
-    elsif params[:negative]
-      @motivations = @user_motivation.negatives
-    elsif params[:to_do]
-      @motivations = @user_motivation.to_dos
-    elsif params[:want]
-      @motivations = @user_motivation.wants
-    end
-
+    @motivations = @user_motivation.order("RANDOM()")
   end
 
   def show

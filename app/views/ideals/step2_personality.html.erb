@@ -28,35 +28,7 @@
         人は変わることができるんです<br>
         悩むことはありません
       </p>
-      <table class="table">
-        <thead>
-          <tr>
-            <th colspan="2" scope="col">理想のキーワード</th>
-          </tr>
-        </thead>
-        <tbody class="form-group">
-          <tr>
-            <td><%= session[:keyword_1] %></th>
-            <td><%= session[:keyword_2] %></td>
-          </tr>
-          <tr>
-            <td><%= session[:keyword_3] %></th>
-            <td><%= session[:keyword_4] %></td>
-          </tr>
-          <tr>
-            <td><%= session[:keyword_5] %></th>
-            <td><%= session[:keyword_6] %></td>
-          </tr>
-          <tr>
-            <td><%= session[:keyword_7] %></th>
-            <td><%= session[:keyword_8] %></td>
-          </tr>
-          <tr>
-            <td><%= session[:keyword_9] %></th>
-            <td><%= session[:keyword_10] %></td>
-          </tr>
-        </tbody>
-      </table>
+      <%= render 'session_keywaord' %>
     </div>
 
     <!--右のページ-->
