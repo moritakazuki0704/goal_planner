@@ -1,71 +1,80 @@
 <div class="container-fluid">
   <div class="row open-book my-4 p-5">
-    <!--写真投稿フォーム-->
-    <div class="col m-5 p-5">
-      <div class="d-flex">
-            <div class="sticky-note mr-5">
-      <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
-        <div class="form-group sticky-title">
-          <%= f.file_field :photo,accept: "image/*",class: "form-control-file" %>
+    <div class="row">
+
+      <!--写真投稿フォーム-->
+      <div class="col mt-5 mx-5 pt-5 px-5">
+        <div class="sticky-note">
+          <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
+            <div class="form-group sticky-title">
+              <%= f.file_field :photo,accept: "image/*",class: "form-control-file" %>
+            </div>
+            <div class="form-group sticky-body">
+              <%= f.label :comment %><br>
+              <%= f.text_area :comment,rows: "5",class: "form-control" %>
+              <div class="d-flex justify-content-around my-3">
+                <%= f.submit "保存",class: "btn btn-outline-primary" %>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <div class="form-group sticky-body">
-          <%= f.label :comment %><br>
-          <%= f.text_area :comment,rows: "3",class: "form-control" %>
-          <div class="d-flex justify-content-around my-3">
-            <%= f.submit "保存",class: "btn btn-outline-primary" %>
-          </div>
+      </div>
+
+      <div class="col mt-5 mx-5 pt-5 px-5">
+        <div class="cloth-frame text-center py-5">
+
+          <!--エラーメッセージ-->
+          <% if params[:error] %>
+            <div class="masking-tape">
+              <p>
+                写真の投稿に失敗しました
+              </p>
+              <p>
+                写真の選択をして保存を押してください
+              </p>
+              <p>
+                コメントはあってもなくても<br>
+                写真は投稿されます
+              </p>
+            </div>
+
+          <% else %>
+            <p>
+              ここはあなたの今と<br>
+              あなたの将来のアルバム
+            </p>
+            <p>
+              あなたが思い描く
+            </p>
+            <p>
+              大切な思い出と叶えたい理想
+            </p>
+            <p>
+              忘れないように　イメージできるように
+            </p>
+            <p>
+              写真をクリックすることで<br>
+              写真の詳細が見れます
+            </p>
+          <% end %>
+
         </div>
-      <% end %>
-    </div>
-    <div class="cloth-frame text-center ml-5 p-4">
-      <% if params[:error] %>
-      <div class="masking-tape">
-        <p>
-          写真の投稿に失敗しました
-        </p>
-        <p>
-          写真の選択をして保存を押してください
-        </p>
-        <p>
-          コメントはあってもなくても<br>
-          写真は投稿されます
-        </p>
       </div>
-      <% else %>
-        <p>
-          ここはあなたの今と<br>
-          あなたの将来のアルバム
-        </p>
-        <p>
-          あなたが思い描く
-        </p>
-        <p>
-          大切な思い出と叶えたい理想
-        </p>
-        <p>
-          忘れないように　イメージできるように
-        </p>
-        <p>
-          写真をクリックすることで<br>
-          写真の詳細が見れます
-        </p>
-      <% end %>
     </div>
-      </div>
+
 
 
     <!--写真表示場所-->
-    <div>
+    <div class="row mx-5 mb-5">
       <% @scrap_books.each do |scrap_book| %>
         <%= link_to scrap_book_path(scrap_book.id) do %>
-          <%= image_tag scrap_book.get_photo(200,200), class: "img-thumbnail m-3 mb-5" %>
+          <%= image_tag scrap_book.get_photo(250,250), class: "img-thumbnail m-3 mb-5" %>
         <% end %>
       <% end %>
+      <div class="d-flex justify-content-center my-5">
+        <%= paginate @scrap_books %>
+      </div>
     </div>
 
-    <div class="d-flex justify-content-center my-5">
-      <%= paginate @scrap_books %>
-    </div>
-    </div>
   </div>
 </div>

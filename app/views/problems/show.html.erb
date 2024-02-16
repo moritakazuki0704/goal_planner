@@ -8,7 +8,7 @@
           <%= @problem.commitment %>
         </div>
         <div class="card-body">
-          <%= @problem.purpose %>
+          <%= safe_join(@problem.purpose.split("\n"),tag(:br)) %>
         </div>
         <div class="card-footer d-flex justify-content-around">
           <%= form_with model: @problem, url: problem_path(@problem.id), method: :patch do |f| %>

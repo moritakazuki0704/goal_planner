@@ -48,14 +48,10 @@
           </p>
         </div>
         <div class="d-flex justify-content-around my-3">
-          <div>
-            <%= form_with model: @user, url: user_path, method: :patch do |f|  %>
-              <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが、内容に間違いありませんか？", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-          <div>
-            <%= link_to '人生の指針をやり直す', welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-info" %>
-          </div>
+          <%= form_with model: @user, url: user_path, method: :patch do |f|  %>
+            <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが、内容に間違いありませんか？", class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to '人生の指針をやり直す', welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-info" %>
         </div>
 
       <!--mission_statementとmission_detailのどちらか、もしくは両方に空欄があった場合-->
@@ -82,9 +78,7 @@
           言葉にして形にするだけです
         </p>
         <div class="d-flex justify-content-around my-3">
-          <div>
-            <%= link_to '人生の指針をやり直す', welcome_path, class: "btn btn-info" %>
-          </div>
+          <%= link_to '人生の指針をやり直す', welcome_path, class: "btn btn-info" %>
         </div>
       <% end %>
 

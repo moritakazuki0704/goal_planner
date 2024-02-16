@@ -1,5 +1,5 @@
 class Schedule < ApplicationRecord
-   belongs_to :user
+  belongs_to :user
   belongs_to :problem
   has_many :plans,dependent: :destroy
 

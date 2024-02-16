@@ -109,8 +109,11 @@ class IdealsController < ApplicationController
     friend_model: ideal_params[:friend_model]
     )
     ideal.user_id = current_user.id
-    ideal.save
-    redirect_to confirm_ideal_path
+    if ideal.save
+      redirect_to confirm_ideal_path
+    else
+      redirect_to confirm_ideal_path(error: true)
+    end
   end
 
   def confirm

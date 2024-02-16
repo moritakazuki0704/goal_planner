@@ -89,7 +89,7 @@
             <div class="scroll-box">
               <% @motivations.positives.each do |positive| %>
                 <ul class="list-group">
-                  <%= link_to motivation_path(positive), class: "list-group-item list-group-item-success" do %>
+                  <%= link_to motivation_path(positive), class: "list-group-item list-group-item-action list-group-item-success" do %>
                     <%= safe_join(positive.appetite.split("\n"),tag(:br)) %>
                   <% end %>
                 </ul>
@@ -105,7 +105,7 @@
             <div class="scroll-box">
               <% @motivations.negatives.each do |negative| %>
                 <ul class="list-group">
-                  <%= link_to motivation_path(negative), class: "list-group-item list-group-item-secondary" do %>
+                  <%= link_to motivation_path(negative), class: "list-group-item list-group-item-action list-group-item-secondary" do %>
                     <%= safe_join(negative.appetite.split("\n"),tag(:br)) %>
                   <% end %>
                 </ul>
@@ -120,7 +120,7 @@
             <div class="scroll-box">
               <% @motivations.to_dos.each do |to_do| %>
                 <ul class="list-group">
-                  <%= link_to motivation_path(to_do), class: "list-group-item list-group-item-primary" do %>
+                  <%= link_to motivation_path(to_do), class: "list-group-item list-group-item-action list-group-item-primary" do %>
                     <%= safe_join(to_do.appetite.split("\n"),tag(:br)) %>
                   <% end %>
                 </ul>
@@ -135,7 +135,7 @@
             <div class="scroll-box">
               <% @motivations.wants.each do |want| %>
                 <ul class="list-group">
-                  <%= link_to motivation_path(want.id), class: "list-group-item list-group-item-warning" do %>
+                  <%= link_to motivation_path(want.id), class: "list-group-item list-group-item-action list-group-item-warning" do %>
                     <%= safe_join(want.appetite.split("\n"),tag(:br)) %>
                   <% end %>
                 </ul>

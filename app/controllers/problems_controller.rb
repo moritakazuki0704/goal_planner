@@ -21,7 +21,7 @@ class ProblemsController < ApplicationController
 
     # 初回にproblemテーブルを作成した場合
     if !current_user.problems.present?
-      problem.save!
+      problem.save
       redirect_to welcome_path
 
     # problemテーブルをすでに持っている場合

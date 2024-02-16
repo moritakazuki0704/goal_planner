@@ -24,19 +24,16 @@
         </u>
       </h5>
       <div class="cross-frame font-weight-bold">
-        <div>
+        <p>
           <%= @user.mission_detail %>
-        </div>
+        </p>
       </div>
     </div>
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <div>
-        <%= render 'show', ideal: @ideal %>
-      </div>
-      <div>
-        <%= link_to 'もう一度理想を考え直す', ideal_path, method: :delete %>
-      </div>
+      <%= render 'show', ideal: @ideal %>
+      <%= link_to 'もう一度理想を考え直す', ideal_path, method: :delete %>
     </div>
-
+  </div>
+</div>

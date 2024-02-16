@@ -66,7 +66,6 @@
       <p>
         詳しく教えて下さい
       </p>
-
       <%= form_with model: @ideal,url: step7_residence_ideal_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :working_1 %><br />
@@ -80,9 +79,7 @@
           <%= f.label :working_3 %><br />
           <%= f.text_area :working_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
-        <div>
-          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
-        </div>
+        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

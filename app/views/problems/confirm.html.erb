@@ -55,14 +55,10 @@
         </div>
       </div>
       <div class="d-flex justify-content-around my-3">
-        <div>
-          <%= form_with model: @problem, url: problems_path, method: :post do |f| %>
-            <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんがこの目標いいですか", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
-        </div>
+        <%= form_with model: @problem, url: problems_path, method: :post do |f| %>
+          <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんがこの目標いいですか", class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
       </div>
 
       <!--commitmentとpurposeのどちらか、もしくは両方に空欄があった場合-->
@@ -89,9 +85,7 @@
           言葉にして形にするだけです
         </p>
         <div class="d-flex justify-content-around my-3">
-          <div>
-            <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
-          </div>
+          <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
         </div>
       <% end %>
 
