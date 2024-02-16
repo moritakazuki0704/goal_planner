@@ -39,12 +39,12 @@
       <% if session[:mission_statement].present? && session[:mission_detail].present? %>
         <h5 class="smart-frame p-3">
           <u>
-            <%= session[:mission_statement] %>
+            <%= safe_join(session[:mission_statement].split("\n"),tag(:br)) %>
           </u>
         </h5>
         <div class="cross-frame font-weight-bold">
           <p>
-            <%= session[:mission_detail] %>
+            <%= safe_join(session[:mission_detail].split("\n"),tag(:br)) %>
           </p>
         </div>
         <div class="d-flex justify-content-around my-3">

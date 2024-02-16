@@ -51,7 +51,7 @@
             <div class="scroll-box">
               <% @problems.activity.each do |activity| %>
                 <ul class="list-group">
-                  <%= link_to problem_path(activity.id), class: "list-group-item list-group-item-action list-group-item-primary" do %>
+                  <%= link_to problem_path(activity), class: "list-group-item list-group-item-action list-group-item-primary" do %>
                     <%= activity.commitment %>
                   <% end %>
                 </ul>
@@ -67,7 +67,7 @@
             <div class="scroll-box">
               <% @problems.finish.each do |finish| %>
                 <ul class="list-group">
-                  <%= link_to problem_path(finish.id), class: "list-group-item list-group-item-action list-group-item-success" do %>
+                  <%= link_to problem_path(finish), class: "list-group-item list-group-item-action list-group-item-success" do %>
                     <%= finish.commitment %>
                   <% end %>
                 </ul>
@@ -82,7 +82,7 @@
             <div class="scroll-box">
               <% @problems.pending.each do |pending| %>
                 <ul class="list-group list-group-flush">
-                  <%= link_to problem_path(pending.id), class: "list-group-item list-group-item-action list-group-item-info" do %>
+                  <%= link_to problem_path(pending), class: "list-group-item list-group-item-action list-group-item-info" do %>
                     <%= pending.commitment %>
                   <% end %>
                 </ul>

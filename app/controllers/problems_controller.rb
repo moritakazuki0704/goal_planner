@@ -57,9 +57,7 @@ class ProblemsController < ApplicationController
   end
 
   def problem_params
-    params.require(:problem).permit(:commitment,:purpose,:progress_stetas).tap do |v|
-      v[:progress_stetas] = v[:progress_stetas].to_i
-    end
+    params.require(:problem).permit(:commitment,:purpose,:progress_status)
   end
 
 end

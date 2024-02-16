@@ -28,7 +28,7 @@
       </p>
 
       <%= form_with model: @motivation,url: motivations_path, method: :post do |f| %>
-        <%= f.hidden_field :emotion_stetas, :value => "2"  %>
+        <%= f.hidden_field :emotion_status, :value => "2"  %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>

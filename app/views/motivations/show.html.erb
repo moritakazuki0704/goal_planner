@@ -3,22 +3,22 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% if @motivation.emotion_stetas == 0 %>
+      <% if @motivation.emotion_status == 0 %>
         <%= render 'motivations/motivations_template/positive' %>
         <div class="d-flex justify-content-around my-3">
           <%= link_to "新規作成", positive_new_motivations_path, class: "btn btn-outline-success" %>
         </div>
-      <% elsif @motivation.emotion_stetas == 1 %>
+      <% elsif @motivation.emotion_status == 1 %>
         <%= render 'motivations/motivations_template/negative' %>
         <div class="d-flex justify-content-around my-3">
           <%= link_to "新規作成", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
         </div>
-      <% elsif @motivation.emotion_stetas == 2 %>
+      <% elsif @motivation.emotion_status == 2 %>
         <%= render 'motivations/motivations_template/to_do' %>
         <div class="d-flex justify-content-around my-3">
           <%= link_to "新規作成", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
         </div>
-      <% elsif @motivation.emotion_stetas == 3 %>
+      <% elsif @motivation.emotion_status == 3 %>
         <%= render 'motivations/motivations_template/want' %>
         <div class="d-flex justify-content-around my-3">
           <%= link_to "新規作成", want_new_motivations_path, class: "btn btn-outline-warning" %>

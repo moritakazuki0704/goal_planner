@@ -28,7 +28,7 @@
         そして年齢とともに変わっていくでしょう
       </p>
       <%= form_with model: @motivation,url: motivations_path, method: :post do |f| %>
-        <%= f.hidden_field :emotion_stetas, :value => "1"  %>
+        <%= f.hidden_field :emotion_status, :value => "1"  %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>

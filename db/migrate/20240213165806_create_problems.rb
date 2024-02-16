@@ -4,7 +4,7 @@ class CreateProblems < ActiveRecord::Migration[6.1]
       t.integer :user_id, null: false
       t.string :commitment, null: false
       t.text :purpose, null: false
-      t.integer :progress_stetas,default: "0"
+      t.integer :progress_status,default: "0"
 
       t.timestamps
     end

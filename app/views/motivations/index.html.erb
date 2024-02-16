@@ -135,7 +135,7 @@
             <div class="scroll-box">
               <% @motivations.wants.each do |want| %>
                 <ul class="list-group">
-                  <%= link_to motivation_path(want.id), class: "list-group-item list-group-item-action list-group-item-warning" do %>
+                  <%= link_to motivation_path(want), class: "list-group-item list-group-item-action list-group-item-warning" do %>
                     <%= safe_join(want.appetite.split("\n"),tag(:br)) %>
                   <% end %>
                 </ul>

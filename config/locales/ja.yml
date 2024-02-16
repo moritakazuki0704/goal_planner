@@ -69,7 +69,7 @@ ja:
         user_id: あなたのID
         commitment: 叶えたい目標
         purpose: 目標を持った理由
-        progress_stetas: 進行ステータス
+        progress_status: 進行ステータス
       mission:
         id: 任務のID
         problem_id: 目標のID
@@ -97,12 +97,12 @@ ja:
       motivation:
         id: モチベーションのID
         user_id: あなたのID
-        emotion_stetas: モチベーションステータス
+        emotion_status: モチベーションステータス
         appetite: モチベーションの詳細
         memory: モチベーションの思い出
   enums:
     problem: # モデル名
-      progress_stetas: # カラム名
+      progress_status: # カラム名
         progress: '進行中' # enumの値
         finish: '達成' # enumの値
         pending: '保留' # enumの値
@@ -119,7 +119,7 @@ ja:
         postpone: '先送り' # enumの値
         withdraw: '辞める' # enumの値
     motivation: # モデル名
-      emotion_stetas: # カラム名
+      emotion_status: # カラム名
         positive: 'ポジティブ' # enumの値
         negative: 'ネガティブ' # enumの値
         to_do: 'したいこと' # enumの値

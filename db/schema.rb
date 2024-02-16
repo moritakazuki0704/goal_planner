@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2024_02_13_171135) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.integer "commit_id", null: false
+    t.integer "problem_id", null: false
     t.string "memo", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2024_02_13_171135) do
 
   create_table "motivations", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "emotion_stetas", default: 0, null: false
+    t.integer "emotion_status", default: 0, null: false
     t.text "appetite", null: false
     t.text "memory", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -113,14 +113,14 @@ ActiveRecord::Schema.define(version: 2024_02_13_171135) do
     t.integer "user_id", null: false
     t.string "commitment", null: false
     t.text "purpose", null: false
-    t.integer "progress_stetas", default: 0
+    t.integer "progress_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "schedules", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "commit_id", null: false
+    t.integer "problem_id", null: false
     t.string "title", null: false
     t.text "body"
     t.datetime "start_time"

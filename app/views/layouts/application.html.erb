@@ -20,7 +20,7 @@
             <li class="list-group-item list-group-item-action">
               <%= image_tag ('logo.jpg') %>
               <p class="font-weight-bold">"<%= current_user.planner_name %>"</p>
-              <p class="font-weight-bold"><%= current_user.mission_statement %></p>
+              <p class="font-weight-bold"><%= safe_join(current_user.mission_statement.split("\n"),tag(:br)) %></p>
             </li>
 
             <!--ユーザーがログインしつつ、ログインユーザーがproblemテーブルを作成した時のみ表示-->
