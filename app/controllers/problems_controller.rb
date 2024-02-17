@@ -44,7 +44,7 @@ class ProblemsController < ApplicationController
   def update
     problem = Problem.find(params[:id])
     problem.update(problem_params)
-    redirect_to problem_path(problem)
+    redirect_to problems_path
   end
 
   private

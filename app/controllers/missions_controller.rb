@@ -4,10 +4,10 @@ class MissionsController < ApplicationController
 
   def create
     problem = Problem.find(params[:problem_id])
-    mission = Mission.new(mission_param)
+    mission = Mission.new(mission_params)
     mission.problem_id = problem.id
     if mission.save
-      redirect_to problem_path(problem.id)
+      redirect_to problem_path(problem)
     else
       render template: 'problem/show'
     end
@@ -28,7 +28,7 @@ class MissionsController < ApplicationController
     # 保存が終わったmissionのデータを削除
     mission.destroy
 
-    redirect_to problem_path(problem.id)
+    redirect_to problem_path(problem)
 
   end
 
@@ -37,7 +37,7 @@ class MissionsController < ApplicationController
     problem = Problem.find(params[:problem_id])
     mission = Mission.find(params[:id])
     mission.destroy
-    redirect_to problem_path(problem.id)
+    redirect_to problem_path(problem)
   end
 
   # 複数のmissionテーブルをscheduleに保存する
@@ -56,7 +56,7 @@ class MissionsController < ApplicationController
     # 閲覧中のproblemが保持しているmissionのデータを全て削除
     problem.missions.destroy_all
 
-    redirect_to problem_path(problem.id)
+    redirect_to problem_path(problem)
   end
 
   # 複数のmissionテーブルを削除する
@@ -64,11 +64,11 @@ class MissionsController < ApplicationController
     problem = Problem.find(params[:problem_id])
     mission = problem.missions
     mission.destroy_all
-    redirect_to problem_path(problem.id)
+    redirect_to problem_path(problem)
   end
 
   private
-  
+
   # ログインユーザーがidealテーブル、またはmission_statementのカラム、または目標を作成していない場合のアクセス制限
   def not_design_your_ideal_life!
     if !current_user.ideal.present? || !current_user.mission_statement.present? || !current_user.problems.present?

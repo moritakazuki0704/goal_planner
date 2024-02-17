@@ -8,8 +8,10 @@ class Schedule < ApplicationRecord
   scope :pending, -> {where(start_time: nil, finish_time: nil)}
   scope :imperfect, -> {where(start_time: :finish_time >= Time.current)}
 
-  validate :start_finish_check
-  validate :start_check
+  with_options on: :create_schedule do
+    validate :start_finish_check
+    validate :start_check
+  end
   validates :commit_id, presence: true
   validates :title, presence: true
   # context: :create_scheduleをupdate、saveに引数として渡した場合のみバリデーションする

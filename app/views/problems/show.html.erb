@@ -13,16 +13,16 @@
         <div class="card-footer d-flex justify-content-around">
           <%= form_with model: @problem, url: problem_path(@problem), method: :patch do |f| %>
             <div class="form-check form-check-inline">
-              <%= f.radio_button :progress_status, 0, class: "form-check-input" %>
-              <%= f.label :progress_statuses_i18n, Plan.progress_statuses_i18n[:progress], class: "form-check-label" %>
+              <%= f.radio_button :progress_status, Problem.progress_statuses.key(0), class: "form-check-input" %>
+              <%= f.label :progress_statuses_i18n, Problem.progress_statuses_i18n[:progress], value: Problem.progress_statuses.key(0), class: "form-check-label" %>
             </div>
             <div class="form-check form-check-inline">
-              <%= f.radio_button :progress_status, 1, class: "form-check-input" %>
-              <%= f.label :progress_statuses_i18n, Plan.progress_statuses_i18n[:finish], class: "form-check-label" %>
+              <%= f.radio_button :progress_status, Problem.progress_statuses.key(1), class: "form-check-input" %>
+              <%= f.label :progress_statuses_i18n, Problem.progress_statuses_i18n[:finish], value: Problem.progress_statuses.key(1), class: "form-check-label" %>
             </div>
             <div class="form-check form-check-inline">
-              <%= f.radio_button :progress_status, 2, class: "form-check-input" %>
-              <%= f.label :progress_statuses_i18n, Plan.progress_statuses_i18n[:pending], class: "form-check-label" %>
+              <%= f.radio_button :progress_status, Problem.progress_statuses.key(2), class: "form-check-input" %>
+              <%= f.label :progress_statuses_i18n, Problem.progress_statuses_i18n[:pending], value: Problem.progress_statuses.key(2), class: "form-check-label" %>
             </div>
             <div class="form-check form-check-inline">
               <%= f.submit "保存する",class: "btn btn-secondary btn-sm" %>
@@ -131,11 +131,11 @@
           </div>
         </div>
 
-        <div class="d-flex justify-content-around my-3">
-          <%= link_to "戻る",problems_path, class: "btn btn-info" %>
-        </div>
       </div>
       <% end %>
+      <div class="d-flex justify-content-around my-3">
+        <%= link_to "戻る",problems_path, class: "btn btn-info" %>
+      </div>
     </div>
 
     <!--右のページ-->
@@ -154,7 +154,7 @@
       <% end %>
 
       <% if @problem.missions.present? %>
-        <h5 class="smart-frame">
+        <h5 class="smart-frame my-4">
           <u>
             メモ件数：<%= @problem.missions.count %>
           </u>
@@ -163,16 +163,16 @@
 
           <!--スクロール機能-->
           <div class="scroll-box">
-            <% @problem.missions.mission.each do |mission| %>
+            <% @problem.missions.each do |mission| %>
               <ul class="list-group">
                 <li class="list-group-item">
                   <p>
                     <%= mission.memo %>
                   </p>
-                  <span class="list-group-horizontal ml-auto">
+                </li>
+                <li class="list-group-item list-group-horizontal list-group-item-warning">
                     <%= link_to "課題にする", upload_problem_mission_path(@problem,mission), method: :post %>
                     <%= link_to "削除する", problem_mission_path(@problem,mission), method: :delete %>
-                  </span>
                 </li>
               </ul>
               <% end %>
