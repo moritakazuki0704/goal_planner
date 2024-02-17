@@ -1,5 +1,3 @@
-
-
    json.array!(@schedules) do |schedule|
     json.id schedule.id
     json.title schedule.title

@@ -3,7 +3,6 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-
       <p>
         あなたにとっての理想の将来を<br>
         教えていただきました
@@ -46,8 +45,27 @@
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
 
+      <!--理想のテーブルの作成が成功した場合-->
+      <% unless params[:error] %>
+        <%= render 'show', ideal: @ideal %>
+        <div class="d-flex justify-content-around my-3">
+
+          <!--ログインユーザーがミッションステートメントのカラムを持っていない場合-->
+          <% if !current_user.mission_statement.present? %>
+            <%= link_to "次に進む",new_user_path, class: "btn btn-outline-primary" %>
+
+          <!--ログインユーザーがミッションステートメントのカラムを持っている場合-->
+          <% else %>
+            <%= link_to "登録する",ideal_path, class: "btn btn-outline-primary" %>
+
+          <% end %>
+
+          <%= link_to "やり直す",ideal_path,method: :delete, class: "btn btn-outline-info" %>
+        </div>
+
+
       <!--理想のテーブルの作成が失敗した場合-->
-      <% if params[:error] %>
+      <% else %>
         <h5 class="smart-frame bg-warning">
           <u>
             理想の作成に失敗しました
@@ -68,24 +86,6 @@
         </p>
         <div class="d-flex justify-content-around my-3">
           <%= link_to "やり直す",welcome_path, class: "btn btn-outline-info" %>
-        </div>
-
-      <!--理想のテーブルの作成が成功した場合-->
-      <% else %>
-        <%= render 'show', ideal: @ideal %>
-        <div class="d-flex justify-content-around my-3">
-
-          <!--ログインユーザーがミッションステートメントのカラムを持っていない場合-->
-          <% if !current_user.mission_statement.present? %>
-            <%= link_to "次に進む",new_user_path, class: "btn btn-outline-primary" %>
-
-          <!--ログインユーザーがミッションステートメントのカラムを持っている場合-->
-          <% else %>
-            <%= link_to "登録する",ideal_path, class: "btn btn-outline-primary" %>
-
-          <% end %>
-
-          <%= link_to "やり直す",ideal_path,method: :delete, class: "btn btn-outline-info" %>
         </div>
 
       <% end %>

@@ -9,7 +9,7 @@ class MissionsController < ApplicationController
     if mission.save
       redirect_to problem_path(problem)
     else
-      render template: 'problem/show'
+      redirect_to  problem_path(problem,error: true)
     end
   end
 

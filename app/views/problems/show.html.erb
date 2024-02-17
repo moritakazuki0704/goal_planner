@@ -41,7 +41,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active btn btn-outline-primary" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="true">未設定</a>
           <a class="nav-item nav-link btn btn-outline-success" id="nav-completion-tab" data-toggle="tab" href="#nav-completion" role="tab" aria-controls="nav-completion" aria-selected="false">完了</a>
-          <a class="nav-item nav-link btn btn-outline-info" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">未完了</a>
+          <a class="nav-item nav-link btn btn-outline-info" id="nav-imperfect-tab" data-toggle="tab" href="#nav-imperfect" role="tab" aria-controls="nav-imperfect" aria-selected="false">未完了</a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
@@ -140,12 +140,32 @@
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <h5 class="smart-frame mb-5">
-        <u>
-          目標を叶えるためにするべきことを<br>
-          教えてください
-        </u>
-      </h5>
+
+      <% unless params[:error] %>
+        <h5 class="smart-frame mb-5">
+          <u>
+            目標を叶えるためにするべきことを<br>
+            教えてください
+          </u>
+        </h5>
+
+      <!--メモの作成に失敗した場合-->
+      <% else %>
+        <div class="masking-tape">
+          <p>
+            メモの作成に失敗しました
+          </p>
+          <p>
+            目標を叶えるためにするべきことを<br>
+            教えてください
+          </p>
+          <p>
+            それは些細なことでも<br>
+            簡単なことでも構いません
+          </p>
+        </div>
+
+      <% end %>
       <%= form_with model: [@problem,@mission],url: problem_missions_path(@problem), method: :post do |f| %>
         <div class="form-inline">
           <%= f.text_field :memo,class: "form-control" %>
@@ -171,8 +191,8 @@
                   </p>
                 </li>
                 <li class="list-group-item list-group-horizontal list-group-item-warning">
-                    <%= link_to "課題にする", upload_problem_mission_path(@problem,mission), method: :post %>
-                    <%= link_to "削除する", problem_mission_path(@problem,mission), method: :delete %>
+                    <%= link_to "課題にする", upload_problem_mission_path(@problem,mission), method: :post, class: "btn btn-outline-success" %>
+                    <%= link_to "削除する", problem_mission_path(@problem,mission), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
               </ul>
               <% end %>
@@ -180,8 +200,8 @@
           </div>
 
         <div class="d-flex justify-content-around my-3">
-          <%= link_to "全て課題にする", bulk_upload_problem_missions_path(@problem), method: :post %>
-          <%= link_to "メモを全て破棄する", bulk_destroy_problem_missions_path(@problem), method: :delete %>
+          <%= link_to "全て課題にする", bulk_upload_problem_missions_path(@problem), method: :post, class: "btn btn-success" %>
+          <%= link_to "メモを全て破棄する", bulk_destroy_problem_missions_path(@problem), method: :delete, class: "btn btn-danger" %>
         </div>
       <% end %>
     </div>

@@ -23,22 +23,7 @@
       <div class="col mt-5 mx-5 pt-5 px-5">
         <div class="cloth-frame text-center py-5">
 
-          <!--エラーメッセージ-->
-          <% if params[:error] %>
-            <div class="masking-tape">
-              <p>
-                写真の投稿に失敗しました
-              </p>
-              <p>
-                写真の選択をして保存を押してください
-              </p>
-              <p>
-                コメントはあってもなくても<br>
-                写真は投稿されます
-              </p>
-            </div>
-
-          <% else %>
+          <% unless params[:error] %>
             <p>
               ここはあなたの今と<br>
               あなたの将来のアルバム
@@ -56,6 +41,21 @@
               写真をクリックすることで<br>
               写真の詳細が見れます
             </p>
+
+          <!--写真の投稿に失敗した場合-->
+          <% else %>
+            <div class="masking-tape">
+              <p>
+                写真の投稿に失敗しました
+              </p>
+              <p>
+                写真の選択をして保存を押してください
+              </p>
+              <p>
+                コメントはあってもなくても<br>
+                写真は投稿されます
+              </p>
+            </div>
           <% end %>
 
         </div>

@@ -1,6 +1,5 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-4 py-3">
-    <%= form_with model: @schedule,url: schedules_path, method: :post do |f| %>
-    <%= render 'form',problems: @problems %>
-  </div>
+  <%= form_with model: @schedule,url: schedules_path, method: :post, class: "row justify-content-center open-book my-4 py-3" do |f| %>
+    <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
+  <% end %>
 </div>

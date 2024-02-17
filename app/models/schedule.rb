@@ -4,15 +4,15 @@ class Schedule < ApplicationRecord
   has_many :plans,dependent: :destroy
 
   default_scope -> { order(start_time: :asc) }
-  scope :completion, -> {where(end: :finish_time < Time.current)}
+  scope :completion, -> {where('finish_time <= ?', Time.current)}
   scope :pending, -> {where(start_time: nil, finish_time: nil)}
-  scope :imperfect, -> {where(start_time: :finish_time >= Time.current)}
+  scope :imperfect, -> {where('start_time >= ?', Time.current)}
 
   with_options on: :create_schedule do
     validate :start_finish_check
     validate :start_check
   end
-  validates :commit_id, presence: true
+  validates :problem_id, presence: true
   validates :title, presence: true
   # context: :create_scheduleをupdate、saveに引数として渡した場合のみバリデーションする
 	with_options presence: true, on: :create_schedule do
