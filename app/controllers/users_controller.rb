@@ -2,19 +2,18 @@ class UsersController < ApplicationController
 
   before_action :ideal_uncreated_user!,except: [:withdrawal,:destroy]
   before_action :mission_statement_created_user!,except: [:withdrawal,:destroy]
+  before_action :user_current,except: [:withdrawal]
 
   def new
-    @user = current_user
   end
 
   def confirm
     session[:mission_statement] = user_params[:mission_statement]
     session[:mission_detail] = user_params[:mission_detail]
-    @user = current_user
   end
 
   def update
-    current_user.update(
+    @user.update(
       mission_statement: session[:mission_statement],
       mission_detail: session[:mission_detail],
       )
@@ -25,11 +24,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
+    @user.destroy
     redirect_to root_path
   end
 
   private
+
+  def user_current
+    @user = current_user
+  end
 
   # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
   def ideal_uncreated_user!

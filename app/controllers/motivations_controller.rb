@@ -20,7 +20,7 @@ class MotivationsController < ApplicationController
     motivation = Motivation.new(motivation_params)
     motivation.user_id = current_user.id
     if motivation.save
-      redirect_to motivation_path(motivation.id)
+      redirect_to motivation_path(motivation)
     else
       redirect_to motivations_path(error: true)
     end

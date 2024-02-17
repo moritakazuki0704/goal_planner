@@ -7,9 +7,9 @@ class PlansController < ApplicationController
     plan = Plan.new(plan_params)
     plan.schedule_id = schedule.id
     if plan.save
-     redirect_to schedule_path(schedule.id)
+     redirect_to schedule_path(schedule)
     else
-     render template: 'schedule/show'
+     redirect_to schedule_path(schedule,error: true)
     end
   end
 
@@ -18,7 +18,7 @@ class PlansController < ApplicationController
     schedule = Schedule.find(params[:schedule_id])
     plan = Plan.find(params[:id])
     plan.update(programme: "true")
-    redirect_to schedule_path(schedule.id)
+    redirect_to schedule_path(schedule)
   end
 
   # 単一のplanテーブルを削除する
@@ -26,7 +26,7 @@ class PlansController < ApplicationController
     schedule = Schedule.find(params[:schedule_id])
     plan = Plan.find(params[:id])
     plan.destroy
-    redirect_to schedule_path(schedule.id)
+    redirect_to schedule_path(schedule)
   end
 
   # 複数のplanテーブルを稼働させる
@@ -34,7 +34,7 @@ class PlansController < ApplicationController
     schedule = Schedule.find(params[:schedule_id])
     plan = schedule.plans.where(programme: "false")
     plan.update_all(programme: "true")
-    redirect_to schedule_path(schedule.id)
+    redirect_to schedule_path(schedule)
   end
 
   # 複数のplanテーブルを削除する
@@ -42,7 +42,7 @@ class PlansController < ApplicationController
     schedule = Schedule.find(params[:schedule_id])
     plan = schedule.plans.where(programme: "false")
     plan.destroy_all
-    redirect_to schedule_path(schedule.id)
+    redirect_to schedule_path(schedule)
   end
 
   # 複数のplanテーブルを更新する
@@ -50,7 +50,7 @@ class PlansController < ApplicationController
     schedule = Schedule.find(params[:schedule_id])
     plan = schedule.plans.where(programme: "true")
     plan.update_all(plan_params)
-    redirect_to schedule_path(schedule.id)
+    redirect_to schedule_path(schedule)
   end
 
   private

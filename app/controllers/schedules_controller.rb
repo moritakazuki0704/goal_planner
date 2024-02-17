@@ -12,7 +12,7 @@ class SchedulesController < ApplicationController
     schedule = Schedule.new(schedule_params)
     schedule.user_id = current_user.id
     if schedule.save(context: :create_schedule)
-      redirect_to schedule_path(schedule.id)
+      redirect_to schedule_path(schedule)
     else
       render :new
     end
@@ -32,7 +32,7 @@ class SchedulesController < ApplicationController
 
   def update
     if @schedule.update(schedule_params,context: :create_schedule)
-      redirect_to schedule_path(@schedule.id)
+      redirect_to schedule_path(@schedule)
     else
       render :edit
     end
