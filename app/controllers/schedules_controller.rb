@@ -31,7 +31,8 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    if @schedule.update(schedule_params,context: :create_schedule)
+    @problems = current_user.problems.activity.order(created_at: :desc)
+    if @schedule.update(schedule_params , context: :create_schedule)
       redirect_to schedule_path(@schedule)
     else
       render :edit
@@ -57,7 +58,7 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:title,:body,:start,:end,:is_all_day)
+    params.require(:schedule).permit(:problem_id,:title,:body,:start_time,:finish_time,:is_all_day)
   end
 
 end

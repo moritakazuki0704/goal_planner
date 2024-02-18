@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <%= form_with model: @schedule,url: schedule_path(@schedule.id), method: :patch, class: "row justify-content-center open-book my-4 py-3" do |f| %>
+  <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-4 py-3" do |f| %>
     <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
   <% end %>
 </div>

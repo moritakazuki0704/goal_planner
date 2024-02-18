@@ -8,39 +8,34 @@
     </h5>
   </div>
   <div class="scroll-box">
-    <% problems.each do |problem| %>
-      <div class="title-frame">
-        <span class="masking-tape">
-          <%= radio_button :problem_id, problem.id, class: "custom-control-input" %>
-          <%= problem.commitment %>
-        </span>
-        <p class="m-3">
-          <%= safe_join(problem.purpose.split("\n"),tag(:br)) %>
-        </p>
+    <%= f.collection_radio_buttons(:problem_id, problems, :id, :commitment) do |b| %>
+      <div class="masking-tape custom-control custom-radio">
+        <%= b.radio_button(class: "custom-control-input") %>
+        <%= b.label(class: "custom-control-label") %>
       </div>
     <% end %>
   </div>
 </div>
 
 <!--右のページ-->
-<div class="right-page col m-5 p-5">
+<div class="right-page text-center col m-5 p-5">
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, required: true,class: "form-control" %>
   </div>
-  <div class="custom-control custom-switch">
-    <%= f.check_box :is_all_day , {class: "custom-control-input" } , true %>
+  <div class="custom-control custom-switch text-left">
+    <%= f.check_box :is_all_day , {class: "custom-control-input" } , "true" , "false" %>
     <%= f.label :is_all_day, class: "custom-control-label" %>
   </div>
   <div class="form-group input-group-prepend">
     <%= f.label :start_time, class: "input-group-text" %>
     <%= f.date_field :start_time, class: 'form-control' %>
-    <%= f.time_field :start_time, class: 'form-control' %>
+    <%= f.time_field :start_time, class: 'form-control time-form' %>
   </div>
   <div class="form-group input-group-prepend">
     <%= f.label :finish_time, class: "input-group-text" %>
     <%= f.date_field :finish_time, class: 'form-control' %>
-    <%= f.time_field :finish_time, class: 'form-control' %>
+    <%= f.time_field :finish_time, class: 'form-control time-form' %>
   </div>
   <div class="form-group">
     <%= f.label :body %>

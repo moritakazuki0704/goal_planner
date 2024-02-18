@@ -38,3 +38,34 @@ document.addEventListener('turbolinks:load', function() {
         calendar.render();
     }
 });
+
+
+
+    // function formSwitch() {
+    //     var check = document.getElementById('schedule_is_all_day');
+    //     var selecterBox = document.getElementsByClassName('time-form');
+    //     if (check[false].checked) {
+    //         selecterBox.style.display = "none";
+
+    //     } else if (check[true].checked) {
+    //         selecterBox.style.display = "block";
+    //     }
+    //     window.addEventListener('load', formSwitch());
+    // }
+
+
+// function entryChange2(){
+//     if(document.getElementById('changeSelect')){
+//     document.getElementById('changeSelect').value;
+// }
+// }
+// function myfunc(value) {
+//   var check = document.getElementById("schedule_is_all_day").checked;
+//   var hidden = document.getElementsByClassName("time-form");
+//   if(check == true){
+//     hidden.style.display ="none";
+//     }
+//   else{
+//     hidden.style.display ="block";
+//   }
+// }
