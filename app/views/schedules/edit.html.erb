@@ -1,5 +1,57 @@
 <div class="container-fluid">
-  <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-4 py-3" do |f| %>
-    <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
+  <% unless params[:error] %>
+    <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-4 py-3" do |f| %>
+      <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
+    <% end %>
+
+  <!--予定編集に失敗した場合のエラー文-->
+  <% else %>
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <div>
+        <h5 class="smart-frame mb-5">
+          <u>
+            予定の作成に失敗しました
+          </u>
+        </h5>
+      </div>
+      <div class="cross-frame">
+        <p>
+          どの目標の予定かを決めて<br>
+          予定のタイトル、時間の入力をしてください
+        </p>
+        <p>
+          終了時間は開始時間より過去にならないように
+          注意してください
+        </p>
+      </div>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page text-center col m-5 p-5">
+      <p>
+        適切な予定の時間を入力して<br>
+        目標を達成するために必要な<br>
+        課題となる予定を作成してください
+      </p>
+      <p>
+        その後にToDoリストを作成していくことになります<br>
+        ToDoリストを完遂していくことで<br>
+        一歩ずつ目標の達成に近づいていきます
+      </p>
+      <p>
+        ToDoリストは<br>
+        目標を達成するための課題となる予定を<br>
+        さらに細かくした課題となります
+      </p>
+      <p>
+        全ての行動と全ての考えが<br>
+        あなたの理想を叶える力になります
+      </p>
+      <div class="d-flex justify-content-around">
+        <%= link_to "もう一度予定を編集する", edit_schedule_path(@schedule), class: "btn btn-secondary" %>
+        <%= link_to "カレンダーに戻る", schedules_path, class: "btn btn-info" %>
+      </div>
+    </div>
   <% end %>
 </div>
