@@ -11,7 +11,7 @@ class Schedule < ApplicationRecord
   validates :problem_id, presence: true
   validates :title, presence: true
   # context: :create_scheduleをupdate、saveに引数として渡した場合のみバリデーションする
-	with_options presence: true, on: :create_schedule do
+	with_options presence: true, on: %i[update create_schedule] do
     validates :start_time
     validates :finish_time
   end

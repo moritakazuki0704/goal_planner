@@ -11,7 +11,7 @@ class SchedulesController < ApplicationController
   def create
     schedule = Schedule.new(schedule_params)
     schedule.user_id = current_user.id
-    if start_time > finish_time
+    if schedule.start_time > schedule.finish_time
       redirect_to new_schedule_path(error: true)
     elsif schedule.save(context: :create_schedule)
       redirect_to schedule_path(schedule)
@@ -34,9 +34,9 @@ class SchedulesController < ApplicationController
 
   def update
     @problems = current_user.problems.activity.order(created_at: :desc)
-    if start_time > finish_time
+    if @schedule.start_time > @schedule.finish_time
       redirect_to edit_schedule_path(@schedule , error: true)
-    elsif @schedule.update(schedule_params , context: :create_schedule)
+    elsif @schedule.update(schedule_params)
       redirect_to schedule_path(@schedule)
     else
       redirect_to edit_schedule_path(@schedule , error: true)
