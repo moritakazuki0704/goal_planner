@@ -16,10 +16,12 @@
           <h5 class="card-title"><%= @schedule.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted">
             <% if @schedule.is_all_day == false %>
-              <%= @schedule.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= @schedule.finish_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+              <%= @schedule.start_date.strftime("%Y年%-m月%-d日") %><%= @schedule.start_time.strftime("%-H時%M分") %><br>
+              〜<br>
+              <%= @schedule.end_date.strftime("%Y年%-m月%-d日") %><%= @schedule.end_time.strftime("%-H時%M分") %>
             <% elsif @schedule.is_all_day == true %>
               <p>終日</p>
-              <%= @schedule.start_time.strftime("%Y年%-m月%-d日") %>　〜　<%= @schedule.finish_time.strftime("%Y年%-m月%-d日") %>
+              <%= @schedule.start_date.strftime("%Y年%-m月%-d日") %>　〜　<%= @schedule.end_date.strftime("%Y年%-m月%-d日") %>
             <% end %>
           </h6>
           <p class="card-text">

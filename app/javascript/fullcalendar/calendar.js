@@ -21,12 +21,11 @@ document.addEventListener('turbolinks:load', function() {
             headerToolbar: {
               start: 'prev,today,next',
               center: 'title',
-              end: 'dayGridMonth,listMonth'
+              end: 'dayGridMonth'
             },
             buttonText: {
               today: '今日',
               dayGridMonth: '月間カレンダー',
-              listMonth: '月間予定表'
             },
             allDayText: '終日',
             height: "auto",
