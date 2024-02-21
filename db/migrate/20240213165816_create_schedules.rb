@@ -9,7 +9,6 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
       t.time :start_time
       t.date :end_date
       t.time :end_time
-      t.boolean :is_all_day, default: false
       t.timestamps
     end
   end

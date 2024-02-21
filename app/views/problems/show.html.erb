@@ -93,13 +93,9 @@
                     <%= completion.title %>
                   <% end %>
                   <li class="list-group-item list-group-item-success">
-                    <% if completion.is_all_day == false %>
-                      <%= completion.start_date.strftime("%Y年%-m月%-d日") %><%= completion.start_time.strftime("%-H時%M分") %>
-                      〜
-                      <%= completion.end_date.strftime("%Y年%-m月%-d日") %><%= completion.end_time.strftime("%-H時%M分") %>
-                    <% elsif completion.is_all_day == true %>
-                      <%= completion.start_date.strftime("%Y年%-m月%-d日") %>　〜　<%= completion.end_date.strftime("%Y年%-m月%-d日") %>
-                    <% end %>
+                    <%= completion.start_date.strftime("%Y年%-m月%-d日") %><%= completion.start_time.strftime("%-H時%M分") %><br>
+                    〜<br>
+                    <%= completion.end_date.strftime("%Y年%-m月%-d日") %><%= completion.end_time.strftime("%-H時%M分") %>
                   </li>
                 </ul>
               <% end %>
@@ -128,11 +124,7 @@
                     <%= imperfect.title %>
                   <% end %>
                   <li class="list-group-item list-group-item-success">
-                    <% if imperfect.is_all_day == false %>
-                      <%= imperfect.start_date.strftime("%Y年%-m月%-d日") %><%= imperfect.start_time.strftime("%-H時%M分") %>
-                    <% elsif imperfect.is_all_day == true %>
-                      <%= imperfect.start_date.strftime("%Y年%-m月%-d日") %>　〜　<%= imperfect.end_date.strftime("%Y年%-m月%-d日") %>
-                    <% end %>
+                    <%= imperfect.start_date.strftime("%Y年%-m月%-d日") %><%= imperfect.start_time.strftime("%-H時%M分") %>
                   </li>
                 </ul>
               <% end %>

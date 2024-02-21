@@ -127,7 +127,6 @@ ActiveRecord::Schema.define(version: 2024_02_13_171135) do
     t.time "start_time"
     t.date "end_date"
     t.time "end_time"
-    t.boolean "is_all_day", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -27,7 +27,6 @@ document.addEventListener('turbolinks:load', function() {
               today: '今日',
               dayGridMonth: '月間カレンダー',
             },
-            allDayText: '終日',
             height: "auto",
             navLinks: true,
             events: '/schedules.json',
