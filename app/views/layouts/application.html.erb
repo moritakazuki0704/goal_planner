@@ -14,7 +14,7 @@
   <body class="container-fluid">
     <div class="background-paper"></div>
     <div class="row no-gutters justify-content-center">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && !current_page?(root_path) %>
         <div class ="sidebar text-center col-2 h-100">
           <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-action">
@@ -41,7 +41,7 @@
       <main class="col-8">
         <%= yield %>
       </main>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && !current_page?(root_path) %>
         <div class="offset-2"></div>
       <% end %>
     </div>
