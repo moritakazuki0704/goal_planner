@@ -58,7 +58,15 @@
         <%= form_with model: @problem, url: problems_path, method: :post do |f| %>
           <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんが\nこの目標いいですか", class: "btn btn-primary" %>
         <% end %>
-        <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+        <% if !current_user.problems.present? %>
+          <!--初めて目標を作成する場合-->
+          <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+        <% else %>
+
+          <!--2回目以降に目標を作成する場合-->
+          <%= link_to '目標を設定し直す', new_problem_path, class: "btn btn-info" %>
+        <% end %>
+
       </div>
 
       <!--commitmentとpurposeのどちらか、もしくは両方に空欄があった場合-->

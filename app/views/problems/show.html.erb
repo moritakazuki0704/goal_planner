@@ -61,11 +61,21 @@
 
             <!--スクロール機能-->
             <div class="scroll-box">
+              
               <% @problem.schedules.pending.each do |pending| %>
                 <ul class="list-group">
-                  <%= link_to edit_schedule_path(pending), class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    <%= pending.title %>
+                  
+                  <!--予定が進行中のみ予定の編集が可能とする-->
+                  <% if @problem.progress_status == 0 %>
+                    <%= link_to edit_schedule_path(pending), class: "list-group-item list-group-item-action list-group-item-success" do %>
+                      <%= pending.title %>
+                    <% end %>
+                  <% else %>
+                    <li class="list-group-item">
+                      <%= pending.title %>
+                    </li>
                   <% end %>
+
                 </ul>
               <% end %>
             </div>

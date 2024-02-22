@@ -27,7 +27,7 @@ class MotivationsController < ApplicationController
   end
 
   def index
-    @motivations = @user_motivation.order("RANDOM()")
+    @motivations = @user_motivation.order("RANDOM()").page(params[:page])
   end
 
   def show

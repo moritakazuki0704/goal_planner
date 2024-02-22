@@ -57,7 +57,7 @@
       </div>
       <div class="d-flex justify-content-around">
         <%= link_to "一覧に戻る",motivations_path, class: "btn btn-info" %>
-        <%= link_to "この記録を消す", motivation_path(@motivation.id), method: :delete, class: "btn btn-danger" %>
+        <%= link_to "この記録を消す", motivation_path(@motivation.id), method: :delete,"data-confirm" =>"このモチベーションの記録を\n本当に消しますか？",  class: "btn btn-danger" %>
       </div>
     </div>
 

@@ -27,7 +27,7 @@ class ProblemsController < ApplicationController
     # problemテーブルをすでに持っている場合
     else
       problem.save
-      redirect_to welcome_path
+      redirect_to problems_path
     end
 
   end
@@ -44,7 +44,11 @@ class ProblemsController < ApplicationController
   def update
     problem = Problem.find(params[:id])
     problem.update(problem_params)
-    redirect_to problems_path
+    if problem.progress_status == 0
+      redirect_to problem_path(problem)
+    else
+      redirect_to problems_path
+    end
   end
 
   private

@@ -191,6 +191,7 @@
       <% end %>
       <div class="d-flex justify-content-around my-3">
         <%= link_to "予定を編集する", edit_schedule_path(@schedule), class: "btn btn-secondary" %>
+        <%= link_to "予定を削除する", schedule_path(@schedule),method: :delete,"data-confirm" =>"削除して本当にいいですか？",class: "btn btn-warning" %>
         <%= link_to "カレンダーに戻る", schedules_path, class: "btn btn-info" %>
       </div>
     </div>
