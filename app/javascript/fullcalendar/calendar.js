@@ -18,6 +18,8 @@ document.addEventListener('turbolinks:load', function() {
             locale: 'ja',
             timeZone: 'Asia/Tokyo',
             firstDay: 1,
+            showNonCurrentDates: false,
+            defaultAllDay: false,
             headerToolbar: {
               start: 'prev,today,next',
               center: 'title',

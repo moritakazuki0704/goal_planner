@@ -1,59 +1,62 @@
 <div class="container-fluid">
+
+  <% unless params[:error] %>
+    <%= form_with model: @schedule,url: schedules_path, method: :post, class: "row justify-content-center open-book my-4 py-3" do |f| %>
+      <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
+    <% end %>
+
+  <!--予定作成に失敗した場合のエラー文-->
+  <% else %>
+
   <div class="row justify-content-center open-book my-4 py-3">
 
-    <% unless params[:error] %>
-      <%= form_with model: @schedule,url: schedules_path, method: :post do |f| %>
-        <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
-      <% end %>
-
-    <!--予定作成に失敗した場合のエラー文-->
-    <% else %>
-      <!--左のページ-->
-      <div class="left-page col text-center m-5 p-5">
-        <div>
-          <h5 class="smart-frame mb-5">
-            <u>
-              予定の作成に失敗しました
-            </u>
-          </h5>
-        </div>
-        <div class="cross-frame">
-          <p>
-            どの目標の予定かを決めて<br>
-            予定のタイトル、時間の入力をしてください
-          </p>
-          <p>
-            終了時間は開始時間より過去にならないように
-            注意してください
-          </p>
-        </div>
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <div>
+        <h5 class="smart-frame mb-5">
+          <u>
+            予定の作成に失敗しました
+          </u>
+        </h5>
       </div>
-
-      <!--右のページ-->
-      <div class="right-page text-center col m-5 p-5">
+      <div class="cross-frame">
         <p>
-          予定の作成が終わった後は<br>
-          その予定に関するToDoリストを<br>
-          作っていくことになります
+          どの目標の予定かを決めて<br>
+          予定のタイトル、時間の入力をしてください
         </p>
         <p>
-          ToDoリストを完遂していくことで<br>
-          一歩ずつ目標の達成に近づいていきます
+          終了時間は開始時間より過去にならないように
+          注意してください
         </p>
-        <p>
-          ToDoリストは<br>
-          目標を達成するための課題となる予定を<br>
-          さらに細かくした課題となります
-        </p>
-        <p>
-          全ての行動と全ての考えが<br>
-          あなたの理想を叶える力になります
-        </p>
-        <div class="d-flex justify-content-around">
-          <%= link_to "もう一度予定を作成する", new_schedule_path, class: "btn btn-primary" %>
-          <%= link_to "カレンダーに戻る", schedules_path, class: "btn btn-info" %>
-        </div>
       </div>
-    <% end %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page text-center col m-5 p-5">
+      <p>
+        予定の作成が終わった後は<br>
+        その予定に関するToDoリストを<br>
+        作っていくことになります
+      </p>
+      <p>
+        ToDoリストを完遂していくことで<br>
+        一歩ずつ目標の達成に近づいていきます
+      </p>
+      <p>
+        ToDoリストは<br>
+        目標を達成するための課題となる予定を<br>
+        さらに細かくした課題となります
+      </p>
+      <p>
+        全ての行動と全ての考えが<br>
+        あなたの理想を叶える力になります
+      </p>
+      <div class="d-flex justify-content-around">
+        <%= link_to "もう一度予定を作成する", new_schedule_path, class: "btn btn-primary" %>
+        <%= link_to "カレンダーに戻る", schedules_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+
   </div>
 </div>
