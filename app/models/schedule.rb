@@ -18,4 +18,12 @@ class Schedule < ApplicationRecord
     validates :end_time
   end
 
+  validate :start_end_check, on: %i[update create_schedule]
+
+    #時間の矛盾を防ぐ
+  def start_end_check
+    if self.start_date.present? && self.end_date.present? && self.start_time.present? && self.end_time.present?
+      errors.add(:end_time, "が開始時刻を上回っています。正しく記入してください。") if self.start_date > self.end_date || self.start_date == self.end_date && self.start_time >= self.end_time
+    end
+  end
 end

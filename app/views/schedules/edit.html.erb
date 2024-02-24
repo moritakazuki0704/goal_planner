@@ -1,12 +1,14 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-4 py-3">
-    <% unless params[:error] %>
-      <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch do |f| %>
-        <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
-      <% end %>
+  <% unless params[:error] %>
+    <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-4 py-3" do |f| %>
+      <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
+    <% end %>
 
+
+  <% else %>
     <!--予定編集に失敗した場合のエラー文-->
-    <% else %>
+    <div class="row justify-content-center open-book my-4 py-3">
+
       <!--左のページ-->
       <div class="left-page col text-center m-5 p-5">
         <div>
@@ -27,7 +29,7 @@
           </p>
         </div>
       </div>
-  
+
       <!--右のページ-->
       <div class="right-page text-center col m-5 p-5">
         <p>
@@ -54,6 +56,6 @@
           <%= link_to "カレンダーに戻る", schedules_path, class: "btn btn-info" %>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
