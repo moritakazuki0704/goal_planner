@@ -31,13 +31,13 @@
 
         <!--タブ表示機能-->
         <nav>
-          <div class="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">
+          <div class="nav nav-tabs strip-paper" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-introduction-tab" data-toggle="tab" href="#nav-introduction" role="tab" aria-controls="nav-introduction" aria-selected="true">使い方</a>
             <a class="nav-item nav-link" id="nav-commentary-tab" data-toggle="tab" href="#nav-commentary" role="tab" aria-controls="nav-commentary" aria-selected="false">使い方2</a>
             <a class="nav-item nav-link" id="nav-programme-tab" data-toggle="tab" href="#nav-programme" role="tab" aria-controls="nav-programme" aria-selected="false">全て</a>
             <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">大事なこと</a>
             <a class="nav-item nav-link" id="nav-important-tab" data-toggle="tab" href="#nav-important" role="tab" aria-controls="nav-important" aria-selected="false">重要なこと</a>
-            <a class="nav-item nav-link" id="nav-mission-tab" data-toggle="tab" href="#nav-mission" role="tab" aria-controls="nav-mission" aria-selected="false">やるべきこと</a>
+            <a class="nav-item nav-link" id="nav-interruption-tab" data-toggle="tab" href="#nav-interruption" role="tab" aria-controls="nav-interruption" aria-selected="false">やるべきこと</a>
             <a class="nav-item nav-link" id="nav-eliminate-tab" data-toggle="tab" href="#nav-eliminate" role="tab" aria-controls="nav-eliminate" aria-selected="false">辞めること</a>
           </div>
         </nav>
@@ -193,18 +193,18 @@
           </div>
 
           <!--やるべきことのタブ-->
-          <div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-            <p>やるべきこと件数：<%= @schedule.plans.mission.count %></p>
-            <% @schedule.plans.mission.each do |mission| %>
+          <div class="tab-pane fade" id="nav-interruption" role="tabpanel" aria-labelledby="nav-interruption-tab">
+            <p>やるべきこと件数：<%= @schedule.plans.interruption.count %></p>
+            <% @schedule.plans.interruption.each do |interruption| %>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <p>
-                    <%= mission.challenge %>
+                    <%= interruption.challenge %>
                   </p>
                   <p>
-                    <%= mission.progress_status_i18n %>
+                    <%= interruption.progress_status_i18n %>
                   </p>
-                  <%= link_to "削除する", schedule_plan_path(mission), method: :delete, class: "btn btn-outline-danger" %>
+                  <%= link_to "削除する", schedule_plan_path(interruption), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
               </ul>
             <% end %>
@@ -290,8 +290,8 @@
                   </p>
                 </li>
                 <li class="list-group-item list-group-horizontal list-group-item-warning">
-                  <%= link_to "登録する", upload_schedule_plan_path(@schedule,plan), method: :patch, class: "btn btn-outline-success" %>
-                  <%= link_to "削除する", schedule_plan_path(@schedule,plan), method: :delete, class: "btn btn-outline-danger" %>
+                  <%= link_to "ToDoリストにする", upload_schedule_plan_path(@schedule,plan), method: :patch, class: "btn btn-outline-success" %>
+                  <%= link_to "メモを破棄する", schedule_plan_path(@schedule,plan), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
               </ul>
             <% end %>

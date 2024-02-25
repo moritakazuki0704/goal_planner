@@ -87,7 +87,7 @@ ja:
       plan:
         id: 計画のID
         schedule_id: 予定のID
-        task: タスク
+        challenge: タスク
         priority_status: 優先度ステータス
         progress_status: 進捗ステータス
         programme: タスク予定ステータス
@@ -112,7 +112,7 @@ ja:
       priority_status: # カラム名
         emergency: '大事なこと' # enumの値
         important: '重要なこと' # enumの値
-        mission: 'やるべきこと' # enumの値
+        interruption: 'やるべきこと' # enumの値
         eliminate: '辞めること' # enumの値
       progress_status: # カラム名
         unstarted: '未完了' # enumの値
