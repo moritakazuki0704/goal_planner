@@ -32,7 +32,8 @@
         <!--タブ表示機能-->
         <nav>
           <div class="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-commentary-tab" data-toggle="tab" href="#nav-commentary" role="tab" aria-controls="nav-commentary" aria-selected="true">使い方</a>
+            <a class="nav-item nav-link active" id="nav-introduction-tab" data-toggle="tab" href="#nav-introduction" role="tab" aria-controls="nav-introduction" aria-selected="true">使い方</a>
+            <a class="nav-item nav-link" id="nav-commentary-tab" data-toggle="tab" href="#nav-commentary" role="tab" aria-controls="nav-commentary" aria-selected="false">使い方2</a>
             <a class="nav-item nav-link" id="nav-programme-tab" data-toggle="tab" href="#nav-programme" role="tab" aria-controls="nav-programme" aria-selected="false">全て</a>
             <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">大事なこと</a>
             <a class="nav-item nav-link" id="nav-important-tab" data-toggle="tab" href="#nav-important" role="tab" aria-controls="nav-important" aria-selected="false">重要なこと</a>
@@ -42,15 +43,16 @@
         </nav>
         <div class="tab-content" id="nav-tabContent">
 
-          <!--大事なことのタブ-->
-          <div class="tab-pane fade show" id="nav-commentary" role="tabpanel" aria-labelledby="nav-commentary-tab">
+          <!--使い方のタブ-->
+          <div class="tab-pane fade show" id="nav-introduction" role="tabpanel" aria-labelledby="nav-introduction-tab">
             <div class="smart-content text-center font-weight-bold">
               <h3>ToDoリストの使い方</h3>
             </div>
             <div class="cross-frame font-weight-bold">
               <p>全てには全てのタスクが入っています</p>
               <p>
-                ステータスを変更して重要度を変更してください<br>
+                ステータスを変更して重要度を変更し<br>
+                優先度を設定してください<br>
                 大事なこと ： <u>緊急性の高く重要性の高いタスクです</u><br>
                 重要なこと : <u>重要性の高いタスクです</u><br>
                 やるべきこと : <u>重要性は低いですが、行う必要のあるタスクです</u><br>
@@ -68,11 +70,50 @@
                 辞める : 取り組まないタスクです
               </p>
               <p>
-                タスクを全て完了、もしくは辞めるにして<br>
-                予定を完遂できるようにしましょう
+                <u>
+                  タスクを全て完了、もしくは辞めるにして<br>
+                  予定を完遂できるようにしましょう
+                </u>
               </p>
             </div>
           </div>
+
+          <!--使い方2のタブ-->
+          <div class="tab-pane fade" id="nav-commentary" role="tabpanel" aria-labelledby="nav-commentary-tab">
+            <div class="cross-frame font-weight-bold">
+              <p>
+                <u>大事なこと</u><br>
+                必須のタスクとなります<br>
+                必ず実行しないといけない活動です
+              </p>
+              <p>
+                <u>重要なこと</u><br>
+                生産性、効果性のタスクとなります<br>
+                長い時間軸で考えた時に<br>
+                大事なことタスクが減る為の準備を<br>
+                このタスクでしてください
+              </p>
+              <p>
+                <u>やるべきこと</u><br>
+                錯覚のタスクとなります<br>
+                ここのタスクに時間を使っていても<br>
+                生産性が上がらないため<br>
+                大事なことタスクや重要なことタスクが<br>
+                減ることはありません
+              </p>
+              <p>
+                <u>辞めるべきこと</u><br>
+                浪費・過剰のタスクとなります<br>
+                暇つぶしや時間の浪費<br>
+                無意味で時間の無駄遣いといえる活動です<br>
+                無駄な1日を過ごしてしまったと<br>
+                思われるような行動のタスクです<br>
+                行わないことを大事にしてください<br>
+              </p>
+            </div>
+          </div>
+
+
 
           <!--全て表示するタブ-->
           <div class="tab-pane fade" id="nav-programme" role="tabpanel" aria-labelledby="nav-programme-tab">

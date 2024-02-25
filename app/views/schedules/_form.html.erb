@@ -22,17 +22,17 @@
 <div class="right-page text-center col m-5 p-5">
   <div class="form-group">
     <%= f.label :title, class: "smart-frame h5" %>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, required: true, class: "form-control" %>
   </div>
   <div class="form-group input-group-prepend">
     <%= f.label :start_time, class: "input-group-text" %>
-    <%= f.date_field :start_date, class: 'form-control' %>
-    <%= f.time_field :start_time, class: 'form-control' %>
+    <%= f.date_field :start_date, required: true, class: 'form-control' %>
+    <%= f.time_field :start_time, required: true, class: 'form-control' %>
   </div>
   <div class="form-group input-group-prepend">
     <%= f.label :end_time, class: "input-group-text" %>
-    <%= f.date_field :end_date, class: 'form-control' %>
-    <%= f.time_field :end_time, class: 'form-control' %>
+    <%= f.date_field :end_date, required: true, class: 'form-control' %>
+    <%= f.time_field :end_time, required: true, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :body, class: "smart-frame h5" %>
