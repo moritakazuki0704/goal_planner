@@ -4,14 +4,15 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <p>
-        基本的に<br>
-        人は1人でなんでもできるわけではありません
+        基本的に人は一人でなんでもできる<br>
+        というわけではありません
       </p>
       <p>
         精神的  ・  仕事的
       </p>
       <p>
-        それらは関わる人と切っても切り離せないものとなっています
+        それらは関わる人と<br>
+        切っても切り離せないもの
       </p>
       <p>
         その中で<br>
@@ -22,7 +23,8 @@
         相棒  恋人  夫婦  親友
       </p>
       <p>
-        あなたにとっての唯一のパートナーを考えてみて下さい
+        あなたにとっての唯一の<br>
+        パートナーを考えてみて下さい
       </p>
       <p>
         それはあなたがあなたであるために<br>
@@ -37,7 +39,8 @@
     <div class="right-page col text-center m-5 p-5">
       <h5 class="smart-frame">
         <u>
-          あなたの理想のパートナーとの関係を教えて下さい
+          あなたの最高のパートナー<br>
+          その関係を教えて下さい
         </u>
       </h5>
       <p>
@@ -48,7 +51,8 @@
         どうしてパートナーが必要と思いますか
       </p>
       <p>
-        その人とはきっと切っても切れない関係です
+        その人とはきっと<br>
+        切っても切れない関係です
       </p>
       <p>
         あなたの将来を考えた時に<br>
@@ -56,15 +60,15 @@
       </p>
       <%= form_with model: @ideal,url: step10_role_model_ideal_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :partner_1 %><br />
+          <%= f.label :partner_1, class: "font-weight-bold" %><br />
           <%= f.text_area :partner_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :partner_2 %><br />
+          <%= f.label :partner_2, class: "font-weight-bold" %><br />
           <%= f.text_area :partner_2,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :partner_3 %><br />
+          <%= f.label :partner_3, class: "font-weight-bold" %><br />
           <%= f.text_area :partner_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

@@ -14,16 +14,18 @@
       <p>
         さらに言葉の意味はかなり広く<br>
         「衣食住」だけでなく<br>
-        人生観・価値観・習慣などを含めた
+        人生観・価値観・習慣などを含めた<br>
         個人の生き方<br>
         という意味で使われているそうです
       </p>
       <p>
-        何を大切にするかによってライフスタイルはわかります
+        何を大切にするかによって<br>
+        ライフスタイルはわかります
       </p>
       <p>
         難しく考える必要はどこにもありません<br>
-        あなたの理想の生活を考えるだけでいいのです
+        あなたの理想の生活を<br>
+        考えるだけでいいのです
       </p>
       <%= render 'session_keywaord' %>
     </div>
@@ -32,32 +34,32 @@
     <div class="right-page col text-center m-5 p-5">
       <h5 class="smart-frame">
         <u>
-          あなたの理想のライフスタイルを<br>
+          あなたが過ごしたいと思う<br>
+          理想のライフスタイルを<br>
           3つ教えて下さい
         </u>
       </h5>
       <p>
-        どうしてそのライフスタイルに憧れているのか<br>
+        どうしてそのライフスタイルに<br>
+        憧れているのか<br>
         理由も教えて下さい
       </p>
       <p>
         やりたいこと、憧れていること<br>
-        今の生活と比べてどうなりたいのか
-      </p>
-      <p>
+        今の生活と比べてどうなりたいのか<br>
         ただそれだけです
       </p>
       <%= form_with model: @ideal,url: step5_time_ideal_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :lifestyle_1 %><br />
+          <%= f.label :lifestyle_1, class: "font-weight-bold" %><br />
           <%= f.text_area :lifestyle_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :lifestyle_2 %><br />
+          <%= f.label :lifestyle_2, class: "font-weight-bold" %><br />
           <%= f.text_area :lifestyle_2,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :lifestyle_3 %><br />
+          <%= f.label :lifestyle_3, class: "font-weight-bold" %><br />
           <%= f.text_area :lifestyle_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

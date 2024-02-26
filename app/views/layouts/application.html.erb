@@ -14,17 +14,23 @@
   <body class="container-fluid">
     <div class="background-paper"></div>
     <div class="row no-gutters justify-content-center">
+
       <% if user_signed_in? && !current_page?(root_path) %>
+      <!--ユーザーがログインし、ページがトップページじゃない場合のみ表示-->
         <div class ="sidebar text-center col-2 h-100">
           <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-action">
               <%= image_tag ('logo.jpg') %>
               <p class="font-weight-bold">"<%= current_user.planner_name %>"</p>
-              <p class="font-weight-bold"><%= safe_join(current_user.mission_statement.split("\n"),tag(:br)) %></p>
+
+              <% if current_user.mission_statement.present? %>
+              <!--ログインユーザーがmission_statementカラムを作成した場合に表示-->
+                <p class="font-weight-bold"><%= safe_join(current_user.mission_statement.split("\n"),tag(:br)) %></p>
+              <% end %>
             </li>
 
-            <!--ユーザーがログインしつつ、ログインユーザーがproblemテーブルを作成した時のみ表示-->
-            <% if user_signed_in? && current_user.problems.present? %>
+            <% if current_user.problems.present? %>
+            <!--ログインユーザーがproblemテーブルを作成した時に表示-->
               <%= link_to "カレンダー", schedules_path, class: "list-group-item list-group-item-action list-group-item-info" %>
               <%= link_to "私の目標／課題", problems_path, class: "list-group-item list-group-item-action list-group-item-info" %>
               <%= link_to "私の理想", ideal_path, class: "list-group-item list-group-item-action list-group-item-info" %>

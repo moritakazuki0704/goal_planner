@@ -5,11 +5,11 @@
     <div class="left-page col text-center m-5 p-5">
       <p>
         あなたはきっと<br>
-        仕事  ・  勉強   ・  娯楽  ・  趣味
+        仕事・勉強・娯楽・趣味
       </p>
       <p>
-        いろいろなことに時間をかけてきたことと<br>
-        思います<br>
+        そういった様々なことに<br>
+        時間をかけてきたことと思います<br>
         そしてそれにかける情熱やお金も
       </p>
       <p>
@@ -42,7 +42,8 @@
     <div class="right-page col text-center m-5 p-5">
       <h5 class="smart-frame">
         <u>
-          あなたの時間やエネルギーをかけたいことを<br>
+          あなたの理想の時間の使い方<br>
+          エネルギーをかけたいことを<br>
           3つ教えて下さい
         </u>
       </h5>
@@ -63,15 +64,15 @@
       </p>
       <%= form_with model: @ideal,url: step6_working_ideal_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :time_1 %><br />
+          <%= f.label :time_1, class: "font-weight-bold" %><br />
           <%= f.text_area :time_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :time_2 %><br />
+          <%= f.label :time_2, class: "font-weight-bold" %><br />
           <%= f.text_area :time_2,rows: "3",autofocus: true,class: "form-control" %>
           </div>
         <div class="form-group">
-          <%= f.label :time_3 %><br />
+          <%= f.label :time_3, class: "font-weight-bold" %><br />
           <%= f.text_area :time_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

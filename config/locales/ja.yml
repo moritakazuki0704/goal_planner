@@ -61,9 +61,9 @@ ja:
         partner_1: １つ目の理想のパートナー
         partner_2: ２つ目の理想のパートナー
         partner_3: ３つ目の理想のパートナー
-        partner_model: 理想のパートナー像
-        family_model: 理想の家族像
-        friend_model: 理想の友達像
+        partner_model: 理想のパートナー、夫婦像
+        family_model: 理想の家族、親子像
+        friend_model: 理想の友達、仲間像
       problem:
         id: 目標のID
         user_id: あなたのID

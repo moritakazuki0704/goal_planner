@@ -11,26 +11,23 @@
         憧れるなぁ
       </p>
       <p>
-        それは理想を叶えている姿です
+        それは理想を叶えている人の姿です
       </p>
       <p>
         理想を体現している人がいるのならば<br>
-        あなたがその人のことをよく知って<br>
-        その人の行動<br>
-        その人の考え方
+        あなたがその人のことをよく知って
       </p>
       <p>
-       それを真似すればいいだけです
+        その人の行動やその人の考え方<br>
+        それを真似すればいいだけです
       </p>
       <p>
         何もわからない手探りの状態より<br>
         簡単だと思いませんか
       </p>
       <p>
-        まずは話し方からでも<br>
-        歩き方でも<br>
-        箸の持ち方や<br>
-        一つの考え方でも
+        まずは話し方からでも歩き方でも<br>
+        箸の持ち方や一つの考え方でも
       </p>
       <p>
         はじめの一歩はなんでもいい<br>
@@ -46,13 +43,13 @@
         <u>
           あなたの理想のパートナー像<br>
           あなたの理想の家族像<br>
-          あなたの理想の親友像を<br>
+          あなたの理想の友人像を<br>
           教えて下さい
         </u>
       </h5>
       <p>
-        パートナーは夫婦像とも言えるでしょう<br>
-        相棒のような存在ということです
+        パートナーは夫婦像<br>
+        それは相棒のような存在ということです
       </p>
       <p>
         あなたにとっての理想はきっと<br>
@@ -65,15 +62,15 @@
       </p>
       <%= form_with model: @ideal,url: ideal_path, method: :post do |f| %>
         <div class="form-group">
-          <%= f.label :partner_model %><br />
+          <%= f.label :partner_model, class: "font-weight-bold" %><br />
           <%= f.text_area :partner_model,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :family_model %><br />
+          <%= f.label :family_model, class: "font-weight-bold" %><br />
           <%= f.text_area :family_model,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :friend_model %><br />
+          <%= f.label :friend_model, class: "font-weight-bold" %><br />
           <%= f.text_area :friend_model,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

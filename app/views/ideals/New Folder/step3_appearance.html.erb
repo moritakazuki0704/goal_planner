@@ -4,27 +4,31 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <p>
-        きっと<br>
         あなたが思い描く将来の姿には<br>
         あなた自身がいることと思います
       </p>
       <p>
         どんな表情をしていますか<br>
-        髪の長さやセットはどのようなものですか
+        髪の長さやセットは<br>
+        どのようなものですか
       </p>
       <p>
         メイクはどのようなメイクですか<br>
       </p>
       <p>
         体型は標準ですか<br>
-        それともモデル体型、もしくは筋肉質ですか
+        それともモデル体型<br>
+        もしくは筋肉質ですか
       </p>
       <p>
-        持っている服装は<br>
-        着ている服装やアクセサリーはしていますか
+        持っている服装や<br>
+        着ている服装<br>
+        アクセサリーはしていますか
       </p>
       <p>
-        思い描く未来は想像する未来のあなたの姿を教えて下さい
+        思い描く未来の<br>
+        想像する未来の<br>
+        あなたの姿を教えて下さい
       </p>
       <%= render 'session_keywaord' %>
     </div>
@@ -33,7 +37,7 @@
     <div class="right-page col text-center m-5 p-5">
       <h5 class="smart-frame">
         <u>
-          あなたがなりたいと思う<br>
+          あなたが思い描く<br>
           理想の姿を教えて下さい
         </u>
       </h5>
@@ -42,24 +46,25 @@
         尊敬する人
       </p>
       <p>
-        あなたの中にあるイメージをそのまま教えて下さい<br>
-        すでに体現している人がいるなら
+        あなたの中にあるイメージを<br>
+        そのまま教えて下さい<br>
       </p>
       <p>
+        すでに体現している人がいるなら<br>
         その人も教えて下さい
       </p>
       <%= form_with model: @ideal,url: step4_lifestyle_ideal_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :hair_make %><br />
-          <%= f.text_area :hair_make,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.label :hair_make, class: "font-weight-bold" %><br />
+          <%= f.text_area :hair_make, rows: "3", autofocus: true, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :body_make %><br />
-          <%= f.text_area :body_make,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.label :body_make, class: "font-weight-bold" %><br />
+          <%= f.text_area :body_make, rows: "3", autofocus: true, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :fashion_make %><br />
-          <%= f.text_area :fashion_make,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.label :fashion_make, class: "font-weight-bold" %><br />
+          <%= f.text_area :fashion_make, rows: "3", autofocus: true, class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>

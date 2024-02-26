@@ -22,14 +22,16 @@
         生理的に合わない人
       </p>
       <p>
-        これからたくさんの人と出会っていきます<br>
+        これから<br>
+        たくさんの人と出会っていきます<br>
         その中で付き合っていく人を<br>
         選んでいく必要があり<br>
-        選ばれる必要もあります
+        選ばれる必要があります
       </p>
       <p>
         選ばれることは<br>
-        今まで教えていただいた理想を叶えていくと<br>
+        今まで教えていただいた<br>
+        理想を叶えていくと<br>
         自然と選ばれていきます<br>
         そしてあなたに必要な人は
       </p>
@@ -43,11 +45,13 @@
     <div class="right-page col text-center m-5 p-5">
       <h5 class="smart-frame">
         <u>
-          あなたの理想の人間関係を教えて下さい
+          あなたが関わっていきたい<br>
+          人との関係を教えて下さい
         </u>
       </h5>
       <p>
-        先輩、後輩、上司、家族、友人、親友、夫婦<br>
+        先輩・後輩・上司<br>
+        家族・夫婦・友人・親友<br>
         ひとつ人間関係といっても<br>
         いくつも存在しています
       </p>
@@ -67,15 +71,15 @@
       </p>
       <%= form_with model: @ideal,url: step9_partner_ideal_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :relationship_1 %><br />
+          <%= f.label :relationship_1, class: "font-weight-bold" %><br />
           <%= f.text_area :relationship_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :relationship_2 %><br />
+          <%= f.label :relationship_2, class: "font-weight-bold" %><br />
           <%= f.text_area :relationship_2,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :relationship_3 %><br />
+          <%= f.label :relationship_3, class: "font-weight-bold" %><br />
           <%= f.text_area :relationship_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

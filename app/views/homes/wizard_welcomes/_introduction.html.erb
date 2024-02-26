@@ -71,17 +71,22 @@
   </p>
 
   <div class="my-4">
-    <!--理想のテーブルを作成していない場合-->
-    <% if !current_user.ideal.present? %>
-      <%= link_to "あなたの理想を教えてください",step1_keyword_ideal_path,class: "btn btn-lg btn-block btn-outline-primary" %>
+    <% if !ideal.present? %>
+
+      <!--理想のテーブルを作成していない場合-->
+      <%= link_to step1_keyword_ideal_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+        あなたの理想の将来を<br>教えてください
+      <% end %>
+    <% elsif !current_user.mission_statement.present? %>
 
     <!--ミッションステートメントを作成していない場合-->
-    <% elsif !current_user.mission_statement.present? %>
       <%= link_to "人生の指針を教えてください",new_user_path,class: "btn btn-lg btn-block btn-outline-primary" %>
+    <% else %>
 
     <!--目標を作成していない場合-->
-    <% else %>
-      <%= link_to "あなたの目標を教えてください",new_problem_path,class: "btn btn-lg btn-block btn-outline-primary" %>
+      <%= link_to new_problem_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+        あなたが達成していく目標を<br>教えてください
+      <% end %>
     <% end %>
 
   </div>

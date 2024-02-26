@@ -29,50 +29,51 @@
         これから教えていただきたいこと
       </p>
       <p>
-        あなたの人生において
+        あなたの人生において<br>
         どんなことより大切にしていることです
       </p>
       <p>
-        大切にしていることだとしても
+        大切にしていることだとしても<br>
         あなた自身が気づいていないことも
       </p>
       <p>
-        それをこの本に問いかけることによって
-        大切にしていたことを知ることができます
+        それをこの本に問いかけることによって<br>
+        大切にしていたことを<br>
+        知ることができます
       </p>
     </div>
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
 
-      <!--理想のテーブルの作成が成功した場合-->
       <% unless params[:error] %>
+      <!--理想のテーブルの作成が成功した場合-->
         <%= render 'show', ideal: @ideal %>
         <div class="d-flex justify-content-around my-3">
 
-          <!--ログインユーザーがミッションステートメントのカラムを持っていない場合-->
           <% if !current_user.mission_statement.present? %>
+          <!--ログインユーザーがミッションステートメントのカラムを持っていない場合-->
             <%= link_to "次に進む",new_user_path, class: "btn btn-outline-primary" %>
 
-          <!--ログインユーザーがミッションステートメントのカラムを持っている場合-->
           <% else %>
+          <!--ログインユーザーがミッションステートメントのカラムを持っている場合-->
             <%= link_to "登録する",ideal_path, class: "btn btn-outline-primary" %>
 
           <% end %>
-
           <%= link_to "やり直す",ideal_path,method: :delete, class: "btn btn-outline-info" %>
         </div>
 
-
-      <!--理想のテーブルの作成が失敗した場合-->
       <% else %>
-        <h5 class="smart-frame bg-warning">
+      <!--理想のテーブルの作成が失敗した場合-->
+        <h5 class="smart-frame bg-warning mt-5">
           <u>
             理想の作成に失敗しました
           </u>
         </h5>
+        <br>
         <p>
-          教えていただいた理想の内容に空欄があったみたいです。
+          教えていただいた理想の内容に<br>
+          空欄があったみたいです
         </p>
         <p>
           あなたの理想は案外近くにあるものです<br>
@@ -84,12 +85,11 @@
           ふとした拍子に<br>
           泡のように浮かび上がってくるものです
         </p>
-        <div class="d-flex justify-content-around my-3">
-          <%= link_to "やり直す",welcome_path, class: "btn btn-outline-info" %>
+        <div class="d-flex justify-content-around my-5">
+          <%= link_to "やり直す",welcome_path, class: "btn btn-outline-info btn-block" %>
         </div>
 
       <% end %>
     </div>
-
   </div>
 </div>

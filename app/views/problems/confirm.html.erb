@@ -4,31 +4,21 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <p>
-        あなたのこれから叶えていく目標を<br>
+        あなたのこれから達成していく目標を<br>
         教えていただきました
       </p>
       <p>
-        教えていただいた目標を<br>
-        叶え続けた先に理想の未来が手に入ります
+        目標を達成する過程で<br>
+        目標を達成した先に<br>
+        理想の未来が手に入ります
       </p>
       <p>
-        ここが一つのスタートラインとなるのです
+        ここが一つの<br>
+        スタートラインとなるのです
       </p>
       <p>
         大きな目標として<br>
         この目標を大事にしてください
-      </p>
-      <p>
-        これからこのアプリケーションを<br>
-        使用していくにあたり
-      </p>
-      <p>
-        他にも達成したい目標<br>
-        目標を達成するための目標<br>
-        が出てくると思います
-      </p>
-      <p>
-        その時には新たに目標を立ててください
       </p>
       <div class="danger-title-frame">
         <span>書き直す、削除はできません</span>
@@ -54,17 +44,29 @@
           <%= safe_join(session[:purpose].split("\n"),tag(:br)) %>
         </div>
       </div>
+      <p>
+        これからこのアプリケーションを<br>
+        使用していくにあたり
+      </p>
+      <p>
+        他にも達成したい目標<br>
+        目標を達成するための目標<br>
+        が出てくると思います
+      </p>
+      <p>
+        その時には新たに目標を立ててください
+      </p>
       <div class="d-flex justify-content-around my-3">
         <%= form_with model: @problem, url: problems_path, method: :post do |f| %>
-          <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんが\nこの目標いいですか", class: "btn btn-primary" %>
+          <%= f.submit '目標を叶える', "data-confirm" =>"修正することができませんが\nこの目標でいいですか", class: "btn btn-primary" %>
         <% end %>
         <% if !current_user.problems.present? %>
           <!--初めて目標を作成する場合-->
-          <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+          <%= link_to '設定し直す', welcome_path, class: "btn btn-info" %>
         <% else %>
 
           <!--2回目以降に目標を作成する場合-->
-          <%= link_to '目標を設定し直す', new_problem_path, class: "btn btn-info" %>
+          <%= link_to '設定し直す', new_problem_path, class: "btn btn-info" %>
         <% end %>
 
       </div>
@@ -77,7 +79,8 @@
           </u>
         </h5>
         <p>
-          教えていただいた内容に空欄があったみたいです。
+          教えていただいた内容に<br>
+          空欄があったみたいです
         </p>
         <p>
           これから叶えていく目標は<br>

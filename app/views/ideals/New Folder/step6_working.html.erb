@@ -8,8 +8,14 @@
         何かを対価にお金を得るということです
       </p>
       <p>
-        ですがそれは<br>
-        時に負担になるような事もあります
+        仕事の成果を褒められた<br>
+        やりがいを感じた<br>
+        自身の成長を感じた
+      </p>
+      <p>
+        楽しい事も嬉しい事もあれば<br>
+        悲しい事も辛い事<br>
+        負担になることもあります
       </p>
       <p>
         人間関係が負担になる<br>
@@ -22,20 +28,10 @@
         無理なものは無理なのですから
       </p>
       <p>
-        いい事ももちろんあります
-      </p>
-      <p>
-        仕事の成果を褒められた<br>
-        やりがいを感じた<br>
-        自身の成長を感じた
-      </p>
-      <p>
-        楽しい事も嬉しい事もあれば<br>
-        悲しい事も辛い事もあります
-      </p>
-      <p>
-        辞めること、逃げることは恥ではありません<br>
-        より良い場所がきっとあなたには待っています
+        辞めること、逃げることは<br>
+        恥ではありません<br>
+        より良い場所がきっと<br>
+        あなたには待っています
       </p>
       <%= render 'session_keywaord' %>
     </div>
@@ -44,7 +40,8 @@
     <div class="right-page col text-center m-5 p-5">
       <h5 class="smart-frame">
         <u>
-          あなたの理想の働き方を教えて下さい
+          あなたの理想の働き方を<br>
+          教えて下さい
         </u>
       </h5>
       <p>
@@ -68,15 +65,15 @@
       </p>
       <%= form_with model: @ideal,url: step7_residence_ideal_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :working_1 %><br />
+          <%= f.label :working_1, class: "font-weight-bold" %><br />
           <%= f.text_area :working_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :working_2 %><br />
+          <%= f.label :working_2, class: "font-weight-bold" %><br />
           <%= f.text_area :working_2,rows: "3",autofocus: true,class: "form-control" %>
           </div>
         <div class="form-group">
-          <%= f.label :working_3 %><br />
+          <%= f.label :working_3, class: "font-weight-bold" %><br />
           <%= f.text_area :working_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

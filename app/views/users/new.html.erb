@@ -10,7 +10,8 @@
       <p>
         たとえ何があったとしても<br>
         あなたの行動において<br>
-        これだけは何があっても守り通したいこと
+        これだけは何があっても<br>
+        守り通したいこと
       </p>
       <p>
         あなたの中の人生の指針となる<br>
@@ -29,13 +30,13 @@
 
         <!--例題１のタブ-->
         <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
-          <div class="smart-content text-center font-weight-bold">
-            <p>
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <p class="mt-1">
               人に優しく自分に厳しく
             </p>
             <p>
               周りに優しく<br>
-              対応することを心がけ
+              対応することを心がけ<br>
               自分に厳しく<br>
               成長できることを行う
             </p>
@@ -44,8 +45,8 @@
 
         <!--例題2のタブ-->
         <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
-          <div class="smart-content text-center font-weight-bold">
-            <p>
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <p class="mt-1">
               情けは人の為ならず
             </p>
             <p>
@@ -58,8 +59,8 @@
 
         <!--例題3のタブ-->
         <div class="tab-pane fade" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
-          <div class="smart-content text-center font-weight-bold">
-            <p>
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <p class="mt-1">
               道理に向かう刃無し
             </p>
             <p>
@@ -71,12 +72,12 @@
       </div>
 
       <p>
-        この考え方は人生の生き方を表しています
+        このことわざの考え方は<br>
+        人生の生き方を表しています
       </p>
       <p>
-        そしてあなたがあなた自身と<br>
-        約束する守りたいことを<br>
-        教えて下さい
+        あなたがあなた自身と約束する<br>
+        守りたいことを教えて下さい
       </p>
     </div>
 
@@ -93,7 +94,8 @@
         これまでの考え方
       </p>
       <p>
-        どういった性格で何を大事にしてきたのか
+        どういった性格で<br>
+        何を大事にしてきたのか
       </p>
       <p>
         そしてそれは</br>
@@ -104,11 +106,11 @@
       </p>
       <%= form_with model: @user, url: confirm_user_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :mission_statement %><br />
+          <%= f.label :mission_statement, class: "font-weight-bold" %><br />
           <%= f.text_field :mission_statement,rows: "2",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :mission_detail %><br />
+          <%= f.label :mission_detail, class: "font-weight-bold" %><br />
           <%= f.text_area :mission_detail,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
