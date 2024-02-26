@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
 
-  before_action :not_design_your_ideal_life!
+  before_action :not_design_your_mission_statement!
 
   def new
     @problem = Problem.new
@@ -53,9 +53,9 @@ class ProblemsController < ApplicationController
 
   private
 
-  # ログインユーザーがidealテーブル、またはmission_statementのカラムを作成していない場合のアクセス制限
-  def not_design_your_ideal_life!
-    if !current_user.ideal.present? || !current_user.mission_statement.present?
+  # ログインユーザーがmission_statementのカラムを作成していない場合のアクセス制限
+  def not_design_your_mission_statement!
+    if !current_user.mission_statement.present?
       redirect_to welcome_path
     end
   end

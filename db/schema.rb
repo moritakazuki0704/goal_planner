@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2024_02_13_171135) do
     t.string "keyword_9", null: false
     t.string "keyword_10", null: false
     t.string "mission_statement"
-    t.text "mission_detail"
+    t.text "mission_statement_detail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

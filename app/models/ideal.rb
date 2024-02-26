@@ -9,7 +9,7 @@ class Ideal < ApplicationRecord
     validates :ideal_self_2
     validates :ideal_self_3
   end
-  
+
   # ideal_statusがpersonality（理想の性格）のみ表示
   scope :personality, -> {where(ideal_status: 0)}
   # ideal_statusがappearance（理想の姿）のみ表示
@@ -28,5 +28,5 @@ class Ideal < ApplicationRecord
   scope :partner, -> {where(ideal_status: 7)}
   # ideal_statusがrole_model（理想のモデル）のみ表示
   scope :role_model, -> {where(ideal_status: 8)}
-  
+
 end

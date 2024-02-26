@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
 
-  before_action :not_design_your_ideal_life!
+  before_action :not_setting_goals_in_life!
 
   def create
     problem = Problem.find(params[:problem_id])
@@ -69,9 +69,9 @@ class MissionsController < ApplicationController
 
   private
 
-  # ログインユーザーがidealテーブル、またはmission_statementのカラム、または目標を作成していない場合のアクセス制限
-  def not_design_your_ideal_life!
-    if !current_user.ideal.present? || !current_user.mission_statement.present? || !current_user.problems.present?
+  # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  def not_setting_goals_in_life!
+    if !current_user.mission_statement.present? || !current_user.problems.present?
       redirect_to welcome_path
     end
   end

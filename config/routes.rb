@@ -3,25 +3,28 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
 
-  resource :user,only: [:new,:update,:destroy] do
+  resource :user,only: [:destroy] do
     collection do
-      get 'confirm'
+      get 'keyword_new'
+      get 'keyword_confirm'
+      patch 'keyword_update'
+      get 'mission_statement_new'
+      get 'mission_statement_confirm'
+      patch 'mission_statement_update'
       get 'withdrawal'
     end
   end
-  resource :ideal,only: [:show,:create,:destroy] do
+  resources :ideals,except: [:new,:edit,:update] do
     collection do
-      get 'step1_keyword'
-      get 'step2_personality'
-      get 'step3_appearance'
-      get 'step4_lifestyle'
-      get 'step5_time'
-      get 'step6_working'
-      get 'step7_residence'
-      get 'step8_relationship'
-      get 'step9_partner'
-      get 'step10_role_model'
-      get 'confirm'
+      get 'personality_new'
+      get 'appearance_new'
+      get 'lifestyle_new'
+      get 'spend_time_new'
+      get 'working_new'
+      get 'residence_new'
+      get 'relationship_new'
+      get 'partner_new'
+      get 'role_model_new'
     end
   end
   resources :problems,except: [:edit,:destroy] do

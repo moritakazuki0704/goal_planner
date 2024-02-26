@@ -44,7 +44,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :keyword_9, null: false
       t.string :keyword_10, null: false
       t.string :mission_statement
-      t.text :mission_detail
+      t.text :mission_statement_detail
       t.timestamps null: false
     end
 

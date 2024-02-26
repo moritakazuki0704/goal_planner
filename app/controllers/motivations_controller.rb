@@ -1,6 +1,6 @@
 class MotivationsController < ApplicationController
 
-  before_action :not_design_your_ideal_life!
+  before_action :not_setting_goals_in_life!
   before_action :motivation_new, only: [:positive_new,:negative_new,:to_do_new,:want_new]
   before_action :user_signed_motivation, except: [:show,:destroy]
 
@@ -50,9 +50,9 @@ class MotivationsController < ApplicationController
     @user_motivation = Motivation.where(user_id: current_user)
   end
 
-  # ログインユーザーがidealテーブル、またはmission_statementのカラム、または目標を作成していない場合のアクセス制限
-  def not_design_your_ideal_life!
-    if !current_user.ideal.present? || !current_user.mission_statement.present? || !current_user.problems.present?
+  # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  def not_setting_goals_in_life!
+    if !current_user.mission_statement.present? || !current_user.problems.present?
       redirect_to welcome_path
     end
   end

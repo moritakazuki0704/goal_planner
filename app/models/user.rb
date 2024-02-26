@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :scrap_books,dependent: :destroy
 
   validates :planner_name, presence: true
-  
+
   # updateの場合のみバリデーションする
   with_options presence: true, on: :update do
     validates :keyword_1
@@ -25,13 +25,11 @@ class User < ApplicationRecord
     validates :keyword_9
     validates :keyword_10
   end
-  
-  # keyword_10のカラムが存在しにupdateの場合のみバリデーションする
-  if self.keyword_10.present?
-    with_options presence: true, on: :update do
+
+    with_options presence: true, on: :update, if: :keyword_10.present? do
       validates :mission_statement
-      validates :mission_detail
+      validates :mission_statement_detail
     end
-  end
+
 
 end
