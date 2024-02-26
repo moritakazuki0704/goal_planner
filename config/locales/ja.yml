@@ -21,12 +21,6 @@ ja:
       user:
         id: あなたのID
         planner_name: 手帳の名前
-        mission_statement: 生涯の大切にすること
-        mission_detail: 生涯大切にすることの詳細
-        secret_word: 秘密の合言葉
-      ideal:
-        id: 理想のID
-        user_id: あなたのID
         keyword_1: １つ目のキーワード
         keyword_2: ２つ目のキーワード
         keyword_3: ３つ目のキーワード
@@ -37,39 +31,22 @@ ja:
         keyword_8: ８つ目のキーワード
         keyword_9: ９つ目のキーワード
         keyword_10: １０つ目のキーワード
-        personality_1: １つ目の理想の性格
-        personality_2: ２つ目の理想の性格
-        personality_3: ３つ目の理想の性格
-        hair_make: 理想の髪型・メイク
-        body_make: 理想の体型
-        fashion_make: 理想のファッション
-        lifestyle_1: １つ目の理想のライフスタイル
-        lifestyle_2: ２つ目の理想のライフスタイル
-        lifestyle_3: ３つ目の理想のライフスタイル
-        time_1: １つ目の理想の時間の使い方
-        time_2: ２つ目の理想の時間の使い方
-        time_3: ３つ目の理想の時間の使い方
-        working_1: １つ目の理想の働き方
-        working_2: ２つ目の理想の働き方
-        working_3: ３つ目の理想の働き方
-        residence_1: １つ目の理想の住まい
-        residence_2: ２つ目の理想の住まい
-        residence_3: ３つ目の理想の住まい
-        relationship_1: １つ目の理想の人間関係
-        relationship_2: ２つ目の理想の人間関係
-        relationship_3: ３つ目の理想の人間関係
-        partner_1: １つ目の理想のパートナー
-        partner_2: ２つ目の理想のパートナー
-        partner_3: ３つ目の理想のパートナー
-        partner_model: 理想のパートナー、夫婦像
-        family_model: 理想の家族、親子像
-        friend_model: 理想の友達、仲間像
+        mission_statement: 生涯の大切にすること
+        mission_detail: 生涯大切にすることの詳細
+        secret_word: 秘密の合言葉
+      ideal:
+        id: 理想のID
+        user_id: あなたのID
+        ideal_status: 理想のステータス
+        ideal_self_1: １つ目の理想の自分
+        ideal_self_2: ２つ目の理想の自分
+        ideal_self_3: ３つ目の理想の自分
       problem:
         id: 目標のID
         user_id: あなたのID
         commitment: 叶えたい目標
         purpose: 目標を持った理由
-        progress_status: 進行ステータス
+        progress_status: 進捗ステータス
       mission:
         id: 任務のID
         problem_id: 目標のID
@@ -103,6 +80,17 @@ ja:
         appetite: モチベーションの詳細
         memory: モチベーションの思い出
   enums:
+    ideal: # モデル名
+      ideal_status: # カラム名
+        personality: '理想の性格' # enumの値
+        appearance: '理想の姿' # enumの値
+        lifestyle: '理想の生活' # enumの値
+        spend_time: '理想の時間の使い方' # enumの値
+        working: '理想の働き方' # enumの値
+        residence: '理想の住まい' # enumの値
+        relationship: '理想の人間関係' # enumの値
+        partner: '理想のパートナー' # enumの値
+        role_model: '理想のモデル' # enumの値
     problem: # モデル名
       progress_status: # カラム名
         progress: '進行中' # enumの値
@@ -117,7 +105,7 @@ ja:
       progress_status: # カラム名
         unstarted: '未完了' # enumの値
         finish: '完了' # enumの値
-        progress: '進行中' # enumの値
+        process: '進行中' # enumの値
         postpone: '先送り' # enumの値
         withdraw: '辞める' # enumの値
     motivation: # モデル名
