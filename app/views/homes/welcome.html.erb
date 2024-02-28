@@ -2,12 +2,12 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--目標を作成済の場合-->
-    <% if @problem.present? && @ideal.present? %>
+    <% if @problem.present? %>
       <%= render 'homes/wizard_welcomes/welcome' %>
 
     <!--目標作成を行なっていない場合-->
     <% else %>
-      <%= render 'homes/wizard_welcomes/introduction', ideal: @ideal %>
+      <%= render 'homes/wizard_welcomes/introduction' %>
 
     <% end %>
   </div>

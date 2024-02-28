@@ -4,8 +4,8 @@ class HomesController < ApplicationController
   end
 
   def welcome
-    @problem = Problem.where(user_id: current_user)
-    @ideal = Ideal.where(user_id: current_user)
+    @problem = current_user.problems
+    @user = current_user
   end
 
 end

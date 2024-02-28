@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        理想を追求していくにあたって<br>
+        なりたい自分というものを<br>
+        知りましょう
+      </p>
+      <p>
+        あなたにとってのなりたい<br>
+        自分とはなんでしょう
+      </p>
+      <p>
+        思い浮かぶ人がいますか<br>
+        思い浮かぶ行動がありますか
+      </p>
+      <p>
+        憧れる立ち振る舞いはありますか<br>
+        憧れる生き方はありますか
+      </p>
+      <p>
+        そして逆にこうなりたくない<br>
+        これだけはしたくないということは<br>
+        ありますか
+      </p>
+      <p>
+        キーワードを基に<br>
+        理想を探してみましょう
+      </p>
+      <p>
+        理想の性格　／　理想の姿<br>
+        理想の生活　／　理想の時間<br>
+        理想の働き方　／　理想の住まい
+      </p>
+      <p>
+        これから一つずつ聞いていきます<br>
+        深く考える必要はありません<br>
+        それほど難しいことでもありません
+      </p>
+      <p>
+        だってそれはきっと<br>
+        あなたのなかにいるのだから
+      </p>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想を示す<br>
+          キーワード<br>
+          10個教えて下さい
+        </u>
+      </h5>
+      <p>
+        どんなものでも構いません<br>
+        性格、生き方、価値観、人生観<br>
+      </p>
+      <p>
+        ただ思いつくままに教えて下さい
+      </p>
+      <%= form_with model: @ideal, url: step2_personality_ideal_path, method: :get do |f| %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="2" scope="col">
+                理想のキーワード入力してください
+              </th>
+            </tr>
+          </thead>
+          <tbody class="form-group">
+            <tr>
+              <td><%= f.text_field :keyword_1, autofocus: true,class: "form-control" %></th>
+              <td><%= f.text_field :keyword_2, autofocus: true,class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :keyword_3, autofocus: true,class: "form-control" %></th>
+              <td><%= f.text_field :keyword_4, autofocus: true,class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :keyword_5, autofocus: true,class: "form-control" %></th>
+              <td><%= f.text_field :keyword_6, autofocus: true,class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :keyword_7, autofocus: true,class: "form-control" %></th>
+              <td><%= f.text_field :keyword_8, autofocus: true,class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :keyword_9, autofocus: true,class: "form-control" %></th>
+              <td><%= f.text_field :keyword_10, autofocus: true,class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td colspan="2"><%= f.submit "次に進む",class: "btn btn-outline-primary" %></th>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+
+  </div>
+</div>

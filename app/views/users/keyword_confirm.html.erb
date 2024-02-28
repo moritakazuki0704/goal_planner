@@ -1,0 +1,115 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        あなたにとっての生涯大切にしてることを<br>
+        教えていただきました
+      </p>
+      <p>
+        これは今までも守り続けてきたこと<br>
+        これからも守り続け大事にしていくこと
+      </p>
+      <p>
+        あなたの全てとも言えます
+      </p>
+      <p>
+        迷ってしまった時<br>
+        困った時<br>
+        困難に立ち向かう時
+      </p>
+      <p>
+        何かを選ぶときの一つの指針となります
+      </p>
+      <div class="danger-title-frame">
+        <span>書き直すことはできません</span>
+        <p>
+          書き直すことも<br>
+          消すこともできません<br>
+          間違いないことを<br>
+          改めて確認してください
+        </p>
+      </div>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <% if session[:keyword_1].present? && session[:keyword_2].present? && session[:keyword_3].present? && session[:keyword_4].present? && session[:keyword_5].present? && session[:keyword_6].present? && session[:keyword_7].present? && session[:keyword_8].present? && session[:keyword_9].present? && session[:keyword_10].present? %>
+
+        <!--理想を示すキーワードの全てが入力されている場合-->
+        <table class="table smart-frame p-3">
+          <thead>
+            <tr>
+              <th colspan="2" scope="col">理想のキーワード</th>
+            </tr>
+          </thead>
+          <tbody class="cross-frame font-weight-bold">
+            <tr>
+              <td><%= session[:keyword_1] %></th>
+              <td><%= session[:keyword_2] %></td>
+            </tr>
+            <tr>
+              <td><%= session[:keyword_3] %></th>
+              <td><%= session[:keyword_4] %></td>
+            </tr>
+            <tr>
+              <td><%= session[:keyword_5] %></th>
+              <td><%= session[:keyword_6] %></td>
+            </tr>
+            <tr>
+              <td><%= session[:keyword_7] %></th>
+              <td><%= session[:keyword_8] %></td>
+            </tr>
+            <tr>
+              <td><%= session[:keyword_9] %></th>
+              <td><%= session[:keyword_10] %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-around my-3">
+          <%= form_with model: @user, url: mission_statement_new_user, method: :patch do |f|  %>
+            <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-info" do %>
+            あなたの理想を示す<br>キーワードをやり直す
+          <% end %>
+        </div>
+
+      <!--mission_statementとmission_detailのどちらか、もしくは両方に空欄があった場合-->
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想を示すキーワードの作成に<br>
+            失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた内容に<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          キーワードには<br>
+          過去、今、未来のあなたを示しています<br>
+          深く考える必要はありません
+        </p>
+        <p>
+          大切にしている思いや行動<br>
+          叶えたいと思う欲求<br>
+          それはすでにあなたの中にあります
+        </p>
+        <p>
+          あとはそれを<br>
+          言葉にして形にするだけです
+        </p>
+        <div class="d-flex justify-content-around my-3">
+          <%= link_to welcome_path, class: "btn btn-info" do %>
+            あなたの理想を示す<br>キーワードをやり直す
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
