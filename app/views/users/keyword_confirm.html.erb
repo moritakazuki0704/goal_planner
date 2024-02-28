@@ -68,7 +68,7 @@
           </tbody>
         </table>
         <div class="d-flex justify-content-around my-3">
-          <%= form_with model: @user, url: mission_statement_new_user, method: :patch do |f|  %>
+          <%= form_with model: @user, url: keyword_update_user_path, method: :patch do |f|  %>
             <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-primary" %>
           <% end %>
           <%= link_to welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-info" do %>

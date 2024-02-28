@@ -1,0 +1,189 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <% unless params[:error] %>
+        <p>
+          ポジティブなことでモチベーションを維持する<br>
+          これだけは嫌と思うネガティブなことでモチベーションを維持する<br>
+          将来やりたいことでモチベーションを維持する<br>
+          将来ほしい物でモチベーションを維持する
+        </p>
+        <p>
+          モチベーションのスイッチを知ると<br>
+          自分が落ち込んだ時や元気が欲しい時<br>
+          自分に何をしてあげたらいいのかわかるようになります
+        </p>
+        <p>
+          それは自分の気持ちを上げるための処方箋のようなものです
+        </p>
+        <p>
+          きっとこれからモチベーションが下がったり、迷ったりすることがあることでしょう<br>
+          ですが何も恐れることはありません
+        </p>
+        <p>
+          たとえ下がったり迷ったとしても<br>
+          何度でもモチベーションのスイッチを入れることができるからです
+        </p>
+        <p>
+          ここを見て、何度でも立ち上がり<br>
+          あなたの夢、理想を叶えて下さい
+        </p>
+
+      <!--モチベーションの作成に失敗した場合-->
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            モチベーションの作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいたモチベーションの内容に<br>
+          問題があったみたいです
+        </p>
+        <p>
+          モチベーションの詳細と思い出に<br>
+          空欄がありましたか？<br>
+          難しく考える必要はありません
+        </p>
+        <p>
+          モチベーションの詳細も思い出も<br>
+          普通に過ごしている中で<br>
+          ふとした拍子に<br>
+          泡のように浮かび上がってくるものです
+        </p>
+        <p>
+          もしくはモチベーションの詳細が<br>
+          他のモチベーションと被ってませんか？
+        </p>
+        <p>
+          同じモチベーションでも違うモチベーションでも<br>
+          同じ内容で思い出が違っても<br>
+          熱量は違うはずです
+        </p>
+        <p>
+          その熱量を詳細にも思い出にも<br>
+          書き記してください
+        </p>
+      <% end %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <% if @user_motivation.present? %>
+
+        <!--タブ表示機能-->
+        <nav>
+          <div class="nav nav-tabs strip-paper" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active btn btn-outline-success" id="nav-positive-tab" data-toggle="tab" href="#nav-positive" role="tab" aria-controls="nav-positive" aria-selected="true">ポジティブ</a>
+            <a class="nav-item nav-link btn btn-outline-secondary" id="nav-negative-tab" data-toggle="tab" href="#nav-negative" role="tab" aria-controls="nav-negative" aria-selected="false">ネガティブ</a>
+            <a class="nav-item nav-link btn btn-outline-primary" id="nav-to_do-tab" data-toggle="tab" href="#nav-to_do" role="tab" aria-controls="nav-to_do" aria-selected="false">やりたいこと</a>
+            <a class="nav-item nav-link btn btn-outline-warning" id="nav-want-tab" data-toggle="tab" href="#nav-want" role="tab" aria-controls="nav-want" aria-selected="false">ほしいもの</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+          <!--ポジティブモチベーションのタブ-->
+          <div class="tab-pane fade show active" id="nav-positive" role="tabpanel" aria-labelledby="nav-positive-tab">
+
+            <!--スクロール機能-->
+            <div class="scroll-box">
+              <% @motivations.positives.each do |positive| %>
+                <ul class="list-group">
+                  <%= link_to motivation_path(positive), class: "list-group-item list-group-item-action list-group-item-success" do %>
+                    <%= safe_join(positive.appetite.split("\n"),tag(:br)) %>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+
+          </div>
+
+          <!--ネガティブモチベーションのタブ-->
+          <div class="tab-pane fade" id="nav-negative" role="tabpanel" aria-labelledby="nav-negative-tab">
+
+            <!--スクロール機能-->
+            <div class="scroll-box">
+              <% @motivations.negatives.each do |negative| %>
+                <ul class="list-group">
+                  <%= link_to motivation_path(negative), class: "list-group-item list-group-item-action list-group-item-secondary" do %>
+                    <%= safe_join(negative.appetite.split("\n"),tag(:br)) %>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+
+          <!--やりたいことリストのタブ-->
+          <div class="tab-pane fade" id="nav-to_do" role="tabpanel" aria-labelledby="nav-to_do-tab">
+
+            <!--スクロール機能-->
+            <div class="scroll-box">
+              <% @motivations.to_dos.each do |to_do| %>
+                <ul class="list-group">
+                  <%= link_to motivation_path(to_do), class: "list-group-item list-group-item-action list-group-item-primary" do %>
+                    <%= safe_join(to_do.appetite.split("\n"),tag(:br)) %>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+
+          <!--ほしい物リストのタブ-->
+          <div class="tab-pane fade" id="nav-want" role="tabpanel" aria-labelledby="nav-want-tab">
+
+            <!--スクロール機能-->
+            <div class="scroll-box">
+              <% @motivations.wants.each do |want| %>
+                <ul class="list-group">
+                  <%= link_to motivation_path(want), class: "list-group-item list-group-item-action list-group-item-warning" do %>
+                    <%= safe_join(want.appetite.split("\n"),tag(:br)) %>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+        <div class="d-flex justify-content-center my-5">
+          <%= paginate @motivations %>
+        </div>
+        
+      <% else %>
+
+        <!--初めてモチベーションページに来たときに表示-->
+        <div>
+          <p>
+            まずは<br>
+            あなたのモチベーションを教えてください
+          </p>
+          <p>
+            あなたの感情が<br>
+            ポジティブに動いた瞬間について<br>
+            ネガティブに動いた瞬間について<br>
+            楽しいものを見つけた瞬間について<br>
+            手に入れたいものを見つけた瞬間について
+          </p>
+          <p>
+            心が動いた瞬間<br>
+            それがあなたのモチベーションを維持するために<br>
+            必要なとても大事な要素であり
+          </p>
+          <p>
+            あなたが<br>
+            あなたらしくいられるために<br>
+            必要な要素です
+          </p>
+        </div>
+      <% end %>
+
+      <div class="d-flex justify-content-around my-5 strip-paper">
+        <%= link_to "ポジティブ", positive_new_motivations_path, class: "btn btn-outline-success" %>
+        <%= link_to "ネガティブ", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
+        <%= link_to "したいこと", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
+        <%= link_to "欲しいもの", want_new_motivations_path, class: "btn btn-outline-warning" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -104,7 +104,7 @@
       <p>
         それはあなたの中にあります
       </p>
-      <%= form_with model: @user, url: confirm_user_path, method: :get do |f| %>
+      <%= form_with model: @user, url: mission_statement_confirm_user, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :mission_statement, class: "font-weight-bold" %><br />
           <%= f.text_field :mission_statement,rows: "2",autofocus: true,class: "form-control" %>

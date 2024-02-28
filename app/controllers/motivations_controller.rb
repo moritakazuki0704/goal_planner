@@ -2,7 +2,6 @@ class MotivationsController < ApplicationController
 
   before_action :not_setting_goals_in_life!
   before_action :motivation_new, only: [:positive_new,:negative_new,:to_do_new,:want_new]
-  before_action :user_signed_motivation, except: [:show,:destroy]
 
   def positive_new
   end
@@ -27,11 +26,13 @@ class MotivationsController < ApplicationController
   end
 
   def index
-    @motivations = @user_motivation.order("RANDOM()").page(params[:page])
+    @motivations = current_user.motivations
   end
 
   def show
-    @motivation = Motivation.find(params[:id])
+    user_motivation = current_user.motivations
+    motivation = user_motivation.find_by(emotion_stetas: params[:emotion_stetas])
+    @random_motivation = motivation.order("RANDOM()")
   end
 
   def destroy
@@ -44,10 +45,6 @@ class MotivationsController < ApplicationController
 
   def motivation_new
     @motivation = Motivation.new
-  end
-
-  def user_signed_motivation
-    @user_motivation = Motivation.where(user_id: current_user)
   end
 
   # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限

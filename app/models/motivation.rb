@@ -9,12 +9,12 @@ class Motivation < ApplicationRecord
   end
 
   # ポジティブモチベーションを表示
-  scope :positives, -> {where(emotion_status: 0)}
+  scope :positive, -> {where(emotion_status: 0)}
   # ネガティブモチベーションを表示
-  scope :negatives, -> {where(emotion_status: 1)}
+  scope :negative, -> {where(emotion_status: 1)}
   # したいことリストを表示
-  scope :to_dos, -> {where(emotion_status: 2)}
+  scope :to_do, -> {where(emotion_status: 2)}
   # ほしい物リストを表示
-  scope :wants, -> {where(emotion_status: 3)}
+  scope :want, -> {where(emotion_status: 3)}
 
 end

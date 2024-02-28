@@ -45,7 +45,9 @@ class IdealsController < ApplicationController
   end
   
   def show
-    @ideal = Ideal.find(params[:id])
+    user_ideal = current_user.ideals
+    ideal = user_ideal.find_by(ideal_status: params[:ideal_status])
+    @random_ideal = ideal.order("RANDOM()")
   end
 
   def destroy

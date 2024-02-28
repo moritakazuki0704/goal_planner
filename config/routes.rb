@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get 'withdrawal'
     end
   end
-  resources :ideals,except: [:new,:edit,:update] do
+  resources :ideals,only: [:create,:index,:destroy] do
     collection do
       get 'personality_new'
       get 'appearance_new'
@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get 'role_model_new'
     end
   end
+  get 'ideals/:ideal_status' => 'ideals#show',as: 'show_ideal'
   resources :problems,except: [:edit,:destroy] do
     collection do
       get 'confirm'
@@ -53,7 +54,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :motivations,except: [:new,:edit,:update] do
+  resources :motivations,only: [:create,:index,:destroy] do
     collection do
       get 'positive_new'
       get 'negative_new'
@@ -61,6 +62,7 @@ Rails.application.routes.draw do
       get 'want_new'
     end
   end
+  get 'motivations/:emotion_status' => 'motivations#show',as: 'show_motivation'
   resources :scrap_books,except: [:new,:edit,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
