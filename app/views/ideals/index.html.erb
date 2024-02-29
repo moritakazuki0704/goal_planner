@@ -32,206 +32,110 @@
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <!--タブ表示機能-->
-      <nav>
-        <div class="nav nav-tabs strip-paper justify-content-around" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">性格</a>
-          <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">見た目</a>
-          <a class="nav-item nav-link" id="nav-lifestyle-tab" data-toggle="tab" href="#nav-lifestyle" role="tab" aria-controls="nav-lifestyle" aria-selected="false">生き方</a>
-          <a class="nav-item nav-link" id="nav-spend_time-tab" data-toggle="tab" href="#nav-spend_time" role="tab" aria-controls="nav-spend_time" aria-selected="false">時間</a>
-          <div class="w-100"></div>
-          <a class="nav-item nav-link" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="false">働き方</a>
-          <a class="nav-item nav-link" id="nav-residence-tab" data-toggle="tab" href="#nav-residence" role="tab" aria-controls="nav-residence" aria-selected="false">住まい</a>
-          <a class="nav-item nav-link" id="nav-relationship-tab" data-toggle="tab" href="#nav-relationship" role="tab" aria-controls="nav-relationship" aria-selected="false">関係性</a>
-          <a class="nav-item nav-link" id="nav-partner-tab" data-toggle="tab" href="#nav-partner" role="tab" aria-controls="nav-partner" aria-selected="false">相方</a>
-          <a class="nav-item nav-link" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="false">モデル</a>
-        </div>
-      </nav>
+      <div class="cross-frame font-weight-bold">
+        <ul class="list-group strip-paper">
 
-      <div class="tab-content" id="nav-tabContent">
-      <!--タブ表示する内容-->
+          <% if @ideals.personality.present? %>
+          <!--理想の性格が作成されている場合-->
+            <%= link_to "理想の性格", show_ideal_path(@ideals.ideal_status(0)), class: "list-group-item list-group-item-action list-group-item-success" %>
 
-        <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
-        <!--理想の性格のタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>性格</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.personality.present? %>
-                  <%= link_to "理想の性格", show_ideal_path(@ideals.ideal_status(0)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to personality_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想の性格を<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% else %>
+          <!--理想の性格が作成されていない場合-->
+            <%= link_to personality_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想の性格を<br>想像する
+            <% end %>
+          <% end %>
 
-        <div class="tab-pane fade" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
-        <!--理想の姿のタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>姿</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.appearance.present? %>
-                  <%= link_to "理想の姿", show_ideal_path(@ideals.ideal_status(1)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to appearance_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想の姿を<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% if @ideals.appearance.present? %>
+          <!--理想の姿が作成されている場合-->
+            <%= link_to "理想の姿", show_ideal_path(@ideals.ideal_status(1)), class: "list-group-item list-group-item-action list-group-item-success" %>
 
-        <div class="tab-pane fade" id="nav-lifestyle" role="tabpanel" aria-labelledby="nav-lifestyle-tab">
-        <!--理想のライフスタイルのタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>ライフスタイル</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.lifestyle.present? %>
-                  <%= link_to "理想のライフスタイル", show_ideal_path(@ideals.ideal_status(2)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to lifestyle_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想のライフスタイルを<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% else %>
+          <!--理想の姿が作成されていない場合-->
+            <%= link_to appearance_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想の姿を<br>想像する
+            <% end %>
+          <% end %>
 
-        <div class="tab-pane fade" id="nav-spend_time" role="tabpanel" aria-labelledby="nav-spend_time-tab">
-        <!--理想の時間の使い方のタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>時間の使い方</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.spend_time.present? %>
-                  <%= link_to "理想の時間の使い方", show_ideal_path(@ideals.ideal_status(3)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to spend_time_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想の時間の使い方を<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% if @ideals.lifestyle.present? %>
+          <!--理想のライフスタイルが作成されている場合-->
+            <%= link_to "理想のライフスタイル", show_ideal_path(@ideals.ideal_status(2)), class: "list-group-item list-group-item-action list-group-item-success" %>
 
-        <div class="tab-pane fade" id="nav-working" role="tabpanel" aria-labelledby="nav-working-tab">
-        <!--理想の働き方のタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>働き方</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.working.present? %>
-                  <%= link_to "理想の働き方", show_ideal_path(@ideals.ideal_status(4)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to working_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想の働き方を<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% else %>
+          <!--理想のライフスタイルが作成されていない場合-->
+            <%= link_to lifestyle_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想のライフスタイルを<br>想像する
+            <% end %>
+          <% end %>
 
-        <div class="tab-pane fade" id="nav-residence" role="tabpanel" aria-labelledby="nav-residence-tab">
-        <!--理想の住まいのタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>住まい</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.residence.present? %>
-                  <%= link_to "理想の住まい", show_ideal_path(@ideals.ideal_status(5)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to residence_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想の住まいを<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% if @ideals.spend_time.present? %>
+          <!--理想の時間の使い方が作成されている場合-->
+            <%= link_to "理想の時間の使い方", show_ideal_path(@ideals.ideal_status(3)), class: "list-group-item list-group-item-action list-group-item-success" %>
 
-        <div class="tab-pane fade" id="nav-relationship" role="tabpanel" aria-labelledby="nav-relationship-tab">
-        <!--理想の人間関係のタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>人間関係</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.relationship.present? %>
-                  <%= link_to "理想の人間関係", show_ideal_path(@ideals.ideal_status(6)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想の人間関係を<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% else %>
+          <!--理想の時間の使い方が作成されていない場合-->
+            <%= link_to spend_time_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想の時間の使い方を<br>想像する
+            <% end %>
+          <% end %>
 
-        <div class="tab-pane fade" id="nav-partner" role="tabpanel" aria-labelledby="nav-partner-tab">
-        <!--理想のパートナーのタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>パートナー</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.partner.present? %>
-                  <%= link_to "理想のパートナー", show_ideal_path(@ideals.ideal_status(7)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to partner_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想のパートナーを<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% if @ideals.working.present? %>
+          <!--理想の働き方が作成されている場合-->
+            <%= link_to "理想の働き方", show_ideal_path(@ideals.ideal_status(4)), class: "list-group-item list-group-item-action list-group-item-success" %>
 
-        <div class="tab-pane fade" id="nav-role_model" role="tabpanel" aria-labelledby="nav-role_model-tab">
-        <!--理想のロールモデルのタブ-->
-          <div>
-            <div class="smart-content text-center font-weight-bold mt-0">
-              <h3>ロールモデル</h3>
-            </div>
-            <div class="cross-frame font-weight-bold">
-              <ul class="list-group">
-                <% if @ideals.role_model.present? %>
-                  <%= link_to "理想のロールモデル", show_ideal_path(@ideals.ideal_status(8)), class: "list-group-item list-group-item-action list-group-item-success" %>
-                <% else %>
-                  <%= link_to role_model_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    理想のロールモデルを<br>想像する
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <% else %>
+          <!--理想の働き方が作成されていない場合-->
+            <%= link_to working_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想の働き方を<br>想像する
+            <% end %>
+          <% end %>
+
+          <% if @ideals.residence.present? %>
+          <!--理想の住まいが作成されている場合-->
+            <%= link_to "理想の住まい", show_ideal_path(@ideals.ideal_status(5)), class: "list-group-item list-group-item-action list-group-item-success" %>
+
+          <% else %>
+          <!--理想の住まいが作成されていない場合-->
+            <%= link_to residence_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想の住まいを<br>想像する
+            <% end %>
+          <% end %>
+
+          <% if @ideals.relationship.present? %>
+          <!--理想の人間関係が作成されている場合-->
+            <%= link_to "理想の人間関係", show_ideal_path(@ideals.ideal_status(6)), class: "list-group-item list-group-item-action list-group-item-success" %>
+
+          <% else %>
+          <!--理想の人間関係が作成されていない場合-->
+            <%= link_to relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想の人間関係を<br>想像する
+            <% end %>
+          <% end %>
+
+          <% if @ideals.partner.present? %>
+          <!--理想のパートナーが作成されている場合-->
+            <%= link_to "理想のパートナー", show_ideal_path(@ideals.ideal_status(7)), class: "list-group-item list-group-item-action list-group-item-success" %>
+
+          <% else %>
+          <!--理想のパートナーが作成されていない場合-->
+            <%= link_to partner_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想のパートナーを<br>想像する
+            <% end %>
+          <% end %>
+
+          <% if @ideals.role_model.present? %>
+          <!--理想のロールモデルが作成されている場合-->
+            <%= link_to "理想のロールモデル", show_ideal_path(@ideals.ideal_status(8)), class: "list-group-item list-group-item-action list-group-item-success" %>
+
+          <% else %>
+          <!--理想のロールモデルが作成されていない場合-->
+            <%= link_to role_model_ideals_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+              理想のロールモデルを<br>想像する
+            <% end %>
+          <% end %>
+
+        </ul>
       </div>
     </div>
-
   </div>
 </div>

@@ -5,29 +5,56 @@ class IdealsController < ApplicationController
 
   def personality_new
   end
+  
+  def personality_create
+  end
 
   def appearance_new
+  end
+  
+  def appearance_create
   end
 
   def lifestyle_new
   end
+  
+  def lifestyle_create
+  end
 
   def spend_time_new
+  end
+  
+  def spend_time_create
   end
 
   def working_new
   end
+  
+  def working_create
+  end
 
   def residence_new
+  end
+  
+  def residence_create
   end
 
   def relationship_new
   end
+  
+  def relationship_create
+  end
 
   def partner_new
   end
+  
+  def partner_create
+  end
 
   def role_model_new
+  end
+  
+  def role_model_create
   end
 
   def create
@@ -43,11 +70,11 @@ class IdealsController < ApplicationController
   def index
     @ideals = current_user.ideals
   end
-  
+
   def show
     user_ideal = current_user.ideals
-    ideal = user_ideal.find_by(ideal_status: params[:ideal_status])
-    @random_ideal = ideal.order("RANDOM()")
+    @ideals = user_ideal.find_by(ideal_status: params[:ideal_status])
+    @random_ideals = @ideals.order("RANDOM()").page(params[:page])
   end
 
   def destroy
