@@ -21,15 +21,21 @@
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">例1</a>
-          <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">例2</a>
-          <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">例3</a>
+          <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">キーワード</a>
+          <a class="nav-item nav-link" id="nav-first_sample-tab" data-toggle="tab" href="#nav-first_sample" role="tab" aria-controls="nav-first_sample" aria-selected="false">例1</a>
+          <a class="nav-item nav-link" id="nav-second_sample-tab" data-toggle="tab" href="#nav-second_sample" role="tab" aria-controls="nav-second_sample" aria-selected="false">例2</a>
+          <a class="nav-item nav-link" id="nav-third_sample-tab" data-toggle="tab" href="#nav-third_sample" role="tab" aria-controls="nav-third_sample" aria-selected="false">例3</a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
         <!--例題１のタブ-->
         <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'keyword_show' %>
+        </div>
+
+        <!--例題１のタブ-->
+        <div class="tab-pane fade" id="nav-first_sample" role="tabpanel" aria-labelledby="nav-first_sample-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
             <p class="mt-1">
               人に優しく自分に厳しく
@@ -44,7 +50,7 @@
         </div>
 
         <!--例題2のタブ-->
-        <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
+        <div class="tab-pane fade" id="nav-second_sample" role="tabpanel" aria-labelledby="nav-second_sample-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
             <p class="mt-1">
               情けは人の為ならず
@@ -58,7 +64,7 @@
         </div>
 
         <!--例題3のタブ-->
-        <div class="tab-pane fade" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
+        <div class="tab-pane fade" id="nav-third_sample" role="tabpanel" aria-labelledby="nav-third_sample-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
             <p class="mt-1">
               道理に向かう刃無し

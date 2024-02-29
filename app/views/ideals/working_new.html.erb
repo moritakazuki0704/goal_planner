@@ -3,37 +3,68 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        働くということは<br>
-        何かを対価にお金を得るということです
-      </p>
-      <p>
-        仕事の成果を褒められた<br>
-        やりがいを感じた<br>
-        自身の成長を感じた
-      </p>
-      <p>
-        楽しい事も嬉しい事もあれば<br>
-        悲しい事も辛い事<br>
-        負担になることもあります
-      </p>
-      <p>
-        人間関係が負担になる<br>
-        働き方が負担になる<br>
-        働く時間帯、勤務時間が負担になる<br>
-        自身の実力不足を痛感して負担になる
-      </p>
-      <p>
-        それらは恥ずべきことではありません<br>
-        無理なものは無理なのですから
-      </p>
-      <p>
-        辞めること、逃げることは<br>
-        恥ではありません<br>
-        より良い場所がきっと<br>
-        あなたには待っています
-      </p>
-      <%= render 'session_keywaord' %>
+      <% unless params[:error] %>
+        <p>
+          働くということは<br>
+          何かを対価にお金を得るということです
+        </p>
+        <p>
+          仕事の成果を褒められた<br>
+          やりがいを感じた<br>
+          自身の成長を感じた
+        </p>
+        <p>
+          楽しい事も嬉しい事もあれば<br>
+          悲しい事も辛い事<br>
+          負担になることもあります
+        </p>
+        <p>
+          人間関係が負担になる<br>
+          働き方が負担になる<br>
+          働く時間帯、勤務時間が負担になる<br>
+          自身の実力不足を痛感して負担になる
+        </p>
+        <p>
+          それらは恥ずべきことではありません<br>
+          無理なものは無理なのですから
+        </p>
+        <p>
+          辞めること、逃げることは<br>
+          恥ではありません<br>
+          より良い場所がきっと<br>
+          あなたには待っています
+        </p>
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想の働き方の作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた理想の働き方に<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          世の中には<br>
+          ホワイトな職場があり<br>
+          ブラックな職場があります
+        </p>
+        <p>
+          あなたにとっての<br>
+          あなただけにとっての<br>
+          ホワイトな職場の条件です
+        </p>
+        <p>
+          あなたが楽しいと思えること<br>
+          働きたいと思える内容<br>
+          それが理想の働き方です
+        </p>
+        <p>
+          そして働きたくないと思う<br>
+          働く条件の反対です
+        </p>
+      <% end %>
+      <%= render 'users/keyword_show' %> 
     </div>
 
     <!--右のページ-->
@@ -63,20 +94,15 @@
       <p>
         詳しく教えて下さい
       </p>
-      <%= form_with model: @ideal,url: step7_residence_ideal_path, method: :get do |f| %>
+      <%= form_with model: @ideal,url: working_create_ideals_path, method: :post do |f| %>
+        <%= f.hidden_field :ideal_status, :value => 4 %>
         <div class="form-group">
-          <%= f.label :working_1, class: "font-weight-bold" %><br />
-          <%= f.text_area :working_1,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :working_2, class: "font-weight-bold" %><br />
-          <%= f.text_area :working_2,rows: "3",autofocus: true,class: "form-control" %>
-          </div>
-        <div class="form-group">
-          <%= f.label :working_3, class: "font-weight-bold" %><br />
-          <%= f.text_area :working_3,rows: "3",autofocus: true,class: "form-control" %>
+        <div class="d-flex justify-content-around my-3">
+          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
+          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
         </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

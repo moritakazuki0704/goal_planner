@@ -3,39 +3,72 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        あなたはきっと<br>
-        仕事・勉強・娯楽・趣味
-      </p>
-      <p>
-        そういった様々なことに<br>
-        時間をかけてきたことと思います<br>
-        そしてそれにかける情熱やお金も
-      </p>
-      <p>
-        それはとてもいいことで<br>
-        とても素晴らしいことです
-      </p>
-      <p>
-        仕事ができなければ<br>
-        お金を稼ぐことができません
-      </p>
-      <p>
-        勉強ができなければ<br>
-        学ぶことができません
-      </p>
-      <p>
-        娯楽ができなければ<br>
-        楽しむことができません
-      </p>
-      <p>
-        趣味ができなければ<br>
-        情熱をかけることができません
-      </p>
-      <p>
-        全てとても重要で大切なものです
-      </p>
-      <%= render 'session_keywaord' %>
+      <% unless params[:error] %>
+        <p>
+          あなたはきっと<br>
+          仕事・勉強・娯楽・趣味
+        </p>
+        <p>
+          そういった様々なことに<br>
+          時間をかけてきたことと思います<br>
+          そしてそれにかける情熱やお金も
+        </p>
+        <p>
+          それはとてもいいことで<br>
+          とても素晴らしいことです
+        </p>
+        <p>
+          仕事ができなければ<br>
+          お金を稼ぐことができません
+        </p>
+        <p>
+          勉強ができなければ<br>
+          学ぶことができません
+        </p>
+        <p>
+          娯楽ができなければ<br>
+          楽しむことができません
+        </p>
+        <p>
+          趣味ができなければ<br>
+          情熱をかけることができません
+        </p>
+        <p>
+          全てとても重要で大切なものです
+        </p>
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想の時間の使い方の作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた<br>
+          理想の時間の使い方に<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          予定の作成を行えば<br>
+          あなたにとっての<br>
+          重要なこと・大事なこと<br>
+          やらなければいけないこと<br>
+          辞めるべきこと<br>
+          それらがわかると思います
+        </p>
+        <p>
+          何に時間をかけますか<br>
+          それに時間を使うことで<br>
+          あなたの人生が<br>
+          幸せな気持ちになります
+        </p>
+        <p>
+          他の人にとって<br>
+          無駄だと思われることが<br>
+          あなたが求めている<br>
+          時間の使いたいことかもしれません
+        </p>
+      <% end %>
+      <%= render 'users/keyword_show' %>
     </div>
 
     <!--右のページ-->
@@ -62,20 +95,15 @@
         激しく過ごす時間でも<br>
         なんでも構いません
       </p>
-      <%= form_with model: @ideal,url: step6_working_ideal_path, method: :get do |f| %>
+      <%= form_with model: @ideal,url: spend_time_create_ideals_path, method: :post do |f| %>
+        <%= f.hidden_field :ideal_status, :value => 3 %>
         <div class="form-group">
-          <%= f.label :time_1, class: "font-weight-bold" %><br />
-          <%= f.text_area :time_1,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :time_2, class: "font-weight-bold" %><br />
-          <%= f.text_area :time_2,rows: "3",autofocus: true,class: "form-control" %>
-          </div>
-        <div class="form-group">
-          <%= f.label :time_3, class: "font-weight-bold" %><br />
-          <%= f.text_area :time_3,rows: "3",autofocus: true,class: "form-control" %>
+        <div class="d-flex justify-content-around my-3">
+          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
+          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
         </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

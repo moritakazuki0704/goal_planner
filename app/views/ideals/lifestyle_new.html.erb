@@ -3,31 +3,62 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        理想のライフスタイル<br>
-      </p>
-      <p>
-        ライフスタイル　／　Lifestyle<br>
-        英語から直訳すると<br>
-        「生き方」という意味となります
-      </p>
-      <p>
-        さらに言葉の意味はかなり広く<br>
-        「衣食住」だけでなく<br>
-        人生観・価値観・習慣などを含めた<br>
-        個人の生き方<br>
-        という意味で使われているそうです
-      </p>
-      <p>
-        何を大切にするかによって<br>
-        ライフスタイルはわかります
-      </p>
-      <p>
-        難しく考える必要はどこにもありません<br>
-        あなたの理想の生活を<br>
-        考えるだけでいいのです
-      </p>
-      <%= render 'session_keywaord' %>
+      <% unless params[:error] %>
+        <p>
+          理想のライフスタイル<br>
+        </p>
+        <p>
+          ライフスタイル　／　Lifestyle<br>
+          英語から直訳すると<br>
+          「生き方」という意味となります
+        </p>
+        <p>
+          さらに言葉の意味はかなり広く<br>
+          「衣食住」だけでなく<br>
+          人生観・価値観・習慣などを含めた<br>
+          個人の生き方<br>
+          という意味で使われているそうです
+        </p>
+        <p>
+          何を大切にするかによって<br>
+          ライフスタイルはわかります
+        </p>
+        <p>
+          難しく考える必要はどこにもありません<br>
+          あなたの理想の生活を<br>
+          考えるだけでいいのです
+        </p>
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想のライフスタイルの作成に<br>
+            失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた<br>
+          理想のライフスタイルに<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          やってみたいこと<br>
+          こんな朝を迎えたい<br>
+          お昼はこんなランチがいい<br>
+          夜はこんなことがしたい
+        </p>
+        <p>
+          ただしたいと思う日常<br>
+          それがあなたにとっての<br>
+          理想のライフスタイルです
+        </p>
+        <p>
+          そうなりたいと思う<br>
+          それがいつしか習慣となり<br>
+          あなた自身の将来の<br>
+          素敵な日常となります
+        </p>
+      <% end %>
+      <%= render 'users/keyword_show' %>
     </div>
 
     <!--右のページ-->
@@ -49,20 +80,15 @@
         今の生活と比べてどうなりたいのか<br>
         ただそれだけです
       </p>
-      <%= form_with model: @ideal,url: step5_time_ideal_path, method: :get do |f| %>
+      <%= form_with model: @ideal,url: lifestyle_create_ideals_path, method: :post do |f| %>
+        <%= f.hidden_field :ideal_status, :value => 2 %>
         <div class="form-group">
-          <%= f.label :lifestyle_1, class: "font-weight-bold" %><br />
-          <%= f.text_area :lifestyle_1,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :lifestyle_2, class: "font-weight-bold" %><br />
-          <%= f.text_area :lifestyle_2,rows: "3",autofocus: true,class: "form-control" %>
+        <div class="d-flex justify-content-around my-3">
+          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
+          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
         </div>
-        <div class="form-group">
-          <%= f.label :lifestyle_3, class: "font-weight-bold" %><br />
-          <%= f.text_area :lifestyle_3,rows: "3",autofocus: true,class: "form-control" %>
-        </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

@@ -3,36 +3,65 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        基本的に人は一人でなんでもできる<br>
-        というわけではありません
-      </p>
-      <p>
-        精神的  ・  仕事的
-      </p>
-      <p>
-        それらは関わる人と<br>
-        切っても切り離せないもの
-      </p>
-      <p>
-        その中で<br>
-        あなたにとってのパートナーとは<br>
-        どういった存在なのでしょうか
-      </p>
-      <p>
-        相棒  恋人  夫婦  親友
-      </p>
-      <p>
-        あなたにとっての唯一の<br>
-        パートナーを考えてみて下さい
-      </p>
-      <p>
-        それはあなたがあなたであるために<br>
-        必要な存在であると思います<br>
-        そしてあなたが理想を追い求める上で<br>
-        必要な存在となると思います
-      </p>
-      <%= render 'session_keywaord' %>
+      <% unless params[:error] %>
+        <p>
+          基本的に人は一人でなんでもできる<br>
+          というわけではありません
+        </p>
+        <p>
+          精神的  ・  仕事的
+        </p>
+        <p>
+          それらは関わる人と<br>
+          切っても切り離せないもの
+        </p>
+        <p>
+          その中で<br>
+          あなたにとってのパートナーとは<br>
+          どういった存在なのでしょうか
+        </p>
+        <p>
+          相棒  恋人  夫婦  親友
+        </p>
+        <p>
+          あなたにとっての唯一の<br>
+          パートナーを考えてみて下さい
+        </p>
+        <p>
+          それはあなたがあなたであるために<br>
+          必要な存在であると思います<br>
+          そしてあなたが理想を追い求める上で<br>
+          必要な存在となると思います
+        </p>
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想のパートナーの作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた理想のパートナーに<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          仕事の相棒<br>
+          プライベートの親友<br>
+          一緒に一生を過ごす夫婦
+        </p>
+        <p>
+          あなたは何をしてあげられますか<br>
+          その人は何をしてくれますか
+        </p>
+        <p>
+          そしてその人とあなたは<br>
+          周りからどのように呼ばれますか<br>
+        </p>
+        <p>
+          それがあなたにとっての<br>
+          理想のパートナーとなるでしょう
+        </p>
+      <% end %>
+      <%= render 'users/keyword_show' %>
     </div>
 
     <!--右のページ-->
@@ -58,20 +87,15 @@
         あなたの将来を考えた時に<br>
         一緒にいる人がきっとその人です
       </p>
-      <%= form_with model: @ideal,url: step10_role_model_ideal_path, method: :get do |f| %>
+      <%= form_with model: @ideal,url: partner_create_ideals_path, method: :post do |f| %>
+        <%= f.hidden_field :ideal_status, :value => 7 %>
         <div class="form-group">
-          <%= f.label :partner_1, class: "font-weight-bold" %><br />
-          <%= f.text_area :partner_1,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :partner_2, class: "font-weight-bold" %><br />
-          <%= f.text_area :partner_2,rows: "3",autofocus: true,class: "form-control" %>
+        <div class="d-flex justify-content-around my-3">
+          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
+          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
         </div>
-        <div class="form-group">
-          <%= f.label :partner_3, class: "font-weight-bold" %><br />
-          <%= f.text_area :partner_3,rows: "3",autofocus: true,class: "form-control" %>
-        </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

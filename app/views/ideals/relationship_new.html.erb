@@ -3,42 +3,78 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        人間関係とはたくさんあります<br>
-      </p>
-      <p>
-        自身を高めてくれる人<br>
-        大切に思う<br>
-        なんでも楽しめ、話せる人<br>
-        喧嘩ができる人
-      </p>
-      <p>
-        いい人間関係があれば<br>
-        悪い人間関係もあります
-      </p>
-      <p>
-        怒ってくる人<br>
-        傷つけてくる人<br>
-        生理的に合わない人
-      </p>
-      <p>
-        これから<br>
-        たくさんの人と出会っていきます<br>
-        その中で付き合っていく人を<br>
-        選んでいく必要があり<br>
-        選ばれる必要があります
-      </p>
-      <p>
-        選ばれることは<br>
-        今まで教えていただいた<br>
-        理想を叶えていくと<br>
-        自然と選ばれていきます<br>
-        そしてあなたに必要な人は
-      </p>
-      <p>
-        必ず集まってきます
-      </p>
-      <%= render 'session_keywaord' %>
+      <% unless params[:error] %>
+        <p>
+          人間関係とはたくさんあります<br>
+        </p>
+        <p>
+          自身を高めてくれる人<br>
+          大切に思う<br>
+          なんでも楽しめ、話せる人<br>
+          喧嘩ができる人
+        </p>
+        <p>
+          いい人間関係があれば<br>
+          悪い人間関係もあります
+        </p>
+        <p>
+          怒ってくる人<br>
+          傷つけてくる人<br>
+          生理的に合わない人
+        </p>
+        <p>
+          これから<br>
+          たくさんの人と出会っていきます<br>
+          その中で付き合っていく人を<br>
+          選んでいく必要があり<br>
+          選ばれる必要があります
+        </p>
+        <p>
+          選ばれることは<br>
+          今まで教えていただいた<br>
+          理想を叶えていくと<br>
+          自然と選ばれていきます<br>
+          そしてあなたに必要な人は
+        </p>
+        <p>
+          必ず集まってきます
+        </p>
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想の人間関係の作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた理想の人間関係に<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          どんな人と関わり合いに<br>
+          なりたいと思いますか<br>
+          そしてその人に<br>
+          何を求めますか
+        </p>
+        <p>
+          遊んでほしい<br>
+          褒めて欲しい<br>
+          支えてほしい<br>
+        </p>
+        <p>
+          他にもいろいろとあると思います
+        </p>
+        <p>
+          それを詳しく教えてください<br>
+          どういう時に<br>
+          何をして欲しいのか<br>
+          何をしてあげたいのか
+        </p>
+        <p>
+          その関係性こそが<br>
+          あなたが求めている人間関係です
+        </p>
+      <% end %>
+      <%= render 'users/keyword_show' %>
     </div>
 
     <!--右のページ-->
@@ -69,20 +105,15 @@
       <p>
         そういう人間関係を教えて下さい
       </p>
-      <%= form_with model: @ideal,url: step9_partner_ideal_path, method: :get do |f| %>
+      <%= form_with model: @ideal,url: relationship_create_ideals_path, method: :post do |f| %>
+        <%= f.hidden_field :ideal_status, :value => 6 %>
         <div class="form-group">
-          <%= f.label :relationship_1, class: "font-weight-bold" %><br />
-          <%= f.text_area :relationship_1,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :relationship_2, class: "font-weight-bold" %><br />
-          <%= f.text_area :relationship_2,rows: "3",autofocus: true,class: "form-control" %>
+        <div class="d-flex justify-content-around my-3">
+          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
+          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
         </div>
-        <div class="form-group">
-          <%= f.label :relationship_3, class: "font-weight-bold" %><br />
-          <%= f.text_area :relationship_3,rows: "3",autofocus: true,class: "form-control" %>
-        </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

@@ -3,34 +3,62 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        あなたが思い描く将来の姿には<br>
-        あなた自身がいることと思います
-      </p>
-      <p>
-        どんな表情をしていますか<br>
-        髪の長さやセットは<br>
-        どのようなものですか
-      </p>
-      <p>
-        メイクはどのようなメイクですか<br>
-      </p>
-      <p>
-        体型は標準ですか<br>
-        それともモデル体型<br>
-        もしくは筋肉質ですか
-      </p>
-      <p>
-        持っている服装や<br>
-        着ている服装<br>
-        アクセサリーはしていますか
-      </p>
-      <p>
-        思い描く未来の<br>
-        想像する未来の<br>
-        あなたの姿を教えて下さい
-      </p>
-      <%= render 'session_keywaord' %>
+      <% unless params[:error] %>
+        <p>
+          あなたが思い描く将来の姿には<br>
+          あなた自身がいることと思います
+        </p>
+        <p>
+          どんな表情をしていますか<br>
+          髪の長さやセットは<br>
+          どのようなものですか
+        </p>
+        <p>
+          メイクはどのようなメイクですか<br>
+        </p>
+        <p>
+          体型は標準ですか<br>
+          それともモデル体型<br>
+          もしくは筋肉質ですか
+        </p>
+        <p>
+          持っている服装や<br>
+          着ている服装<br>
+          アクセサリーはしていますか
+        </p>
+        <p>
+          思い描く未来の<br>
+          想像する未来の<br>
+          あなたの姿を教えて下さい
+        </p>
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想の姿の作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた理想の姿に<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          おしゃれというのは<br>
+          考え方や行動が変わります<br>
+          そして気分や気持ちも変わります
+        </p>
+        <p>
+          理想の姿に近づけていく<br>
+          それはあなたにとっての<br>
+          全ての原動力の一つとなります
+        </p>
+        <p>
+          価値が高くなくていいんです<br>
+          あなたが身に纏うことで<br>
+          それは誰にとっても<br>
+          価値の高いものになります
+        </p>
+      <% end %>
+      <%= render 'users/keyword_show' %>
     </div>
 
     <!--右のページ-->
@@ -42,8 +70,10 @@
         </u>
       </h5>
       <p>
-        憧れる人<br>
-        尊敬する人
+        ヘアスタイルやメイク<br>
+        体型<br>
+        ファッション<br>
+        ひとつずつで構いません
       </p>
       <p>
         あなたの中にあるイメージを<br>
@@ -53,20 +83,15 @@
         すでに体現している人がいるなら<br>
         その人も教えて下さい
       </p>
-      <%= form_with model: @ideal,url: step4_lifestyle_ideal_path, method: :get do |f| %>
+      <%= form_with model: @ideal,url: appearance_create_ideals_path, method: :post do |f| %>
+        <%= f.hidden_field :ideal_status, :value => 1 %>
         <div class="form-group">
-          <%= f.label :hair_make, class: "font-weight-bold" %><br />
-          <%= f.text_area :hair_make, rows: "3", autofocus: true, class: "form-control" %>
+          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :body_make, class: "font-weight-bold" %><br />
-          <%= f.text_area :body_make, rows: "3", autofocus: true, class: "form-control" %>
+        <div class="d-flex justify-content-around my-3">
+          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
+          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
         </div>
-        <div class="form-group">
-          <%= f.label :fashion_make, class: "font-weight-bold" %><br />
-          <%= f.text_area :fashion_make, rows: "3", autofocus: true, class: "form-control" %>
-        </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

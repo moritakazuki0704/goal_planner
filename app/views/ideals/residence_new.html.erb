@@ -3,34 +3,64 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        住まいとはなんでしょう
-      </p>
-      <p>
-        それは癒し<br>
-        それは自分の場所<br>
-        それは落ち着く場所<br>
-        それは楽しめる場所
-      </p>
-      <p>
-        住まいというのは<br>
-        食事をとって寝る<br>
-        それだけの場所ではありません
-      </p>
-      <p>
-        あなたがあなたらしくいられる場所
-      </p>
-      <p>
-        心と体をリセットできる空間でもあり<br>
-        趣味や娯楽を楽しめる空間でもあり<br>
-        知識と経験を学ぶ場所になり得ます
-      </p>
-      <p>
-        将来を思い描いてみましょう<br>
-        そしたらそこには<br>
-        あなたの住んでいる場所があります
-      </p>
-      <%= render 'session_keywaord' %>
+      <% unless params[:error] %>
+        <p>
+          住まいとはなんでしょう
+        </p>
+        <p>
+          それは癒し<br>
+          それは自分の場所<br>
+          それは落ち着く場所<br>
+          それは楽しめる場所
+        </p>
+        <p>
+          住まいというのは<br>
+          食事をとって寝る<br>
+          それだけの場所ではありません
+        </p>
+        <p>
+          あなたがあなたらしくいられる場所
+        </p>
+        <p>
+          心と体をリセットできる空間でもあり<br>
+          趣味や娯楽を楽しめる空間でもあり<br>
+          知識と経験を学ぶ場所になり得ます
+        </p>
+        <p>
+          将来を思い描いてみましょう<br>
+          そしたらそこには<br>
+          あなたの住んでいる場所があります
+        </p>
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            理想の住まいの作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた理想の住まいに<br>
+          空欄があったみたいです
+        </p>
+        <p>
+          住まいということは<br>
+          住居だけではなく<br>
+          その環境です
+        </p>
+        <p>
+          引っ越しするときの条件<br>
+          部屋のレイアウト<br>
+          部屋の家具の条件
+        </p>
+        <p>
+          どんな部屋がいいですか<br>
+          どんな環境がいいですか<br>
+          近所には何があればいいですか<br>
+        </p>
+        <p>
+          それがあなたの理想の住まいです
+        </p>
+      <% end %>
+      <%= render 'users/keyword_show' %>
     </div>
 
     <!--右のページ-->
@@ -57,20 +87,15 @@
       <p>
         きっと将来それは得ることができます
       </p>
-      <%= form_with model: @ideal,url: step8_relationship_ideal_path, method: :get do |f| %>
+      <%= form_with model: @ideal,url: residence_create_ideals_path, method: :post do |f| %>
+        <%= f.hidden_field :ideal_status, :value => 5 %>
         <div class="form-group">
-          <%= f.label :residence_1, class: "font-weight-bold" %><br />
-          <%= f.text_area :residence_1,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :residence_2, class: "font-weight-bold" %><br />
-          <%= f.text_area :residence_2,rows: "3",autofocus: true,class: "form-control" %>
+        <div class="d-flex justify-content-around my-3">
+          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
+          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
         </div>
-        <div class="form-group">
-          <%= f.label :residence_3, class: "font-weight-bold" %><br />
-          <%= f.text_area :residence_3,rows: "3",autofocus: true,class: "form-control" %>
-        </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 

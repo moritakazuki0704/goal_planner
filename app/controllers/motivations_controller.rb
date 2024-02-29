@@ -31,8 +31,8 @@ class MotivationsController < ApplicationController
 
   def show
     user_motivation = current_user.motivations
-    motivation = user_motivation.find_by(emotion_stetas: params[:emotion_stetas])
-    @random_motivation = motivation.order("RANDOM()")
+    @motivations = user_motivation.find_by(emotion_stetas: params[:emotion_stetas])
+    @random_motivations = @motivations.order("RANDOM()")
   end
 
   def destroy
