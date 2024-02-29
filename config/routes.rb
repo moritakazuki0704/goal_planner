@@ -14,17 +14,26 @@ Rails.application.routes.draw do
       get 'withdrawal'
     end
   end
-  resources :ideals,only: [:create,:index,:destroy] do
+  resources :ideals,only: [:index,:destroy] do
     collection do
       get 'personality_new'
+      post 'personality_create'
       get 'appearance_new'
+      post 'appearance_create'
       get 'lifestyle_new'
+      post 'lifestyle_create'
       get 'spend_time_new'
+      post 'spend_time_create'
       get 'working_new'
+      post 'working_create'
       get 'residence_new'
+      post 'residence_create'
       get 'relationship_new'
+      post 'relationship_create'
       get 'partner_new'
+      post 'partner_create'
       get 'role_model_new'
+      post 'role_model_create'
     end
   end
   get 'ideals/:ideal_status' => 'ideals#show',as: 'show_ideal'
