@@ -21,16 +21,16 @@ ja:
       user:
         id: あなたのID
         planner_name: 手帳の名前
-        keyword_1: １つ目のキーワード
-        keyword_2: ２つ目のキーワード
-        keyword_3: ３つ目のキーワード
-        keyword_4: ４つ目のキーワード
-        keyword_5: ５つ目のキーワード
-        keyword_6: ６つ目のキーワード
-        keyword_7: ７つ目のキーワード
-        keyword_8: ８つ目のキーワード
-        keyword_9: ９つ目のキーワード
-        keyword_10: １０つ目のキーワード
+        first_keyword: １つ目のキーワード
+        second_keyword: ２つ目のキーワード
+        third_keyword: ３つ目のキーワード
+        fourth_keyword: ４つ目のキーワード
+        fifth_keyword: ５つ目のキーワード
+        sixth_keyword: ６つ目のキーワード
+        seventh_keyword: ７つ目のキーワード
+        eighth_keyword: ８つ目のキーワード
+        ninth_keyword: ９つ目のキーワード
+        tenth_keyword: １０つ目のキーワード
         mission_statement: 生涯の大切にすること
         mission_statement_detail: 生涯大切にすることの詳細
         secret_word: 秘密の合言葉
