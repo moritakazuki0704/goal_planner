@@ -71,7 +71,7 @@
   </p>
 
   <div class="my-4">
-    <% if !current_user.keyword_10.present? %>
+    <% if !current_user.tenth_keyword.present? %>
 
       <!--理想のテーブルを作成していない場合-->
       <%= link_to keyword_new_user_path,class: "btn btn-lg btn-block btn-outline-primary" do %>

@@ -33,16 +33,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       t.string :planner_name,  null: false, default: "", unique: true
-      t.string :keyword_1, null: false
-      t.string :keyword_2, null: false
-      t.string :keyword_3, null: false
-      t.string :keyword_4, null: false
-      t.string :keyword_5, null: false
-      t.string :keyword_6, null: false
-      t.string :keyword_7, null: false
-      t.string :keyword_8, null: false
-      t.string :keyword_9, null: false
-      t.string :keyword_10, null: false
+      t.string :first_keyword
+      t.string :second_keyword
+      t.string :third_keyword
+      t.string :fourth_keyword
+      t.string :fifth_keyword
+      t.string :sixth_keyword
+      t.string :seventh_keyword
+      t.string :eighth_keyword
+      t.string :ninth_keyword
+      t.string :tenth_keyword
       t.string :mission_statement
       t.text :mission_statement_detail
       t.timestamps null: false

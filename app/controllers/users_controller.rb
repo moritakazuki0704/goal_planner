@@ -7,30 +7,30 @@ class UsersController < ApplicationController
   end
 
   def keyword_confirm
-    session[:keyword_1] = user_params[:keyword_1]
-    session[:keyword_2] = user_params[:keyword_2]
-    session[:keyword_3] = user_params[:keyword_3]
-    session[:keyword_4] = user_params[:keyword_4]
-    session[:keyword_5] = user_params[:keyword_5]
-    session[:keyword_6] = user_params[:keyword_6]
-    session[:keyword_7] = user_params[:keyword_7]
-    session[:keyword_8] = user_params[:keyword_8]
-    session[:keyword_9] = user_params[:keyword_9]
-    session[:keyword_10] = user_params[:keyword_10]
+    session[:first_keyword] = user_params[:first_keyword]
+    session[:second_keyword] = user_params[:second_keyword]
+    session[:third_keyword] = user_params[:third_keyword]
+    session[:fourth_keyword] = user_params[:fourth_keyword]
+    session[:fifth_keyword] = user_params[:fifth_keyword]
+    session[:sixth_keyword] = user_params[:sixth_keyword]
+    session[:seventh_keyword] = user_params[:seventh_keyword]
+    session[:eighth_keyword] = user_params[:eighth_keyword]
+    session[:ninth_keyword] = user_params[:ninth_keyword]
+    session[:tenth_keyword] = user_params[:tenth_keyword]
   end
 
   def keyword_update
     @user.update(
-      keyword_1: session[:keyword_1],
-      keyword_2: session[:keyword_2],
-      keyword_3: session[:keyword_3],
-      keyword_4: session[:keyword_4],
-      keyword_5: session[:keyword_5],
-      keyword_6: session[:keyword_6],
-      keyword_7: session[:keyword_7],
-      keyword_8: session[:keyword_8],
-      keyword_9: session[:keyword_9],
-      keyword_10: session[:keyword_10],
+      first_keyword: session[:first_keyword],
+      second_keyword: session[:second_keyword],
+      third_keyword: session[:third_keyword],
+      fourth_keyword: session[:fourth_keyword],
+      fifth_keyword: session[:fifth_keyword],
+      sixth_keyword: session[:sixth_keyword],
+      seventh_keyword: session[:seventh_keyword],
+      eighth_keyword: session[:eighth_keyword],
+      ninth_keyword: session[:ninth_keyword],
+      tenth_keyword: session[:tenth_keyword],
       )
     redirect_to mission_statement_new_user_path
   end
@@ -67,13 +67,13 @@ class UsersController < ApplicationController
 
   # ログインユーザーがmission_statementのカラムを作成している場合のアクセス制限
   def keyword_created_user!
-    if current_user.keyword_10.present?
+    if current_user.tenth_keyword.present?
       redirect_to welcome_path
     end
   end
 
   def user_params
-    params.require(:user).permit(:keyword_1,:keyword_2,:keyword_3,:keyword_4,:keyword_5,:keyword_6,:keyword_7,:keyword_8,:keyword_9,:keyword_10,
+    params.require(:user).permit(:first_keyword,:second_keyword,:third_keyword,:fourth_keyword,:fifth_keyword,:sixth_keyword,:seventh_keyword,:eighth_keyword,:ninth_keyword,:tenth_keyword,
                                  :mission_statement,:mission_statement_detail)
   end
 

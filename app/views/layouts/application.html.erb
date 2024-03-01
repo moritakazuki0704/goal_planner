@@ -26,6 +26,7 @@
               <% if current_user.mission_statement.present? %>
               <!--ログインユーザーがmission_statementカラムを作成した場合に表示-->
                 <p class="font-weight-bold"><%= safe_join(current_user.mission_statement.split("\n"),tag(:br)) %></p>
+                <p class="font-weight-bold"><%= safe_join(current_user.mission_detail.split("\n"),tag(:br)) %></p>
               <% end %>
             </li>
 

@@ -14,19 +14,19 @@ class User < ApplicationRecord
 
   # updateの場合のみバリデーションする
   with_options presence: true, on: :update do
-    validates :keyword_1
-    validates :keyword_2
-    validates :keyword_3
-    validates :keyword_4
-    validates :keyword_5
-    validates :keyword_6
-    validates :keyword_7
-    validates :keyword_8
-    validates :keyword_9
-    validates :keyword_10
+    validates :first_keyword
+    validates :second_keyword
+    validates :third_keyword
+    validates :fourth_keyword
+    validates :fifth_keyword
+    validates :sixth_keyword
+    validates :seventh_keyword
+    validates :eighth_keyword
+    validates :ninth_keyword
+    validates :tenth_keyword
   end
 
-    with_options presence: true, on: :update, if: :keyword_10.present? do
+    with_options presence: true, on: :update, if: :tenth_keyword.present? do
       validates :mission_statement
       validates :mission_statement_detail
     end

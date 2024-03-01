@@ -35,7 +35,7 @@
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <% if session[:keyword_1].present? && session[:keyword_2].present? && session[:keyword_3].present? && session[:keyword_4].present? && session[:keyword_5].present? && session[:keyword_6].present? && session[:keyword_7].present? && session[:keyword_8].present? && session[:keyword_9].present? && session[:keyword_10].present? %>
+      <% if session[:first_keyword].present? && session[:second_keyword].present? && session[:third_keyword].present? && session[:fourth_keyword].present? && session[:fifth_keyword].present? && session[:sixth_keyword].present? && session[:seventh_keyword].present? && session[:eighth_keyword].present? && session[:ninth_keyword].present? && session[:tenth_keyword].present? %>
 
         <!--理想を示すキーワードの全てが入力されている場合-->
         <table class="table smart-frame p-3">
@@ -46,24 +46,24 @@
           </thead>
           <tbody class="cross-frame font-weight-bold">
             <tr>
-              <td><%= session[:keyword_1] %></th>
-              <td><%= session[:keyword_2] %></td>
+              <td><%= session[:first_keyword] %></th>
+              <td><%= session[:second_keyword] %></td>
             </tr>
             <tr>
-              <td><%= session[:keyword_3] %></th>
-              <td><%= session[:keyword_4] %></td>
+              <td><%= session[:third_keyword] %></th>
+              <td><%= session[:fourth_keyword] %></td>
             </tr>
             <tr>
-              <td><%= session[:keyword_5] %></th>
-              <td><%= session[:keyword_6] %></td>
+              <td><%= session[:fifth_keyword] %></th>
+              <td><%= session[:sixth_keyword] %></td>
             </tr>
             <tr>
-              <td><%= session[:keyword_7] %></th>
-              <td><%= session[:keyword_8] %></td>
+              <td><%= session[:seventh_keyword] %></th>
+              <td><%= session[:eighth_keyword] %></td>
             </tr>
             <tr>
-              <td><%= session[:keyword_9] %></th>
-              <td><%= session[:keyword_10] %></td>
+              <td><%= session[:ninth_keyword] %></th>
+              <td><%= session[:tenth_keyword] %></td>
             </tr>
           </tbody>
         </table>
