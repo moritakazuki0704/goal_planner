@@ -40,13 +40,13 @@ class UsersController < ApplicationController
 
   def mission_statement_confirm
     session[:mission_statement] = user_params[:mission_statement]
-    session[:mission_detail] = user_params[:mission_detail]
+    session[:mission_statement_detail] = user_params[:mission_statement_detail]
   end
 
   def mission_statement_update
     @user.update(
       mission_statement: session[:mission_statement],
-      mission_detail: session[:mission_detail],
+      mission_statement_detail: session[:mission_statement_detail],
       )
     redirect_to new_problem_path
   end
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
   # ログインユーザーがmission_statementのカラムを作成している場合のアクセス制限
   def keyword_created_user!
-    if current_user.tenth_keyword.present?
+    if !current_user.tenth_keyword.present?
       redirect_to welcome_path
     end
   end

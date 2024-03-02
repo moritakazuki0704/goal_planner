@@ -80,7 +80,6 @@
       </p>
       <p>詳しく理解することができます</p>
       <%= form_with model: @ideal,url: personality_create_ideals_path, method: :post do |f| %>
-        <%= f.hidden_field :ideal_status, :value => 0 %>
         <div class="form-group">
           <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
         </div>

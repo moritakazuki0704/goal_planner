@@ -5,9 +5,7 @@ class Ideal < ApplicationRecord
 
   with_options presence: true do
     validates :ideal_status, numericality: { only_integer: true }
-    validates :ideal_self_1
-    validates :ideal_self_2
-    validates :ideal_self_3
+    validates :ideal_self
   end
 
   # ideal_statusがpersonality（理想の性格）のみ表示

@@ -37,7 +37,7 @@
     <div class="right-page col text-center m-5 p-5">
 
       <!--mission_statementとmission_detailが入力されている場合-->
-      <% if session[:mission_statement].present? && session[:mission_detail].present? %>
+      <% if session[:mission_statement].present? && session[:mission_statement_detail].present? %>
         <h5 class="smart-frame p-3">
           <u>
             <%= safe_join(session[:mission_statement].split("\n"),tag(:br)) %>
@@ -45,14 +45,14 @@
         </h5>
         <div class="cross-frame font-weight-bold">
           <p>
-            <%= safe_join(session[:mission_detail].split("\n"),tag(:br)) %>
+            <%= safe_join(session[:mission_statement_detail].split("\n"),tag(:br)) %>
           </p>
         </div>
         <div class="d-flex justify-content-around my-3">
-          <%= form_with model: @user, url: mission_statement_update_user, method: :patch do |f|  %>
-            <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-primary" %>
+          <%= form_with model: @user, url: mission_statement_update_user_path, method: :patch do |f|  %>
+            <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-outline-primary" %>
           <% end %>
-          <%= link_to '人生の指針をやり直す', welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-info" %>
+          <%= link_to '人生の指針をやり直す', welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-outline-info" %>
         </div>
 
       <!--mission_statementとmission_detailのどちらか、もしくは両方に空欄があった場合-->

@@ -2,12 +2,14 @@ class IdealsController < ApplicationController
 
   before_action :not_setting_goals_in_life!
   before_action :ideal_new, only: [:personality_new,:appearance_new,:lifestyle_new,:spend_time_new,:working_new,:residence_new,:relationship_new,:partner_new,:role_model_new]
-  before_action :ideal_create, only: [:personality_create,:appearance_create,:lifestyle_create,:spend_time_create,:working_create,:residence_create,:relationship_create,:partner_create,:role_model_create]
 
   def personality_new
   end
 
   def personality_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 0
     if ideal.save
       if params[:restart]
         redirect_to personality_new_ideals_path
@@ -140,7 +142,7 @@ class IdealsController < ApplicationController
   end
 
   def index
-    @ideals = current_user.ideals
+    @ideals = current_user.ideal
   end
 
   def show

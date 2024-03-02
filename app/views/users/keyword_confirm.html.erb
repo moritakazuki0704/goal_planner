@@ -38,12 +38,12 @@
       <% if session[:first_keyword].present? && session[:second_keyword].present? && session[:third_keyword].present? && session[:fourth_keyword].present? && session[:fifth_keyword].present? && session[:sixth_keyword].present? && session[:seventh_keyword].present? && session[:eighth_keyword].present? && session[:ninth_keyword].present? && session[:tenth_keyword].present? %>
 
         <!--理想を示すキーワードの全てが入力されている場合-->
-        <table class="table smart-frame p-3">
-          <thead>
-            <tr>
-              <th colspan="2" scope="col">理想のキーワード</th>
-            </tr>
-          </thead>
+        <h5 class="smart-frame p-3">
+          <u>
+            理想のキーワード
+          </u>
+        </h5>
+        <table class="table">
           <tbody class="cross-frame font-weight-bold">
             <tr>
               <td><%= session[:first_keyword] %></th>
@@ -69,10 +69,10 @@
         </table>
         <div class="d-flex justify-content-around my-3">
           <%= form_with model: @user, url: keyword_update_user_path, method: :patch do |f|  %>
-            <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-primary" %>
+            <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-outline-primary" %>
           <% end %>
-          <%= link_to welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-info" do %>
-            あなたの理想を示す<br>キーワードをやり直す
+          <%= link_to welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-outline-info" do %>
+            キーワードをやり直す
           <% end %>
         </div>
 
@@ -104,7 +104,7 @@
         </p>
         <div class="d-flex justify-content-around my-3">
           <%= link_to welcome_path, class: "btn btn-info" do %>
-            あなたの理想を示す<br>キーワードをやり直す
+            キーワードをやり直す
           <% end %>
         </div>
       <% end %>
