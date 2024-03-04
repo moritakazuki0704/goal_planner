@@ -19,20 +19,27 @@ class MotivationsController < ApplicationController
     motivation = Motivation.new(motivation_params)
     motivation.user_id = current_user.id
     if motivation.save
-      redirect_to motivation_path(motivation)
+      redirect_to motivations_path
     else
       redirect_to motivations_path(error: true)
     end
   end
 
   def index
-    @motivations = current_user.motivations
+    @motivations = Motivation.where(user_id: current_user)
   end
 
-  def show
-    user_motivation = current_user.motivations
-    @motivations = user_motivation.find_by(emotion_stetas: params[:emotion_stetas])
-    @random_motivations = @motivations.order("RANDOM()")
+  def own
+    user_motivation = Motivation.where(user_id: current_user)
+    if params[:positive]
+      @motvations = user_motivation.positive.order("RANDOM()").page(params[:page])
+    elsif params[:negative]
+      @motvations = user_motivation.negative.order("RANDOM()").page(params[:page])
+    elsif params[:to_do]
+      @motvations = user_motivation.to_do.order("RANDOM()").page(params[:page])
+    elsif params[:want]
+      @motvations = user_motivation.want.order("RANDOM()").page(params[:page])
+    end
   end
 
   def destroy

@@ -32,7 +32,6 @@
         普段の中にたくさんあります
       </p>
       <%= form_with model: @motivation,url: motivations_path, method: :post do |f| %>
-        <%= f.hidden_field :emotion_status, :value => "0"  %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>

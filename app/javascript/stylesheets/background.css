@@ -149,3 +149,8 @@
     overflow: auto;
     height: 14rem;
 }
+
+.scroll-page {
+    overflow: auto;
+    height: 40rem;
+}

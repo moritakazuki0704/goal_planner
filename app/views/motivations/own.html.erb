@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+
+      <% if params[:positive] %>
+        <%= render 'motivations/motivations_template/positive' %>
+        <div class="d-flex justify-content-around my-3">
+          <%= link_to "ポジティブを記録", positive_new_motivations_path, class: "btn btn-outline-success" %>
+          <%= link_to "一覧に戻る",motivations_path, class: "btn btn-outline-info" %>
+        </div>
+      <% elsif params[:negative] %>
+        <%= render 'motivations/motivations_template/negative' %>
+        <div class="d-flex justify-content-around my-3">
+          <%= link_to "ネガティブを記録", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
+          <%= link_to "一覧に戻る",motivations_path, class: "btn btn-outline-info" %>
+
+        </div>
+      <% elsif params[:to_do] %>
+        <%= render 'motivations/motivations_template/to_do' %>
+        <div class="d-flex justify-content-around my-3">
+          <%= link_to "したいことを記録", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
+          <%= link_to "一覧に戻る",motivations_path, class: "btn btn-outline-info" %>
+
+        </div>
+      <% elsif params[:want] %>
+        <%= render 'motivations/motivations_template/want' %>
+        <div class="d-flex justify-content-around my-3">
+          <%= link_to "欲しいものを記録", want_new_motivations_path, class: "btn btn-outline-warning" %>
+          <%= link_to "一覧に戻る",motivations_path, class: "btn btn-outline-info" %>
+        </div>
+      <% end %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <div class="scroll-page">
+      <% @motvations.each do |motivation| %>
+        <div class="cross-frame font-weight-bold">
+          <h5 class="my-4">
+            <u>
+              <%= safe_join(motivation.appetite.split("\n"),tag(:br)) %>
+            </u>
+          </h5>
+          <p>
+            <%= safe_join(motivation.memory.split("\n"),tag(:br)) %>
+          </p>
+          <%= link_to "この記録を消す", motivation_path(motivation.id), method: :delete,"data-confirm" =>"このモチベーションの記録を\n本当に消しますか？",  class: "btn btn-sm btn-danger mb-3" %>
+        </div>
+      <% end %>
+      <div class="d-flex justify-content-center my-5">
+        <%= paginate @motvations %>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>

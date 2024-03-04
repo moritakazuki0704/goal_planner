@@ -75,16 +75,44 @@
 
       <h5 class="smart-frame">
         <u>
-          モチベーション一覧
+          あなたのモチベーションのスイッチ
         </u>
       </h5>
-      <div class="d-flex justify-content-around my-5">
-        <%= link_to_if @motivations.positive.present?, "ポジティブ", show_motivation_path(@motivations.emotion_status(0)), class: "btn btn-success" %>
-        <%= link_to_if @motivations.negative.present?, "ネガティブ", show_motivation_path(@motivations.emotion_status(1)), class: "btn btn-secondary" %>
-        <%= link_to_if @motivations.to_do.present?, "したいこと", show_motivation_path(@motivations.emotion_status(2)), class: "btn btn-primary" %>
-        <%= link_to_if @motivations.want.present?, "欲しいもの", show_motivation_path(@motivations.emotion_status(3)), class: "btn btn-warning" %>
+      <p>
+        自分が落ち込んだ時や元気が欲しい時<br>
+        自分に何をしてあげたらいいのかわかるようになります
+      </p>
+      <p>
+        それは自分の気持ちを上げるための処方箋のようなものです
+      </p>
+      <p>
+        言葉や行動<br>
+        考え方や見つめ直すことで<br>
+        自分自身のモチベーションスイッチを入れてあげてください
+      </p>
+      <div class="d-flex justify-content-around my-5 strip-paper">
+        <% if @motivations.positive.present? %>
+          <%= link_to "ポジティブを閲覧", own_motivations_path(positive: true), class: "btn btn-success" %>
+        <% else %>
+          <%= link_to "ポジティブを記録", positive_new_motivations_path, class: "btn btn-outline-success" %>
+        <% end %>
+        <% if @motivations.negative.present? %>
+          <%= link_to "ネガティブを閲覧", own_motivations_path(negative: true), class: "btn btn-secondary" %>
+        <% else %>
+          <%= link_to "ネガティブを記録", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
+        <% end %>
+        <% if @motivations.to_do.present? %>
+          <%= link_to "したいことを閲覧", own_motivations_path(to_do: true), class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "したいことを記録", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
+        <% end %>
+        <% if @motivations.want.present? %>
+          <%= link_to "欲しいものを閲覧", own_motivations_path(want: true), class: "btn btn-warning" %>
+        <% else %>
+          <%= link_to "欲しいものを記録", want_new_motivations_path, class: "btn btn-outline-warning" %>
+        <% end %>
       </div>
-        
+
       <% else %>
 
         <!--初めてモチベーションページに来たときに表示-->

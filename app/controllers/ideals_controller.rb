@@ -11,11 +11,7 @@ class IdealsController < ApplicationController
     ideal.user_id = current_user.id
     ideal.ideal_status = 0
     if ideal.save
-      if params[:restart]
-        redirect_to personality_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to personality_new_ideals_path
     else
       redirect_to personality_new_ideals_path(error: true)
     end
@@ -25,12 +21,11 @@ class IdealsController < ApplicationController
   end
 
   def appearance_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 1
     if ideal.save
-      if params[:restart]
-        redirect_to appearance_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to appearance_new_ideals_path
     else
       redirect_to appearance_new_ideals_path(error: true)
     end
@@ -146,8 +141,8 @@ class IdealsController < ApplicationController
   end
 
   def show
-    user_ideal = current_user.ideals
-    @ideals = user_ideal.find_by(ideal_status: params[:ideal_status])
+    user_ideal = current_user.ideal
+    @ideals = user_ideal.where(ideal_status: params[:ideal_status])
     @random_ideals = @ideals.order("RANDOM()").page(params[:page])
   end
 
@@ -161,11 +156,6 @@ class IdealsController < ApplicationController
 
   def ideal_new
     @ideal = Ideal.new
-  end
-
-  def ideal_create
-    ideal = Ideal.new(ideal_params)
-    ideal.user_id = current_user.id
   end
 
   # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限

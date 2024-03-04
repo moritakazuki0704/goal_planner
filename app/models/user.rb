@@ -24,6 +24,10 @@ class User < ApplicationRecord
     validates :eighth_keyword
     validates :ninth_keyword
     validates :tenth_keyword
+     if :tenth_keyword.present?
+      validates :mission_statement
+      validates :mission_statement_detail
+     end
   end
 
     # with_options presence: true, on: :update, if: :tenth_keyword.present? do

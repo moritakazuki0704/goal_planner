@@ -34,9 +34,9 @@ Rails.application.routes.draw do
       post 'partner_create'
       get 'role_model_new'
       post 'role_model_create'
+      get 'my'
     end
   end
-  get 'ideals/:ideal_status' => 'ideals#show',as: 'show_ideal'
   resources :problems,except: [:edit,:destroy] do
     collection do
       get 'confirm'
@@ -69,9 +69,9 @@ Rails.application.routes.draw do
       get 'negative_new'
       get 'to_do_new'
       get 'want_new'
+      get 'own'
     end
   end
-  get 'motivations/:emotion_status' => 'motivations#show',as: 'show_motivation'
   resources :scrap_books,except: [:new,:edit,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
