@@ -3,16 +3,30 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <%= render 'motivations/motivations_template/negative' %>
+      <% unless params[:error] %>
+        <%= render 'motivations/motivations_template/negative' %>
+      <% else %>
+        <%= render 'motivations/motivations_template/error' %>
+      <% end %>
     </div>
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <h5 class="smart-frame">
-        <u>
-          あなたの感情がネガティブに動いた瞬間を教えてください
-        </u>
-      </h5>
+      <% if params[:record] %>
+        <h5 class="masking-tape">
+          <u>
+            ネガティブモチベーション<br>
+            に記録しました
+          </u>
+        </h5>
+      <% else %>
+        <h5 class="smart-frame">
+          <u>
+            あなたの感情がネガティブに<br>
+            動いた瞬間を教えてください
+          </u>
+        </h5>
+      <% end %>
       <p>
         ネガティブな感情には一般的な定義がなく<br>
         「自分にとって良いか悪いか」<br>
@@ -27,8 +41,7 @@
         その時置かれている環境や状況<br>
         そして年齢とともに変わっていくでしょう
       </p>
-      <%= form_with model: @motivation,url: motivations_path, method: :post do |f| %>
-        <%= f.hidden_field :emotion_status, :value => "1"  %>
+      <%= form_with model: @motivation,url: negative_create_motivations_path, method: :post do |f| %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>

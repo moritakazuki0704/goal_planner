@@ -35,136 +35,85 @@
       <div class="cross-frame font-weight-bold">
         <ul class="list-group">
 
-          <% if @ideals.present? %>
-
-          <% if @ideals.personality? %>
+          <% if @ideals.present? && @ideals.personality.present? %>
           <!--理想の性格が作成されている場合-->
-            <%= link_to "理想の性格", show_ideal_path(@ideals.ideal_status), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の性格を閲覧する", record_ideals_path(personality: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の性格が作成されていない場合-->
-            <%= link_to personality_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の性格を<br>想像する
-            <% end %>
+            <%= link_to "理想の性格を想像する", personality_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.appearance? %>
+          <% if @ideals.present? && @ideals.appearance.present? %>
           <!--理想の姿が作成されている場合-->
-            <%= link_to "理想の姿", show_ideal_path(@ideals.ideal_status), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の姿", record_ideals_path(appearance: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の姿が作成されていない場合-->
-            <%= link_to appearance_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の姿を<br>想像する
-            <% end %>
+            <%= link_to "理想の姿を想像する", appearance_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.lifestyle? %>
+          <% if @ideals.present? && @ideals.lifestyle.present? %>
           <!--理想のライフスタイルが作成されている場合-->
-            <%= link_to "理想のライフスタイル", show_ideal_path(@ideals.ideal_status), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想のライフスタイル", record_ideals_path(lifestyle: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想のライフスタイルが作成されていない場合-->
-            <%= link_to lifestyle_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想のライフスタイルを想像する
-            <% end %>
+            <%= link_to "理想のライフスタイルを想像する", lifestyle_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.spend_time? %>
+          <% if @ideals.present? && @ideals.spend_time.present? %>
           <!--理想の時間の使い方が作成されている場合-->
-            <%= link_to "理想の時間の使い方", show_ideal_path(@ideals.ideal_status), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の時間の使い方", record_ideals_path(spend_time: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の時間の使い方が作成されていない場合-->
-            <%= link_to spend_time_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の時間の使い方を<br>想像する
-            <% end %>
+            <%= link_to "理想の時間の使い方を想像する", spend_time_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.working? %>
+          <% if @ideals.present? && @ideals.working.present? %>
           <!--理想の働き方が作成されている場合-->
-            <%= link_to "理想の働き方", show_ideal_path(@ideals.ideal_status), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の働き方", record_ideals_path(working: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の働き方が作成されていない場合-->
-            <%= link_to working_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の働き方を<br>想像する
-            <% end %>
+            <%= link_to "理想の働き方を想像する", working_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.residence? %>
+          <% if @ideals.present? && @ideals.residence.present? %>
           <!--理想の住まいが作成されている場合-->
-            <%= link_to "理想の住まい", show_ideal_path(@ideals.ideal_status(5)), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の住まい", record_ideals_path(residence: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の住まいが作成されていない場合-->
-            <%= link_to residence_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の住まいを<br>想像する
-            <% end %>
+            <%= link_to "理想の人間関係を想像する", relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.relationship? %>
+          <% if @ideals.present? && @ideals.relationship.present? %>
           <!--理想の人間関係が作成されている場合-->
-            <%= link_to "理想の人間関係", show_ideal_path(@ideals.ideal_status(6)), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の人間関係", record_ideals_path(relationship: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の人間関係が作成されていない場合-->
-            <%= link_to relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の人間関係を<br>想像する
-            <% end %>
+            <%= link_to "理想の人間関係を想像する", relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.partner? %>
+          <% if @ideals.present? && @ideals.partner.present? %>
           <!--理想のパートナーが作成されている場合-->
-            <%= link_to "理想のパートナー", show_ideal_path(@ideals.ideal_status(7)), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想のパートナー", record_ideals_path(partner: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想のパートナーが作成されていない場合-->
-            <%= link_to partner_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想のパートナーを想像する
-            <% end %>
+            <%= link_to "理想のパートナーを想像する", partner_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
-          <% if @ideals.role_model? %>
+          <% if @ideals.present? && @ideals.role_model.present? %>
           <!--理想のロールモデルが作成されている場合-->
-            <%= link_to "理想のロールモデル", show_ideal_path(@ideals.ideal_status(8)), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想のロールモデル", record_ideals_path(role_model: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想のロールモデルが作成されていない場合-->
-            <%= link_to role_model_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想のロールモデルを想像する
-            <% end %>
-          <% end %>
-          <% else %>
-          
-            <%= link_to personality_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の性格を想像する
-            <% end %>
-            <%= link_to appearance_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の姿を想像する
-            <% end %>
-            <%= link_to lifestyle_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想のライフスタイルを想像する
-            <% end %>
-            <%= link_to spend_time_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の時間の使い方を想像する
-            <% end %>
-            <%= link_to working_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の働き方を想像する
-            <% end %>
-            <%= link_to residence_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の住まいを想像する
-            <% end %>
-            <%= link_to relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想の人間関係を想像する
-            <% end %>
-            <%= link_to partner_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想のパートナーを想像する
-            <% end %>
-            <%= link_to role_model_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" do %>
-              理想のロールモデルを想像する
-            <% end %>
-
+            <%= link_to "理想のロールモデルを想像する", role_model_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary"  %>
           <% end %>
 
         </ul>

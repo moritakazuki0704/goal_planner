@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       post 'partner_create'
       get 'role_model_new'
       post 'role_model_create'
-      get 'my'
+      get 'record'
     end
   end
   resources :problems,except: [:edit,:destroy] do
@@ -63,13 +63,17 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :motivations,only: [:create,:index,:destroy] do
+  resources :motivations,only: [:index,:destroy] do
     collection do
       get 'positive_new'
+      post 'positive_create'
       get 'negative_new'
+      post 'negative_create'
       get 'to_do_new'
+      post 'to_do_create'
       get 'want_new'
-      get 'own'
+      post 'want_create'
+      get 'record'
     end
   end
   resources :scrap_books,except: [:new,:edit,:update]

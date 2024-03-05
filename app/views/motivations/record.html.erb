@@ -15,14 +15,12 @@
         <div class="d-flex justify-content-around my-3">
           <%= link_to "ネガティブを記録", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
           <%= link_to "一覧に戻る",motivations_path, class: "btn btn-outline-info" %>
-
         </div>
       <% elsif params[:to_do] %>
         <%= render 'motivations/motivations_template/to_do' %>
         <div class="d-flex justify-content-around my-3">
           <%= link_to "したいことを記録", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
           <%= link_to "一覧に戻る",motivations_path, class: "btn btn-outline-info" %>
-
         </div>
       <% elsif params[:want] %>
         <%= render 'motivations/motivations_template/want' %>
@@ -38,7 +36,7 @@
       <div class="scroll-page">
       <% @motvations.each do |motivation| %>
         <div class="cross-frame font-weight-bold">
-          <h5 class="my-4">
+          <h5 class="smart-frame">
             <u>
               <%= safe_join(motivation.appetite.split("\n"),tag(:br)) %>
             </u>

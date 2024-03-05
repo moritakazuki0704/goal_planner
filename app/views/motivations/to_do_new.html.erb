@@ -3,17 +3,32 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <%= render 'motivations/motivations_template/to_do' %>
+      <% unless params[:error] %>
+        <%= render 'motivations/motivations_template/to_do' %>
+      <% else %>
+        <%= render 'motivations/motivations_template/error' %>
+      <% end %>
     </div>
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <h5 class="smart-frame">
-        <u>
-          してみたいと思うこと<br>
-          やってみたいと思うこと教えてください
-        </u>
-      </h5>
+      <% if params[:record] %>
+        <h5 class="masking-tape">
+          <u>
+            したいこと<br>
+            やってみたいことに<br>
+            記録しました
+          </u>
+        </h5>
+      <% else %>
+        <h5 class="smart-frame">
+          <u>
+            してみたいと思うこと<br>
+            やってみたいと思うこと<br>
+            教えてください
+          </u>
+        </h5>
+      <% end %>
       <p>
         人によっては<br>
         小さいと思えるようなことでも<br>
@@ -27,8 +42,7 @@
         それが大切であるのですから
       </p>
 
-      <%= form_with model: @motivation,url: motivations_path, method: :post do |f| %>
-        <%= f.hidden_field :emotion_status, :value => 2  %>
+      <%= form_with model: @motivation,url: to_do_create_motivations_path, method: :post do |f| %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>

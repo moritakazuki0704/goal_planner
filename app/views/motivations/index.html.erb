@@ -3,82 +3,14 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <p>
-          ポジティブなことでモチベーションを維持する<br>
-          これだけは嫌と思うネガティブなことでモチベーションを維持する<br>
-          将来やりたいことでモチベーションを維持する<br>
-          将来ほしい物でモチベーションを維持する
-        </p>
-        <p>
-          モチベーションのスイッチを知ると<br>
-          自分が落ち込んだ時や元気が欲しい時<br>
-          自分に何をしてあげたらいいのかわかるようになります
-        </p>
-        <p>
-          それは自分の気持ちを上げるための処方箋のようなものです
-        </p>
-        <p>
-          きっとこれからモチベーションが下がったり、迷ったりすることがあることでしょう<br>
-          ですが何も恐れることはありません
-        </p>
-        <p>
-          たとえ下がったり迷ったとしても<br>
-          何度でもモチベーションのスイッチを入れることができるからです
-        </p>
-        <p>
-          ここを見て、何度でも立ち上がり<br>
-          あなたの夢、理想を叶えて下さい
-        </p>
-
-      <!--モチベーションの作成に失敗した場合-->
-      <% else %>
-        <h5 class="smart-frame bg-warning">
-          <u>
-            モチベーションの作成に失敗しました
-          </u>
-        </h5>
-        <p>
-          教えていただいたモチベーションの内容に<br>
-          問題があったみたいです
-        </p>
-        <p>
-          モチベーションの詳細と思い出に<br>
-          空欄がありましたか？<br>
-          難しく考える必要はありません
-        </p>
-        <p>
-          モチベーションの詳細も思い出も<br>
-          普通に過ごしている中で<br>
-          ふとした拍子に<br>
-          泡のように浮かび上がってくるものです
-        </p>
-        <p>
-          もしくはモチベーションの詳細が<br>
-          他のモチベーションと被ってませんか？
-        </p>
-        <p>
-          同じモチベーションでも違うモチベーションでも<br>
-          同じ内容で思い出が違っても<br>
-          熱量は違うはずです
-        </p>
-        <p>
-          その熱量を詳細にも思い出にも<br>
-          書き記してください
-        </p>
-      <% end %>
-    </div>
-
-    <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
-      <% if @motivations.present? %>
-
-      <h5 class="smart-frame">
-        <u>
-          あなたのモチベーションのスイッチ
-        </u>
-      </h5>
       <p>
+        ポジティブなことでモチベーションを維持する<br>
+        これだけは嫌と思うネガティブなことでモチベーションを維持する<br>
+        将来やりたいことでモチベーションを維持する<br>
+        将来ほしい物でモチベーションを維持する
+      </p>
+      <p>
+        モチベーションのスイッチを知ると<br>
         自分が落ち込んだ時や元気が欲しい時<br>
         自分に何をしてあげたらいいのかわかるようになります
       </p>
@@ -86,32 +18,62 @@
         それは自分の気持ちを上げるための処方箋のようなものです
       </p>
       <p>
-        言葉や行動<br>
-        考え方や見つめ直すことで<br>
-        自分自身のモチベーションスイッチを入れてあげてください
+        きっとこれからモチベーションが下がったり、迷ったりすることがあることでしょう<br>
+        ですが何も恐れることはありません
       </p>
-      <div class="d-flex justify-content-around my-5 strip-paper">
-        <% if @motivations.positive.present? %>
-          <%= link_to "ポジティブを閲覧", own_motivations_path(positive: true), class: "btn btn-success" %>
-        <% else %>
-          <%= link_to "ポジティブを記録", positive_new_motivations_path, class: "btn btn-outline-success" %>
-        <% end %>
-        <% if @motivations.negative.present? %>
-          <%= link_to "ネガティブを閲覧", own_motivations_path(negative: true), class: "btn btn-secondary" %>
-        <% else %>
-          <%= link_to "ネガティブを記録", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
-        <% end %>
-        <% if @motivations.to_do.present? %>
-          <%= link_to "したいことを閲覧", own_motivations_path(to_do: true), class: "btn btn-primary" %>
-        <% else %>
-          <%= link_to "したいことを記録", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
-        <% end %>
-        <% if @motivations.want.present? %>
-          <%= link_to "欲しいものを閲覧", own_motivations_path(want: true), class: "btn btn-warning" %>
-        <% else %>
-          <%= link_to "欲しいものを記録", want_new_motivations_path, class: "btn btn-outline-warning" %>
-        <% end %>
-      </div>
+      <p>
+        たとえ下がったり迷ったとしても<br>
+        何度でもモチベーションのスイッチを入れることができるからです
+      </p>
+      <p>
+        ここを見て、何度でも立ち上がり<br>
+        あなたの夢、理想を叶えて下さい
+      </p>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <% if @motivations.present? %>
+
+        <h5 class="smart-frame">
+          <u>
+            あなたのモチベーションのスイッチ
+          </u>
+        </h5>
+        <p>
+          自分が落ち込んだ時や元気が欲しい時<br>
+          自分に何をしてあげたらいいのかわかるようになります
+        </p>
+        <p>
+          それは自分の気持ちを上げるための処方箋のようなものです
+        </p>
+        <p>
+          言葉や行動<br>
+          考え方や見つめ直すことで<br>
+          自分自身のモチベーションスイッチを入れてあげてください
+        </p>
+        <div class="d-flex justify-content-around my-5 strip-paper">
+          <% if @motivations.positive.present? %>
+            <%= link_to "ポジティブを閲覧", record_motivations_path(positive: true), class: "btn btn-success" %>
+          <% else %>
+            <%= link_to "ポジティブを記録", positive_new_motivations_path, class: "btn btn-outline-success" %>
+          <% end %>
+          <% if @motivations.negative.present? %>
+            <%= link_to "ネガティブを閲覧", record_motivations_path(negative: true), class: "btn btn-secondary" %>
+          <% else %>
+            <%= link_to "ネガティブを記録", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
+          <% end %>
+          <% if @motivations.to_do.present? %>
+            <%= link_to "したいことを閲覧", record_motivations_path(to_do: true), class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to "したいことを記録", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
+          <% end %>
+          <% if @motivations.want.present? %>
+            <%= link_to "欲しいものを閲覧", record_motivations_path(want: true), class: "btn btn-warning" %>
+          <% else %>
+            <%= link_to "欲しいものを記録", want_new_motivations_path, class: "btn btn-outline-warning" %>
+          <% end %>
+        </div>
 
       <% else %>
 

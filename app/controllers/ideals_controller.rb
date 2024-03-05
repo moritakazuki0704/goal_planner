@@ -11,7 +11,7 @@ class IdealsController < ApplicationController
     ideal.user_id = current_user.id
     ideal.ideal_status = 0
     if ideal.save
-      redirect_to personality_new_ideals_path
+      redirect_to personality_new_ideals_path(record: true)
     else
       redirect_to personality_new_ideals_path(error: true)
     end
@@ -25,7 +25,7 @@ class IdealsController < ApplicationController
     ideal.user_id = current_user.id
     ideal.ideal_status = 1
     if ideal.save
-      redirect_to appearance_new_ideals_path
+      redirect_to appearance_new_ideals_path(record: true)
     else
       redirect_to appearance_new_ideals_path(error: true)
     end
@@ -35,12 +35,11 @@ class IdealsController < ApplicationController
   end
 
   def lifestyle_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 2
     if ideal.save
-      if params[:restart]
-        redirect_to lifestyle_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to lifestyle_new_ideals_path(record: true)
     else
       redirect_to lifestyle_new_ideals_path(error: true)
     end
@@ -50,12 +49,11 @@ class IdealsController < ApplicationController
   end
 
   def spend_time_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 3
     if ideal.save
-      if params[:restart]
-        redirect_to spend_time_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to spend_time_new_ideals_path(record: true)
     else
       redirect_to spend_time_new_ideals_path(error: true)
     end
@@ -64,13 +62,12 @@ class IdealsController < ApplicationController
   def working_new
   end
 
-  def working_create
+  def working_creat
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 4
     if ideal.save
-      if params[:restart]
-        redirect_to working_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to working_new_ideals_path(record: true)
     else
       redirect_to working_new_ideals_path(error: true)
     end
@@ -80,12 +77,11 @@ class IdealsController < ApplicationController
   end
 
   def residence_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 5
     if ideal.save
-      if params[:restart]
-        redirect_to residence_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to residence_new_ideals_path(record: true)
     else
       redirect_to residence_new_ideals_path(error: true)
     end
@@ -95,9 +91,12 @@ class IdealsController < ApplicationController
   end
 
   def relationship_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 6
     if ideal.save
       if params[:restart]
-        redirect_to relationship_new_ideals_path
+        redirect_to relationship_new_ideals_path(record: true)
       else
         redirect_to show_ideal_path(ideal.ideal_status)
       end
@@ -110,12 +109,11 @@ class IdealsController < ApplicationController
   end
 
   def partner_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 7
     if ideal.save
-      if params[:restart]
-        redirect_to partner_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to partner_new_ideals_path(record: true)
     else
       redirect_to partner_new_ideals_path(error: true)
     end
@@ -125,25 +123,41 @@ class IdealsController < ApplicationController
   end
 
   def role_model_create
+    ideal = Ideal.new(ideal_params)
+    ideal.user_id = current_user.id
+    ideal.ideal_status = 8
     if ideal.save
-      if params[:restart]
-        redirect_to role_model_new_ideals_path
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to role_model_new_ideals_path(record: true)
     else
       redirect_to role_model_new_ideals_path(error: true)
     end
   end
 
   def index
-    @ideals = current_user.ideal
+    @ideals = Ideal.where(user_id: current_user)
   end
 
-  def show
-    user_ideal = current_user.ideal
-    @ideals = user_ideal.where(ideal_status: params[:ideal_status])
-    @random_ideals = @ideals.order("RANDOM()").page(params[:page])
+  def record
+    user_ideal = Ideal.where(user_id: current_user)
+    if params[:personality]
+      @ideals = user_ideal.personality.order("RANDOM()").page(params[:page])
+    elsif params[:appearance]
+      @ideals = user_ideal.appearance.order("RANDOM()").page(params[:page])
+    elsif params[:lifestyle]
+      @ideals = user_ideal.lifestyle.order("RANDOM()").page(params[:page])
+    elsif params[:spend_time]
+      @ideals = user_ideal.spend_time.order("RANDOM()").page(params[:page])
+    elsif params[:working]
+      @ideals = user_ideal.working.order("RANDOM()").page(params[:page])
+    elsif params[:residence]
+      @ideals = user_ideal.residence.order("RANDOM()").page(params[:page])
+    elsif params[:relationship]
+      @ideals = user_ideal.relationship.order("RANDOM()").page(params[:page])
+    elsif params[:partner]
+      @ideals = user_ideal.partner.order("RANDOM()").page(params[:page])
+    elsif params[:role_model]
+      @ideals = user_ideal.role_model.order("RANDOM()").page(params[:page])
+    end
   end
 
   def destroy

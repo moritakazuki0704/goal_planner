@@ -28,8 +28,4 @@ class Ideal < ApplicationRecord
   # ideal_statusがrole_model（理想のモデル）のみ表示
   scope :role_model, -> {where(ideal_status: 8)}
 
-  def to_param
-    ideal_status
-  end
-
 end

@@ -72,9 +72,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def user_params
+  def user_params——
     params.require(:user).permit(:first_keyword,:second_keyword,:third_keyword,:fourth_keyword,:fifth_keyword,:sixth_keyword,:seventh_keyword,:eighth_keyword,:ninth_keyword,:tenth_keyword,
                                  :mission_statement,:mission_statement_detail)
   end
 
 end
+＝＝

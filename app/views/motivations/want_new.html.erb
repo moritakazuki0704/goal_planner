@@ -3,16 +3,30 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <%= render 'motivations/motivations_template/want' %>
+      <% unless params[:error] %>
+        <%= render 'motivations/motivations_template/want' %>
+      <% else %>
+        <%= render 'motivations/motivations_template/error' %>
+      <% end %>
     </div>
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <h5 class="smart-frame">
-        <u>
-          あなたの心が欲しいと思ったものにを教えてください
-        </u>
-      </h5>
+      <% if params[:record] %>
+        <h5 class="masking-tape">
+          <u>
+            欲しいものに<br>
+            記録しました
+          </u>
+        </h5>
+      <% else %>
+        <h5 class="smart-frame">
+          <u>
+            あなたの心が欲しいと思ったもの<br>
+            を教えてください
+          </u>
+        </h5>
+      <% end %>
       <p>
         手に入れたいもの<br>
         欲しいものの価値は<br>
@@ -28,8 +42,7 @@
         それは大きな価値です
       </p>
 
-      <%= form_with model: @motivation,url: motivations_path, method: :post do |f| %>
-        <%= f.hidden_field :emotion_status, :value => "3"  %>
+      <%= form_with model: @motivation,url: want_create_motivations_path, method: :post do |f| %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>
