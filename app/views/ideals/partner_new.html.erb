@@ -66,12 +66,21 @@
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <h5 class="smart-frame">
-        <u>
-          あなたの最高のパートナー<br>
-          その関係を教えて下さい
-        </u>
-      </h5>
+      <% if params[:record] %>
+        <h5 class="masking-tape">
+          <u>
+            理想のパートナーを<br>
+            記録しました
+          </u>
+        </h5>
+      <% else %>
+        <h5 class="smart-frame">
+          <u>
+            あなたの最高のパートナー<br>
+            その関係を教えて下さい
+          </u>
+        </h5>
+      <% end %>
       <p>
         パートナーとの関係性はなんですか<br>
         パートナーとの関わり方はなんですか
@@ -88,14 +97,7 @@
         一緒にいる人がきっとその人です
       </p>
       <%= form_with model: @ideal,url: partner_create_ideals_path, method: :post do |f| %>
-        <%= f.hidden_field :ideal_status, :value => 7 %>
-        <div class="form-group">
-          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
-        </div>
-        <div class="d-flex justify-content-around my-3">
-          <%= f.submit 'もっと記録する' class: "btn btn-outline-primary" %>
-          <%= f.submit "戻る", class: "btn btn-outline-success" %>
-        </div>
+        <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
 

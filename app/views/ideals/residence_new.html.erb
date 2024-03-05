@@ -65,13 +65,22 @@
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <h5 class="smart-frame">
-        <u>
-          あなたの住みたいと思える<br>
-          欠けることのできない<br>
-          大事なものを教えて下さい
-        </u>
-      </h5>
+      <% if params[:record] %>
+        <h5 class="masking-tape">
+          <u>
+            理想の住まいを<br>
+            記録しました
+          </u>
+        </h5>
+      <% else %>
+        <h5 class="smart-frame">
+          <u>
+            あなたの住みたいと思える<br>
+            欠けることのできない<br>
+            大事なものを教えて下さい
+          </u>
+        </h5>
+      <% end %>
       <p>
         それはどうして欠かせないのか<br>
         どうして必要なのか
@@ -88,14 +97,7 @@
         きっと将来それは得ることができます
       </p>
       <%= form_with model: @ideal,url: residence_create_ideals_path, method: :post do |f| %>
-        <%= f.hidden_field :ideal_status, :value => 5 %>
-        <div class="form-group">
-          <%= f.text_area :ideal_self, rows: "5", autofocus: true, class: "form-control" %>
-        </div>
-        <div class="d-flex justify-content-around my-3">
-          <%= f.submit 'もっと記録する', name: 'restart', class: "btn btn-outline-primary" %>
-          <%= f.submit "記録して戻る", class: "btn btn-outline-success" %>
-        </div>
+        <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
 

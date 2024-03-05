@@ -86,18 +86,23 @@
           <%= @ideals.ideal_status %>
         </u>
       </h5>
-      <div class="cross-frame font-weight-bold mt-0">
-        <ul class="list-group list-group-flush scroll-box">
-          <% @ideals.each do |ideal| %>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <%= safe_join(ideal.ideal_self.split("\n"),tag(:br)) %>
-              <%= link_to "この記録を消す", ideal_path(ideal.id), method: :delete,"data-confirm" =>"この三つの理想の記録を\n本当に消しますか？",  class: "badge badge-danger badge-pill" %>
-            </li>
-          <% end %>
-        </ul>
-        <div class="d-flex justify-content-center my-5">
-          <%= paginate @random_ideals %>
-        </div>
+      <div class="scroll-page">
+        <% @ideals.each do |ideal| %>
+          <div class="cross-frame font-weight-bold">
+            <h5 class="smart-frame">
+              <u>
+                <%= safe_join(ideal.ideal_self.split("\n"),tag(:br)) %>
+              </u>
+            </h5>
+            <p>
+              <%= safe_join(ideal.ideal_detail_self.split("\n"),tag(:br)) %>
+            </p>
+            <%= link_to "この記録を消す", ideal_path(ideal.id), method: :delete,"data-confirm" =>"このモチベーションの記録を\n本当に消しますか？",  class: "btn btn-sm btn-danger mb-3" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-center my-5">
+        <%= paginate @ideals %>
       </div>
     </div>
   </div>

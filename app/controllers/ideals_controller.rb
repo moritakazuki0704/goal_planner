@@ -180,7 +180,7 @@ class IdealsController < ApplicationController
   end
 
   def ideal_params
-    params.require(:ideal).permit(:ideal_status,:ideal_self)
+    params.require(:ideal).permit(:ideal_status,:ideal_self,:ideal_detail_self)
   end
 
 end

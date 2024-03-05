@@ -34,22 +34,22 @@
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
       <div class="scroll-page">
-      <% @motvations.each do |motivation| %>
-        <div class="cross-frame font-weight-bold">
-          <h5 class="smart-frame">
-            <u>
-              <%= safe_join(motivation.appetite.split("\n"),tag(:br)) %>
-            </u>
-          </h5>
-          <p>
-            <%= safe_join(motivation.memory.split("\n"),tag(:br)) %>
-          </p>
-          <%= link_to "この記録を消す", motivation_path(motivation.id), method: :delete,"data-confirm" =>"このモチベーションの記録を\n本当に消しますか？",  class: "btn btn-sm btn-danger mb-3" %>
-        </div>
-      <% end %>
+        <% @motvations.each do |motivation| %>
+          <div class="cross-frame font-weight-bold">
+            <h5 class="smart-frame">
+              <u>
+                <%= safe_join(motivation.appetite.split("\n"),tag(:br)) %>
+              </u>
+            </h5>
+            <p>
+              <%= safe_join(motivation.memory.split("\n"),tag(:br)) %>
+            </p>
+            <%= link_to "この記録を消す", motivation_path(motivation.id), method: :delete,"data-confirm" =>"このモチベーションの記録を\n本当に消しますか？",  class: "btn btn-sm btn-danger mb-3" %>
+          </div>
+        <% end %>
+      </div>
       <div class="d-flex justify-content-center my-5">
         <%= paginate @motvations %>
-      </div>
       </div>
     </div>
 

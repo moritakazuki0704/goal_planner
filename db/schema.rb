@@ -43,7 +43,8 @@ ActiveRecord::Schema.define(version: 2024_02_13_171135) do
   create_table "ideals", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "ideal_status", default: 0, null: false
-    t.text "ideal_self", null: false
+    t.string "ideal_self", null: false
+    t.text "ideal_detail_self", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

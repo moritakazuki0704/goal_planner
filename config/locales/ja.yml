@@ -39,6 +39,7 @@ ja:
         user_id: あなたのID
         ideal_status: 理想のステータス
         ideal_self: 理想の自分
+        ideal_detail_self: 理想の自分の詳細
       problem:
         id: 目標のID
         user_id: あなたのID
