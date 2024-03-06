@@ -62,7 +62,7 @@ class IdealsController < ApplicationController
   def working_new
   end
 
-  def working_creat
+  def working_create
     ideal = Ideal.new(ideal_params)
     ideal.user_id = current_user.id
     ideal.ideal_status = 4
@@ -140,23 +140,32 @@ class IdealsController < ApplicationController
   def record
     user_ideal = Ideal.where(user_id: current_user)
     if params[:personality]
-      @ideals = user_ideal.personality.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 0)
+      @ideals = user_ideal.personality.page(params[:page])
     elsif params[:appearance]
-      @ideals = user_ideal.appearance.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 1)
+      @ideals = user_ideal.appearance.page(params[:page])
     elsif params[:lifestyle]
-      @ideals = user_ideal.lifestyle.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 2)
+      @ideals = user_ideal.lifestyle.page(params[:page])
     elsif params[:spend_time]
-      @ideals = user_ideal.spend_time.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 3)
+      @ideals = user_ideal.spend_time.page(params[:page])
     elsif params[:working]
-      @ideals = user_ideal.working.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 4)
+      @ideals = user_ideal.working.page(params[:page])
     elsif params[:residence]
-      @ideals = user_ideal.residence.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 5)
+      @ideals = user_ideal.residence.page(params[:page])
     elsif params[:relationship]
-      @ideals = user_ideal.relationship.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 6)
+      @ideals = user_ideal.relationship.page(params[:page])
     elsif params[:partner]
-      @ideals = user_ideal.partner.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 7)
+      @ideals = user_ideal.partner.page(params[:page])
     elsif params[:role_model]
-      @ideals = user_ideal.role_model.order("RANDOM()").page(params[:page])
+      @ideal_name = user_ideal.find_by(ideal_status: 8)
+      @ideals = user_ideal.role_model.page(params[:page])
     end
   end
 

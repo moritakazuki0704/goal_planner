@@ -3,7 +3,7 @@ class Motivation < ApplicationRecord
 
   enum emotion_status: { positive: 0, negative: 1, to_do: 2, want: 3 }
 
-  default_scope -> { order(created_at: :asc) }
+  default_scope -> { order("RANDOM()") }
   with_options presence: true do
     validates :appetite, uniqueness: { scope: :user }
     validates :memory

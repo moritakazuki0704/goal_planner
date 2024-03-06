@@ -3,7 +3,7 @@ class Ideal < ApplicationRecord
 
   enum ideal_status: { personality: 0, appearance: 1, lifestyle: 2, spend_time: 3, working: 4, residence: 5, relationship: 6, partner: 7, role_model: 8 }
 
-  default_scope -> { order(created_at: :asc) }
+  default_scope -> { order("RANDOM()") }
   with_options presence: true do
     validates :ideal_status, numericality: { only_integer: true }
     validates :ideal_self

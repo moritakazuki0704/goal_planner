@@ -66,13 +66,13 @@ class MotivationsController < ApplicationController
   def record
     user_motivation = Motivation.where(user_id: current_user)
     if params[:positive]
-      @motvations = user_motivation.positive.order("RANDOM()").page(params[:page])
+      @motvations = user_motivation.positive.page(params[:page])
     elsif params[:negative]
-      @motvations = user_motivation.negative.order("RANDOM()").page(params[:page])
+      @motvations = user_motivation.negative.page(params[:page])
     elsif params[:to_do]
-      @motvations = user_motivation.to_do.order("RANDOM()").page(params[:page])
+      @motvations = user_motivation.to_do.page(params[:page])
     elsif params[:want]
-      @motvations = user_motivation.want.order("RANDOM()").page(params[:page])
+      @motvations = user_motivation.want.page(params[:page])
     end
   end
 
