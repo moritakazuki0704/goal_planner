@@ -95,11 +95,7 @@ class IdealsController < ApplicationController
     ideal.user_id = current_user.id
     ideal.ideal_status = 6
     if ideal.save
-      if params[:restart]
-        redirect_to relationship_new_ideals_path(record: true)
-      else
-        redirect_to show_ideal_path(ideal.ideal_status)
-      end
+      redirect_to relationship_new_ideals_path(record: true)
     else
       redirect_to relationship_new_ideals_path(error: true)
     end
