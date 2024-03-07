@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :planner_name, presence: true
 
   # updateの場合のみバリデーションする
-  with_options presence: true, on: :update do
+  with_options presence: true, on: :keyword_update do
     validates :first_keyword
     validates :second_keyword
     validates :third_keyword
@@ -24,16 +24,11 @@ class User < ApplicationRecord
     validates :eighth_keyword
     validates :ninth_keyword
     validates :tenth_keyword
-     if :tenth_keyword.present?
-      validates :mission_statement
-      validates :mission_statement_detail
-     end
   end
 
-    # with_options presence: true, on: :update, if: :tenth_keyword.present? do
-    #   validates :mission_statement
-    #   validates :mission_statement_detail
-    # end
-
+    with_options presence: true, on: :mission_statement_update do
+      validates :mission_statement
+      validates :mission_statement_detail
+    end
 
 end

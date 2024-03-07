@@ -3,62 +3,79 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <p>
-          理想のライフスタイル<br>
-        </p>
-        <p>
-          ライフスタイル　／　Lifestyle<br>
-          英語から直訳すると<br>
-          「生き方」という意味となります
-        </p>
-        <p>
-          さらに言葉の意味はかなり広く<br>
-          「衣食住」だけでなく<br>
-          人生観・価値観・習慣などを含めた<br>
-          個人の生き方<br>
-          という意味で使われているそうです
-        </p>
-        <p>
-          何を大切にするかによって<br>
-          ライフスタイルはわかります
-        </p>
-        <p>
-          難しく考える必要はどこにもありません<br>
-          あなたの理想の生活を<br>
-          考えるだけでいいのです
-        </p>
-      <% else %>
-        <h5 class="smart-frame bg-warning">
-          <u>
-            理想のライフスタイルの作成に<br>
-            失敗しました
-          </u>
-        </h5>
-        <p>
-          教えていただいた<br>
-          理想のライフスタイルに<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          やってみたいこと<br>
-          こんな朝を迎えたい<br>
-          お昼はこんなランチがいい<br>
-          夜はこんなことがしたい
-        </p>
-        <p>
-          ただしたいと思う日常<br>
-          それがあなたにとっての<br>
-          理想のライフスタイルです
-        </p>
-        <p>
-          そうなりたいと思う<br>
-          それがいつしか習慣となり<br>
-          あなた自身の将来の<br>
-          素敵な日常となります
-        </p>
-      <% end %>
-      <%= render 'users/keyword_show' %>
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-lifestyle-tab" data-toggle="tab" href="#nav-lifestyle" role="tab" aria-controls="nav-lifestyle" aria-selected="true">理想のライフスタイル</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-lifestyle" role="tabpanel" aria-labelledby="nav-lifestyle-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <% unless params[:error] %>
+              <p class="mt-1">
+                理想のライフスタイル<br>
+              </p>
+              <p>
+                ライフスタイル　／　Lifestyle<br>
+                英語から直訳すると<br>
+                「生き方」という意味となります
+              </p>
+              <p>
+                さらに言葉の意味はかなり広く<br>
+                「衣食住」だけでなく<br>
+                人生観・価値観・習慣などを含めた<br>
+                個人の生き方<br>
+                という意味で使われているそうです
+              </p>
+              <p>
+                何を大切にするかによって<br>
+                ライフスタイルはわかります
+              </p>
+              <p>
+                難しく考える必要はどこにもありません<br>
+                あなたの理想の生活を<br>
+                考えるだけでいいのです
+              </p>
+            <% else %>
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想のライフスタイルの<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた<br>
+                理想のライフスタイルに<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                やってみたいこと<br>
+                こんな朝を迎えたい<br>
+                お昼はこんなランチがいい<br>
+                夜はこんなことがしたい
+              </p>
+              <p>
+                ただしたいと思う日常<br>
+                それがあなたにとっての<br>
+                理想のライフスタイルです
+              </p>
+              <p>
+                そうなりたいと思う<br>
+                それがいつしか習慣となり<br>
+                あなた自身の将来の<br>
+                素敵な日常となります
+              </p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'users/keyword_show' %>
+        </div>
+      </div>
     </div>
 
     <!--右のページ-->

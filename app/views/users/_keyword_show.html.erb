@@ -1,29 +1,19 @@
-<table class="table smart-frame p-3">
-  <thead>
-    <tr>
-      <th colspan="2" scope="col">理想のキーワード</th>
-    </tr>
-  </thead>
-  <tbody class="cross-frame font-weight-bold">
-    <tr>
-      <td><%= current_user.first_keyword %></th>
-      <td><%= current_user.second_keyword %></td>
-    </tr>
-    <tr>
-      <td><%= current_user.third_keyword %></th>
-      <td><%= current_user.fourth_keyword %></td>
-    </tr>
-    <tr>
-      <td><%= current_user.fifth_keyword %></th>
-      <td><%= current_user.sixth_keyword %></td>
-    </tr>
-    <tr>
-      <td><%= current_user.seventh_keyword %></th>
-      <td><%= current_user.eighth_keyword %></td>
-    </tr>
-    <tr>
-      <td><%= current_user.ninth_keyword %></th>
-      <td><%= current_user.tenth_keyword %></td>
-    </tr>
-  </tbody>
-</table>
+<h5 class="smart-frame p-3 mb-0">
+  <u>
+    理想のキーワード
+  </u>
+</h5>
+<div class="cross-frame font-weight-bold mt-0">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= current_user.first_keyword %></li>
+    <li class="list-group-item"><%= current_user.second_keyword %></li>
+    <li class="list-group-item"><%= current_user.third_keyword %></li>
+    <li class="list-group-item"><%= current_user.fourth_keyword %></li>
+    <li class="list-group-item"><%= current_user.fifth_keyword %></li>
+    <li class="list-group-item"><%= current_user.sixth_keyword %></li>
+    <li class="list-group-item"><%= current_user.seventh_keyword %></li>
+    <li class="list-group-item"><%= current_user.eighth_keyword %></li>
+    <li class="list-group-item"><%= current_user.ninth_keyword %></li>
+    <li class="list-group-item"><%= current_user.tenth_keyword %></li>
+  </ul>
+</div>

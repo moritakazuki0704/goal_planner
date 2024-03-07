@@ -22,20 +22,30 @@
       </p>
       <p>
         そして逆にこうなりたくない<br>
-        これだけはしたくないということは<br>
-        ありますか
+        これだけはしたくない<br>
+        ということはありますか
+      </p>
+      <p>
+        はっきりとわかっている自分の理想
+      </p>
+      <p>
+        まだはっきりとはわかっていない自分の理想
       </p>
       <p>
         まずは自分の理想を示す<br>
         キーワードを探してみましょう
       </p>
       <p>
-        それはあなた自身を示し<br>
-        あなたの未来を想像してくれます
+        すぐに思いつかないのであれば<br>
+        連想ゲームのように考えてみましょう
       </p>
       <p>
-        目標も理想も<br>
-        あなたのなかにいるのだから
+        理想の自分といったら〇〇<br>
+        〇〇といったら・・・<br>
+        という感じに考えてみるといいでしょう
+      </p>
+      <p>
+        ただ思いつくままに教えて下さい
       </p>
     </div>
 
@@ -49,52 +59,27 @@
         </u>
       </h5>
       <p>
-        すぐに思いつかないのであれば<br>
-        連想ゲームのように考えてみましょう
+        あなた自身を示し<br>
+        あなたの未来を想像してくれます
       </p>
       <p>
-        理想の自分といったら〇〇<br>
-        〇〇といったら・・・<br>
-        という感じに考えてみるといいでしょう
-      </p>
-      <p>
-        ただ思いつくままに教えて下さい
+        目標も理想も<br>
+        あなたのなかにいるのだから
       </p>
       <%= form_with model: @user, url: keyword_confirm_user_path, method: :get do |f| %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th colspan="2" scope="col">
-                理想のキーワード入力してください
-              </th>
-            </tr>
-          </thead>
-          <tbody class="form-group">
-            <tr>
-              <td><%= f.text_field :first_keyword, autofocus: true,class: "form-control" %></th>
-              <td><%= f.text_field :second_keyword, autofocus: true,class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><%= f.text_field :third_keyword, autofocus: true,class: "form-control" %></th>
-              <td><%= f.text_field :fourth_keyword, autofocus: true,class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><%= f.text_field :fifth_keyword, autofocus: true,class: "form-control" %></th>
-              <td><%= f.text_field :sixth_keyword, autofocus: true,class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><%= f.text_field :seventh_keyword, autofocus: true,class: "form-control" %></th>
-              <td><%= f.text_field :eighth_keyword, autofocus: true,class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><%= f.text_field :ninth_keyword, autofocus: true,class: "form-control" %></th>
-              <td><%= f.text_field :tenth_keyword, autofocus: true,class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td colspan="2"><%= f.submit "次に進む",class: "btn btn-outline-primary" %></th>
-            </tr>
-          </tbody>
-        </table>
+        <ul class="list-group list-group-flush">
+          <%= f.text_field :first_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :second_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :third_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :fourth_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :fifth_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :sixth_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :seventh_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :eighth_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :ninth_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.text_field :tenth_keyword, autofocus: true,class: "form-control list-group-item" %>
+        </ul>
+        <%= f.submit "次に進む",class: "btn btn-outline-primary mt-4" %>
       <% end %>
     </div>
 

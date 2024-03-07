@@ -3,25 +3,13 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <p>
-        人生における<br>
-        これだけは大切にしていること
-      </p>
-      <p>
-        たとえ何があったとしても<br>
-        あなたの行動において<br>
-        これだけは何があっても<br>
-        守り通したいこと
-      </p>
-      <p>
-        あなたの中の人生の指針となる<br>
-        考えや思いを教えてください
-      </p>
+
 
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">キーワード</a>
+          <a class="nav-item nav-link active" id="nav-introduction-tab" data-toggle="tab" href="#nav-introduction" role="tab" aria-controls="nav-introduction" aria-selected="true">説明</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
           <a class="nav-item nav-link" id="nav-first_sample-tab" data-toggle="tab" href="#nav-first_sample" role="tab" aria-controls="nav-first_sample" aria-selected="false">例1</a>
           <a class="nav-item nav-link" id="nav-second_sample-tab" data-toggle="tab" href="#nav-second_sample" role="tab" aria-controls="nav-second_sample" aria-selected="false">例2</a>
           <a class="nav-item nav-link" id="nav-third_sample-tab" data-toggle="tab" href="#nav-third_sample" role="tab" aria-controls="nav-third_sample" aria-selected="false">例3</a>
@@ -29,8 +17,38 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <div class="tab-pane fade show active" id="nav-introduction" role="tabpanel" aria-labelledby="nav-introduction-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <p class="mt-1">
+              人生における<br>
+              これだけは大切にしていること
+            </p>
+            <p>
+              たとえ何があったとしても<br>
+              あなたの行動において<br>
+              これだけは何があっても<br>
+              守り通したいこと
+            </p>
+            <p>
+              あなたの中の人生の指針となる<br>
+              考えや思いを教えてください
+            </p>
+            <p>
+              キーワードや例文があります
+            </p>
+            <p>
+              キーワード<br>
+              それはあなたの未来を示す言葉
+            </p>
+            <p>
+              ことわざはあなたの<br>
+              大切にしている指針を形にしたものです
+            </p>
+          </div>
+        </div>
+
         <!--例題１のタブ-->
-        <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'keyword_show' %>
         </div>
 
@@ -46,13 +64,7 @@
               自分に厳しく<br>
               成長できることを行う
             </p>
-          </div>
-        </div>
-
-        <!--例題2のタブ-->
-        <div class="tab-pane fade" id="nav-second_sample" role="tabpanel" aria-labelledby="nav-second_sample-tab">
-          <div class="smart-content text-center font-weight-bold mt-0">
-            <p class="mt-1">
+            <p class="mt-5">
               情けは人の為ならず
             </p>
             <p>
@@ -60,13 +72,7 @@
               周りに回って自分に返ってくるので<br>
               自分のためでもある
             </p>
-          </div>
-        </div>
-
-        <!--例題3のタブ-->
-        <div class="tab-pane fade" id="nav-third_sample" role="tabpanel" aria-labelledby="nav-third_sample-tab">
-          <div class="smart-content text-center font-weight-bold mt-0">
-            <p class="mt-1">
+            <p class="mt-5">
               道理に向かう刃無し
             </p>
             <p>
@@ -75,16 +81,67 @@
             </p>
           </div>
         </div>
+
+        <!--例題2のタブ-->
+        <div class="tab-pane fade" id="nav-second_sample" role="tabpanel" aria-labelledby="nav-second_sample-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <p class="mt-1">
+              井の中の蛙<br>
+              大海を知らず
+            </p>
+            <p>
+              自分の狭い視野や考えに<br>
+              囚われてはいけない
+            </p>
+            <p class="mt-5">
+              何かを求める前に<br>
+              自分は何ができるかを考える
+            </p>
+            <p>
+              他が自分に<br>
+              何かしてくれると期待する前に<br>
+              自分が何をできるかを<br>
+              考えることが大切
+            </p>
+            <p class="mt-5">
+              艱難(かんなん)汝を玉にす
+            </p>
+            <p>
+              人は苦労してこそ立派になる<br>
+              この苦労が自分の糧になる
+            </p>
+          </div>
+        </div>
+
+        <!--例題3のタブ-->
+        <div class="tab-pane fade" id="nav-third_sample" role="tabpanel" aria-labelledby="nav-third_sample-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <p class="mt-1">
+              一念天に通ず
+            </p>
+            <p>
+              何事も成し遂げようとする<br>
+              強い信念があれば<br>
+              天に通じて実現できる
+            </p>
+            <p class="mt-5">
+              天は自ら助くる者を助く
+            </p>
+            <p>
+              人に依存せず<br>
+              自ら頑張る人を神様は応援する
+            </p>
+            <p class="mt-5">
+              仕事は全て時を定めて成すべし
+            </p>
+            <p>
+              自分自身の規律や<br>
+              ルールを設定することが大切
+            </p>
+          </div>
+        </div>
       </div>
 
-      <p>
-        このことわざの考え方は<br>
-        人生の生き方を表しています
-      </p>
-      <p>
-        あなたがあなた自身と約束する<br>
-        守りたいことを教えて下さい
-      </p>
     </div>
 
     <!--右のページ-->

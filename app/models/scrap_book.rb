@@ -2,6 +2,8 @@ class ScrapBook < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
 
+
+  default_scope -> { order("RANDOM()") }
   validates :photo, presence: true
 
   def get_photo(width,height)

@@ -3,7 +3,7 @@
     <div class="row">
 
       <!--写真投稿フォーム-->
-      <div class="col mt-5 mx-5 pt-5 px-5">
+      <div class="col mx-5 pt-5 px-5">
         <div class="sticky-note">
           <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
             <div class="form-group sticky-title">
@@ -20,8 +20,8 @@
         </div>
       </div>
 
-      <div class="col mt-5 mx-5 pt-5 px-5">
-        <div class="cloth-frame text-center py-5">
+      <div class="col mx-5 pt-5 px-5">
+        <div class="cloth-frame text-center py-3">
 
           <% unless params[:error] %>
             <p>
@@ -35,7 +35,8 @@
               大切な思い出と叶えたい理想
             </p>
             <p>
-              忘れないように　イメージできるように
+              忘れないように<br>
+              イメージできるように
             </p>
             <p>
               写真をクリックすることで<br>
@@ -68,7 +69,7 @@
     <div class="row mx-5 mb-5">
       <% @scrap_books.each do |scrap_book| %>
         <%= link_to scrap_book_path(scrap_book.id) do %>
-          <%= image_tag scrap_book.get_photo(250,250), class: "img-thumbnail m-3 mb-5" %>
+          <%= image_tag scrap_book.get_photo(170,170), class: "img-thumbnail m-3 mb-5" %>
         <% end %>
       <% end %>
       <div class="d-flex justify-content-center my-5">

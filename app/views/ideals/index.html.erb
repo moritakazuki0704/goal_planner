@@ -46,7 +46,7 @@
 
           <% if @ideals.present? && @ideals.appearance.present? %>
           <!--理想の姿が作成されている場合-->
-            <%= link_to "理想の姿", record_ideals_path(appearance: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の姿を閲覧する", record_ideals_path(appearance: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の姿が作成されていない場合-->
@@ -55,7 +55,7 @@
 
           <% if @ideals.present? && @ideals.lifestyle.present? %>
           <!--理想のライフスタイルが作成されている場合-->
-            <%= link_to "理想のライフスタイル", record_ideals_path(lifestyle: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想のライフスタイルを閲覧する", record_ideals_path(lifestyle: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想のライフスタイルが作成されていない場合-->
@@ -64,7 +64,7 @@
 
           <% if @ideals.present? && @ideals.spend_time.present? %>
           <!--理想の時間の使い方が作成されている場合-->
-            <%= link_to "理想の時間の使い方", record_ideals_path(spend_time: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の時間の使い方を閲覧する", record_ideals_path(spend_time: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の時間の使い方が作成されていない場合-->
@@ -73,7 +73,7 @@
 
           <% if @ideals.present? && @ideals.working.present? %>
           <!--理想の働き方が作成されている場合-->
-            <%= link_to "理想の働き方", record_ideals_path(working: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の働き方を閲覧する", record_ideals_path(working: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の働き方が作成されていない場合-->
@@ -82,16 +82,16 @@
 
           <% if @ideals.present? && @ideals.residence.present? %>
           <!--理想の住まいが作成されている場合-->
-            <%= link_to "理想の住まい", record_ideals_path(residence: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の住まいを閲覧する", record_ideals_path(residence: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の住まいが作成されていない場合-->
-            <%= link_to "理想の住まいを想像する", relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
+            <%= link_to "理想の住まいを想像する", residence_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
           <% end %>
 
           <% if @ideals.present? && @ideals.relationship.present? %>
           <!--理想の人間関係が作成されている場合-->
-            <%= link_to "理想の人間関係", record_ideals_path(relationship: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想の人間関係を閲覧する", record_ideals_path(relationship: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想の人間関係が作成されていない場合-->
@@ -100,7 +100,7 @@
 
           <% if @ideals.present? && @ideals.partner.present? %>
           <!--理想のパートナーが作成されている場合-->
-            <%= link_to "理想のパートナー", record_ideals_path(partner: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想のパートナーを閲覧する", record_ideals_path(partner: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想のパートナーが作成されていない場合-->
@@ -109,7 +109,7 @@
 
           <% if @ideals.present? && @ideals.role_model.present? %>
           <!--理想のロールモデルが作成されている場合-->
-            <%= link_to "理想のロールモデル", record_ideals_path(role_model: true), class: "list-group-item list-group-item-action list-group-item-success" %>
+            <%= link_to "理想のロールモデルを閲覧する", record_ideals_path(role_model: true), class: "list-group-item list-group-item-action list-group-item-success" %>
 
           <% else %>
           <!--理想のロールモデルが作成されていない場合-->

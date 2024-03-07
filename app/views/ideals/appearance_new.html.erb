@@ -3,62 +3,80 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <p>
-          あなたが思い描く将来の姿には<br>
-          あなた自身がいることと思います
-        </p>
-        <p>
-          どんな表情をしていますか<br>
-          髪の長さやセットは<br>
-          どのようなものですか
-        </p>
-        <p>
-          メイクはどのようなメイクですか<br>
-        </p>
-        <p>
-          体型は標準ですか<br>
-          それともモデル体型<br>
-          もしくは筋肉質ですか
-        </p>
-        <p>
-          持っている服装や<br>
-          着ている服装<br>
-          アクセサリーはしていますか
-        </p>
-        <p>
-          思い描く未来の<br>
-          想像する未来の<br>
-          あなたの姿を教えて下さい
-        </p>
-      <% else %>
-        <h5 class="smart-frame bg-warning">
-          <u>
-            理想の姿の作成に失敗しました
-          </u>
-        </h5>
-        <p>
-          教えていただいた理想の姿に<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          おしゃれというのは<br>
-          考え方や行動が変わります<br>
-          そして気分や気持ちも変わります
-        </p>
-        <p>
-          理想の姿に近づけていく<br>
-          それはあなたにとっての<br>
-          全ての原動力の一つとなります
-        </p>
-        <p>
-          価値が高くなくていいんです<br>
-          あなたが身に纏うことで<br>
-          それは誰にとっても<br>
-          価値の高いものになります
-        </p>
-      <% end %>
-      <%= render 'users/keyword_show' %>
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="true">理想の姿</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <% unless params[:error] %>
+              <p class="mt-1">
+                あなたが思い描く将来の姿には<br>
+                あなた自身がいることと思います
+              </p>
+              <p>
+                どんな表情をしていますか<br>
+                髪の長さやセットは<br>
+                どのようなものですか
+              </p>
+              <p>
+                メイクはどのようなメイクですか<br>
+              </p>
+              <p>
+                体型は標準ですか<br>
+                それともモデル体型<br>
+                もしくは筋肉質ですか
+              </p>
+              <p>
+                持っている服装や<br>
+                着ている服装<br>
+                アクセサリーはしていますか
+              </p>
+              <p>
+                思い描く未来の<br>
+                想像する未来の<br>
+                あなたの姿を教えて下さい
+              </p>
+            <% else %>
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想の姿の<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想の姿に<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                おしゃれというのは<br>
+                考え方や行動が変わります<br>
+                そして気分や気持ちも変わります
+              </p>
+              <p>
+                理想の姿に近づけていく<br>
+                それはあなたにとっての<br>
+                全ての原動力の一つとなります
+              </p>
+              <p>
+                価値が高くなくていいんです<br>
+                あなたが身に纏うことで<br>
+                それは誰にとっても<br>
+                価値の高いものになります
+              </p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'users/keyword_show' %>
+        </div>
+      </div>
     </div>
 
     <!--右のページ-->

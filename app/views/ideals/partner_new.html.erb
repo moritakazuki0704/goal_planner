@@ -3,65 +3,83 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <p>
-          基本的に人は一人でなんでもできる<br>
-          というわけではありません
-        </p>
-        <p>
-          精神的  ・  仕事的
-        </p>
-        <p>
-          それらは関わる人と<br>
-          切っても切り離せないもの
-        </p>
-        <p>
-          その中で<br>
-          あなたにとってのパートナーとは<br>
-          どういった存在なのでしょうか
-        </p>
-        <p>
-          相棒  恋人  夫婦  親友
-        </p>
-        <p>
-          あなたにとっての唯一の<br>
-          パートナーを考えてみて下さい
-        </p>
-        <p>
-          それはあなたがあなたであるために<br>
-          必要な存在であると思います<br>
-          そしてあなたが理想を追い求める上で<br>
-          必要な存在となると思います
-        </p>
-      <% else %>
-        <h5 class="smart-frame bg-warning">
-          <u>
-            理想のパートナーの作成に失敗しました
-          </u>
-        </h5>
-        <p>
-          教えていただいた理想のパートナーに<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          仕事の相棒<br>
-          プライベートの親友<br>
-          一緒に一生を過ごす夫婦
-        </p>
-        <p>
-          あなたは何をしてあげられますか<br>
-          その人は何をしてくれますか
-        </p>
-        <p>
-          そしてその人とあなたは<br>
-          周りからどのように呼ばれますか<br>
-        </p>
-        <p>
-          それがあなたにとっての<br>
-          理想のパートナーとなるでしょう
-        </p>
-      <% end %>
-      <%= render 'users/keyword_show' %>
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-partner-tab" data-toggle="tab" href="#nav-partner" role="tab" aria-controls="nav-partner" aria-selected="true">理想のパートナー</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-partner" role="tabpanel" aria-labelledby="nav-partner-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <% unless params[:error] %>
+              <p class="mt-1">
+                基本的に人は一人でなんでもできる<br>
+                というわけではありません
+              </p>
+              <p>
+                精神的  ・  仕事的
+              </p>
+              <p>
+                それらは関わる人と<br>
+                切っても切り離せないもの
+              </p>
+              <p>
+                その中で<br>
+                あなたにとってのパートナーとは<br>
+                どういった存在なのでしょうか
+              </p>
+              <p>
+                相棒  恋人  夫婦  親友
+              </p>
+              <p>
+                あなたにとっての唯一の<br>
+                パートナーを考えてみて下さい
+              </p>
+              <p>
+                それはあなたがあなたであるために<br>
+                必要な存在であると思います<br>
+                そしてあなたが理想を追い求める上で<br>
+                必要な存在となると思います
+              </p>
+            <% else %>
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想のパートナーの<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想のパートナーに<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                仕事の相棒<br>
+                プライベートの親友<br>
+                一緒に一生を過ごす夫婦
+              </p>
+              <p>
+                あなたは何をしてあげられますか<br>
+                その人は何をしてくれますか
+              </p>
+              <p>
+                そしてその人とあなたは<br>
+                周りからどのように呼ばれますか<br>
+              </p>
+              <p>
+                それがあなたにとっての<br>
+                理想のパートナーとなるでしょう
+              </p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'users/keyword_show' %>
+        </div>
+      </div>
     </div>
 
     <!--右のページ-->

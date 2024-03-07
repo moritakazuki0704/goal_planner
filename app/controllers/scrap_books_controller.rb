@@ -3,7 +3,7 @@ class ScrapBooksController < ApplicationController
   before_action :not_setting_goals_in_life!
 
   def index
-    @scrap_books = current_user.scrap_books.order("RANDOM()").page(params[:page])
+    @scrap_books = current_user.scrap_books.page(params[:page])
     @scrap_book = ScrapBook.new
   end
 

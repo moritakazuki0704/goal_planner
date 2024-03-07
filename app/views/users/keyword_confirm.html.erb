@@ -4,23 +4,30 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <p>
-        あなたにとっての生涯大切にしてることを<br>
+        あなたの理想の示すキーワードを<br>
         教えていただきました
       </p>
       <p>
-        これは今までも守り続けてきたこと<br>
-        これからも守り続け大事にしていくこと
+        これはあなたが自分を見つめる<br>
+        自分のことを知っていくために必要であり
       </p>
       <p>
-        あなたの全てとも言えます
+        あなたの理想が<br>
+        迷子にならないように<br>
+        挫けないように
       </p>
       <p>
-        迷ってしまった時<br>
-        困った時<br>
-        困難に立ち向かう時
+        あなたの理想の指し示してくれます
       </p>
       <p>
-        何かを選ぶときの一つの指針となります
+        そのキーワードを<br>
+        大切に持っていってください
+      </p>
+      <p>
+        目標や理想が少し変わってしまったとしても<br>
+        目標を達成する<br>
+        あなたのゴール地点には<br>
+        このキーワードは全て持っているはずです
       </p>
       <div class="danger-title-frame">
         <span>書き直すことはできません</span>
@@ -43,30 +50,20 @@
             理想のキーワード
           </u>
         </h5>
-        <table class="table">
-          <tbody class="cross-frame font-weight-bold">
-            <tr>
-              <td><%= session[:first_keyword] %></th>
-              <td><%= session[:second_keyword] %></td>
-            </tr>
-            <tr>
-              <td><%= session[:third_keyword] %></th>
-              <td><%= session[:fourth_keyword] %></td>
-            </tr>
-            <tr>
-              <td><%= session[:fifth_keyword] %></th>
-              <td><%= session[:sixth_keyword] %></td>
-            </tr>
-            <tr>
-              <td><%= session[:seventh_keyword] %></th>
-              <td><%= session[:eighth_keyword] %></td>
-            </tr>
-            <tr>
-              <td><%= session[:ninth_keyword] %></th>
-              <td><%= session[:tenth_keyword] %></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="cross-frame font-weight-bold">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= session[:first_keyword] %></li>
+            <li class="list-group-item"><%= session[:second_keyword] %></li>
+            <li class="list-group-item"><%= session[:third_keyword] %></li>
+            <li class="list-group-item"><%= session[:fourth_keyword] %></li>
+            <li class="list-group-item"><%= session[:fifth_keyword] %></li>
+            <li class="list-group-item"><%= session[:sixth_keyword] %></li>
+            <li class="list-group-item"><%= session[:seventh_keyword] %></li>
+            <li class="list-group-item"><%= session[:eighth_keyword] %></li>
+            <li class="list-group-item"><%= session[:ninth_keyword] %></li>
+            <li class="list-group-item"><%= session[:tenth_keyword] %></li>
+          </ul>
+        </div>
         <div class="d-flex justify-content-around my-3">
           <%= form_with model: @user, url: keyword_update_user_path, method: :patch do |f|  %>
             <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-outline-primary" %>

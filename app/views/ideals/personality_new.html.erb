@@ -3,62 +3,80 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <p>
-          なりたい人<br>
-          憧れる人<br>
-          こういう人になりたい<br>
-          こういうことができる人になりたい
-        </p>
-        <p>
-          そういったことを<br>
-          考えたことはありませんか
-        </p>
-        <p>
-          その人はどういった性格をしていて<br>
-          どういった行動をすることができて<br>
-          あなたを憧れさせたのでしょうか
-        </p>
-        <p>
-          あなたはあなた自身です<br>
-          あなたはその人になることはできません
-        </p>
-        <p>
-          ですが<br>
-          その人のようになることはできます
-        </p>
-        <p>
-          人は変わることができるんです<br>
-          悩むことはありません
-        </p>
-      <% else %>
-        <h5 class="smart-frame bg-warning">
-          <u>
-            理想の性格の作成に失敗しました
-          </u>
-        </h5>
-        <p>
-          教えていただいた理想の性格に<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          あなたにとっての<br>
-          かっこいい行動はなんでしょう<br>
-          かわいいと思う行動はなんでしょう
-        </p>
-        <p>
-          性格は考え方に表れます<br>
-          性格は行動に見えます<br>
-          性格は言動に映ります
-        </p>
-        <p>
-          つまりは<br>
-          なりたいと思う人の<br>
-          一挙手一投足<br>
-          行動の全てがそれなんです
-        </p>
-      <% end %>
-      <%= render 'users/keyword_show' %>
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="true">理想の性格</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <% unless params[:error] %>
+              <p class="mt-1">
+                なりたい人<br>
+                憧れる人<br>
+                こういう人になりたい<br>
+                こういうことができる人になりたい
+              </p>
+              <p>
+                そういったことを<br>
+                考えたことはありませんか
+              </p>
+              <p>
+                その人はどういった性格をしていて<br>
+                どういった行動をすることができて<br>
+                あなたを憧れさせたのでしょうか
+              </p>
+              <p>
+                あなたはあなた自身です<br>
+                あなたはその人になることはできません
+              </p>
+              <p>
+                ですが<br>
+                その人のようになることはできます
+              </p>
+              <p>
+                人は変わることができるんです<br>
+                悩むことはありません
+              </p>
+            <% else %>
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想の性格の<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想の性格に<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                あなたにとっての<br>
+                かっこいい行動はなんでしょう<br>
+                かわいいと思う行動はなんでしょう
+              </p>
+              <p>
+                性格は考え方に表れます<br>
+                性格は行動に見えます<br>
+                性格は言動に映ります
+              </p>
+              <p>
+                つまりは<br>
+                なりたいと思う人の<br>
+                一挙手一投足<br>
+                行動の全てがそれなんです
+              </p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'users/keyword_show' %>
+        </div>
+      </div>
     </div>
 
     <!--右のページ-->

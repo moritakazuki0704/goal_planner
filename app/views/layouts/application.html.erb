@@ -15,7 +15,7 @@
     <div class="background-paper"></div>
     <div class="row no-gutters justify-content-center">
 
-      <% if user_signed_in? && !current_page?(root_path) %>
+      <% if user_signed_in? && !current_page?(root_path) && !current_page?(withdrawal_user_path) %>
       <!--ユーザーがログインし、ページがトップページじゃない場合のみ表示-->
         <div class ="sidebar text-center col-2 h-100">
           <ul class="list-group list-group-flush">

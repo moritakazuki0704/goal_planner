@@ -3,65 +3,83 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <p>
-          きっと誰しも思ったことがあるでしょう
-        </p>
-        <p>
-          いいなぁ<br>
-          憧れるなぁ
-        </p>
-        <p>
-          それは理想を叶えている人の姿です
-        </p>
-        <p>
-          理想を体現している人がいるのならば<br>
-          あなたがその人のことをよく知って
-        </p>
-        <p>
-          その人の行動やその人の考え方<br>
-          それを真似すればいいだけです
-        </p>
-        <p>
-          何もわからない手探りの状態より<br>
-          簡単だと思いませんか
-        </p>
-        <p>
-          まずは話し方からでも歩き方でも<br>
-          箸の持ち方や一つの考え方でも
-        </p>
-        <p>
-          はじめの一歩はなんでもいい<br>
-          一歩ずつ歩んでいけばいいのですから
-        </p>
-      <% else %>
-        <h5 class="smart-frame bg-warning">
-          <u>
-            理想のロールモデルの作成に失敗しました
-          </u>
-        </h5>
-        <p>
-          教えていただいた理想のモデルに<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          理想を考える時に<br>
-          きっとそこには<br>
-          理想叶えている人がいるでしょう
-        </p>
-        <p>
-          その人にあなたが近づく<br>
-          性格や言動<br>
-          行動をするときに<br>
-          この人だったらと考える
-        </p>
-        <p>
-          それがあなたにとっての<br>
-          理想を叶えている<br>
-          真似をするべきモデルです
-        </p>
-      <% end %>
-      <%= render 'users/keyword_show' %>
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="true">理想のモデル</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-role_model" role="tabpanel" aria-labelledby="nav-role_model-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <% unless params[:error] %>
+              <p class="mt-1">
+                きっと誰しも思ったことがあるでしょう
+              </p>
+              <p>
+                いいなぁ<br>
+                憧れるなぁ
+              </p>
+              <p>
+                それは理想を叶えている人の姿です
+              </p>
+              <p>
+                理想を体現している人がいるのならば<br>
+                あなたがその人のことをよく知って
+              </p>
+              <p>
+                その人の行動やその人の考え方<br>
+                それを真似すればいいだけです
+              </p>
+              <p>
+                何もわからない手探りの状態より<br>
+                簡単だと思いませんか
+              </p>
+              <p>
+                まずは話し方からでも歩き方でも<br>
+                箸の持ち方や一つの考え方でも
+              </p>
+              <p>
+                はじめの一歩はなんでもいい<br>
+                一歩ずつ歩んでいけばいいのですから
+              </p>
+            <% else %>
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想のロールモデルの<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想のモデルに<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                理想を考える時に<br>
+                きっとそこには<br>
+                理想叶えている人がいるでしょう
+              </p>
+              <p>
+                その人にあなたが近づく<br>
+                性格や言動<br>
+                行動をするときに<br>
+                この人だったらと考える
+              </p>
+              <p>
+                それがあなたにとっての<br>
+                理想を叶えている<br>
+                真似をするべきモデルです
+              </p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'users/keyword_show' %>
+        </div>
+      </div>
     </div>
 
 

@@ -3,64 +3,82 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <p>
-          住まいとはなんでしょう
-        </p>
-        <p>
-          それは癒し<br>
-          それは自分の場所<br>
-          それは落ち着く場所<br>
-          それは楽しめる場所
-        </p>
-        <p>
-          住まいというのは<br>
-          食事をとって寝る<br>
-          それだけの場所ではありません
-        </p>
-        <p>
-          あなたがあなたらしくいられる場所
-        </p>
-        <p>
-          心と体をリセットできる空間でもあり<br>
-          趣味や娯楽を楽しめる空間でもあり<br>
-          知識と経験を学ぶ場所になり得ます
-        </p>
-        <p>
-          将来を思い描いてみましょう<br>
-          そしたらそこには<br>
-          あなたの住んでいる場所があります
-        </p>
-      <% else %>
-        <h5 class="smart-frame bg-warning">
-          <u>
-            理想の住まいの作成に失敗しました
-          </u>
-        </h5>
-        <p>
-          教えていただいた理想の住まいに<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          住まいということは<br>
-          住居だけではなく<br>
-          その環境です
-        </p>
-        <p>
-          引っ越しするときの条件<br>
-          部屋のレイアウト<br>
-          部屋の家具の条件
-        </p>
-        <p>
-          どんな部屋がいいですか<br>
-          どんな環境がいいですか<br>
-          近所には何があればいいですか<br>
-        </p>
-        <p>
-          それがあなたの理想の住まいです
-        </p>
-      <% end %>
-      <%= render 'users/keyword_show' %>
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-residence-tab" data-toggle="tab" href="#nav-residence" role="tab" aria-controls="nav-residence" aria-selected="true">理想の住まい</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-residence" role="tabpanel" aria-labelledby="nav-residence-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <% unless params[:error] %>
+              <p class="mt-1">
+                住まいとはなんでしょう
+              </p>
+              <p>
+                それは癒し<br>
+                それは自分の場所<br>
+                それは落ち着く場所<br>
+                それは楽しめる場所
+              </p>
+              <p>
+                住まいというのは<br>
+                食事をとって寝る<br>
+                それだけの場所ではありません
+              </p>
+              <p>
+                あなたがあなたらしくいられる場所
+              </p>
+              <p>
+                心と体をリセットできる空間でもあり<br>
+                趣味や娯楽を楽しめる空間でもあり<br>
+                知識と経験を学ぶ場所になり得ます
+              </p>
+              <p>
+                将来を思い描いてみましょう<br>
+                そしたらそこには<br>
+                あなたの住んでいる場所があります
+              </p>
+            <% else %>
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想の住まいの<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想の住まいに<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                住まいということは<br>
+                住居だけではなく<br>
+                その環境です
+              </p>
+              <p>
+                引っ越しするときの条件<br>
+                部屋のレイアウト<br>
+                部屋の家具の条件
+              </p>
+              <p>
+                どんな部屋がいいですか<br>
+                どんな環境がいいですか<br>
+                近所には何があればいいですか<br>
+              </p>
+              <p>
+                それがあなたの理想の住まいです
+              </p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'users/keyword_show' %>
+        </div>
+      </div>
     </div>
 
     <!--右のページ-->

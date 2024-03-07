@@ -3,45 +3,69 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <% if current_user.problems.present? %>
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-introduction-tab" data-toggle="tab" href="#nav-introduction" role="tab" aria-controls="nav-introduction" aria-selected="true">目標について</a>
+          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
 
-      <!--２回目以降に目標を作成する場合のテキスト-->
-        <p>
-          目標は一つではなく<br>
-          あなたの理想を見つける度に<br>
-          あなたが挑戦をやめない限り
-        </p>
-        <p>
-          ずっとあなたの目の前に現れます
-        </p>
-      <% else %>
+        <div class="tab-pane fade show active" id="nav-introduction" role="tabpanel" aria-labelledby="nav-introduction-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
 
-      <!--初めて目標を作成する場合のテキスト-->
-        <p>
-          最後に決めるのは理想の将来です
-        </p>
-        <p>
-          今まで教えていただいた理想は<br>
-          目標を達成する通過点でもあり<br>
-          目標を達成した先に得られるものです
-        </p>
-      <% end %>
+            <% if current_user.problems.present? %>
+              <!--２回目以降に目標を作成する場合のテキスト-->
+              <p class="mt-1">
+                目標は一つではなく<br>
+                あなたの理想を見つける度に<br>
+                あなたが挑戦をやめない限り
+              </p>
+              <p>
+                ずっとあなたの目の前に現れます
+              </p>
 
-      <p>
-        目標の大きさはそれぞれであり<br>
-        大小や難易度なんてものは<br>
-        あなた自身が決めるものです
-      </p>
-      <p>
-        誰がなんと言おうと<br>
-        達成したいと思えるならば<br>
-        そんなことは大したことではありません
-      </p>
-      <p>
-        あなたの心から渇望する目標となり<br>
-        あなたの将来を達成するための目標です
-      </p>
-      <%= render 'users/keyword_show' %>
+            <% else %>
+              <!--初めて目標を作成する場合のテキスト-->
+              <p class="mt-1">
+                目標の大きさはそれぞれであり<br>
+                大小や難易度なんてものは<br>
+                あなた自身が決めるものです
+              </p>
+              <p>
+                誰がなんと言おうと<br>
+                達成したいと思えるならば<br>
+                そんなことは大したことではありません
+              </p>
+              <p>
+                あなたの心から渇望する目標となり<br>
+                あなたの将来を達成するための目標です
+              </p>
+            <% end %>
+
+            <p>
+              目標の大きさはそれぞれであり<br>
+              大小や難易度なんてものは<br>
+              あなた自身が決めるものです
+            </p>
+            <p>
+              誰がなんと言おうと<br>
+              達成したいと思えるならば<br>
+              そんなことは大したことではありません
+            </p>
+            <p>
+              あなたの心から渇望する目標となり<br>
+              あなたの将来を達成するための目標です
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <%= render 'users/keyword_show' %>
+        </div>
+
+      </div>
     </div>
 
     <!--右のページ-->
@@ -52,6 +76,22 @@
           目標を教えて下さい
         </u>
       </h5>
+      <p>
+        これから理想を叶えていくにつれ<br>
+        達成したい目標は多くなっていくでしょう
+      </p>
+      <p>
+        その度に目標を作成していってください
+      </p>
+      <p>
+        最終的に叶えたい目標が変わらなければ<br>
+        何も問題はありません
+      </p>
+      <p>
+        最終的に叶えたい目標を叶える頃には<br>
+        その過程で得たものは<br>
+        一生の大切なものになっています
+      </p>
       <%= form_with model: @problem, url: confirm_problems_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :commitment, class: "font-weight-bold" %><br />
