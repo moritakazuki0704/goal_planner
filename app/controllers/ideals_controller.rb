@@ -136,30 +136,39 @@ class IdealsController < ApplicationController
   def record
     user_ideal = Ideal.where(user_id: current_user)
     if params[:personality]
+      # 理想の性格を確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 0)
       @ideals = user_ideal.personality.page(params[:page])
     elsif params[:appearance]
+      # 理想の姿を確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 1)
       @ideals = user_ideal.appearance.page(params[:page])
     elsif params[:lifestyle]
+      # 理想のライフスタイルを確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 2)
       @ideals = user_ideal.lifestyle.page(params[:page])
     elsif params[:spend_time]
+      # 理想の時間の使い方を確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 3)
       @ideals = user_ideal.spend_time.page(params[:page])
     elsif params[:working]
+      # 理想の働き方を確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 4)
       @ideals = user_ideal.working.page(params[:page])
     elsif params[:residence]
+      # 理想の住まいを確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 5)
       @ideals = user_ideal.residence.page(params[:page])
     elsif params[:relationship]
+      # 理想の人間関係を確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 6)
       @ideals = user_ideal.relationship.page(params[:page])
     elsif params[:partner]
+      # 理想のパートナーを確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 7)
       @ideals = user_ideal.partner.page(params[:page])
     elsif params[:role_model]
+      # 理想のロールモデルを確認する場合
       @ideal_name = user_ideal.find_by(ideal_status: 8)
       @ideals = user_ideal.role_model.page(params[:page])
     end
