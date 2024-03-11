@@ -3,7 +3,7 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-header">
           <%= @problem.commitment %>
         </div>
@@ -32,9 +32,7 @@
       </div>
 
       <% if @problem.schedules.present? %>
-      <div>
-        <p>課題件数：<%= @problem.schedules.count %></p>
-      </div>
+
 
       <!--タブ表示機能-->
       <nav>
@@ -42,6 +40,7 @@
           <a class="nav-item nav-link active btn btn-outline-primary" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="true">未設定</a>
           <a class="nav-item nav-link btn btn-outline-success" id="nav-completion-tab" data-toggle="tab" href="#nav-completion" role="tab" aria-controls="nav-completion" aria-selected="false">完了</a>
           <a class="nav-item nav-link btn btn-outline-info" id="nav-imperfect-tab" data-toggle="tab" href="#nav-imperfect" role="tab" aria-controls="nav-imperfect" aria-selected="false">未完了</a>
+          <a class="nav-item nav-link disabled btn btn-secondary">課題件数：<%= @problem.schedules.count %></a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
@@ -55,18 +54,17 @@
           </h5>
           <div class="cross-frame font-weight-bold">
             <p>
-              詳細内容と日付が未入力な予定<br>
-              タイトルをクリックして詳細を設定してください
+              詳細内容と日付が未入力な予定
             </p>
 
             <!--スクロール機能-->
             <div class="scroll-box">
-              
+
               <% @problem.schedules.pending.each do |pending| %>
                 <ul class="list-group">
-                  
+
                   <!--予定が進行中のみ予定の編集が可能とする-->
-                  <% if @problem.progress_status == 0 %>
+                  <% if @problem.progress_status == "progress" %>
                     <%= link_to edit_schedule_path(pending), class: "list-group-item list-group-item-action list-group-item-success" do %>
                       <%= pending.title %>
                     <% end %>
@@ -75,7 +73,6 @@
                       <%= pending.title %>
                     </li>
                   <% end %>
-
                 </ul>
               <% end %>
             </div>
@@ -99,7 +96,7 @@
             <div class="scroll-box">
               <% @problem.schedules.completion.each do |completion| %>
                 <ul class="list-group">
-                  <%= link_to schedule_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+                  <%= link_to schedule_path(completion.id), class: "list-group-item list-group-item-action list-group-item-success" do %>
                     <%= completion.title %>
                   <% end %>
                   <li class="list-group-item list-group-item-success">
@@ -130,7 +127,7 @@
             <div class="scroll-box">
               <% @problem.schedules.imperfect.each do |imperfect| %>
                 <ul class="list-group">
-                  <%= link_to schedule_path, class: "list-group-item list-group-item-action list-group-item-success" do %>
+                  <%= link_to schedule_path(imperfect.id), class: "list-group-item list-group-item-action list-group-item-success" do %>
                     <%= imperfect.title %>
                   <% end %>
                   <li class="list-group-item list-group-item-success">
@@ -146,7 +143,7 @@
       </div>
       <% end %>
       <div class="d-flex justify-content-around my-3">
-        <%= link_to "戻る",problems_path, class: "btn btn-info" %>
+        <%= link_to "目標一覧へ戻る",problems_path, class: "btn btn-info" %>
       </div>
     </div>
 
@@ -156,14 +153,14 @@
       <% unless params[:error] %>
         <h5 class="smart-frame mb-5">
           <u>
-            目標を叶えるためにするべきことを<br>
-            教えてください
+            目標を叶えるために<br>
+            するべきことを教えてください
           </u>
         </h5>
 
       <!--メモの作成に失敗した場合-->
       <% else %>
-        <div class="masking-tape">
+        <div class="masking-tape pt-3 m-4">
           <p>
             メモの作成に失敗しました
           </p>
@@ -202,7 +199,7 @@
                     <%= mission.memo %>
                   </p>
                 </li>
-                <li class="list-group-item list-group-horizontal list-group-item-warning">
+                <li class="list-group-item list-group-horizontalg">
                     <%= link_to "課題にする", upload_problem_mission_path(@problem,mission), method: :post, class: "btn btn-outline-success" %>
                     <%= link_to "メモを破棄する", problem_mission_path(@problem,mission), method: :delete, class: "btn btn-outline-danger" %>
                 </li>

@@ -5,6 +5,7 @@ class Problem < ApplicationRecord
 
   enum progress_status: { progress: 0, finish: 1, pending: 2 }
 
+  default_scope -> { order(updated_at: :desc) }
   with_options presence: true do
     validates :commitment
     validates :purpose

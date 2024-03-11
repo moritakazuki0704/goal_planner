@@ -4,8 +4,8 @@ class Motivation < ApplicationRecord
   enum emotion_status: { positive: 0, negative: 1, to_do: 2, want: 3 }
 
   default_scope -> { order("RANDOM()") }
-  with_options presence: true do
-    validates :appetite, uniqueness: { scope: :user }
+  with_options presence: true , uniqueness: { scope: :user } do
+    validates :appetite
     validates :memory
   end
 

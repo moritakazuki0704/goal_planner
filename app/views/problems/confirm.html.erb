@@ -49,9 +49,11 @@
         使用していくにあたり
       </p>
       <p>
-        他にも達成したい目標<br>
-        目標を達成するための目標<br>
-        が出てくると思います
+        他にも達成したい目標が出てくると思います
+      </p>
+      <p>
+        目標を達成するために<br>
+        ひとつひとつの目標も出てくるかもしれません
       </p>
       <p>
         その時には新たに目標を立ててください
@@ -96,7 +98,11 @@
           言葉にして形にするだけです
         </p>
         <div class="d-flex justify-content-around my-3">
-          <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+          <% if !current_user.problems.present? %>
+            <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+          <% else %>
+            <%= link_to '目標を設定し直す', new_problem_path, class: "btn btn-outline-info" %>
+          <% end %>
         </div>
       <% end %>
 
