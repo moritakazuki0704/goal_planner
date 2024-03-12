@@ -89,10 +89,8 @@ ActiveRecord::Schema.define(version: 2024_02_13_171135) do
     t.integer "problem_id", null: false
     t.string "title", null: false
     t.text "body"
-    t.date "start_date"
-    t.time "start_time"
-    t.date "end_date"
-    t.time "end_time"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

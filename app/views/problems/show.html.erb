@@ -100,9 +100,9 @@
                     <%= completion.title %>
                   <% end %>
                   <li class="list-group-item list-group-item-success">
-                    <%= completion.start_date.strftime("%Y年%-m月%-d日") %><%= completion.start_time.strftime("%-H時%M分") %><br>
+                    <%= completion.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %><br>
                     〜<br>
-                    <%= completion.end_date.strftime("%Y年%-m月%-d日") %><%= completion.end_time.strftime("%-H時%M分") %>
+                    <%= completion.end_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
                   </li>
                 </ul>
               <% end %>
@@ -131,7 +131,7 @@
                     <%= imperfect.title %>
                   <% end %>
                   <li class="list-group-item list-group-item-success">
-                    <%= imperfect.start_date.strftime("%Y年%-m月%-d日") %><%= imperfect.start_time.strftime("%-H時%M分") %>
+                    <%= imperfect.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
                   </li>
                 </ul>
               <% end %>

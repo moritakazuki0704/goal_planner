@@ -5,10 +5,8 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
       t.integer :problem_id, null: false
       t.string :title, null: false
       t.text :body
-      t.date :start_date
-      t.time :start_time
-      t.date :end_date
-      t.time :end_time
+      t.datetime :start_datetime
+      t.datetime :end_datetime
       t.timestamps
     end
   end

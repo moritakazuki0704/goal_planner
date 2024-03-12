@@ -5,7 +5,13 @@
     <div class="left-page col text-center m-5 p-5">
       <h5 class="smart-frame">
         <u>
-          予定詳細
+          <% if @schedule.problem.progress_status == "finish" %>
+            達成した目標の予定詳細
+          <% elsif @schedule.problem.progress_status == "pending" %>
+            保留にした目標の予定詳細
+          <% else %>
+            目標詳細
+          <% end %>
         </u>
       </h5>
       <div class="card">
@@ -15,9 +21,9 @@
         <div class="card-body">
           <h5 class="card-title"><%= @schedule.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted">
-            <%= @schedule.start_date.strftime("%Y年%-m月%-d日") %><%= @schedule.start_time.strftime("%-H時%M分") %><br>
+            <%= @schedule.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %><br>
             〜<br>
-            <%= @schedule.end_date.strftime("%Y年%-m月%-d日") %><%= @schedule.end_time.strftime("%-H時%M分") %>
+            <%= @schedule.end_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
           </h6>
           <p class="card-text">
             <%= safe_join(@schedule.body.split("\n"),tag(:br)) %>
@@ -33,7 +39,6 @@
         <nav>
           <div class="nav nav-tabs strip-paper" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-introduction-tab" data-toggle="tab" href="#nav-introduction" role="tab" aria-controls="nav-introduction" aria-selected="true">使い方</a>
-            <a class="nav-item nav-link" id="nav-commentary-tab" data-toggle="tab" href="#nav-commentary" role="tab" aria-controls="nav-commentary" aria-selected="false">使い方2</a>
             <a class="nav-item nav-link" id="nav-programme-tab" data-toggle="tab" href="#nav-programme" role="tab" aria-controls="nav-programme" aria-selected="false">全て</a>
             <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">大事なこと</a>
             <a class="nav-item nav-link" id="nav-important-tab" data-toggle="tab" href="#nav-important" role="tab" aria-controls="nav-important" aria-selected="false">重要なこと</a>
@@ -44,43 +49,12 @@
         <div class="tab-content" id="nav-tabContent">
 
           <!--使い方のタブ-->
-          <div class="tab-pane fade show" id="nav-introduction" role="tabpanel" aria-labelledby="nav-introduction-tab">
+          <div class="tab-pane fade show active" id="nav-introduction" role="tabpanel" aria-labelledby="nav-introduction-tab">
             <div class="smart-content text-center font-weight-bold">
               <h3>ToDoリストの使い方</h3>
             </div>
-            <div class="cross-frame font-weight-bold">
+            <div class="font-weight-bold scroll-box">
               <p>全てには全てのタスクが入っています</p>
-              <p>
-                ステータスを変更して重要度を変更し<br>
-                優先度を設定してください<br>
-                大事なこと ： <u>緊急性の高く重要性の高いタスクです</u><br>
-                重要なこと : <u>重要性の高いタスクです</u><br>
-                やるべきこと : <u>重要性は低いですが、行う必要のあるタスクです</u><br>
-                辞めるべきこと : <u>辞めることで達成するタスクです</u>
-              </p>
-              <p>
-                選択する項目には進捗を表してます
-              </p>
-              <p>
-                進捗を選択して達成状況を更新してください<br>
-                未完了 : 未だ行動を起こしていないタスクです<br>
-                完了 : 達成したタスクです<br>
-                進行中 : 現在取り組んでいるタスクです<br>
-                先送り : 後で行う予定にしているタスクです<br>
-                辞める : 取り組まないタスクです
-              </p>
-              <p>
-                <u>
-                  タスクを全て完了、もしくは辞めるにして<br>
-                  予定を完遂できるようにしましょう
-                </u>
-              </p>
-            </div>
-          </div>
-
-          <!--使い方2のタブ-->
-          <div class="tab-pane fade" id="nav-commentary" role="tabpanel" aria-labelledby="nav-commentary-tab">
-            <div class="cross-frame font-weight-bold">
               <p>
                 <u>大事なこと</u><br>
                 必須のタスクとなります<br>
@@ -110,8 +84,26 @@
                 思われるような行動のタスクです<br>
                 行わないことを大事にしてください<br>
               </p>
+              <p>
+                選択する項目には進捗を表してます
+              </p>
+              <p>
+                進捗を選択して達成状況を更新してください<br>
+                未完了 : 未だ行動を起こしていないタスクです<br>
+                完了 : 達成したタスクです<br>
+                進行中 : 現在取り組んでいるタスクです<br>
+                先送り : 後で行う予定にしているタスクです<br>
+                辞める : 取り組まないタスクです
+              </p>
+              <p>
+                <u>
+                  タスクを全て完了、もしくは辞めるにして<br>
+                  予定を完遂できるようにしましょう
+                </u>
+              </p>
             </div>
           </div>
+
 
 
 
@@ -121,32 +113,30 @@
               <% @schedule.plans.programme.each do |programme| %>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                      <%= f.collection_select(:priority_status, @schedule.plans, 0..3, :priority_status ) %>
-                    </div>
+                    <%= f.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]} %>
                     <p>
                       <%= programme.challenge %>
                     </p>
                     <div>
-                      <div class="form-check form-check-inline">
-                        <%= f.radio_button :progress_status, 0, class: "form-check-input"  %>
-                        <%= f.label :progress_status_unstarted, Plan.progress_status_i18n[:unstarted], class: "form-check-label" %>
+                      <div class="form-check">
+                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(0), class: "form-check-input"  %>
+                        <%= f.label :progress_status_unstarted, Plan.progress_statuses_i18n[:unstarted], class: "form-check-label" %>
                       </div>
-                      <div class="form-check form-check-inline">
-                        <%= f.radio_button :progress_status, 1, class: "form-check-input"  %>
-                        <%= f.label :progress_status_finish, Plan.progress_status_i18n[:finish], class: "form-check-label" %>
+                      <div class="form-check">
+                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(1), class: "form-check-input"  %>
+                        <%= f.label :progress_status_finish, Plan.progress_statuses_i18n[:finish], class: "form-check-label" %>
                       </div>
-                      <div class="form-check form-check-inline">
-                        <%= f.radio_button :progress_status, 2, class: "form-check-input"  %>
-                        <%= f.label :progress_status_process, Plan.progress_status_i18n[:process], class: "form-check-label" %>
+                      <div class="form-check">
+                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(2), class: "form-check-input"  %>
+                        <%= f.label :progress_status_process, Plan.progress_statuses_i18n[:process], class: "form-check-label" %>
                       </div>
-                      <div class="form-check form-check-inline">
-                        <%= f.radio_button :progress_status, 3, class: "form-check-input"  %>
-                        <%= f.label :progress_status_postpone, Plan.progress_status_i18n[:postpone], class: "form-check-label" %>
+                      <div class="form-check">
+                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(3), class: "form-check-input"  %>
+                        <%= f.label :progress_status_postpone, Plan.progress_statuses_i18n[:postpone], class: "form-check-label" %>
                       </div>
-                      <div class="form-check form-check-inline">
-                        <%= f.radio_button :progress_status, 4, class: "form-check-input"  %>
-                        <%= f.label :progress_status_deletion, Plan.progress_status_i18n[:withdraw], class: "form-check-label" %>
+                      <div class="form-check">
+                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(4), class: "form-check-input"  %>
+                        <%= f.label :progress_status_withdraw, Plan.progress_statuses_i18n[:withdraw], class: "form-check-label" %>
                       </div>
                     </div>
                   </li>
@@ -250,7 +240,7 @@
 
       <!--planの作成に失敗した場合-->
       <% else %>
-        <div class="masking-tape">
+        <div class="masking-tape pt-3 m-4">
           <p>
             提案の作成に失敗しました
           </p>
@@ -266,7 +256,7 @@
 
       <% end %>
       <%= form_with model: [@schedule,@plan], url: schedule_plans_path(@schedule), method: :post do |f| %>
-        <div class="form-inline">
+        <div class="form-inline justify-content-center">
           <%= f.text_field :challenge, class: "form-control" %>
           <%= f.submit "提案する", class: "btn btn-secondary btn-sm" %>
         </div>
@@ -275,7 +265,7 @@
       <% if @schedule.plans.memo.present? %>
         <h5 class="smart-frame my-4">
           <u>
-            提案件数：<%= @plan.missions.count %>
+            提案件数：<%= @schedule.plans.memo.count %>
           </u>
         </h5>
         <div class="cross-frame font-weight-bold">
@@ -289,9 +279,9 @@
                     <%= plan.challenge %>
                   </p>
                 </li>
-                <li class="list-group-item list-group-horizontal list-group-item-warning">
-                  <%= link_to "ToDoリストにする", upload_schedule_plan_path(@schedule,plan), method: :patch, class: "btn btn-outline-success" %>
-                  <%= link_to "メモを破棄する", schedule_plan_path(@schedule,plan), method: :delete, class: "btn btn-outline-danger" %>
+                <li class="list-group-item list-group-horizontal">
+                  <%= link_to "リストにする", upload_schedule_plan_path(@schedule,plan), method: :patch, class: "btn btn-outline-success" %>
+                  <%= link_to "破棄する", schedule_plan_path(@schedule,plan), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
               </ul>
             <% end %>
@@ -299,8 +289,8 @@
         </div>
 
         <div class="d-flex justify-content-around my-3">
-          <%= link_to "全てToDoリストに保存する", bulk_upload_schedule_plans_path(@schedule.id), method: :patch, class: "btn btn-success"  %>
-          <%= link_to "メモを全て破棄する", bulk_destroy_schedule_plans_path(@schedule.id), method: :delete, class: "btn btn-danger" %>
+          <%= link_to "全てリストに保存する", bulk_upload_schedule_plans_path(@schedule.id), method: :patch, class: "btn btn-success"  %>
+          <%= link_to "全て破棄する", bulk_destroy_schedule_plans_path(@schedule.id), method: :delete, class: "btn btn-danger" %>
         </div>
       <% end %>
     </div>

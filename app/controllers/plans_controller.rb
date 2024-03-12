@@ -33,7 +33,7 @@ class PlansController < ApplicationController
   def bulk_upload
     schedule = Schedule.find(params[:schedule_id])
     plan = schedule.plans.where(programme: "false")
-    plan.update_all(programme: "true")
+    plan.update(programme: "true")
     redirect_to schedule_path(schedule)
   end
 
@@ -49,7 +49,7 @@ class PlansController < ApplicationController
   def all_update
     schedule = Schedule.find(params[:schedule_id])
     plan = schedule.plans.where(programme: "true")
-    plan.update_all(plan_params)
+    plan.update(plan_params)
     redirect_to schedule_path(schedule)
   end
 

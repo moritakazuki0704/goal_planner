@@ -56,10 +56,8 @@ ja:
         problem_id: 目標のID
         title: 予定タイトル
         body: 予定の詳細
-        start_date: 開始日
-        start_time: 開始時刻
-        end_date: 終了日
-        end_time: 終了時刻
+        start_datetime: 開始日時
+        end_datetime: 終了日時
       plan:
         id: 計画のID
         schedule_id: 予定のID
