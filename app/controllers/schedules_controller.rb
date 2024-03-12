@@ -24,6 +24,7 @@ class SchedulesController < ApplicationController
 
   def show
     @plan = Plan.new
+    @plans = @schedule.plans
   end
 
   def edit

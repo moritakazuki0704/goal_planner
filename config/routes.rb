@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
   end
   resources :problems,except: [:edit,:destroy] do
-    collection do
+    member do
       get 'confirm'
     end
     resources :missions,only: [:create,:destroy] do

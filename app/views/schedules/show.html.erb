@@ -109,39 +109,39 @@
 
           <!--全て表示するタブ-->
           <div class="tab-pane fade" id="nav-programme" role="tabpanel" aria-labelledby="nav-programme-tab">
-            <%= form_with model: [@schedule,@plan],url: all_update_schedule_plans_path(@schedule), method: :patch do |f| %>
-              <% @schedule.plans.programme.each do |programme| %>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <%= f.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]} %>
-                    <p>
-                      <%= programme.challenge %>
-                    </p>
-                    <div>
-                      <div class="form-check">
-                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(0), class: "form-check-input"  %>
-                        <%= f.label :progress_status_unstarted, Plan.progress_statuses_i18n[:unstarted], class: "form-check-label" %>
-                      </div>
-                      <div class="form-check">
-                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(1), class: "form-check-input"  %>
-                        <%= f.label :progress_status_finish, Plan.progress_statuses_i18n[:finish], class: "form-check-label" %>
-                      </div>
-                      <div class="form-check">
-                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(2), class: "form-check-input"  %>
-                        <%= f.label :progress_status_process, Plan.progress_statuses_i18n[:process], class: "form-check-label" %>
-                      </div>
-                      <div class="form-check">
-                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(3), class: "form-check-input"  %>
-                        <%= f.label :progress_status_postpone, Plan.progress_statuses_i18n[:postpone], class: "form-check-label" %>
-                      </div>
-                      <div class="form-check">
-                        <%= f.radio_button :progress_status, Plan.priority_statuses.key(4), class: "form-check-input"  %>
-                        <%= f.label :progress_status_withdraw, Plan.progress_statuses_i18n[:withdraw], class: "form-check-label" %>
-                      </div>
+            <%= form_with model: [@schedule,@plans], url: all_update_schedule_plans(@schedule.id), method: :patch do |f| %>
+              <ul class="list-group list-group-flush scroll-box">
+                <%= f.fields_for :plans do |plan| %>
+                  <li class="list-group-item">
+                    <div class="form-group row">
+                      <%= plan.text_field :challenge, class: "form-control" %>
+                      <%= plan.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]}, class: "form-control" %>
                     </div>
                   </li>
-                </ul>
-              <% end %>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="form-group">
+                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(0), class: "form-check-input"  %>
+                      <%= plan.label :progress_status_unstarted, Plan.progress_statuses_i18n[:unstarted], class: "form-check-label" %>
+                    </div>
+                    <div class="form-group ">
+                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(1), class: "form-check-input"  %>
+                      <%= plan.label :progress_status_finish, Plan.progress_statuses_i18n[:finish], class: "form-check-label" %>
+                    </div>
+                    <div class="form-group">
+                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(2), class: "form-check-input"  %>
+                      <%= plan.label :progress_status_process, Plan.progress_statuses_i18n[:process], class: "form-check-label" %>
+                    </div>
+                    <div class="form-group">
+                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(3), class: "form-check-input"  %>
+                      <%= plan.label :progress_status_postpone, Plan.progress_statuses_i18n[:postpone], class: "form-check-label" %>
+                    </div>
+                    <div class="form-group">
+                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(4), class: "form-check-input"  %>
+                      <%= plan.label :progress_status_withdraw, Plan.progress_statuses_i18n[:withdraw], class: "form-check-label" %>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
               <%= f.submit "更新する",class: "btn btn-success" %>
             <% end %>
           </div>
@@ -149,8 +149,8 @@
           <!--大事なことのタブ-->
           <div class="tab-pane fade" id="nav-emergency" role="tabpanel" aria-labelledby="nav-emergency-tab">
             <p>大事なこと件数：<%= @schedule.plans.emergency.count %></p>
-            <% @schedule.plans.emergency.each do |emergency| %>
-              <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush scroll-box">
+              <% @schedule.plans.emergency.each do |emergency| %>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <p>
                     <%= emergency.challenge %>
@@ -158,17 +158,17 @@
                   <p>
                     <%= emergency.progress_status_i18n %>
                   </p>
-                  <%= link_to "削除する", schedule_plan_path(emergency), method: :delete, class: "btn btn-outline-danger" %>
+                  <%= link_to "削除する", schedule_plan_path(@schedule,emergency.id), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
-              </ul>
-            <% end %>
+               <% end %>
+            </ul>
           </div>
 
           <!--重要なことのタブ-->
           <div class="tab-pane fade" id="nav-important" role="tabpanel" aria-labelledby="nav-important-tab">
             <p>重要なこと件数：<%= @schedule.plans.important.count %></p>
-            <% @schedule.plans.important.each do |important| %>
-              <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush scroll-box">
+              <% @schedule.plans.important.each do |important| %>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <p>
                     <%= important.challenge %>
@@ -176,17 +176,17 @@
                   <p>
                     <%= important.progress_status_i18n %>
                   </p>
-                  <%= link_to "削除する", schedule_plan_path(important), method: :delete, class: "btn btn-outline-danger" %>
+                  <%= link_to "削除する", schedule_plan_path(@schedule,important.id), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
-              </ul>
-            <% end %>
+              <% end %>
+            </ul>
           </div>
 
           <!--やるべきことのタブ-->
           <div class="tab-pane fade" id="nav-interruption" role="tabpanel" aria-labelledby="nav-interruption-tab">
             <p>やるべきこと件数：<%= @schedule.plans.interruption.count %></p>
-            <% @schedule.plans.interruption.each do |interruption| %>
-              <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush scroll-box">
+              <% @schedule.plans.interruption.each do |interruption| %>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <p>
                     <%= interruption.challenge %>
@@ -194,17 +194,17 @@
                   <p>
                     <%= interruption.progress_status_i18n %>
                   </p>
-                  <%= link_to "削除する", schedule_plan_path(interruption), method: :delete, class: "btn btn-outline-danger" %>
+                  <%= link_to "削除する", schedule_plan_path(@schedule,interruption.id), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
-              </ul>
-            <% end %>
+              <% end %>
+            </ul>
           </div>
 
           <!--辞めることのタブ-->
           <div class="tab-pane fade" id="nav-eliminate" role="tabpanel" aria-labelledby="nav-eliminate-tab">
             <p>辞めること：<%= @schedule.plans.eliminate.count %></p>
-            <% @schedule.plans.eliminate.each do |eliminate| %>
-              <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush scroll-box">
+              <% @schedule.plans.eliminate.each do |eliminate| %>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <p>
                     <%= eliminate.challenge %>
@@ -212,17 +212,17 @@
                   <p>
                     <%= eliminate.progress_status_i18n %>
                   </p>
-                  <%= link_to "削除する", schedule_plan_path(eliminate), method: :delete, class: "btn btn-outline-danger" %>
+                  <%= link_to "削除する", schedule_plan_path(@schedule,eliminate), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
-              </ul>
-            <% end %>
+              <% end %>
+            </ul>
           </div>
 
         </div>
       <% end %>
       <div class="d-flex justify-content-around my-3">
-        <%= link_to "予定を編集する", edit_schedule_path(@schedule), class: "btn btn-secondary" %>
-        <%= link_to "予定を削除する", schedule_path(@schedule),method: :delete,"data-confirm" =>"削除して本当にいいですか？",class: "btn btn-warning" %>
+        <%= link_to "予定を編集する", edit_schedule_path(@schedule.id), class: "btn btn-secondary" %>
+        <%= link_to "予定を削除する", schedule_path(@schedule.id),method: :delete,"data-confirm" =>"削除して本当にいいですか？",class: "btn btn-warning" %>
         <%= link_to "カレンダーに戻る", schedules_path, class: "btn btn-info" %>
       </div>
     </div>
@@ -255,7 +255,7 @@
         </div>
 
       <% end %>
-      <%= form_with model: [@schedule,@plan], url: schedule_plans_path(@schedule), method: :post do |f| %>
+      <%= form_with model: [@schedule,@plan], url: schedule_plans_path(@schedule.id), method: :post do |f| %>
         <div class="form-inline justify-content-center">
           <%= f.text_field :challenge, class: "form-control" %>
           <%= f.submit "提案する", class: "btn btn-secondary btn-sm" %>

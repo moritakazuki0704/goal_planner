@@ -2,6 +2,7 @@ class Schedule < ApplicationRecord
   belongs_to :user
   belongs_to :problem
   has_many :plans,dependent: :destroy
+  accepts_nested_attributes_for :plans, allow_destroy: true
 
   default_scope -> { order(start_datetime: :asc) }
   scope :completion, -> {where('end_datetime <= ?', Time.current)}
