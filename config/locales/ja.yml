@@ -101,7 +101,7 @@ ja:
         eliminate: '辞めること' # enumの値
       progress_status: # カラム名
         unstarted: '未完了' # enumの値
-        finish: '完了' # enumの値
+        finish: '達成' # enumの値
         process: '進行中' # enumの値
         postpone: '先送り' # enumの値
         withdraw: '辞める' # enumの値

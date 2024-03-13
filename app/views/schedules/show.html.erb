@@ -33,7 +33,7 @@
 
       <% if @schedule.plans.programme.present? %>
         <h5>ToDoリスト</h5>
-        <p>リスト件数：<%= @schedule.plans.count %></p>
+        <p>リスト件数：<%= @schedule.plans.programme.count %></p>
 
         <!--タブ表示機能-->
         <nav>
@@ -104,42 +104,42 @@
             </div>
           </div>
 
-
-
-
           <!--全て表示するタブ-->
           <div class="tab-pane fade" id="nav-programme" role="tabpanel" aria-labelledby="nav-programme-tab">
-            <%= form_with model: [@schedule,@plans], url: all_update_schedule_plans(@schedule.id), method: :patch do |f| %>
+            <%= form_with model: @schedule, url: all_update_schedule_path(@schedule.id), method: :patch do |f| %>
               <ul class="list-group list-group-flush scroll-box">
-                <%= f.fields_for :plans do |plan| %>
-                  <li class="list-group-item">
-                    <div class="form-group row">
-                      <%= plan.text_field :challenge, class: "form-control" %>
-                      <%= plan.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]}, class: "form-control" %>
-                    </div>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="form-group">
-                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(0), class: "form-check-input"  %>
-                      <%= plan.label :progress_status_unstarted, Plan.progress_statuses_i18n[:unstarted], class: "form-check-label" %>
-                    </div>
-                    <div class="form-group ">
-                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(1), class: "form-check-input"  %>
-                      <%= plan.label :progress_status_finish, Plan.progress_statuses_i18n[:finish], class: "form-check-label" %>
-                    </div>
-                    <div class="form-group">
-                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(2), class: "form-check-input"  %>
-                      <%= plan.label :progress_status_process, Plan.progress_statuses_i18n[:process], class: "form-check-label" %>
-                    </div>
-                    <div class="form-group">
-                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(3), class: "form-check-input"  %>
-                      <%= plan.label :progress_status_postpone, Plan.progress_statuses_i18n[:postpone], class: "form-check-label" %>
-                    </div>
-                    <div class="form-group">
-                      <%= plan.radio_button :progress_status, Plan.priority_statuses.key(4), class: "form-check-input"  %>
-                      <%= plan.label :progress_status_withdraw, Plan.progress_statuses_i18n[:withdraw], class: "form-check-label" %>
-                    </div>
-                  </li>
+                <%= f.fields_for :plans do |af| %>
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col align-self-center">
+                          <%= af.text_field :challenge, disabled: true,class: "form-control" %>
+                          <%= af.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]}, class: "form-control" %>
+                        </div>
+                        <div class="col">
+                          <div class="form-group mb-0">
+                            <%= af.radio_button :progress_status, Plan.progress_statuses.key(0), class: "form-check-input"  %>
+                            <%= af.label :progress_status_unstarted, Plan.progress_statuses_i18n[:unstarted], class: "form-check-label" %>
+                          </div>
+                          <div class="form-group mb-0">
+                            <%= af.radio_button :progress_status, Plan.progress_statuses.key(1), class: "form-check-input"  %>
+                            <%= af.label :progress_status_finish, Plan.progress_statuses_i18n[:finish], class: "form-check-label" %>
+                          </div>
+                          <div class="form-group mb-0">
+                            <%= af.radio_button :progress_status, Plan.progress_statuses.key(2), class: "form-check-input"  %>
+                            <%= af.label :progress_status_process, Plan.progress_statuses_i18n[:process], class: "form-check-label" %>
+                          </div>
+                          <div class="form-group mb-0">
+                            <%= af.radio_button :progress_status, Plan.progress_statuses.key(3), class: "form-check-input"  %>
+                            <%= af.label :progress_status_postpone, Plan.progress_statuses_i18n[:postpone], class: "form-check-label" %>
+                          </div>
+                          <div class="form-group mb-0">
+                            <%= af.radio_button :progress_status, Plan.progress_statuses.key(4), class: "form-check-input"  %>
+                            <%= af.label :progress_status_withdraw, Plan.progress_statuses_i18n[:withdraw], class: "form-check-label" %>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
                 <% end %>
               </ul>
               <%= f.submit "更新する",class: "btn btn-success" %>

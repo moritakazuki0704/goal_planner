@@ -1,7 +1,6 @@
 class SchedulesController < ApplicationController
 
   before_action :not_setting_goals_in_life!
-  before_action :schedule_find, only: [:show,:edit,:update,:destroy]
 
   def new
     @schedule = Schedule.new
@@ -24,32 +23,37 @@ class SchedulesController < ApplicationController
 
   def show
     @plan = Plan.new
-    @plans = @schedule.plans
+    @schedule = Schedule.includes(:plans).find(params[:id])
   end
 
   def edit
+    @schedule = Schedule.find(params[:id])
     @problems = current_user.problems.activity.order(created_at: :desc)
   end
 
   def update
-    @problems = current_user.problems.activity.order(created_at: :desc)
-    if @schedule.update(schedule_params)
-      redirect_to schedule_path(@schedule)
+    schedule = Schedule.find(params[:id])
+    if schedule.update(schedule_params)
+      redirect_to schedule_path(schedule.id)
     else
-      redirect_to edit_schedule_path(@schedule , error: true)
+      redirect_to edit_schedule_path(schedule.id , error: true)
     end
   end
 
+  # 複数のplanテーブルを更新する
+  def all_update
+    schedule = Schedule.find(params[:id])
+    schedule.update(schedule_params)
+    redirect_to schedule_path(schedule.id)
+  end
+
   def destroy
-    @schedule.destroy
+    schedule = Schedule.find(params[:id])
+    schedule.destroy
     redirect_to schedules_path
   end
 
   private
-
-  def schedule_find
-    @schedule = Schedule.find(params[:id])
-  end
 
   # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限
   def not_setting_goals_in_life!
@@ -59,7 +63,7 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:problem_id,:title,:body,:start_datetime,:start_time,:end_datetime,:end_time)
+    params.require(:schedule).permit(:problem_id,:title,:body,:start_datetime,:start_time,:end_datetime,:end_time, plans_attributes: [:id, :priority_status, :progress_status])
   end
 
 end

@@ -52,12 +52,14 @@ Rails.application.routes.draw do
     end
   end
   resources :schedules do
+    member do
+      patch 'all_update'
+    end
     resources :plans,only: [:create,:destroy] do
       member do
         patch 'upload'
       end
       collection do
-        patch 'all_update'
         patch 'bulk_upload'
         delete 'bulk_destroy'
       end

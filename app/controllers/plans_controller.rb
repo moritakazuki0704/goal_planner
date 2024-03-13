@@ -45,14 +45,6 @@ class PlansController < ApplicationController
     redirect_to schedule_path(schedule)
   end
 
-  # 複数のplanテーブルを更新する
-  def all_update
-    schedule = Schedule.find(params[:schedule_id])
-    plan = schedule.plans.where(programme: "true")
-    plan.update(plan_params)
-    redirect_to schedule_path(schedule)
-  end
-
   private
 
   # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限
