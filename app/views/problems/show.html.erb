@@ -33,114 +33,113 @@
 
       <% if @problem.schedules.present? %>
 
-
-      <!--タブ表示機能-->
-      <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active btn btn-outline-primary" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="true">未設定</a>
-          <a class="nav-item nav-link btn btn-outline-success" id="nav-completion-tab" data-toggle="tab" href="#nav-completion" role="tab" aria-controls="nav-completion" aria-selected="false">完了</a>
-          <a class="nav-item nav-link btn btn-outline-info" id="nav-imperfect-tab" data-toggle="tab" href="#nav-imperfect" role="tab" aria-controls="nav-imperfect" aria-selected="false">未完了</a>
-          <a class="nav-item nav-link disabled btn btn-secondary">課題件数：<%= @problem.schedules.count %></a>
-        </div>
-      </nav>
-      <div class="tab-content" id="nav-tabContent">
-
-        <!--未設定の課題のタブ-->
-        <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
-          <h5 class="smart-frame">
-            <u>
-              未設定課題件数：<%= @problem.schedules.pending.count %>
-            </u>
-          </h5>
-          <div class="cross-frame font-weight-bold">
-            <p>
-              詳細内容と日付が未入力な予定
-            </p>
-
-            <!--スクロール機能-->
-            <div class="scroll-box">
-
-              <% @problem.schedules.pending.each do |pending| %>
+        <!--タブ表示機能-->
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active btn btn-outline-primary" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="true">未設定</a>
+            <a class="nav-item nav-link btn btn-outline-success" id="nav-completion-tab" data-toggle="tab" href="#nav-completion" role="tab" aria-controls="nav-completion" aria-selected="false">完了</a>
+            <a class="nav-item nav-link btn btn-outline-info" id="nav-imperfect-tab" data-toggle="tab" href="#nav-imperfect" role="tab" aria-controls="nav-imperfect" aria-selected="false">未完了</a>
+            <a class="nav-item nav-link disabled btn btn-secondary">課題件数：<%= @problem.schedules.count %></a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+  
+          <!--未設定の課題のタブ-->
+          <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+            <h5 class="smart-frame">
+              <u>
+                未設定課題件数：<%= @problem.schedules.pending.count %>
+              </u>
+            </h5>
+            <div class="cross-frame font-weight-bold">
+              <p>
+                詳細内容と日付が未入力な予定
+              </p>
+  
+              <!--スクロール機能-->
+              <div class="scroll-box">
                 <ul class="list-group">
-
-                  <!--予定が進行中のみ予定の編集が可能とする-->
-                  <% if @problem.progress_status == "progress" %>
-                    <%= link_to edit_schedule_path(pending), class: "list-group-item list-group-item-action list-group-item-success" do %>
-                      <%= pending.title %>
+                  <% @problem.schedules.pending.each do |pending| %>
+                  
+                    <!--予定が進行中のみ予定の編集が可能とする-->
+                    <% if @problem.progress_status == "progress" %>
+                      <%= link_to edit_schedule_path(pending), class: "list-group-item list-group-item-action list-group-item-success" do %>
+                        <%= pending.title %>
+                      <% end %>
+  
+                    <% else %>
+                      <li class="list-group-item">
+                        <%= pending.title %>
+                      </li>
                     <% end %>
-                  <% else %>
-                    <li class="list-group-item">
-                      <%= pending.title %>
+                  <% end %>
+                </ul>
+              </div>
+  
+            </div>
+          </div>
+  
+          <!--完了した課題のタブ-->
+          <div class="tab-pane fade" id="nav-completion" role="tabpanel" aria-labelledby="nav-completion-tab">
+            <h5 class="smart-frame">
+              <u>
+                完了課題件数：<%= @problem.schedules.completion.count %>
+              </u>
+            </h5>
+            <div class="cross-frame font-weight-bold">
+              <p>
+                終わった予定
+              </p>
+  
+              <!--スクロール機能-->
+              <div class="scroll-box">
+                <% @problem.schedules.completion.each do |completion| %>
+                  <ul class="list-group">
+                    <%= link_to schedule_path(completion.id), class: "list-group-item list-group-item-action list-group-item-success" do %>
+                      <%= completion.title %>
+                    <% end %>
+                    <li class="list-group-item list-group-item-success">
+                      <%= completion.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %><br>
+                      〜<br>
+                      <%= completion.end_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
                     </li>
-                  <% end %>
-                </ul>
-              <% end %>
+                  </ul>
+                <% end %>
+              </div>
+  
             </div>
-
           </div>
-        </div>
-
-        <!--完了した課題のタブ-->
-        <div class="tab-pane fade" id="nav-completion" role="tabpanel" aria-labelledby="nav-completion-tab">
-          <h5 class="smart-frame">
-            <u>
-              完了課題件数：<%= @problem.schedules.completion.count %>
-            </u>
-          </h5>
-          <div class="cross-frame font-weight-bold">
-            <p>
-              終わった予定
-            </p>
-
-            <!--スクロール機能-->
-            <div class="scroll-box">
-              <% @problem.schedules.completion.each do |completion| %>
-                <ul class="list-group">
-                  <%= link_to schedule_path(completion.id), class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    <%= completion.title %>
-                  <% end %>
-                  <li class="list-group-item list-group-item-success">
-                    <%= completion.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %><br>
-                    〜<br>
-                    <%= completion.end_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
-                  </li>
-                </ul>
-              <% end %>
+  
+          <!--未完了の課題のタブ-->
+          <div class="tab-pane fade" id="nav-imperfect" role="tabpanel" aria-labelledby="nav-imperfect-tab">
+            <h5 class="smart-frame">
+              <u>
+                未完了課題件数：<%= @problem.schedules.imperfect.count %>
+              </u>
+            </h5>
+            <div class="cross-frame font-weight-bold">
+              <p>
+                将来の予定
+              </p>
+  
+              <!--スクロール機能-->
+              <div class="scroll-box">
+                <% @problem.schedules.imperfect.each do |imperfect| %>
+                  <ul class="list-group">
+                    <%= link_to schedule_path(imperfect.id), class: "list-group-item list-group-item-action list-group-item-success" do %>
+                      <%= imperfect.title %>
+                    <% end %>
+                    <li class="list-group-item list-group-item-success">
+                      <%= imperfect.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
+                    </li>
+                  </ul>
+                <% end %>
+              </div>
+  
             </div>
-
           </div>
+  
         </div>
-
-        <!--未完了の課題のタブ-->
-        <div class="tab-pane fade" id="nav-imperfect" role="tabpanel" aria-labelledby="nav-imperfect-tab">
-          <h5 class="smart-frame">
-            <u>
-              未完了課題件数：<%= @problem.schedules.imperfect.count %>
-            </u>
-          </h5>
-          <div class="cross-frame font-weight-bold">
-            <p>
-              将来の予定
-            </p>
-
-            <!--スクロール機能-->
-            <div class="scroll-box">
-              <% @problem.schedules.imperfect.each do |imperfect| %>
-                <ul class="list-group">
-                  <%= link_to schedule_path(imperfect.id), class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    <%= imperfect.title %>
-                  <% end %>
-                  <li class="list-group-item list-group-item-success">
-                    <%= imperfect.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
-                  </li>
-                </ul>
-              <% end %>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
       <% end %>
       <div class="d-flex justify-content-around my-3">
         <%= link_to "目標一覧へ戻る",problems_path, class: "btn btn-info" %>

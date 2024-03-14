@@ -4,4 +4,9 @@ img {
 
 .strip-paper a {
   writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.strip-text {
+  writing-mode: vertical-rl;
 }
