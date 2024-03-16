@@ -5,15 +5,14 @@
       <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
     <% end %>
 
-  <!--予定作成に失敗した場合のエラー文-->
   <% else %>
+    <!--予定作成に失敗した場合のエラー文-->
+    <div class="row justify-content-center open-book my-4 py-3">
 
-  <div class="row justify-content-center open-book my-4 py-3">
-
-    <!--左のページ-->
-    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
+      <!--左のページ-->
+      <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <div>
-        <h5 class="smart-frame">
+        <h5 class="smart-frame bg-warning mb-5">
           <u>
             予定の作成に失敗しました
           </u>
