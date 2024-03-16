@@ -7,16 +7,18 @@
 
       <!--タブ表示機能-->
       <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-introduction-tab" data-toggle="tab" href="#nav-introduction" role="tab" aria-controls="nav-introduction" aria-selected="true">説明</a>
-          <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
-          <a class="nav-item nav-link" id="nav-first_sample-tab" data-toggle="tab" href="#nav-first_sample" role="tab" aria-controls="nav-first_sample" aria-selected="false">例1</a>
-          <a class="nav-item nav-link" id="nav-second_sample-tab" data-toggle="tab" href="#nav-second_sample" role="tab" aria-controls="nav-second_sample" aria-selected="false">例2</a>
-          <a class="nav-item nav-link" id="nav-third_sample-tab" data-toggle="tab" href="#nav-third_sample" role="tab" aria-controls="nav-third_sample" aria-selected="false">例3</a>
+        <div class="nav nav-tabs strip-paper" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active btn btn-outline-info" id="nav-introduction-tab" data-toggle="tab" href="#nav-introduction" role="tab" aria-controls="nav-introduction" aria-selected="true">自分の指針</a>
+          <a class="nav-item nav-link btn btn-outline-primary" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
+          <a class="nav-item nav-link btn btn-outline-secondary" id="nav-first_sample-tab" data-toggle="tab" href="#nav-first_sample" role="tab" aria-controls="nav-first_sample" aria-selected="false">ことわざ1</a>
+          <a class="nav-item nav-link btn btn-outline-secondary" id="nav-second_sample-tab" data-toggle="tab" href="#nav-second_sample" role="tab" aria-controls="nav-second_sample" aria-selected="false">ことわざ2</a>
+          <a class="nav-item nav-link btn btn-outline-secondary" id="nav-third_sample-tab" data-toggle="tab" href="#nav-third_sample" role="tab" aria-controls="nav-third_sample" aria-selected="false">ことわざ3</a>
+          <a class="nav-item nav-link btn btn-outline-secondary" id="nav-fourth_sample-tab" data-toggle="tab" href="#nav-fourth_sample" role="tab" aria-controls="nav-fourth_sample" aria-selected="false">ことわざ4</a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--自分の指針のタブ-->
         <div class="tab-pane fade show active" id="nav-introduction" role="tabpanel" aria-labelledby="nav-introduction-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
             <p class="mt-1">
@@ -46,96 +48,174 @@
           </div>
         </div>
 
-        <!--例題１のタブ-->
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'keyword_show' %>
         </div>
 
-        <!--例題１のタブ-->
+        <!--ことわざ1のタブ-->
         <div class="tab-pane fade" id="nav-first_sample" role="tabpanel" aria-labelledby="nav-first_sample-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <p class="mt-1">
-              人に優しく自分に厳しく
+            <h5 class="mt-1">
+              <u>
+                人に優しく自分に厳しく
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              周りに優しく対応することを心がけ<br>
+              自分に厳しく成長できることを行う
             </p>
-            <p>
-              周りに優しく<br>
-              対応することを心がけ<br>
-              自分に厳しく<br>
-              成長できることを行う
-            </p>
-            <p class="mt-5">
-              情けは人の為ならず
-            </p>
-            <p>
+            <h5 class="mt-5">
+              <u>
+                情けは人の為ならず
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
               人に尽くすことは<br>
               周りに回って自分に返ってくるので<br>
               自分のためでもある
             </p>
-            <p class="mt-5">
-              道理に向かう刃無し
+            <h5 class="mt-5">
+              <u>
+                道理に向かう刃無し
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              人として正しい行動が最も重要な基準である
             </p>
-            <p>
-              人として正しい行動が<br>
-              最も重要な基準である
+            <h5 class="mt-5">
+              <u>
+                自慢高慢(じまんこうまん)馬鹿のうち
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              自慢する人や高慢な人はバカ者と同じである
             </p>
           </div>
         </div>
 
-        <!--例題2のタブ-->
+        <!--ことわざ2のタブ-->
         <div class="tab-pane fade" id="nav-second_sample" role="tabpanel" aria-labelledby="nav-second_sample-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <p class="mt-1">
-              井の中の蛙<br>
-              大海を知らず
+            <h5 class="mt-1">
+              <u>
+                井の中の蛙大海を知らず
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              自分の狭い視野や考えに囚われてはいけない
             </p>
-            <p>
-              自分の狭い視野や考えに<br>
-              囚われてはいけない
+            <h5 class="mt-5">
+              <u>
+                何かを求める前に<br>
+                自分は何ができるかを考える
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              他が自分に何かしてくれると期待する前に<br>
+              自分が何をできるかを考えることが大切
             </p>
-            <p class="mt-5">
-              何かを求める前に<br>
-              自分は何ができるかを考える
-            </p>
-            <p>
-              他が自分に<br>
-              何かしてくれると期待する前に<br>
-              自分が何をできるかを<br>
-              考えることが大切
-            </p>
-            <p class="mt-5">
-              艱難(かんなん)汝を玉にす
-            </p>
-            <p>
+            <h5 class="mt-5">
+              <u>
+                艱難(かんなん)汝を玉にす
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
               人は苦労してこそ立派になる<br>
               この苦労が自分の糧になる
             </p>
+            <h5 class="mt-5">
+              <u>
+                縁の下の力持ち
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              人の目に付かないところで<br>
+              陰で努力をしている人
+            </p>
           </div>
         </div>
 
-        <!--例題3のタブ-->
+        <!--ことわざ3のタブ-->
         <div class="tab-pane fade" id="nav-third_sample" role="tabpanel" aria-labelledby="nav-third_sample-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <p class="mt-1">
-              一念天に通ず
-            </p>
-            <p>
-              何事も成し遂げようとする<br>
-              強い信念があれば<br>
+            <h5 class="mt-1">
+              <u>
+                一念天に通ず
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              何事も成し遂げようとする強い信念があれば<br>
               天に通じて実現できる
             </p>
-            <p class="mt-5">
-              天は自ら助くる者を助く
-            </p>
-            <p>
+            <h5 class="mt-5">
+              <u>
+                天は自ら助くる者を助く
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
               人に依存せず<br>
               自ら頑張る人を神様は応援する
             </p>
-            <p class="mt-5">
-              仕事は全て時を定めて成すべし
-            </p>
-            <p>
+            <h5 class="mt-5">
+              <u>
+                仕事は全て時を定めて成すべし
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
               自分自身の規律や<br>
               ルールを設定することが大切
+            </p>
+            <h5 class="mt-5">
+              <u>
+                思い立ったが吉日
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              何かをしようと思い立ったら<br>
+              まさにその日にすぐに取りかかるのが良い
+            </p>
+          </div>
+        </div>
+
+        <!--ことわざ4のタブ-->
+        <div class="tab-pane fade" id="nav-fourth_sample" role="tabpanel" aria-labelledby="nav-fourth_sample-tab">
+          <div class="smart-content text-center font-weight-bold mt-0">
+            <h5 class="mt-1">
+              <u>
+                狭き門より入れ
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              物事をなすときは簡単な道ではなく<br>
+              困難な道を選んだほうが良い結果になる
+            </p>
+            <h5 class="mt-5">
+              <u>
+                習慣は第二の天性なり
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              身についた習慣は<br>
+              いつかは生まれつきの性質のようになる
+            </p>
+            <h5 class="mt-5">
+              <u>
+                雨垂石を穿つ
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              どんなに小さな力でも<br>
+              根気よく続けていればいつか成果が得られる
+            </p>
+            <h5 class="mt-5">
+              <u>
+                小事に拘わりて大事を忘るな
+              </u>
+            </h5>
+            <p class="dotted-square-brackets">
+              目先の小さなことに気を取られて<br>
+              大事なことを忘れるな
             </p>
           </div>
         </div>
@@ -169,7 +249,7 @@
       <%= form_with model: @user, url: mission_statement_confirm_user_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :mission_statement, class: "font-weight-bold" %><br />
-          <%= f.text_field :mission_statement,rows: "2",autofocus: true,class: "form-control" %>
+          <%= f.text_area :mission_statement,rows: "2",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :mission_statement_detail, class: "font-weight-bold" %><br />

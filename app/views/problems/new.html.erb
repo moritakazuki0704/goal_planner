@@ -2,7 +2,8 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
+
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -12,10 +13,12 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--目標についてのタブ-->
         <div class="tab-pane fade show active" id="nav-introduction" role="tabpanel" aria-labelledby="nav-introduction-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
 
             <% if current_user.problems.present? %>
+
               <!--２回目以降に目標を作成する場合のテキスト-->
               <p class="mt-1">
                 目標は一つではなく<br>
@@ -27,12 +30,13 @@
               </p>
 
             <% else %>
+
               <!--初めて目標を作成する場合のテキスト-->
               <p class="mt-1">
-                こうなりたいと思う
+                理想の自分になりたいと思う<br>
+                目標を達成したいと思う
               </p>
               <p>
-                達成したいと思う<br>
                 あなたがこの手帳を手に取った<br>
                 その理由が目標となります
               </p>
@@ -45,8 +49,12 @@
             <p>
               その目標が他の人にとっては<br>
               とても大変なことであろうとも<br>
-              達成できないと思われるようなことでも<br>
-              そして<br>
+              達成できないと思われるようなことでも
+            </p>
+            <p>
+              そして
+            </p>
+            <p>
               馬鹿にされるようなことであっても
             </p>
             <p>
@@ -61,6 +69,7 @@
           </div>
         </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -69,8 +78,8 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
-      <h5 class="smart-frame mb-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
+      <h5 class="smart-frame">
         <u>
           あなたが達成したいと思う<br>
           目標を教えて下さい
@@ -89,7 +98,7 @@
       </p>
       <p>
         最終的に叶えたい目標を叶える頃には<br>
-        その過程で得たものは<br>
+        その過程で得たものが<br>
         一生の大切なものになっています
       </p>
       <%= form_with model: @problem, url: confirm_problems_path, method: :get do |f| %>

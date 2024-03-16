@@ -32,7 +32,33 @@
   margin: 30px;
   padding: 0;
 }
-
+.dotted-square-brackets {
+    position: relative;
+    padding: 0.25em 1em;
+    top: 0;
+    background: #efefef;
+}
+.dotted-square-brackets:before, .dotted-square-brackets:after{
+    position: absolute;
+    top: 0;
+    content:'';
+    width: 10px;
+    height: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.dotted-square-brackets:before{
+    border-left: dotted 2px #15adc1;
+    border-top: dotted 2px #15adc1;
+    border-bottom: dotted 2px #15adc1;
+    left: 0;
+}
+.dotted-square-brackets:after{
+    border-top: dotted 2px #15adc1;
+    border-right: dotted 2px #15adc1;
+    border-bottom: dotted 2px #15adc1;
+    right: 0;
+}
 .smart-frame {
     padding: 0.5em 1em;
     margin: 0 0 1em;

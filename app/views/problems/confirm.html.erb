@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <p>
         あなたのこれから達成していく目標を<br>
         教えていただきました
@@ -13,24 +13,23 @@
         理想の未来が手に入ります
       </p>
       <p>
-        ここが一つの<br>
-        スタートラインとなるのです
+        ここが一つのスタートラインとなるのです
       </p>
       <p>
         大きな目標として<br>
         この目標を大事にしてください
       </p>
       <div class="danger-title-frame">
-        <span>書き直す、削除はできません</span>
+        <span>書き直すことはできません</span>
         <p>
-          間違いないことを<br>
-          改めて確認してください
+          書き直すことも消すこともできません<br>
+          間違いないことを改めて確認してください
         </p>
       </div>
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
 
       <!--commitmentとpurposeが入力されている場合-->
       <% if session[:commitment].present? && session[:purpose].present? %>
@@ -80,23 +79,26 @@
             目標の作成に失敗しました
           </u>
         </h5>
-        <p>
-          教えていただいた内容に<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          これから叶えていく目標は<br>
-          あなた自身が見つけていくものです<br>
-          深く考える必要はありません
-        </p>
-        <p>
-          ちょっとした気持ち、感情が動いた時<br>
-          それはすでにあなたの中にあります
-        </p>
-        <p>
-          あとはそれを<br>
-          言葉にして形にするだけです
-        </p>
+        <div class="cross-frame font-weight-bold">
+          <p>
+            教えていただいた内容に<br>
+            空欄があったみたいです
+          </p>
+          <p>
+            これから叶えていく目標は<br>
+            あなた自身が見つけていくものです<br>
+            深く考える必要はありません
+          </p>
+          <p>
+            ちょっとした気持ち<br>
+            感情が動いた時<br>
+            それはすでにあなたの中にあります
+          </p>
+          <p>
+            あとはそれを<br>
+            言葉にして形にするだけです
+          </p>
+        </div>
         <div class="d-flex justify-content-around my-3">
           <% if !current_user.problems.present? %>
             <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>

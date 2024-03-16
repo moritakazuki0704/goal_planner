@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <p>
         あなたにとっての生涯大切にしてることを<br>
         教えていただきました
@@ -25,20 +25,18 @@
       <div class="danger-title-frame">
         <span>書き直すことはできません</span>
         <p>
-          書き直すことも<br>
-          消すこともできません<br>
-          間違いないことを<br>
-          改めて確認してください
+          書き直すことも消すこともできません<br>
+          間違いないことを改めて確認してください
         </p>
       </div>
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
+      <% if session[:mission_statement].present? && session[:mission_statement_detail].present? %>
 
       <!--mission_statementとmission_detailが入力されている場合-->
-      <% if session[:mission_statement].present? && session[:mission_statement_detail].present? %>
-        <h5 class="smart-frame p-3">
+        <h5 class="smart-frame">
           <u>
             <%= safe_join(session[:mission_statement].split("\n"),tag(:br)) %>
           </u>
@@ -55,31 +53,33 @@
           <%= link_to '人生の指針をやり直す', welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-outline-info" %>
         </div>
 
-      <!--mission_statementとmission_detailのどちらか、もしくは両方に空欄があった場合-->
       <% else %>
+
+      <!--mission_statementとmission_detailのどちらか、もしくは両方に空欄があった場合-->
         <h5 class="smart-frame bg-warning">
           <u>
-            人生の指針の作成に<br>
-            失敗しました
+            人生の指針の作成に失敗しました
           </u>
         </h5>
-        <p>
-          教えていただいた内容に<br>
-          空欄があったみたいです
-        </p>
-        <p>
-          人生の指針となる思いは<br>
-          今のあなたを作っています<br>
-          深く考える必要はありません
-        </p>
-        <p>
-          大切にしている思いや行動<br>
-          それはすでにあなたの中にあります
-        </p>
-        <p>
-          あとはそれを<br>
-          言葉にして形にするだけです
-        </p>
+        <div class="cross-frame font-weight-bold">
+          <p>
+            教えていただいた内容に<br>
+            空欄があったみたいです
+          </p>
+          <p>
+            人生の指針となる思いは<br>
+            今のあなたを作っています<br>
+            深く考える必要はありません
+          </p>
+          <p>
+            大切にしている思いや行動<br>
+            それはすでにあなたの中にあります
+          </p>
+          <p>
+            あとはそれを<br>
+            言葉にして形にするだけです
+          </p>
+        </div>
         <div class="d-flex justify-content-around my-3">
           <%= link_to '人生の指針をやり直す', welcome_path, class: "btn btn-info" %>
         </div>
