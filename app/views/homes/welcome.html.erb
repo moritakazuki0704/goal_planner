@@ -1,12 +1,13 @@
 <div class="container-fluid">
   <div class="row justify-content-center open-book my-4 py-3">
-
-    <!--目標を作成済の場合-->
     <% if @problem.present? %>
+
+      <!--目標を作成済の場合-->
       <%= render 'homes/wizard_welcomes/welcome' %>
 
-    <!--目標作成を行なっていない場合-->
     <% else %>
+
+      <!--目標作成を行なっていない場合-->
       <%= render 'homes/wizard_welcomes/introduction' %>
 
     <% end %>

@@ -2,15 +2,13 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <p>
         理想を追求していくにあたって<br>
-        なりたい自分というものを<br>
-        知りましょう
+        なりたい自分というものを知りましょう
       </p>
       <p>
-        あなたにとってのなりたい<br>
-        自分とはなんでしょう
+        あなたにとってのなりたい自分とはなんでしょう
       </p>
       <p>
         思い浮かぶ人がいますか<br>
@@ -21,7 +19,7 @@
         憧れる生き方はありますか
       </p>
       <p>
-        そして逆にこうなりたくない<br>
+        反対にこうなりたくない<br>
         これだけはしたくない<br>
         ということはありますか
       </p>
@@ -32,8 +30,8 @@
         まだはっきりとはわかっていない自分の理想
       </p>
       <p>
-        まずは自分の理想を示す<br>
-        キーワードを探してみましょう
+        まずは自分の理想を示すキーワードを<br>
+        探してみましょう
       </p>
       <p>
         すぐに思いつかないのであれば<br>
@@ -50,11 +48,10 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <h5 class="smart-frame">
         <u>
-          あなたの理想を示す<br>
-          キーワード<br>
+          あなたの理想を示すキーワード<br>
           10個教えて下さい
         </u>
       </h5>
@@ -78,8 +75,8 @@
           <%= f.text_field :eighth_keyword, autofocus: true,class: "form-control list-group-item" %>
           <%= f.text_field :ninth_keyword, autofocus: true,class: "form-control list-group-item" %>
           <%= f.text_field :tenth_keyword, autofocus: true,class: "form-control list-group-item" %>
+          <%= f.submit "次に進む",class: "btn btn-outline-primary list-group-item" %>
         </ul>
-        <%= f.submit "次に進む",class: "btn btn-outline-primary mt-4" %>
       <% end %>
     </div>
 

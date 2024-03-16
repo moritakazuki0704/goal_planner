@@ -1,5 +1,5 @@
 <!--左のページ-->
-<div class="left-page col text-center m-5 p-5">
+<div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
   <p>
     この本はあなたの分身です。
   </p>
@@ -18,8 +18,7 @@
   </p>
   <p>
     でも恐れないで<br>
-    高い壁であると同時に<br>
-    あなた自身でもある
+    高い壁であると同時にあなた自身でもある
   </p>
   <p>
     迷った時<br>
@@ -41,14 +40,12 @@
 </div>
 
 <!--右のページ-->
-<div class="right-page col text-center m-5 p-5">
+<div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
   <p>
-    あなたの叶えたい<br>
-    目標を教えてください
+    あなたの叶えたい目標を教えてください
   </p>
   <p>
-    空欄ができないように<br>
-    全て埋めてください
+    空欄ができないように全て埋めてください
   </p>
   <p>
     それはいくつ年を重ねようと<br>
@@ -68,33 +65,35 @@
     それはこころをみつめる
   </p>
   <p>
-    さぁ深呼吸して<br>
+    さぁ深呼吸して
+  </p>
+  <p>
     リラックスして
   </p>
   <p>
     はじめましょう
   </p>
 
-  <div class="my-4">
+  <% if !current_user.tenth_keyword.present? %>
 
-    <% if !current_user.tenth_keyword.present? %>
-      <!--理想のテーブルを作成していない場合-->
-      <%= link_to keyword_new_user_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
-        あなたの理想を示す<br>キーワードを教えてください
-      <% end %>
-
-    <% elsif !current_user.mission_statement.present? %>
-    <!--ミッションステートメントを作成していない場合-->
-      <%= link_to mission_statement_new_user_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
-        あなたの人生の指針<br>あなたを示す言葉<br>教えてください
-      <% end %>
-
-    <% else %>
-    <!--目標を作成していない場合-->
-      <%= link_to new_problem_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
-        あなたが達成していく目標を<br>教えてください
-      <% end %>
+  <!--理想のテーブルを作成していない場合-->
+    <%= link_to keyword_new_user_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+      あなたの理想を示す<br>キーワードを教えてください
     <% end %>
 
-  </div>
+  <% elsif !current_user.mission_statement.present? %>
+
+  <!--ミッションステートメントを作成していない場合-->
+    <%= link_to mission_statement_new_user_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+      あなたの人生の指針<br>あなたを示す言葉<br>教えてください
+    <% end %>
+
+  <% else %>
+
+    <!--目標を作成していない場合-->
+    <%= link_to new_problem_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+      あなたが達成していく目標を<br>教えてください
+    <% end %>
+
+  <% end %>
 </div>
