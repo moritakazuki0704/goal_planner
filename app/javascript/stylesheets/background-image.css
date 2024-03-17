@@ -34,6 +34,7 @@
       rgba(0, 0, 0, 0.04) 130px,  rgba(0, 0, 0, 0.04) 130px);
 }
 
+/*top画面の背景画像*/
 .library {
   background-color: #486d46;            /* 背景色 */
   background-image: url("../../assets/images/library.jpg"); /* 画像 */
@@ -47,6 +48,7 @@
   height: 100vh;
 }
 
+/*ログイン画面と新規登録画面で使用する本の背表紙の背景画像*/
 .book-cover {
   background-image: url("../../assets/images/book-cover.jpg");
   background-size: 100% 100%;
@@ -54,6 +56,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/*開いた本の背景画像*/
 .open-book {
   background-image: url("../../assets/images/open-book.jpg");
   background-size: 100% 100%;

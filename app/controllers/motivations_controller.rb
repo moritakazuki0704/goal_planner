@@ -65,12 +65,20 @@ class MotivationsController < ApplicationController
 
   def record
     user_motivation = Motivation.where(user_id: current_user)
+
+    # ポジティブモチベーション一覧情報を呼び出す
     if params[:positive]
       @motvations = user_motivation.positive.page(params[:page])
+
+    # ネガティブモチベーション一覧情報を呼び出す
     elsif params[:negative]
       @motvations = user_motivation.negative.page(params[:page])
+
+    # したいことモチベーション一覧情報を呼び出す
     elsif params[:to_do]
       @motvations = user_motivation.to_do.page(params[:page])
+
+    # 欲しいものモチベーション一覧情報を呼び出す
     elsif params[:want]
       @motvations = user_motivation.want.page(params[:page])
     end
@@ -88,7 +96,7 @@ class MotivationsController < ApplicationController
     @motivation = Motivation.new
   end
 
-  # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  # ログインユーザーがmission_statementのカラムと目標を作成していない場合のアクセス制限
   def not_setting_goals_in_life!
     if !current_user.mission_statement.present? || !current_user.problems.present?
       redirect_to welcome_path

@@ -7,16 +7,22 @@ class ProblemsController < ApplicationController
   end
 
   def confirm
+
+    # newページより作成された情報をsessionに保管する
     session[:commitment] = problem_params[:commitment]
     session[:purpose] = problem_params[:purpose]
+
     @problem = Problem.new
   end
 
   def create
+
+    # sessionに保管された情報がストロングパラメータのカラムと同期させる
     problem = Problem.new(
       commitment: session[:commitment],
       purpose: session[:purpose]
       )
+
     problem.user_id = current_user.id
 
     # 初回にproblemテーブルを作成した場合

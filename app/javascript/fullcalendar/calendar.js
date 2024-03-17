@@ -1,4 +1,4 @@
-//インストールしたファイルたちを呼び出します。
+//yarnでインストールしたfullcalendarのファイルたちを呼び出します。
 import { Calendar} from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -8,7 +8,7 @@ import listPlugin from '@fullcalendar/list';
 document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
 
-    // //カレンダーの中身を設定
+    //カレンダーの中身を設定
     if (calendarEl) {
         var calendar = new Calendar(calendarEl, {
             plugins: [ dayGridPlugin, interactionPlugin, listPlugin ],
@@ -34,6 +34,7 @@ document.addEventListener('turbolinks:load', function() {
             events: '/schedules.json',
 
         });
+
         //カレンダー表示
         calendar.render();
     }

@@ -2,11 +2,17 @@ img {
   width: -webkit-fill-available;
 }
 
+/*文字を縦文字に変更*/
 .strip-paper a {
+
+  /*文字を縦文字に変更*/
   writing-mode: vertical-rl;
+
+  /*数字を縦文字に変更*/
   text-orientation: upright;
 }
 
+/*文字を縦文字に変更*/
 .strip-text {
   writing-mode: vertical-rl;
 }

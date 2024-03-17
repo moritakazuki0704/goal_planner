@@ -55,13 +55,14 @@ class SchedulesController < ApplicationController
 
   private
 
-  # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  # ログインユーザーがmission_statementのカラムと目標を作成していない場合のアクセス制限
   def not_setting_goals_in_life!
     if !current_user.mission_statement.present? || !current_user.problems.present?
       redirect_to welcome_path
     end
   end
 
+  # ストロングパロメータにネストしているPlanモデルをattributesし、スケジュールからplansテーブルの編集を可能にする
   def schedule_params
     params.require(:schedule).permit(:problem_id,:title,:body,:start_datetime,:start_time,:end_datetime,:end_time, plans_attributes: [:id, :priority_status, :progress_status])
   end

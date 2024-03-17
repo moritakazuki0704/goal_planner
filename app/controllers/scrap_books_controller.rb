@@ -29,7 +29,7 @@ class ScrapBooksController < ApplicationController
 
   private
 
-  # ログインユーザーがmission_statementのカラム、または目標を作成していない場合のアクセス制限
+  # ログインユーザーがmission_statementのカラムと目標を作成していない場合のアクセス制限
   def not_setting_goals_in_life!
     if !current_user.mission_statement.present? || !current_user.problems.present?
       redirect_to welcome_path

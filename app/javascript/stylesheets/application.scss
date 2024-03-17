@@ -1,5 +1,16 @@
+// cssファイルは下のファイルを参照
+
+// bootstrapのcssファイル
 @use '~bootstrap/scss/bootstrap';
+
+// bootstrapで対応できないcssファイル
 @use 'mystyle';
+
+// ボックスデザインのcssファイル
 @use 'background';
+
+// 背景関連のcssファイル
 @use 'background-image';
+
+// ページネーションのcssファイル
 @use 'kaminari';
