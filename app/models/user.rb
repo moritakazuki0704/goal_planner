@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :planner_name, presence: true
 
-  # updateの場合のみバリデーションする
+  # keyword_updateの場合のみバリデーションする
   with_options presence: true, on: :keyword_update do
     validates :first_keyword
     validates :second_keyword
@@ -26,9 +26,10 @@ class User < ApplicationRecord
     validates :tenth_keyword
   end
 
-    with_options presence: true, on: :mission_statement_update do
-      validates :mission_statement
-      validates :mission_statement_detail
-    end
+  # mission_statement_updateの場合のみバリデーションする
+  with_options presence: true, on: :mission_statement_update do
+    validates :mission_statement
+    validates :mission_statement_detail
+  end
 
 end

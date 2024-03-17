@@ -5,12 +5,13 @@ class Problem < ApplicationRecord
 
   enum progress_status: { progress: 0, finish: 1, pending: 2 }
 
-  default_scope -> { order(updated_at: :desc) }
   with_options presence: true do
     validates :commitment
     validates :purpose
   end
 
+  # 表示形式がランダム表示
+  default_scope -> { order(updated_at: :desc) }
   # 進行中の目標を表示
   scope :activity, -> {where(progress_status: 0)}
   # 完了した目標を表示
