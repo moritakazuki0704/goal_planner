@@ -141,7 +141,8 @@
   background: #fff0cd;
   box-shadow: 0px 0px 0px 5px #fff0cd;
   border: dashed 2px white;
-  padding: 0.2em 0.5em;
+  padding: 0.5em 1em;
+  margin: 0 0 1em;
   color: #454545;
 }
 .masking-tape:after{

@@ -1,65 +1,65 @@
 <div class="container-fluid">
   <div class="row open-book my-4 p-5">
-    <div class="row">
 
-      <!--写真投稿フォーム-->
-      <div class="col mt-5 mx-5 pt-5 px-5 w-50">
-        <div class="sticky-note">
-          <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
-            <div class="form-group sticky-title">
-              <%= f.file_field :photo,accept: "image/*",class: "form-control-file" %>
+    <!--左のページ-->
+    <!--写真投稿フォーム-->
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
+      <div class="sticky-note">
+        <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
+          <div class="form-group sticky-title">
+            <%= f.file_field :photo,accept: "image/*",class: "form-control-file" %>
+          </div>
+          <div class="form-group sticky-body">
+            <%= f.label :comment %><br>
+            <%= f.text_area :comment,rows: "5",class: "form-control" %>
+            <div class="d-flex justify-content-around my-3">
+              <%= f.submit "保存",class: "btn btn-outline-primary" %>
             </div>
-            <div class="form-group sticky-body">
-              <%= f.label :comment %><br>
-              <%= f.text_area :comment,rows: "5",class: "form-control" %>
-              <div class="d-flex justify-content-around my-3">
-                <%= f.submit "保存",class: "btn btn-outline-primary" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
+    </div>
 
-      <div class="col mt-5 mx-5 pt-5 px-5 w-50">
-        <div class="cloth-frame text-center py-3">
+    <!--右のページ-->
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
+      <div class="cloth-frame text-center py-3">
+        <% if params[:error] %>
 
-          <% unless params[:error] %>
+          <div class="masking-tape">
             <p>
-              ここはあなたの今と<br>
-              あなたの将来のアルバム
+              写真の投稿に失敗しました
             </p>
             <p>
-              あなたが思い描く
+              写真の選択をして保存を押してください
             </p>
             <p>
-              大切な思い出と叶えたい理想
+              コメントはあってもなくても<br>
+              写真は投稿されます
             </p>
-            <p>
-              忘れないように<br>
-              イメージできるように
-            </p>
-            <p>
-              写真をクリックすることで<br>
-              写真の詳細が見れます
-            </p>
+          </div>
 
-          <!--写真の投稿に失敗した場合-->
-          <% else %>
-            <div class="masking-tape">
-              <p>
-                写真の投稿に失敗しました
-              </p>
-              <p>
-                写真の選択をして保存を押してください
-              </p>
-              <p>
-                コメントはあってもなくても<br>
-                写真は投稿されます
-              </p>
-            </div>
-          <% end %>
+        <% else %>
 
-        </div>
+          <p>
+            ここはあなたの今と<br>
+            あなたの将来のアルバム
+          </p>
+          <p>
+            あなたが思い描く
+          </p>
+          <p>
+            大切な思い出と叶えたい理想
+          </p>
+          <p>
+            忘れないように<br>
+            イメージできるように
+          </p>
+          <p>
+            写真をクリックすることで<br>
+            写真の詳細が見れます
+          </p>
+
+        <% end %>
       </div>
     </div>
 

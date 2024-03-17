@@ -1,8 +1,8 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-4 py-3">
+  <div class="row justify-content-center open-book my-欲しいものテーブルを作成 py-したいことテーブルを作成">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <p>
         ポジティブなことでモチベーションを維持する<br>
         嫌だと思うことでモチベーションを維持する<br>
@@ -30,15 +30,18 @@
         入れることができるからです
       </p>
       <p>
-        ここを見て、何度でも立ち上がり<br>
-        あなたの夢、理想を叶えて下さい
+        ここを見て<br>
+        何度でも立ち上がり<br>
+        あなたの夢<br>
+        理想を叶えて下さい
       </p>
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if @motivations.present? %>
 
+        <!--モチベーションテーブルの作成している場合-->
         <h5 class="smart-frame">
           <u>
             あなたのモチベーションのスイッチ
@@ -60,32 +63,54 @@
           自分自身のモチベーションスイッチを<br>
           入れてあげてください
         </p>
-        <div class="d-flex justify-content-around my-5 strip-paper">
+        <div class="d-flex justify-content-around strip-paper">
           <% if @motivations.positive.present? %>
+
+            <!--モチベーションテーブルを作成している場合-->
             <%= link_to "ポジティブを閲覧", record_motivations_path(positive: true), class: "btn btn-success" %>
+
           <% else %>
+
+            <!--モチベーションテーブルを作成していない場合-->
             <%= link_to "ポジティブを記録", positive_new_motivations_path, class: "btn btn-outline-success" %>
+
           <% end %>
           <% if @motivations.negative.present? %>
+
+            <!--ネガティブテーブルを作成をしている場合-->
             <%= link_to "ネガティブを閲覧", record_motivations_path(negative: true), class: "btn btn-secondary" %>
+
           <% else %>
+
+            <!--ネガティブテーブルを作成を作成していない場合-->
             <%= link_to "ネガティブを記録", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
           <% end %>
           <% if @motivations.to_do.present? %>
+
+            <!--したいことテーブルを作成を作成している場合-->
             <%= link_to "したいことを閲覧", record_motivations_path(to_do: true), class: "btn btn-primary" %>
+
           <% else %>
+
+            <!--したいことテーブルを作成を作成していない場合-->
             <%= link_to "したいことを記録", to_do_new_motivations_path, class: "btn btn-outline-primary" %>
           <% end %>
           <% if @motivations.want.present? %>
+
+            <!--欲しいものテーブルを作成を作成している場合-->
             <%= link_to "欲しいものを閲覧", record_motivations_path(want: true), class: "btn btn-warning" %>
+
           <% else %>
+
+            <!--欲しいものテーブルを作成を作成していない場合-->
             <%= link_to "欲しいものを記録", want_new_motivations_path, class: "btn btn-outline-warning" %>
+
           <% end %>
         </div>
 
       <% else %>
 
-        <!--初めてモチベーションページに来たときに表示-->
+        <!--モチベーションテーブルを作成していない場合-->
         <div>
           <p>
             まずは<br>
@@ -109,7 +134,7 @@
             必要な要素です
           </p>
         </div>
-        <div class="d-flex justify-content-around my-5 strip-paper">
+        <div class="d-flex justify-content-around strip-paper">
           <%= link_to "ポジティブ", positive_new_motivations_path, class: "btn btn-outline-success" %>
           <%= link_to "ネガティブ", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
           <%= link_to "したいこと", to_do_new_motivations_path, class: "btn btn-outline-primary" %>

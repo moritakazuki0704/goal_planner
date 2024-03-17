@@ -2,25 +2,36 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
-      <% unless params[:error] %>
-        <%= render 'motivations/motivations_template/to_do' %>
-      <% else %>
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
+      <% if params[:error] %>
+
+        <!--バリデーションエラーが発生した場合-->
         <%= render 'motivations/motivations_template/error' %>
+
+      <% else %>
+
+        <!--このページに訪れた際に表示-->
+        <%= render 'motivations/motivations_template/to_do' %>
+
       <% end %>
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存が成功した場合-->
         <h5 class="masking-tape">
           <u>
             したいこと<br>
-            やってみたいことに<br>
+            やってみたいことを<br>
             記録しました
           </u>
         </h5>
+
       <% else %>
+
+        <!--このページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
             してみたいと思うこと<br>
@@ -28,6 +39,7 @@
             教えてください
           </u>
         </h5>
+
       <% end %>
       <p>
         人によっては<br>
@@ -41,7 +53,6 @@
         あなたにとって<br>
         それが大切であるのですから
       </p>
-
       <%= form_with model: @motivation,url: to_do_create_motivations_path, method: :post do |f| %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
