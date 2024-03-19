@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column">
+    <div class="left-page col text-center m-5 py-5 pl-5">
       <div class="card mb-4">
         <div class="card-header">
           <%= @problem.commitment %>
@@ -55,23 +55,25 @@
               </p>
               <!--スクロール機能-->
               <div class="scroll-box">
-                <% @problem.schedules.pending.each do |pending| %>
-                  <% if @problem.progress_status == "progress" %>
-
-                  <!--予定が進行中のみ予定の編集が可能とする-->
-                    <%= link_to edit_schedule_path(pending), class: "btn btn-block btn-outline-primary my-1" do %>
-                      <%= pending.title %>
+                <ul class="list-group list-group-flush">
+                  <% @problem.schedules.pending.each do |pending| %>
+                    <% if @problem.progress_status == "progress" %>
+  
+                    <!--予定が進行中のみ予定の編集が可能とする-->
+                      <%= link_to edit_schedule_path(pending), class: "btn btn-block btn-outline-primary my-1" do %>
+                        <%= pending.title %>
+                      <% end %>
+  
+                    <% else %>
+  
+                      <!--予定が進行中以外の場合は編集ができない-->
+                        <li class="list-group-item list-group-item-primary">
+                          <%= pending.title %>
+                        </li>
+  
                     <% end %>
-
-                  <% else %>
-
-                    <!--予定が進行中以外の場合は編集ができない-->
-                    <p class="btn btn-block btn-outline-primary my-1">
-                      <%= pending.title %>
-                    </p>
-
                   <% end %>
-                <% end %>
+               </ul>
               </div>
 
             </div>
@@ -138,7 +140,7 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column">
+    <div class="right-page text-center col m-5 py-5 pr-5">
       <% if params[:error] %>
 
       <!--メモの作成に失敗した場合-->
@@ -154,6 +156,7 @@
             それは些細なことでも<br>
             簡単なことでも構いません
           </p>
+        </div>
 
       <% else %>
 
@@ -164,15 +167,14 @@
             するべきことを教えてください
           </u>
         </h5>
-        </div>
 
       <% end %>
-      <%= form_with model: [@problem,@mission],url: problem_missions_path(@problem), method: :post do |f| %>
-        <div class="form-inline d-flex justify-content-center">
-          <%= f.text_field :memo,class: "form-control" %>
-          <%= f.submit "メモする",class: "btn btn-secondary btn-sm" %>
-        </div>
-      <% end %>
+        <%= form_with model: [@problem,@mission],url: problem_missions_path(@problem), method: :post do |f| %>
+          <div class="form-inline d-flex justify-content-center">
+            <%= f.text_field :memo,class: "form-control" %>
+            <%= f.submit "メモする",class: "btn btn-secondary btn-sm" %>
+          </div>
+        <% end %>
       <% if @problem.missions.present? %>
 
         <!--メモが作成されている場合-->

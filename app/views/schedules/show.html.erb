@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column">
       <h5 class="smart-frame">
         <u>
           <% if @schedule.problem.progress_status == "finish" %>
@@ -10,16 +10,14 @@
           <% elsif @schedule.problem.progress_status == "pending" %>
             保留にした目標の予定詳細
           <% else %>
-            目標詳細
+            進行中の目標の予定詳細
           <% end %>
         </u>
       </h5>
       <div class="card">
-        <div class="card-header">
-          <%= link_to problem_path(@schedule.problem_id) do %>
+        <%= link_to problem_path(@schedule.problem_id),class: "btn btn-block btn-link card-header" do %>
           <%= @schedule.problem.commitment %>
-          <% end %>
-        </div>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= @schedule.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted">
@@ -35,6 +33,7 @@
 
       <% if @schedule.plans.programme.present? %>
 
+        <!--予定のタスクが稼働状態になっている場合-->
         <!--タブ表示機能-->
         <nav>
           <div class="nav nav-tabs strip-paper" id="nav-tab" role="tablist">
@@ -58,14 +57,14 @@
               </h5>
               <div class="cross-frame font-weight-bold">
                 <p>
-                  <u>優先順位と進捗状況</u>を<br>
-                  変更して管理を行い<br>
+                  <u>優先順位と進捗状況</u>を変更して管理<br>
                   全てのタスクが完了になるよう<br>
                   努めてください
                 </p>
+                <!--スクロール機能-->
                 <div class="scroll-box">
                   <ul class="list-group list-group-flush">
-                    <%= f.fields_for :plans do |af| %>
+                    <%= f.fields_for :plans, @schedule.plans.programme do |af| %>
                       <li class="list-group-item">
                         <div class="row">
                           <div class="col align-self-center">
@@ -117,8 +116,9 @@
                 必須のタスク<br>
                 必ず実行しないといけない活動
               </p>
+              <!--スクロール機能-->
               <div class="scroll-box">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group">
                   <% @schedule.plans.emergency.each do |emergency| %>
                     <li class="list-group-item d-flex justify-content-between align-self-center align-items-center">
                       <p>
@@ -127,12 +127,11 @@
                       <p class="strip-text">
                         <%= emergency.progress_status_i18n %>
                       </p>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,emergency.id), method: :delete, class: "btn btn-outline-danger strip-text" %>
+                      <%= link_to "削除する", schedule_plan_path(@schedule,emergency.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                    <% end %>
                 </ul>
               </div>
-
             </div>
           </div>
 
@@ -244,7 +243,7 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column">
 
       <% unless params[:error] %>
         <h5 class="smart-frame mb-5">
@@ -295,7 +294,7 @@
                     <%= plan.challenge %>
                   </p>
                 </li>
-                <li class="list-group-item list-group-horizontal">
+                <li class="list-group-item d-flex justify-content-around">
                   <%= link_to "リストにする", upload_schedule_plan_path(@schedule,plan), method: :patch, class: "btn btn-outline-success" %>
                   <%= link_to "破棄する", schedule_plan_path(@schedule,plan), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
@@ -304,7 +303,7 @@
           </div>
         </div>
 
-        <div class="d-flex justify-content-around my-3">
+        <div class="d-flex justify-content-around">
           <%= link_to "全てリストに保存する", bulk_upload_schedule_plans_path(@schedule.id), method: :patch, class: "btn btn-success"  %>
           <%= link_to "全て破棄する", bulk_destroy_schedule_plans_path(@schedule.id), method: :delete, class: "btn btn-danger" %>
         </div>
