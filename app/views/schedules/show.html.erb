@@ -155,7 +155,6 @@
                   <% end %>
                 </ul>
               </div>
-
             </div>
           </div>
 
@@ -184,7 +183,6 @@
                   <% end %>
                 </ul>
               </div>
-
             </div>
           </div>
 
@@ -213,11 +211,11 @@
                   <% end %>
                 </ul>
               </div>
-
             </div>
           </div>
 
         </div>
+
       <% end %>
       <div class="d-flex justify-content-around my-3">
         <%= link_to "予定を編集", edit_schedule_path(@schedule.id), class: "btn btn-secondary" %>
@@ -230,15 +228,8 @@
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column">
 
       <% unless params[:error] %>
-        <h5 class="smart-frame mb-5">
-          <u>
-            予定を達成するために<br>
-            するべきことを教えてください
-          </u>
-        </h5>
 
       <!--planの作成に失敗した場合-->
-      <% else %>
         <div class="masking-tape pt-3 m-4">
           <p>
             提案の作成に失敗しました
@@ -253,6 +244,16 @@
           </p>
         </div>
 
+      <% else %>
+
+        <!--ページに訪れた際に表示-->
+        <h5 class="smart-frame mb-5">
+          <u>
+            予定を達成するために<br>
+            するべきことを教えてください
+          </u>
+        </h5>
+
       <% end %>
       <%= form_with model: [@schedule,@plan], url: schedule_plans_path(@schedule.id), method: :post do |f| %>
         <div class="form-inline justify-content-center">
@@ -260,15 +261,15 @@
           <%= f.submit "提案する", class: "btn btn-secondary btn-sm" %>
         </div>
       <% end %>
-
       <% if @schedule.plans.memo.present? %>
+
+        <!--提案が作成されている場合-->
         <h5 class="smart-frame my-4">
           <u>
             提案件数：<%= @schedule.plans.memo.count %>
           </u>
         </h5>
         <div class="cross-frame font-weight-bold">
-
           <!--スクロール機能-->
           <div class="scroll-page">
             <% @schedule.plans.memo.each do |plan| %>
@@ -286,11 +287,11 @@
             <% end %>
           </div>
         </div>
-
         <div class="d-flex justify-content-around">
           <%= link_to "全てリストに保存する", bulk_upload_schedule_plans_path(@schedule.id), method: :patch, class: "btn btn-success"  %>
           <%= link_to "全て破棄する", bulk_destroy_schedule_plans_path(@schedule.id), method: :delete, class: "btn btn-danger" %>
         </div>
+
       <% end %>
     </div>
 
