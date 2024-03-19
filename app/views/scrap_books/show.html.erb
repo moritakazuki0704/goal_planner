@@ -9,13 +9,14 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <div class="cross-frame text-center font-weight-bold comment-box p-5">
-
-        <!--コメントが作成されている場合-->
         <% if @scrap_book.comment.present? %>
+
+          <!--コメントが作成されている場合-->
           <p><%= safe_join(@scrap_book.comment.split("\n"),tag(:br)) %></p>
 
-        <!--コメントが作成されていない場合-->
         <% else %>
+
+          <!--コメントが作成されていない場合-->
           <p>この写真はあなたの思い出</p>
           <p>あなたの理想の姿</p>
 
