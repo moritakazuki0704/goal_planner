@@ -69,7 +69,7 @@
                         <div class="row">
                           <div class="col align-self-center">
                             <%= af.text_field :challenge, disabled: true,class: "form-control" %>
-                            <%= af.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]}, class: "form-control" %>
+                            <%= af.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]}, class: "form-control badge badge-info badge-pill strip-text" %>
                           </div>
                           <div class="col">
                             <div class="form-group mb-0">
@@ -120,13 +120,9 @@
               <div class="scroll-box">
                 <ul class="list-group">
                   <% @schedule.plans.emergency.each do |emergency| %>
-                    <li class="list-group-item d-flex justify-content-between align-self-center align-items-center">
-                      <p>
-                        <%= emergency.challenge %>
-                      </p>
-                      <p class="strip-text">
-                        <%= emergency.progress_status_i18n %>
-                      </p>
+                    <li class="list-group-item d-flex align-items-center">
+                      <%= emergency.challenge %>
+                      <span class="badge badge-success badge-pill strip-text ml-auto mr-3"><%= emergency.progress_status_i18n %></span>
                       <%= link_to "削除する", schedule_plan_path(@schedule,emergency.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                    <% end %>
@@ -149,16 +145,12 @@
                 大事なことタスクを減らす活動
               </p>
               <div class="scroll-box">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group">
                   <% @schedule.plans.important.each do |important| %>
-                    <li class="list-group-item d-flex justify-content-between align-self-center align-items-center">
-                      <p>
-                        <%= important.challenge %>
-                      </p>
-                      <p class="strip-text">
-                        <%= important.progress_status_i18n %>
-                      </p>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,important.id), method: :delete, class: "btn btn-outline-danger strip-text" %>
+                    <li class="list-group-item d-flex align-items-center">
+                      <%= important.challenge %>
+                      <span class="badge badge-info badge-pill strip-text ml-auto mr-3"><%= important.progress_status_i18n %></span>
+                      <%= link_to "削除する", schedule_plan_path(@schedule,important.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                   <% end %>
                 </ul>
@@ -182,16 +174,12 @@
                 他のタスクが減ることはない
               </p>
               <div class="scroll-box">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group">
                   <% @schedule.plans.interruption.each do |interruption| %>
-                    <li class="list-group-item d-flex justify-content-between align-self-center align-items-center">
-                      <p>
-                        <%= interruption.challenge %>
-                      </p>
-                      <p class="strip-text">
-                        <%= interruption.progress_status_i18n %>
-                      </p>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,interruption.id), method: :delete, class: "btn btn-outline-danger strip-text" %>
+                    <li class="list-group-item d-flex align-items-center">
+                      <%= interruption.challenge %>
+                      <span class="badge badge-warning badge-pill strip-text ml-auto mr-3"><%= interruption.progress_status_i18n %></span>
+                      <%= link_to "削除する", schedule_plan_path(@schedule,interruption.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                   <% end %>
                 </ul>
@@ -217,14 +205,10 @@
               <div class="scroll-box">
                 <ul class="list-group list-group-flush">
                   <% @schedule.plans.eliminate.each do |eliminate| %>
-                    <li class="list-group-item d-flex justify-content-between align-self-center align-items-center">
-                      <p>
-                        <%= eliminate.challenge %>
-                      </p>
-                      <p class="strip-text">
-                        <%= eliminate.progress_status_i18n %>
-                      </p>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,eliminate), method: :delete, class: "btn btn-outline-danger strip-text" %>
+                    <li class="list-group-item d-flex align-items-center">
+                      <%= eliminate.challenge %>
+                      <span class="badge badge-danger badge-pill strip-text ml-auto mr-3"><%= eliminate.progress_status_i18n %></span>
+                      <%= link_to "削除する", schedule_plan_path(@schedule,eliminate.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                   <% end %>
                 </ul>
