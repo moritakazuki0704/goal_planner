@@ -16,7 +16,9 @@
       </h5>
       <div class="card">
         <div class="card-header">
+          <%= link_to problem_path(@schedule.problem_id) do %>
           <%= @schedule.problem.commitment %>
+          <% end %>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= @schedule.title %></h5>

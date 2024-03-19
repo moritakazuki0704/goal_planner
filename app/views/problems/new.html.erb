@@ -113,7 +113,10 @@
         <div class="d-flex justify-content-around my-3">
           <%= f.submit "次に進む",class: "btn btn-outline-primary" %>
           <% if current_user.problems.present? %>
+
+            <!--２回目以降に目標を作成する場合-->
             <%= link_to '目標の作成をやめる', problems_path, class: "btn btn-outline-info" %>
+
           <% end %>
         </div>
       <% end %>

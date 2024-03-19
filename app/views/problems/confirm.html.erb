@@ -30,9 +30,9 @@
 
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
-
-      <!--commitmentとpurposeが入力されている場合-->
       <% if session[:commitment].present? && session[:purpose].present? %>
+
+      <!--commitmentとpurposeが入力されている、バリデーションが正常の場合-->
       <h5 class="smart-frame">
         <u>
           <%= session[:commitment] %>
@@ -62,18 +62,21 @@
           <%= f.submit '目標を決める', "data-confirm" =>"修正することができませんが\nこの目標でいいですか", class: "btn btn-outline-primary" %>
         <% end %>
         <% if !current_user.problems.present? %>
+
           <!--初めて目標を作成する場合-->
-          <%= link_to '設定し直す', welcome_path, class: "btn btn-outline-info" %>
+          <%= link_to '設定し直す', welcome_path, class: "btn btn-info" %>
+
         <% else %>
 
           <!--2回目以降に目標を作成する場合-->
           <%= link_to '設定し直す', new_problem_path, class: "btn btn-outline-info" %>
-        <% end %>
 
+        <% end %>
       </div>
 
-      <!--commitmentとpurposeのどちらか、もしくは両方に空欄があった場合-->
       <% else %>
+
+        <!--commitmentとpurposeのどちらか、もしくは両方に空欄があった、バリデーションエラーの場合-->
         <h5 class="smart-frame bg-warning">
           <u>
             目標の作成に失敗しました
@@ -101,13 +104,19 @@
         </div>
         <div class="d-flex justify-content-around my-3">
           <% if !current_user.problems.present? %>
+
+            <!--初めてに目標を作成する場合-->
             <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+
           <% else %>
+
+            <!--２回目に目標を作成する場合-->
             <%= link_to '目標を設定し直す', new_problem_path, class: "btn btn-outline-info" %>
+
           <% end %>
         </div>
-      <% end %>
 
+      <% end %>
     </div>
 
   </div>

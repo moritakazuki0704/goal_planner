@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <p>
         あなたが叶えていく目標
       </p>
@@ -10,8 +10,7 @@
         大きな大きな一歩一歩がここに記されています
       </p>
       <p>
-        これは理想を現実に<br>
-        叶えるための道標となります
+        これは理想を現実に叶えるための道標となります
       </p>
       <p>
         進行中の目標<br>
@@ -27,7 +26,7 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <h5 class="smart-frame mb-5">
         <u>
           目標一覧
@@ -50,11 +49,9 @@
             <!--スクロール機能-->
             <div class="scroll-box">
               <% @problems.activity.each do |activity| %>
-                <ul class="list-group">
-                  <%= link_to problem_path(activity), class: "list-group-item list-group-item-action list-group-item-primary" do %>
-                    <%= activity.commitment %>
-                  <% end %>
-                </ul>
+                <%= link_to problem_path(activity), class: "btn btn-block btn-outline-primary my-1" do %>
+                  <%= activity.commitment %>
+                <% end %>
               <% end %>
             </div>
 
@@ -66,13 +63,12 @@
             <!--スクロール機能-->
             <div class="scroll-box">
               <% @problems.finish.each do |finish| %>
-                <ul class="list-group">
-                  <%= link_to problem_path(finish), class: "list-group-item list-group-item-action list-group-item-success" do %>
-                    <%= finish.commitment %>
-                  <% end %>
-                </ul>
+                <%= link_to problem_path(finish), class: "btn btn-block btn-outline-success my-1" do %>
+                  <%= finish.commitment %>
+                <% end %>
               <% end %>
             </div>
+
           </div>
 
           <!--保留にした目標のタブ-->
@@ -81,13 +77,12 @@
             <!--スクロール機能-->
             <div class="scroll-box">
               <% @problems.pending.each do |pending| %>
-                <ul class="list-group list-group-flush">
-                  <%= link_to problem_path(pending), class: "list-group-item list-group-item-action list-group-item-info" do %>
-                    <%= pending.commitment %>
-                  <% end %>
-                </ul>
+                <%= link_to problem_path(pending), class: "btn btn-block btn-outline-info my-1" do %>
+                  <%= pending.commitment %>
+                <% end %>
               <% end %>
             </div>
+
           </div>
 
       </div>

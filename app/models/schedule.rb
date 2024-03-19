@@ -32,6 +32,6 @@ class Schedule < ApplicationRecord
   # 日付が未入力のスケジュールを表示
   scope :pending, -> {where(start_datetime: nil, end_datetime: nil)}
   # 未来のスケジュールを表示
-  scope :imperfect, -> {where('start_datetime >= ?', Time.current)}
+  scope :imperfect, -> {where('start_datetime >= ?', Time.current).or(where('start_datetime < ?', Time.current)).and(where('end_datetime > ?', Time.current))}
 
 end

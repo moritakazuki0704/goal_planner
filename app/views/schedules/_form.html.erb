@@ -8,7 +8,7 @@
       </u>
     </h5>
   </div>
-  <div class="scroll-box">
+  <div class="scroll-radio-buttons">
     <%= f.collection_radio_buttons(:problem_id, problems, :id, :commitment) do |b| %>
       <div class="masking-tape custom-control custom-radio">
         <%= b.radio_button(required: true, class: "custom-control-input") %>

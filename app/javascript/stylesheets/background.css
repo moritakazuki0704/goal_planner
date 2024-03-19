@@ -165,13 +165,14 @@
   overflow: auto;
   height: 14rem;
 }
-
+.scroll-radio-buttons {
+  overflow: auto;
+  height: 17rem;
+}
 .scroll-style {
   overflow: auto;
   height: 30rem;
 }
-
-/*スクロールができる大きめのボックス*/
 .scroll-page {
   overflow: auto;
   height: 40rem;
