@@ -12,9 +12,45 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--理想の時間の使い方のタブ-->
         <div class="tab-pane fade show active" id="nav-spend_time" role="tabpanel" aria-labelledby="nav-spend_time-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <% unless params[:error] %>
+            <% if params[:error] %>
+
+              <!--バリデーションエラーが発生した場合-->
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想の時間の使い方の<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた<br>
+                理想の時間の使い方に<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                予定の作成を行えば<br>
+                あなたにとっての<br>
+                重要なこと・大事なこと<br>
+                やらなければいけないこと<br>
+                辞めるべきこと<br>
+                それらがわかると思います
+              </p>
+              <p>
+                何に時間をかけますか<br>
+                それに時間を使うことで<br>
+                あなたの人生が幸せな気持ちになります
+              </p>
+              <p>
+                他の人にとって無駄だと思われることが<br>
+                あなたが求めている<br>
+                時間の使いたいことかもしれません
+              </p>
+
+            <% else %>
+
+              <!--ページに訪れた際に表示-->
               <p class="mt-1">
                 あなたはきっと<br>
                 仕事・勉強・娯楽・趣味
@@ -47,40 +83,12 @@
               <p>
                 全てとても重要で大切なものです
               </p>
-            <% else %>
-              <h5 class="smart-frame bg-warning">
-                <u>
-                  理想の時間の使い方の<br>
-                  作成に失敗しました
-                </u>
-              </h5>
-              <p>
-                教えていただいた<br>
-                理想の時間の使い方に<br>
-                空欄があったみたいです
-              </p>
-              <p>
-                予定の作成を行えば<br>
-                あなたにとっての<br>
-                重要なこと・大事なこと<br>
-                やらなければいけないこと<br>
-                辞めるべきこと<br>
-                それらがわかると思います
-              </p>
-              <p>
-                何に時間をかけますか<br>
-                それに時間を使うことで<br>
-                あなたの人生が幸せな気持ちになります
-              </p>
-              <p>
-                他の人にとって無駄だと思われることが<br>
-                あなたが求めている<br>
-                時間の使いたいことかもしれません
-              </p>
+
             <% end %>
           </div>
         </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -90,12 +98,18 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存に成功した場合-->
         <h5 class="masking-tape">
           <u>
             理想の時間の使い方を記録しました
           </u>
         </h5>
+
       <% else %>
+
+
+        <!--ページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
             あなたの理想の時間の使い方<br>
@@ -103,6 +117,7 @@
             3つ教えて下さい
           </u>
         </h5>
+
       <% end %>
       <p>
         より具体的の教えていただけると<br>

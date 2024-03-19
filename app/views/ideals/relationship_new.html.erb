@@ -12,41 +12,12 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--理想の人間関係のタブ-->
         <div class="tab-pane fade show active" id="nav-relationship" role="tabpanel" aria-labelledby="nav-relationship-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <% unless params[:error] %>
-              <p class="mt-1">
-                人間関係とはたくさんあります<br>
-              </p>
-              <p>
-                自身を高めてくれる人<br>
-                大切に思う<br>
-                なんでも楽しめ、話せる人<br>
-                喧嘩ができる人
-              </p>
-              <p>
-                いい人間関係があれば<br>
-                悪い人間関係もあります
-              </p>
-              <p>
-                怒ってくる人<br>
-                傷つけてくる人<br>
-                生理的に合わない人
-              </p>
-              <p>
-                これから<br>
-                たくさんの人と出会っていきます<br>
-                その中で付き合っていく人を<br>
-                選んでいく必要があり<br>
-                選ばれる必要があります
-              </p>
-              <p>
-                理想を叶えていくと自然と選ばれていきます
-              </p>
-              <p>
-                そしてあなたに必要な人は必ず集まってきます
-              </p>
-            <% else %>
+            <% if params[:error] %>
+
+              <!--バリデーションエラーが発生した場合-->
               <h5 class="smart-frame bg-warning">
                 <u>
                   理想の人間関係の<br>
@@ -78,10 +49,47 @@
                 その関係性こそが<br>
                 あなたが求めている人間関係です
               </p>
+
+            <% else %>
+
+              <!--ページに訪れた際に表示-->
+              <p class="mt-1">
+                人間関係とはたくさんあります<br>
+              </p>
+              <p>
+                自身を高めてくれる人<br>
+                大切に思う<br>
+                なんでも楽しめ、話せる人<br>
+                喧嘩ができる人
+              </p>
+              <p>
+                いい人間関係があれば<br>
+                悪い人間関係もあります
+              </p>
+              <p>
+                怒ってくる人<br>
+                傷つけてくる人<br>
+                生理的に合わない人
+              </p>
+              <p>
+                これから<br>
+                たくさんの人と出会っていきます<br>
+                その中で付き合っていく人を<br>
+                選んでいく必要があり<br>
+                選ばれる必要があります
+              </p>
+              <p>
+                理想を叶えていくと自然と選ばれていきます
+              </p>
+              <p>
+                そしてあなたに必要な人は必ず集まってきます
+              </p>
+
             <% end %>
           </div>
         </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -91,18 +99,24 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存に成功した場合-->
         <h5 class="masking-tape">
           <u>
             理想の人間関係を記録しました
           </u>
         </h5>
+  
       <% else %>
+
+        <!--ページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
             あなたが関わっていきたい<br>
             人との関係を教えて下さい
           </u>
         </h5>
+
       <% end %>
       <p>
         先輩・後輩・上司・家族・夫婦・友人・親友<br>

@@ -12,9 +12,43 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--理想のパートナーのタブ-->
         <div class="tab-pane fade show active" id="nav-partner" role="tabpanel" aria-labelledby="nav-partner-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <% unless params[:error] %>
+            <% if params[:error] %>
+
+              <!--バリデーションエラーが発生した場合-->
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想のパートナーの<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想のパートナーに<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                仕事の相棒<br>
+                プライベートの親友<br>
+                一緒に一生を過ごす夫婦
+              </p>
+              <p>
+                あなたは何をしてあげられますか<br>
+                その人は何をしてくれますか
+              </p>
+              <p>
+                そしてその人とあなたは<br>
+                周りからどのように呼ばれますか<br>
+              </p>
+              <p>
+                それがあなたにとっての<br>
+                理想のパートナーとなるでしょう
+              </p>
+
+            <% else %>
+
+              <!--ページに訪れた際に表示-->
               <p class="mt-1">
                 基本的に人は一人でなんでもできる<br>
                 というわけではありません
@@ -43,38 +77,12 @@
                 そしてあなたが理想を追い求める上で<br>
                 必要な存在となると思います
               </p>
-            <% else %>
-              <h5 class="smart-frame bg-warning">
-                <u>
-                  理想のパートナーの<br>
-                  作成に失敗しました
-                </u>
-              </h5>
-              <p>
-                教えていただいた理想のパートナーに<br>
-                空欄があったみたいです
-              </p>
-              <p>
-                仕事の相棒<br>
-                プライベートの親友<br>
-                一緒に一生を過ごす夫婦
-              </p>
-              <p>
-                あなたは何をしてあげられますか<br>
-                その人は何をしてくれますか
-              </p>
-              <p>
-                そしてその人とあなたは<br>
-                周りからどのように呼ばれますか<br>
-              </p>
-              <p>
-                それがあなたにとっての<br>
-                理想のパートナーとなるでしょう
-              </p>
+
             <% end %>
           </div>
         </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -84,12 +92,17 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存に成功した場合-->
         <h5 class="masking-tape">
           <u>
             理想のパートナーを記録しました
           </u>
         </h5>
+
       <% else %>
+
+        <!--ページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
             あなたの最高のパートナー<br>

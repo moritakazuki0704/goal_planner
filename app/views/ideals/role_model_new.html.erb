@@ -12,9 +12,41 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--理想のロールモデルのタブ-->
         <div class="tab-pane fade show active" id="nav-role_model" role="tabpanel" aria-labelledby="nav-role_model-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <% unless params[:error] %>
+            <% if params[:error] %>
+
+              <!--バリデーションエラーが発生した場合-->
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想のロールモデルの<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想のモデルに<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                理想を考える時に<br>
+                きっとそこには<br>
+                理想叶えている人がいるでしょう
+              </p>
+              <p>
+                その人にあなたが近づく<br>
+                性格や言動、行動をするときに<br>
+                この人だったらと考える
+              </p>
+              <p>
+                それがあなたにとっての<br>
+                理想を叶えている<br>
+                真似をするべきモデルです
+              </p>
+
+            <% else %>
+
+              <!--ページに訪れた際に表示-->
               <p class="mt-1">
                 きっと誰しも思ったことがあるでしょう
               </p>
@@ -45,36 +77,12 @@
                 はじめの一歩はなんでもいい<br>
                 一歩ずつ歩んでいけばいいのですから
               </p>
-            <% else %>
-              <h5 class="smart-frame bg-warning">
-                <u>
-                  理想のロールモデルの<br>
-                  作成に失敗しました
-                </u>
-              </h5>
-              <p>
-                教えていただいた理想のモデルに<br>
-                空欄があったみたいです
-              </p>
-              <p>
-                理想を考える時に<br>
-                きっとそこには<br>
-                理想叶えている人がいるでしょう
-              </p>
-              <p>
-                その人にあなたが近づく<br>
-                性格や言動、行動をするときに<br>
-                この人だったらと考える
-              </p>
-              <p>
-                それがあなたにとっての<br>
-                理想を叶えている<br>
-                真似をするべきモデルです
-              </p>
+
             <% end %>
           </div>
         </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -85,18 +93,24 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存に成功した場合-->
         <h5 class="masking-tape">
           <u>
             理想のパートナー像を記録しました
           </u>
         </h5>
+
       <% else %>
+
+        <!--ページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
             あなたの理想の関係を築いている人<br>
             教えて下さい
           </u>
         </h5>
+
       <% end %>
       <p>
         あなたとの関係と<br>

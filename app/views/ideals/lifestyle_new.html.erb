@@ -12,32 +12,12 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--理想のライフスタイルのタブ-->
         <div class="tab-pane fade show active" id="nav-lifestyle" role="tabpanel" aria-labelledby="nav-lifestyle-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <% unless params[:error] %>
-              <p class="mt-1">
-                理想のライフスタイル<br>
-              </p>
-              <p>
-                ライフスタイル　／　Lifestyle<br>
-                英語から直訳すると<br>
-                「生き方」という意味となります
-              </p>
-              <p>
-                さらに言葉の意味はかなり広く<br>
-                「衣食住」だけでなく<br>
-                人生観・価値観・習慣などを含めた個人の生き方<br>
-                という意味で使われているそうです
-              </p>
-              <p>
-                何を大切にするかによって<br>
-                ライフスタイルはわかります
-              </p>
-              <p>
-                難しく考える必要はどこにもありません<br>
-                あなたの理想の生活を考えるだけでいいのです
-              </p>
-            <% else %>
+            <% if params[:error] %>
+
+              <!--バリデーションエラーが発生した場合-->
               <h5 class="smart-frame bg-warning">
                 <u>
                   理想のライフスタイルの<br>
@@ -66,10 +46,37 @@
                 あなた自身の将来の<br>
                 素敵な日常となります
               </p>
+
+            <% else %>
+
+              <!--ページに訪れた際に表示-->
+              <p class="mt-1">
+                理想のライフスタイル<br>
+              </p>
+              <p>
+                ライフスタイル　／　Lifestyle<br>
+                英語から直訳すると<br>
+                「生き方」という意味となります
+              </p>
+              <p>
+                さらに言葉の意味はかなり広く<br>
+                「衣食住」だけでなく<br>
+                人生観・価値観・習慣などを含めた個人の生き方<br>
+                という意味で使われているそうです
+              </p>
+              <p>
+                何を大切にするかによって<br>
+                ライフスタイルはわかります
+              </p>
+              <p>
+                難しく考える必要はどこにもありません<br>
+                あなたの理想の生活を考えるだけでいいのです
+              </p>
+
             <% end %>
           </div>
-        </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -79,12 +86,17 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存に成功した場合-->
         <h5 class="masking-tape">
           <u>
             理想のライフスタイルを記録しました
           </u>
         </h5>
+
       <% else %>
+
+        <!--ページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
             あなたが過ごしたいと思う<br>
@@ -92,6 +104,7 @@
             3つ教えて下さい
           </u>
         </h5>
+
       <% end %>
       <p>
         どうしてそのライフスタイルに憧れているのか<br>

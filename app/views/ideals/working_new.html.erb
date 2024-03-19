@@ -6,15 +6,51 @@
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="true">理想の時間の使い方</a>
+          <a class="nav-item nav-link active" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="true">理想の働き方</a>
           <a class="nav-item nav-link " id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="false">キーワード</a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--理想の働き方のタブ-->
         <div class="tab-pane fade show active" id="nav-working" role="tabpanel" aria-labelledby="nav-working-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <% unless params[:error] %>
+            <% if params[:error] %>
+
+              <!--バリデーションエラーが発生した場合-->
+              <h5 class="smart-frame bg-warning">
+                <u>
+                  理想の働き方の<br>
+                  作成に失敗しました
+                </u>
+              </h5>
+              <p>
+                教えていただいた理想の働き方に<br>
+                空欄があったみたいです
+              </p>
+              <p>
+                世の中には<br>
+                ホワイトな職場があり<br>
+                ブラックな職場があります
+              </p>
+              <p>
+                あなたにとっての<br>
+                あなただけにとっての<br>
+                ホワイトな職場の条件です
+              </p>
+              <p>
+                あなたが楽しいと思えること<br>
+                働きたいと思える内容<br>
+                それが理想の働き方です
+              </p>
+              <p>
+                そして働きたくないと思う<br>
+                働く条件の反対です
+              </p>
+
+            <% else %>
+
+              <!--ページに訪れた際に表示-->
               <p class="mt-1">
                 働くということは<br>
                 何かを対価にお金を得るということです
@@ -46,40 +82,12 @@
               <p>
                 あなたには待っています
               </p>
-            <% else %>
-              <h5 class="smart-frame bg-warning">
-                <u>
-                  理想の働き方の<br>
-                  作成に失敗しました
-                </u>
-              </h5>
-              <p>
-                教えていただいた理想の働き方に<br>
-                空欄があったみたいです
-              </p>
-              <p>
-                世の中には<br>
-                ホワイトな職場があり<br>
-                ブラックな職場があります
-              </p>
-              <p>
-                あなたにとっての<br>
-                あなただけにとっての<br>
-                ホワイトな職場の条件です
-              </p>
-              <p>
-                あなたが楽しいと思えること<br>
-                働きたいと思える内容<br>
-                それが理想の働き方です
-              </p>
-              <p>
-                そして働きたくないと思う<br>
-                働く条件の反対です
-              </p>
+
             <% end %>
           </div>
         </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -89,18 +97,24 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存に成功した場合-->
         <h5 class="masking-tape">
           <u>
             理想の働き方を記録しました
           </u>
         </h5>
+
       <% else %>
+
+      <!--ページに訪れた際に表示-->
       <h5 class="smart-frame">
         <u>
           あなたの理想の働き方を<br>
           教えて下さい
         </u>
       </h5>
+
       <% end %>
       <p>
         働く時間・仕事内容・働く場所・給料

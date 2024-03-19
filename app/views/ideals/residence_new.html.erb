@@ -12,37 +12,12 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
 
+        <!--理想の住まいのタブ-->
         <div class="tab-pane fade show active" id="nav-residence" role="tabpanel" aria-labelledby="nav-residence-tab">
           <div class="smart-content text-center font-weight-bold mt-0">
-            <% unless params[:error] %>
-              <p class="mt-1">
-                住まいとはなんでしょう
-              </p>
-              <p>
-                それは癒し<br>
-                それは自分の場所<br>
-                それは落ち着く場所<br>
-                それは楽しめる場所
-              </p>
-              <p>
-                住まいというのは<br>
-                食事をとって寝る<br>
-                それだけの場所ではありません
-              </p>
-              <p>
-                あなたがあなたらしくいられる場所
-              </p>
-              <p>
-                心と体をリセットできる空間でもあり<br>
-                趣味や娯楽を楽しめる空間でもあり<br>
-                知識と経験を学ぶ場所になり得ます
-              </p>
-              <p>
-                将来を思い描いてみましょう<br>
-                そしたらそこには<br>
-                あなたの住んでいる場所があります
-              </p>
-            <% else %>
+            <% if params[:error] %>
+
+              <!--バリデーションエラーが発生した場合-->
               <h5 class="smart-frame bg-warning">
                 <u>
                   理想の住まいの<br>
@@ -72,10 +47,43 @@
               <p>
                 それがあなたの理想の住まいです
               </p>
+
+            <% else %>
+              <!--ページに訪れた際に表示-->
+
+              <p class="mt-1">
+                住まいとはなんでしょう
+              </p>
+              <p>
+                それは癒し<br>
+                それは自分の場所<br>
+                それは落ち着く場所<br>
+                それは楽しめる場所
+              </p>
+              <p>
+                住まいというのは<br>
+                食事をとって寝る<br>
+                それだけの場所ではありません
+              </p>
+              <p>
+                あなたがあなたらしくいられる場所
+              </p>
+              <p>
+                心と体をリセットできる空間でもあり<br>
+                趣味や娯楽を楽しめる空間でもあり<br>
+                知識と経験を学ぶ場所になり得ます
+              </p>
+              <p>
+                将来を思い描いてみましょう<br>
+                そしたらそこには<br>
+                あなたの住んでいる場所があります
+              </p>
+
             <% end %>
           </div>
         </div>
 
+        <!--キーワードのタブ-->
         <div class="tab-pane fade" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
           <%= render 'users/keyword_show' %>
         </div>
@@ -85,12 +93,17 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
+
+        <!--保存に成功した場合-->
         <h5 class="masking-tape">
           <u>
             理想の住まいを記録しました
           </u>
         </h5>
+
       <% else %>
+
+        <!--ページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
             あなたの住みたいと思える<br>
@@ -98,6 +111,7 @@
             大事なものを教えて下さい
           </u>
         </h5>
+
       <% end %>
       <p>
         それはどうして欠かせないのか<br>
