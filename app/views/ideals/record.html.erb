@@ -2,11 +2,10 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <p>
-        あなたにとって<br>
-        大事にしていること<br>
-        理想の自分の姿
+        あなたにとって大事にしていること<br>
+        理想の自分の未来
       </p>
       <p>
         何度でも見返して<br>
@@ -14,34 +13,47 @@
         明確に想像してください
       </p>
       <p>
-        いつしか<br>
-        想像は現実に<br>
-        取って代わっていきます
+        スクラップブックに理想を叶えた写真を<br>
+        貼り付けるのもいいと思います<br>
+        しっかりと目に見え<br>
+        想像しやすくなると思います
       </p>
-      <div class="cross-frame font-weight-bold">
-        <ul class="list-group">
-          <%= link_to "理想の性格を想像する", personality_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想の姿を想像する", appearance_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想のライフスタイルを想像する", lifestyle_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想の時間の使い方を想像する", spend_time_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想の働き方を想像する", working_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想の住まいを想像する", residence_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想の人間関係を想像する", relationship_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想のパートナーを想像する", partner_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to "理想のロールモデルを想像する", role_model_new_ideals_path, class: "list-group-item list-group-item-action list-group-item-primary"  %>
-          <%= link_to "理想の一覧画面に戻る", ideals_path, class: "list-group-item list-group-item-action list-group-item-info" %>
-        </ul>
+      <p>
+        そしていつしか<br>
+        想像は現実に取って代わっていきます
+      </p>
+      <div class="d-flex justify-content-around mt-5">
+        <% if params[:personality] %>
+          <%= link_to "理想の性格を想像する", personality_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:appearance] %>
+          <%= link_to "理想の姿を想像する", appearance_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:lifestyle] %>
+          <%= link_to "理想のライフスタイルを想像する", lifestyle_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:spend_time] %>
+          <%= link_to "理想の時間の使い方を想像する", spend_time_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:working] %>
+          <%= link_to "理想の働き方を想像する", working_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:residence] %>
+          <%= link_to "理想の住まいを想像する", residence_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:relationship] %>
+          <%= link_to "理想の人間関係を想像する", relationship_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:partner] %>
+          <%= link_to "理想のパートナーを想像する", partner_new_ideals_path, class: "btn btn-outline-primary" %>
+        <% elsif params[:role_model] %>
+          <%= link_to "理想のロールモデルを想像する", role_model_new_ideals_path, class: "btn btn-outline-primary"%>
+        <% end %>
+        <%= link_to "理想の一覧画面に戻る", ideals_path, class: "btn btn-outline-info" %>
       </div>
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <h5 class="smart-frame">
         <u>
           <%= @ideal_name.ideal_status_i18n %>
         </u>
       </h5>
-      <div class="scroll-page">
+      <div class="scroll-style">
         <% @ideals.each do |ideal| %>
           <div class="cross-frame font-weight-bold">
             <h5 class="smart-frame">
@@ -56,9 +68,7 @@
           </div>
         <% end %>
       </div>
-      <div class="d-flex justify-content-center my-5">
-        <%= paginate @ideals %>
-      </div>
+      <%= paginate @ideals %>
     </div>
   </div>
 </div>

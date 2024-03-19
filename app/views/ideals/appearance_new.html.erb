@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -80,12 +80,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想の姿を<br>
-            記録しました
+            理想の姿を記録しました
           </u>
         </h5>
       <% else %>
@@ -103,8 +102,7 @@
         ひとつずつで構いません
       </p>
       <p>
-        あなたの中にあるイメージを<br>
-        そのまま教えて下さい<br>
+        あなたの中にあるイメージをそのまま教えて下さい<br>
       </p>
       <p>
         すでに体現している人がいるなら<br>

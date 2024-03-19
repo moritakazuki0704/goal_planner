@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
 
-  resource :user,only: [:destroy] do
+  resource :user,only: [:show,:destroy] do
     collection do
       get 'keyword_new'
       get 'keyword_confirm'

@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -70,12 +70,10 @@
               <p>
                 何に時間をかけますか<br>
                 それに時間を使うことで<br>
-                あなたの人生が<br>
-                幸せな気持ちになります
+                あなたの人生が幸せな気持ちになります
               </p>
               <p>
-                他の人にとって<br>
-                無駄だと思われることが<br>
+                他の人にとって無駄だと思われることが<br>
                 あなたが求めている<br>
                 時間の使いたいことかもしれません
               </p>
@@ -90,12 +88,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想の時間の使い方を<br>
-            記録しました
+            理想の時間の使い方を記録しました
           </u>
         </h5>
       <% else %>

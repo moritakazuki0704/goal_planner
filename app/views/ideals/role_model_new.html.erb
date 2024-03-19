@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -63,8 +63,7 @@
               </p>
               <p>
                 その人にあなたが近づく<br>
-                性格や言動<br>
-                行動をするときに<br>
+                性格や言動、行動をするときに<br>
                 この人だったらと考える
               </p>
               <p>
@@ -84,28 +83,21 @@
 
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想のパートナー像を<br>
-            記録しました
+            理想のパートナー像を記録しました
           </u>
         </h5>
       <% else %>
         <h5 class="smart-frame">
           <u>
-            あなたの理想のパートナー像<br>
-            あなたの理想の家族像<br>
-            あなたの理想の友人像を<br>
+            あなたの理想の関係を築いている人<br>
             教えて下さい
           </u>
         </h5>
       <% end %>
-      <p>
-        パートナーは夫婦像<br>
-        それは相棒のような存在ということです
-      </p>
       <p>
         あなたとの関係と<br>
         モデルとなる人達を教えてください

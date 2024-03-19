@@ -63,6 +63,10 @@ class UsersController < ApplicationController
     redirect_to new_problem_path
   end
 
+  def show
+    @user = current_user
+  end
+
   def withdrawal
   end
 

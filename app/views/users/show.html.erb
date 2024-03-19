@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4 py-3">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
+      <p>
+        人生における<br>
+        これだけは大切にしていること
+      </p>
+      <p>
+        たとえ何があったとしても<br>
+        あなたの行動において<br>
+        これだけは何があっても守り通したいこと
+      </p>
+      <p>
+        あなたの全てとも言えます
+      </p>
+      <p>
+        迷ってしまった時<br>
+        困った時<br>
+        困難に立ち向かう時
+      </p>
+      <p>
+        何かを選ぶときの一つの指針となります
+      </p>
+      <%= link_to "理想の一覧画面に戻る", ideals_path, class: "btn btn-block btn-outline-info" %>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
+      <h3 class="smart-frame">
+        <u>
+          人生の指針
+        </u>
+      </h3>
+      <div class="dotted-square-brackets my-5 py-3">
+        <p class="font-weight-bold"><%= safe_join(current_user.mission_statement.split("\n"),tag(:br)) %></p>
+        <p class="font-weight-bold"><%= safe_join(current_user.mission_statement_detail.split("\n"),tag(:br)) %></p>
+      </div>
+    </div>
+
+  </div>
+</div>

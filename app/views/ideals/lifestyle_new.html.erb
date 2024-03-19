@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -26,8 +26,7 @@
               <p>
                 さらに言葉の意味はかなり広く<br>
                 「衣食住」だけでなく<br>
-                人生観・価値観・習慣などを含めた<br>
-                個人の生き方<br>
+                人生観・価値観・習慣などを含めた個人の生き方<br>
                 という意味で使われているそうです
               </p>
               <p>
@@ -36,8 +35,7 @@
               </p>
               <p>
                 難しく考える必要はどこにもありません<br>
-                あなたの理想の生活を<br>
-                考えるだけでいいのです
+                あなたの理想の生活を考えるだけでいいのです
               </p>
             <% else %>
               <h5 class="smart-frame bg-warning">
@@ -79,12 +77,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想のライフスタイルを<br>
-            記録しました
+            理想のライフスタイルを記録しました
           </u>
         </h5>
       <% else %>
@@ -97,8 +94,7 @@
         </h5>
       <% end %>
       <p>
-        どうしてそのライフスタイルに<br>
-        憧れているのか<br>
+        どうしてそのライフスタイルに憧れているのか<br>
         理由も教えて下さい
       </p>
       <p>

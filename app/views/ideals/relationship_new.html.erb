@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -41,14 +41,10 @@
                 選ばれる必要があります
               </p>
               <p>
-                選ばれることは<br>
-                今まで教えていただいた<br>
-                理想を叶えていくと<br>
-                自然と選ばれていきます<br>
-                そしてあなたに必要な人は
+                理想を叶えていくと自然と選ばれていきます
               </p>
               <p>
-                必ず集まってきます
+                そしてあなたに必要な人は必ず集まってきます
               </p>
             <% else %>
               <h5 class="smart-frame bg-warning">
@@ -62,10 +58,8 @@
                 空欄があったみたいです
               </p>
               <p>
-                どんな人と関わり合いに<br>
-                なりたいと思いますか<br>
-                そしてその人に<br>
-                何を求めますか
+                どんな人と関わり合いになりたいと思いますか<br>
+                そしてその人に何を求めますか
               </p>
               <p>
                 遊んでほしい<br>
@@ -76,7 +70,6 @@
                 他にもいろいろとあると思います
               </p>
               <p>
-                それを詳しく教えてください<br>
                 どういう時に<br>
                 何をして欲しいのか<br>
                 何をしてあげたいのか
@@ -96,12 +89,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想の人間関係を<br>
-            記録しました
+            理想の人間関係を記録しました
           </u>
         </h5>
       <% else %>
@@ -113,15 +105,14 @@
         </h5>
       <% end %>
       <p>
-        先輩・後輩・上司<br>
-        家族・夫婦・友人・親友<br>
+        先輩・後輩・上司・家族・夫婦・友人・親友<br>
         ひとつ人間関係といっても<br>
         いくつも存在しています
       </p>
       <p>
         ですが、ここでの人間関係は</br>
-        どういう関係性を持ってかかわりを持つ<br>
-        ということです
+        どういう関係性を持っていて<br>
+        どのような関わりを持つのかということです
       </p>
       <p>
         自身を高めてくれる関係<br>

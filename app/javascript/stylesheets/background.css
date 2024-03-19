@@ -61,6 +61,10 @@
   border-bottom: dotted 2px #15adc1;
   right: 0;
 }
+.dotted-square-brackets p {
+    margin: 0;
+    padding: 0;
+}
 
 /*スマートなデザイン２のボックスデザイン*/
 .smart-frame {
@@ -160,6 +164,11 @@
 .scroll-box {
   overflow: auto;
   height: 14rem;
+}
+
+.scroll-style {
+  overflow: auto;
+  height: 30rem;
 }
 
 /*スクロールができる大きめのボックス*/

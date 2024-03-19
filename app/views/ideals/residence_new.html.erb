@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -55,13 +55,14 @@
               </p>
               <p>
                 住まいということは<br>
-                住居だけではなく<br>
-                その環境です
+                住居だけではなく住んでいる環境です
               </p>
               <p>
                 引っ越しするときの条件<br>
                 部屋のレイアウト<br>
-                部屋の家具の条件
+                部屋の家具の条件<br>
+                近所に何があるのか<br>
+                移動時間はどれくらいあるのか
               </p>
               <p>
                 どんな部屋がいいですか<br>
@@ -82,12 +83,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想の住まいを<br>
-            記録しました
+            理想の住まいを記録しました
           </u>
         </h5>
       <% else %>

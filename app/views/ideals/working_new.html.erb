@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -40,9 +40,10 @@
                 無理なものは無理なのですから
               </p>
               <p>
-                辞めること、逃げることは<br>
-                恥ではありません<br>
+                辞めること、逃げることは恥ではありません<br>
                 より良い場所がきっと<br>
+              </p>
+              <p>
                 あなたには待っています
               </p>
             <% else %>
@@ -86,12 +87,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想の働き方を<br>
-            記録しました
+            理想の働き方を記録しました
           </u>
         </h5>
       <% else %>
@@ -103,19 +103,15 @@
       </h5>
       <% end %>
       <p>
-        働く時間  仕事内容<br>
-        働く場所  給料
+        働く時間・仕事内容・働く場所・給料
       </p>
       <p>
-        それを実現した時に<br>
-        ワクワクする<br>
-        嬉しく感じることを
+        理想が叶った時に嬉しく感じること
       </p>
       <p>
+        その働き方は<br>
         あなたが求めているもの<br>
-        あなたを求めているもの
-      </p>
-      <p>
+        あなたを求めているもの<br>
         それが必ずあるのですから
       </p>
       <p>

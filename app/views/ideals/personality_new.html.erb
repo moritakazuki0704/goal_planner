@@ -2,7 +2,7 @@
   <div class="row justify-content-center open-book my-4 py-3">
 
     <!--左のページ-->
-    <div class="left-page col text-center m-5 p-5">
+    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
       <!--タブ表示機能-->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -22,8 +22,7 @@
                 こういうことができる人になりたい
               </p>
               <p>
-                そういったことを<br>
-                考えたことはありませんか
+                そういったことを考えたことはありませんか
               </p>
               <p>
                 その人はどういった性格をしていて<br>
@@ -64,10 +63,7 @@
                 性格は言動に映ります
               </p>
               <p>
-                つまりは<br>
-                なりたいと思う人の<br>
-                一挙手一投足<br>
-                行動の全てがそれなんです
+                なりたいと思う人の行動の全てがそれなんです
               </p>
             <% end %>
           </div>
@@ -80,12 +76,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page col text-center m-5 p-5">
+    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
       <% if params[:record] %>
         <h5 class="masking-tape">
           <u>
-            理想の性格を<br>
-            記録しました
+            理想の性格を記録しました
           </u>
         </h5>
       <% else %>
