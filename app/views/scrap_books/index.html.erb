@@ -3,7 +3,7 @@
 
     <!--左のページ-->
     <!--写真投稿フォーム-->
-    <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
+    <div class="left-page col text-center mx-5 pt-5 pl-2 d-flex flex-column justify-content-center">
       <div class="sticky-note">
         <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
           <div class="form-group sticky-title">
@@ -12,16 +12,14 @@
           <div class="form-group sticky-body">
             <%= f.label :comment %><br>
             <%= f.text_area :comment,rows: "5",class: "form-control" %>
-            <div class="d-flex justify-content-around my-3">
-              <%= f.submit "保存",class: "btn btn-outline-primary" %>
-            </div>
+            <%= f.submit "保存",class: "btn btn-lg btn-block btn-outline-primary mb-3" %>
           </div>
         <% end %>
       </div>
     </div>
 
     <!--右のページ-->
-    <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
+    <div class="right-page text-center col mx-5 pt-5 pr-2 d-flex flex-column justify-content-center">
       <div class="cloth-frame text-center py-3">
         <% if params[:error] %>
 
@@ -67,15 +65,13 @@
 
     <!--写真表示場所-->
     <div class="container">
-      <div class="row mx-5 mb-5">
+      <%= paginate @scrap_books %>
+      <div class="row mx-2 mb-5">
         <% @scrap_books.each do |scrap_book| %>
           <%= link_to scrap_book_path(scrap_book.id) do %>
             <%= image_tag scrap_book.get_photo(170,170), class: "img-thumbnail m-3 mb-5" %>
           <% end %>
         <% end %>
-        <div class="d-flex justify-content-center my-5">
-          <%= paginate @scrap_books %>
-        </div>
       </div>
     </div>
 
