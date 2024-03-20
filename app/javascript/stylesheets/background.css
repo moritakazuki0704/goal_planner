@@ -138,6 +138,10 @@
   box-shadow: 0px 0px 0px 10px #d6ebff;
   border: dashed 2px white;
 }
+.cloth p {
+    margin: 0;
+    padding: 0;
+}
 
 /*めくれたテープ風のボックスデザイン*/
 .masking-tape{
@@ -158,6 +162,10 @@
   border-style: solid;
   border-color: #ffdb88 #fff #ffdb88;
   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.masking-tape p {
+    margin: 0;
+    padding: 0;
 }
 
 /*スクロールができるボックス*/

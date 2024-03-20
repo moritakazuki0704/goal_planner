@@ -4,8 +4,8 @@ class Motivation < ApplicationRecord
   enum emotion_status: { positive: 0, negative: 1, to_do: 2, want: 3 }
 
   with_options presence: true do
-    validates :appetite, uniqueness: { scope: :user }
-    validates :memory
+    validates :appetite
+    validates :memory, uniqueness: { scope: :user }
   end
 
   # 表示形式をランダム形式

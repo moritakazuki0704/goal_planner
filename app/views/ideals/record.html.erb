@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-4 py-3">
+  <div class="row justify-content-center open-book my-5 py-3">
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
@@ -26,50 +26,50 @@
         <% if params[:personality] %>
 
           <!--理想の性格を閲覧している場合-->
-          <%= link_to "理想の性格を想像する", personality_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想の性格を想像", personality_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:appearance] %>
 
           <!--理想の姿を閲覧している場合-->
-          <%= link_to "理想の姿を想像する", appearance_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想の姿を想像", appearance_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:lifestyle] %>
 
           <!--理想のライフスタイルを閲覧している場合-->
-          <%= link_to "理想のライフスタイルを想像する", lifestyle_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想のライフスタイルを想像", lifestyle_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:spend_time] %>
 
           <!--理想の時間の使い方を閲覧している場合-->
-          <%= link_to "理想の時間の使い方を想像する", spend_time_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想の時間の使い方を想像", spend_time_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:working] %>
 
           <!--理想の働き方を閲覧している場合-->
-          <%= link_to "理想の働き方を想像する", working_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想の働き方を想像", working_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:residence] %>
 
           <!--理想の住まいを閲覧している場合-->
-          <%= link_to "理想の住まいを想像する", residence_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想の住まいを想像", residence_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:relationship] %>
 
           <!--理想の人間関係を閲覧している場合-->
-          <%= link_to "理想の人間関係を想像する", relationship_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想の人間関係を想像", relationship_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:partner] %>
 
           <!--理想のパートナーを閲覧している場合-->
-          <%= link_to "理想のパートナーを想像する", partner_new_ideals_path, class: "btn btn-outline-primary" %>
+          <%= link_to "理想のパートナーを想像", partner_new_ideals_path, class: "btn btn-outline-primary" %>
 
         <% elsif params[:role_model] %>
 
           <!--理想のロールモデルを閲覧している場合-->
-          <%= link_to "理想のロールモデルを想像する", role_model_new_ideals_path, class: "btn btn-outline-primary"%>
+          <%= link_to "理想のロールモデルを想像", role_model_new_ideals_path, class: "btn btn-outline-primary"%>
 
         <% end %>
-        <%= link_to "理想の一覧画面に戻る", ideals_path, class: "btn btn-outline-info" %>
+        <%= link_to "一覧画面に戻る", ideals_path, class: "btn btn-outline-info" %>
       </div>
     </div>
 

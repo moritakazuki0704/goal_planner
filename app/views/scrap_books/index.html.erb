@@ -1,16 +1,15 @@
 <div class="container-fluid">
-  <div class="row open-book my-4 p-5">
-
+  <div class="row justify-content-center open-book my-5 py-3">
     <!--左のページ-->
     <!--写真投稿フォーム-->
-    <div class="left-page col text-center mx-5 pt-5 pl-2 d-flex flex-column justify-content-center">
+
+    <div class="left-page col text-center mx-5 mt-5 pt-5 pl-5 d-flex flex-column justify-content-center">
       <div class="sticky-note">
         <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
           <div class="form-group sticky-title">
             <%= f.file_field :photo,accept: "image/*",class: "form-control-file" %>
           </div>
           <div class="form-group sticky-body">
-            <%= f.label :comment %><br>
             <%= f.text_area :comment,rows: "5",class: "form-control" %>
             <%= f.submit "保存",class: "btn btn-lg btn-block btn-outline-primary mb-3" %>
           </div>
@@ -19,11 +18,11 @@
     </div>
 
     <!--右のページ-->
-    <div class="right-page text-center col mx-5 pt-5 pr-2 d-flex flex-column justify-content-center">
+    <div class="right-page text-center col mx-5 mt-5 pt-5 pr-5 d-flex flex-column justify-content-center">
       <div class="cloth-frame text-center py-3">
         <% if params[:error] %>
 
-          <!--保存に失敗した場合-->
+          <!--写真の保存に失敗した場合のエラー分-->
           <div class="masking-tape">
             <p>
               写真の投稿に失敗しました
@@ -39,7 +38,7 @@
 
         <% else %>
 
-          <!--このページに訪れた際に表示-->
+           <!--このページに訪れた際に表示-->
           <p>
             ここはあなたの今と<br>
             あなたの将来のアルバム
@@ -68,7 +67,7 @@
     <!--写真表示場所-->
     <div class="container">
       <%= paginate @scrap_books %>
-      <div class="row mx-2 mb-5">
+      <div class="row mx-5 mb-5 pb-5">
         <% @scrap_books.each do |scrap_book| %>
           <%= link_to scrap_book_path(scrap_book.id) do %>
             <%= image_tag scrap_book.get_photo(170,170), class: "img-thumbnail m-3 mb-5" %>

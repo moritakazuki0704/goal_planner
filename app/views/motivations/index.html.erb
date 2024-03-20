@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-欲しいものテーブルを作成 py-したいことテーブルを作成">
+  <div class="row justify-content-center open-book my-5 py-3">
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
@@ -29,12 +29,6 @@
         何度でもモチベーションのスイッチを<br>
         入れることができるからです
       </p>
-      <p>
-        ここを見て<br>
-        何度でも立ち上がり<br>
-        あなたの夢<br>
-        理想を叶えて下さい
-      </p>
     </div>
 
     <!--右のページ-->
@@ -63,7 +57,7 @@
           自分自身のモチベーションスイッチを<br>
           入れてあげてください
         </p>
-        <div class="d-flex justify-content-around strip-paper">
+        <div class="d-flex justify-content-around strip-paper mt-4">
           <% if @motivations.positive.present? %>
 
             <!--モチベーションテーブルを作成している場合-->
@@ -113,7 +107,6 @@
         <!--モチベーションテーブルを作成していない場合-->
         <div>
           <p>
-            まずは<br>
             あなたのモチベーションを教えてください
           </p>
           <p>
@@ -134,7 +127,7 @@
             必要な要素です
           </p>
         </div>
-        <div class="d-flex justify-content-around strip-paper">
+        <div class="d-flex justify-content-around strip-paper mt-4">
           <%= link_to "ポジティブ", positive_new_motivations_path, class: "btn btn-outline-success" %>
           <%= link_to "ネガティブ", negative_new_motivations_path, class: "btn btn-outline-secondary" %>
           <%= link_to "したいこと", to_do_new_motivations_path, class: "btn btn-outline-primary" %>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-4 py-3">
+  <div class="row justify-content-center open-book my-5 py-3">
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
@@ -20,8 +20,8 @@
               <!--バリデーションエラーが発生した場合-->
               <h5 class="smart-frame bg-warning">
                 <u>
-                  理想のロールモデルの<br>
-                  作成に失敗しました
+                  理想のロールモデルの作成に<br>
+                  失敗しました
                 </u>
               </h5>
               <p>
@@ -29,9 +29,8 @@
                 空欄があったみたいです
               </p>
               <p>
-                理想を考える時に<br>
-                きっとそこには<br>
-                理想叶えている人がいるでしょう
+                理想を考える時には<br>
+                きっとそこには理想叶えている人がいるでしょう
               </p>
               <p>
                 その人にあなたが近づく<br>
@@ -39,8 +38,7 @@
                 この人だったらと考える
               </p>
               <p>
-                それがあなたにとっての<br>
-                理想を叶えている<br>
+                それがあなたにとっての理想を叶えている<br>
                 真似をするべきモデルです
               </p>
 
@@ -106,24 +104,24 @@
         <!--ページに訪れた際に表示-->
         <h5 class="smart-frame">
           <u>
-            あなたの理想の関係を築いている人<br>
-            教えて下さい
+            あなたの理想を叶えている人達<br>
+            憧れている人達を教えて下さい
           </u>
         </h5>
 
       <% end %>
       <p>
-        あなたとの関係と<br>
-        モデルとなる人達を教えてください
+        あなたの理想の将来を思い描く時には<br>
+        それを叶えている人達がいることと思います
       </p>
       <p>
-        あなたにとっての理想はきっと<br>
-        理想を想像、妄想<br>
-        いっぱい考えていれば
+        その人達のことをよく知ることで<br>
+        あなたの理想の未来に近づいていけます
       </p>
       <p>
-        その理想はきっと<br>
-        あなたの手の届くところに寄ってきます
+        そしてその人達を知っていくということは<br>
+        あなたの手の届くところに<br>
+        その理想が寄ってきていることです
       </p>
       <%= form_with model: @ideal,url: role_model_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
