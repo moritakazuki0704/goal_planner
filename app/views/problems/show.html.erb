@@ -123,7 +123,9 @@
                   <%= link_to schedule_path(imperfect.id), class: "btn btn-block btn-outline-info" do %>
                     <%= imperfect.title %><br>
                     <hr class="my-1">
-                    <%= imperfect.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
+                    <%= imperfect.start_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %><br>
+                    〜<br>
+                    <%= imperfect.end_datetime.strftime("%Y年%-m月%-d日%-H時%M分") %>
                   <% end %>
                 <% end %>
               </div>

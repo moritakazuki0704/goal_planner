@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-4 py-3">
+  <div class="row justify-content-center open-book my-5 py-3">
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column">
@@ -227,7 +227,7 @@
     <!--右のページ-->
     <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column">
 
-      <% unless params[:error] %>
+      <% if params[:error] %>
 
       <!--planの作成に失敗した場合-->
         <div class="masking-tape pt-3 m-4">
