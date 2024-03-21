@@ -2,47 +2,20 @@
   <% if params[:error] %>
 
     <!--予定編集に失敗した場合のエラー文-->
-    <div class="row justify-content-center open-book my-4 py-3">
+    <div class="row justify-content-center open-book my-5 py-3">
       <!--左のページ-->
       <div class="left-page col text-center m-5 py-5 pl-5 d-flex flex-column justify-content-center">
-        <div>
-          <h5 class="smart-frame bg-warning mb-5">
-            <u>
-                予定の作成に失敗しました
-            </u>
-          </h5>
-        </div>
-        <div class="cross-frame">
-          <p>
-              終了時間は開始時間より<br>
-              過去にならないように<br>
-              注意してください
-          </p>
-          <p>
-              適切な予定の時間を入力して<br>
-              目標を達成するために必要な<br>
-              課題となる予定を作成してください
-          </p>
-        </div>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            予定の編集に失敗しました
+          </u>
+        </h5>
+        <%= render 'left_error' %>
       </div>
 
       <!--右のページ-->
       <div class="right-page text-center col m-5 py-5 pr-5 d-flex flex-column justify-content-center">
-        <p>
-            その後にToDoリストを<br>
-            作成していくことになります<br>
-            ToDoリストを完遂していくことで<br>
-            一歩ずつ目標の達成に近づいていきます
-        </p>
-        <p>
-            ToDoリストは<br>
-            目標を達成するための課題となる予定を<br>
-            さらに細かくした課題となります
-        </p>
-        <p>
-            全ての行動と全ての考えが<br>
-            あなたの理想を叶える力になります
-        </p>
+        <%= render 'right_error' %>
         <div class="d-flex justify-content-around">
           <%= link_to "もう一度予定を編集する", edit_schedule_path(@schedule), class: "btn btn-secondary" %>
           <%= link_to "カレンダーに戻る", schedules_path, class: "btn btn-info" %>
@@ -53,7 +26,7 @@
   <% else %>
 
     <!--予定の編集フォーム-->
-    <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-4 py-3" do |f| %>
+    <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-5 py-3" do |f| %>
       <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
     <% end %>
 
