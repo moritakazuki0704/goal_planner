@@ -3,7 +3,7 @@
   padding: 0.5em 1em;
   margin: 2em 0;
   color: #5d627b;
-  background: rgb(255,255,255,50%);
+  background: rgb(255,255,255,70%);
   border-top: solid 5px #5d627b;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
@@ -13,7 +13,7 @@
   margin:2em 0;
   position: relative;
   padding: 0.5em 1.5em;
-  background: rgb(255,255,255,50%);
+  background: rgb(255,255,255,70%);
   border-top: solid 2px black;
   border-bottom: solid 2px black;
 }
