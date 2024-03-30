@@ -66,13 +66,13 @@
 
     <!--写真表示場所-->
     <div class="container">
-      <%= paginate @scrap_books %>
       <div class="row mx-5 mb-5 pb-5">
         <% @scrap_books.each do |scrap_book| %>
           <%= link_to scrap_book_path(scrap_book.id) do %>
             <%= image_tag scrap_book.get_photo(170,170), class: "img-thumbnail m-3 mb-5" %>
           <% end %>
         <% end %>
+        <%= paginate @scrap_books %>
       </div>
     </div>
 
