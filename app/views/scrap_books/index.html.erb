@@ -72,7 +72,9 @@
             <%= image_tag scrap_book.get_photo(170,170), class: "img-thumbnail m-3 mb-5" %>
           <% end %>
         <% end %>
-        <%= paginate @scrap_books %>
+        <div class="d-flex justify-content-center mt-5">
+          <%= paginate @scrap_books %>
+        </div>
       </div>
     </div>
 
