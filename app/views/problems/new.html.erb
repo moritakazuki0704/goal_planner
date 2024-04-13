@@ -103,11 +103,11 @@
       </p>
       <%= form_with model: @problem, url: confirm_problems_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.label :commitment, class: "font-weight-bold" %><br />
+          <%= f.label :commitment, class: "font-weight-bold" %><br/>
           <%= f.text_field :commitment,autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :purpose, class: "font-weight-bold" %><br />
+          <%= f.label :purpose, class: "font-weight-bold" %><br/>
           <%= f.text_area :purpose,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="d-flex justify-content-around my-3">
