@@ -7,6 +7,7 @@ class ScrapBook < ApplicationRecord
 
   validates :photo, presence: true
 
+  # 表示する画像のサイズ変更用メソッド
   def get_photo(width,height)
     photo.variant(resize_to_limit: [width,height]).processed
   end
