@@ -18,7 +18,7 @@ class Schedule < ApplicationRecord
   # context: :create_scheduleをsaveに引数として渡した場合、またはupdateの時のみバリデーションする
   validate :start_end_check, on: %i[update create_schedule]
 
-    #時間の矛盾を防ぐ
+  #時間の矛盾を防ぐ
   def start_end_check
     if self.start_datetime.present? && self.end_datetime.present?
       errors.add(:end_datetime, "が開始時刻を上回っています。正しく記入してください。") if self.start_datetime > self.end_datetime || self.start_datetime == self.end_datetime
