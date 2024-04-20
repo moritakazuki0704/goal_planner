@@ -37,7 +37,7 @@
 /*top画面の背景画像*/
 .library {
   background-color: #486d46;            /* 背景色 */
-  background-image: url("../../assets/images/library.jpg"); /* 画像 */
+  background-image: url("../images/library.jpg"); /* 画像 */
   background-size: cover;               /* 全画面 */
   background-attachment: fixed;         /* 固定 */
   background-position: center center;   /* 縦横中央 */
@@ -50,7 +50,7 @@
 
 /*ログイン画面と新規登録画面で使用する本の背表紙の背景画像*/
 .book-cover {
-  background-image: url("../../assets/images/book-cover.jpg");
+  background-image: url("../images/book-cover.jpg");
   background-size: 100% 100%;
   background-position: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -58,7 +58,7 @@
 
 /*開いた本の背景画像*/
 .open-book {
-  background-image: url("../../assets/images/open-book.jpg");
+  background-image: url("../images/open-book.jpg");
   background-size: 100% 100%;
   background-position: center;
   box-shadow: -9px 20px 20px 20px rgba(0,0,0,0.4);
