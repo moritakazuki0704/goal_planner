@@ -23,7 +23,7 @@ document.addEventListener('turbolinks:load', function() {
             headerToolbar: {
               start: 'prev,today,next',
               center: 'title',
-              end: 'dayGridMonth'
+              end: 'dayGridMonth',
             },
             buttonText: {
               today: '今日',
