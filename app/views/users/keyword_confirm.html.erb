@@ -62,7 +62,7 @@
         </div>
         <div class="d-flex justify-content-around">
           <%= form_with model: @user, url: keyword_update_user_path, method: :patch do |f|  %>
-            <%= f.submit '次に進む',"data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-outline-primary" %>
+            <%= f.submit '次に進む', "data-confirm" =>"修正も削除もできませんが\n内容に間違いありませんか？", class: "btn btn-outline-primary" %>
           <% end %>
           <%= link_to welcome_path, "data-confirm" =>"本当にもう一度考え直す？", class: "btn btn-outline-info" do %>
             キーワードをやり直す
