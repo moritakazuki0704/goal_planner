@@ -122,7 +122,7 @@
         すでに体現している人がいるなら<br>
         その人も教えて下さい
       </p>
-      <%= form_with model: @ideal,url: appearance_create_ideals_path, method: :post do |f| %>
+      <%= form_with model: @ideal, url: appearance_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
