@@ -53,7 +53,7 @@
         あなたにとって<br>
         それが大切であるのですから
       </p>
-      <%= form_with model: @motivation,url: to_do_create_motivations_path, method: :post do |f| %>
+      <%= form_with model: @motivation,  url: to_do_create_motivations_path, method: :post do |f| %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>
