@@ -52,7 +52,7 @@
         掛け替えのないものです
       </p>
 
-      <%= form_with model: @motivation,url: want_create_motivations_path, method: :post do |f| %>
+      <%= form_with model: @motivation, url: want_create_motivations_path, method: :post do |f| %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>
