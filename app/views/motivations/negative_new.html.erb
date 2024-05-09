@@ -53,7 +53,7 @@
         その時置かれている環境や状況<br>
         そして年齢とともに変わっていくでしょう
       </p>
-      <%= form_with model: @motivation,url: negative_create_motivations_path, method: :post do |f| %>
+      <%= form_with model: @motivation, url: negative_create_motivations_path, method: :post do |f| %>
         <%= render :partial =>'motivations/motivations_template/form', :locals => {:f => f}  %>
       <% end %>
     </div>
