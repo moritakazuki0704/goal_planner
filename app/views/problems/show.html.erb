@@ -137,7 +137,7 @@
 
       <% end %>
       <div class="d-flex justify-content-center">
-        <%= link_to "目標一覧へ戻る",problems_path, class: "btn btn-info" %>
+        <%= link_to "目標一覧へ戻る", problems_path, class: "btn btn-info" %>
       </div>
     </div>
 
@@ -171,10 +171,10 @@
         </h5>
 
       <% end %>
-        <%= form_with model: [@problem,@mission],url: problem_missions_path(@problem), method: :post do |f| %>
+        <%= form_with model: [@problem,@mission], url: problem_missions_path(@problem), method: :post do |f| %>
           <div class="form-inline d-flex justify-content-center">
-            <%= f.text_field :memo,class: "form-control" %>
-            <%= f.submit "メモする",class: "btn btn-secondary btn-sm" %>
+            <%= f.text_field :memo, class: "form-control" %>
+            <%= f.submit "メモする", class: "btn btn-secondary btn-sm" %>
           </div>
         <% end %>
       <% if @problem.missions.present? %>
