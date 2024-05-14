@@ -124,7 +124,7 @@
         あなたの将来を考えた時に<br>
         一緒にいる人がきっとその人です
       </p>
-      <%= form_with model: @ideal,url: partner_create_ideals_path, method: :post do |f| %>
+      <%= form_with model: @ideal, url: partner_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
