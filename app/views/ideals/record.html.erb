@@ -91,7 +91,7 @@
             <p>
               <%= safe_join(ideal.ideal_detail_self.split("\n"),tag(:br)) %>
             </p>
-            <%= link_to "この記録を消す", ideal_path(ideal.id), method: :delete,"data-confirm" =>"このモチベーションの記録を\n本当に消しますか？",  class: "btn btn-sm btn-danger mb-3" %>
+            <%= link_to "この記録を消す", ideal_path(ideal.id), method: :delete, "data-confirm" =>"このモチベーションの記録を\n本当に消しますか？",  class: "btn btn-sm btn-danger mb-3" %>
           </div>
         <% end %>
       </div>

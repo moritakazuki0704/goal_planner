@@ -116,7 +116,7 @@
         どうしてそうなりたいのか
       </p>
       <p>詳しく理解することができます</p>
-      <%= form_with model: @ideal,url: personality_create_ideals_path, method: :post do |f| %>
+      <%= form_with model: @ideal, url: personality_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
