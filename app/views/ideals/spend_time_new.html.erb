@@ -134,7 +134,7 @@
         激しく過ごす時間でも<br>
         なんでも構いません
       </p>
-      <%= form_with model: @ideal,url: spend_time_create_ideals_path, method: :post do |f| %>
+      <%= form_with model: @ideal, url: spend_time_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
