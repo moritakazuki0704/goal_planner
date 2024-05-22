@@ -128,7 +128,7 @@
       <p>
         きっと将来それは得ることができます
       </p>
-      <%= form_with model: @ideal,url: residence_create_ideals_path, method: :post do |f| %>
+      <%= form_with model: @ideal, url: residence_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
