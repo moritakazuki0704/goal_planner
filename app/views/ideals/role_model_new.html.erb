@@ -123,7 +123,7 @@
         あなたの手の届くところに<br>
         その理想が寄ってきていることです
       </p>
-      <%= form_with model: @ideal,url: role_model_create_ideals_path, method: :post do |f| %>
+      <%= form_with model: @ideal, url: role_model_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
