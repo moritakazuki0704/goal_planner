@@ -131,7 +131,7 @@
       <p>
         詳しく教えて下さい
       </p>
-      <%= form_with model: @ideal,url: working_create_ideals_path, method: :post do |f| %>
+      <%= form_with model: @ideal, url: working_create_ideals_path, method: :post do |f| %>
         <%= render :partial =>'form', :locals => {:f => f}  %>
       <% end %>
     </div>
