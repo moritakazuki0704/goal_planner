@@ -249,13 +249,13 @@
       <%= form_with model: @user, url: mission_statement_confirm_user_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :mission_statement, class: "font-weight-bold" %><br/>
-          <%= f.text_area :mission_statement,rows: "2",autofocus: true,class: "form-control" %>
+          <%= f.text_area :mission_statement, rows: "2", autofocus: true, class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :mission_statement_detail, class: "font-weight-bold" %><br/>
-          <%= f.text_area :mission_statement_detail,rows: "3",autofocus: true,class: "form-control" %>
+          <%= f.text_area :mission_statement_detail, rows: "3", autofocus: true, class: "form-control" %>
         </div>
-        <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        <%= f.submit '次に進む', class: "btn btn-outline-primary" %>
       <% end %>
     </div>
 
