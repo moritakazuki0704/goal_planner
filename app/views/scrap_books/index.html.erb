@@ -7,11 +7,11 @@
       <div class="sticky-note">
         <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
           <div class="form-group sticky-title">
-            <%= f.file_field :photo,accept: "image/*",class: "form-control-file" %>
+            <%= f.file_field :photo, accept: "image/*", class: "form-control-file" %>
           </div>
           <div class="form-group sticky-body">
-            <%= f.text_area :comment,rows: "5",class: "form-control" %>
-            <%= f.submit "保存",class: "btn btn-lg btn-block btn-outline-primary mb-3" %>
+            <%= f.text_area :comment, rows: "5", class: "form-control" %>
+            <%= f.submit "保存", class: "btn btn-lg btn-block btn-outline-primary mb-3" %>
           </div>
         <% end %>
       </div>
@@ -69,7 +69,7 @@
       <div class="row mx-5 mb-5 pb-5">
         <% @scrap_books.each do |scrap_book| %>
           <%= link_to scrap_book_path(scrap_book.id) do %>
-            <%= image_tag scrap_book.get_photo(170,170), class: "img-thumbnail m-3 mb-5" %>
+            <%= image_tag scrap_book.get_photo(170, 170), class: "img-thumbnail m-3 mb-5" %>
           <% end %>
         <% end %>
         <div class="d-flex justify-content-center mt-5">
