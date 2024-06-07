@@ -68,7 +68,7 @@
                       <li class="list-group-item">
                         <div class="row">
                           <div class="col align-self-center">
-                            <%= af.text_field :challenge, disabled: true,class: "form-control" %>
+                            <%= af.text_field :challenge, disabled: true, class: "form-control" %>
                             <%= af.select :priority_status, Plan.priority_statuses.keys.map {|k| [I18n.t("enums.plan.priority_status.#{k}"), k]}, class: "form-control badge badge-info badge-pill strip-text" %>
                           </div>
                           <div class="col">
@@ -98,7 +98,7 @@
                     <% end %>
                   </ul>
                 </div>
-                <%= f.submit "更新する",class: "btn btn-success my-3" %>
+                <%= f.submit "更新する", class: "btn btn-success my-3" %>
               </div>
             <% end %>
           </div>
@@ -123,7 +123,7 @@
                     <li class="list-group-item d-flex align-items-center">
                       <%= emergency.challenge %>
                       <span class="badge badge-success badge-pill strip-text ml-auto mr-3"><%= emergency.progress_status_i18n %></span>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,emergency.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
+                      <%= link_to "削除する", schedule_plan_path(@schedule, emergency.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                    <% end %>
                 </ul>
@@ -150,7 +150,7 @@
                     <li class="list-group-item d-flex align-items-center">
                       <%= important.challenge %>
                       <span class="badge badge-info badge-pill strip-text ml-auto mr-3"><%= important.progress_status_i18n %></span>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,important.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
+                      <%= link_to "削除する", schedule_plan_path(@schedule, important.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                   <% end %>
                 </ul>
@@ -178,7 +178,7 @@
                     <li class="list-group-item d-flex align-items-center">
                       <%= interruption.challenge %>
                       <span class="badge badge-warning badge-pill strip-text ml-auto mr-3"><%= interruption.progress_status_i18n %></span>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,interruption.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
+                      <%= link_to "削除する", schedule_plan_path(@schedule, interruption.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                   <% end %>
                 </ul>
@@ -206,7 +206,7 @@
                     <li class="list-group-item d-flex align-items-center">
                       <%= eliminate.challenge %>
                       <span class="badge badge-danger badge-pill strip-text ml-auto mr-3"><%= eliminate.progress_status_i18n %></span>
-                      <%= link_to "削除する", schedule_plan_path(@schedule,eliminate.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
+                      <%= link_to "削除する", schedule_plan_path(@schedule, eliminate.id), method: :delete, class: "strip-text badge badge-danger badge-pill" %>
                     </li>
                   <% end %>
                 </ul>
@@ -219,7 +219,7 @@
       <% end %>
       <div class="d-flex justify-content-around my-3">
         <%= link_to "予定を編集", edit_schedule_path(@schedule.id), class: "btn btn-secondary" %>
-        <%= link_to "予定を削除", schedule_path(@schedule.id),method: :delete,"data-confirm" =>"削除して本当にいいですか？",class: "btn btn-warning" %>
+        <%= link_to "予定を削除", schedule_path(@schedule.id), method: :delete, "data-confirm" =>"削除して本当にいいですか？", class: "btn btn-warning" %>
         <%= link_to "カレンダーへ", schedules_path, class: "btn btn-info" %>
       </div>
     </div>
@@ -255,7 +255,7 @@
         </h5>
 
       <% end %>
-      <%= form_with model: [@schedule,@plan], url: schedule_plans_path(@schedule.id), method: :post do |f| %>
+      <%= form_with model: [@schedule, @plan], url: schedule_plans_path(@schedule.id), method: :post do |f| %>
         <div class="form-inline justify-content-center">
           <%= f.text_field :challenge, class: "form-control" %>
           <%= f.submit "提案する", class: "btn btn-secondary btn-sm" %>
@@ -280,8 +280,8 @@
                   </p>
                 </li>
                 <li class="list-group-item d-flex justify-content-around">
-                  <%= link_to "リストにする", upload_schedule_plan_path(@schedule,plan), method: :patch, class: "btn btn-outline-success" %>
-                  <%= link_to "破棄する", schedule_plan_path(@schedule,plan), method: :delete, class: "btn btn-outline-danger" %>
+                  <%= link_to "リストにする", upload_schedule_plan_path(@schedule, plan), method: :patch, class: "btn btn-outline-success" %>
+                  <%= link_to "破棄する", schedule_plan_path(@schedule, plan), method: :delete, class: "btn btn-outline-danger" %>
                 </li>
               </ul>
             <% end %>
