@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users,skip:[:passwords]
+  devise_for :users, skip:[:passwords]
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
 
-  resource :user,only: [:show,:destroy] do
+  resource :user, only: [:show, :destroy] do
     collection do
       get 'keyword_new'
       get 'keyword_confirm'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get 'withdrawal'
     end
   end
-  resources :ideals,only: [:index,:destroy] do
+  resources :ideals, only: [:index, :destroy] do
     collection do
       get 'personality_new'
       post 'personality_create'
@@ -37,11 +37,11 @@ Rails.application.routes.draw do
       get 'record'
     end
   end
-  resources :problems,except: [:edit,:destroy] do
+  resources :problems, except: [:edit, :destroy] do
     collection do
       get 'confirm'
     end
-    resources :missions,only: [:create,:destroy] do
+    resources :missions, only: [:create, :destroy] do
       member do
         post 'upload'
       end
@@ -55,7 +55,7 @@ Rails.application.routes.draw do
     member do
       patch 'all_update'
     end
-    resources :plans,only: [:create,:destroy] do
+    resources :plans, only: [:create, :destroy] do
       member do
         patch 'upload'
       end
@@ -65,7 +65,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :motivations,only: [:index,:destroy] do
+  resources :motivations, only: [:index, :destroy] do
     collection do
       get 'positive_new'
       post 'positive_create'
@@ -78,6 +78,6 @@ Rails.application.routes.draw do
       get 'record'
     end
   end
-  resources :scrap_books,except: [:new,:edit,:update]
+  resources :scrap_books, except: [:new, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
