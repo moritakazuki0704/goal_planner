@@ -104,7 +104,7 @@ class MotivationsController < ApplicationController
   end
 
   def motivation_params
-    params.require(:motivation).permit(:emotion_status,:appetite,:memory)
+    params.require(:motivation).permit(:emotion_status, :appetite, :memory)
   end
 
 end
