@@ -67,7 +67,7 @@ class ProblemsController < ApplicationController
   end
 
   def problem_params
-    params.require(:problem).permit(:commitment,:purpose,:progress_status)
+    params.require(:problem).permit(:commitment, :purpose, :progress_status)
   end
 
 end
