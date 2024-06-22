@@ -36,7 +36,7 @@ class SchedulesController < ApplicationController
     if schedule.update(schedule_params)
       redirect_to schedule_path(schedule.id)
     else
-      redirect_to edit_schedule_path(schedule.id , error: true)
+      redirect_to edit_schedule_path(schedule.id, error: true)
     end
   end
 
@@ -64,7 +64,7 @@ class SchedulesController < ApplicationController
 
   # ストロングパロメータにネストしているPlanモデルをattributesし、スケジュールからplansテーブルの編集を可能にする
   def schedule_params
-    params.require(:schedule).permit(:problem_id,:title,:body,:start_datetime,:start_time,:end_datetime,:end_time, plans_attributes: [:id, :priority_status, :progress_status])
+    params.require(:schedule).permit(:problem_id, :title, :body, :start_datetime, :start_time, :end_datetime, :end_time, plans_attributes: [:id, :priority_status, :progress_status])
   end
 
 end
