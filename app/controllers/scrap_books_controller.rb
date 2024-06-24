@@ -37,7 +37,7 @@ class ScrapBooksController < ApplicationController
   end
 
   def scrap_book_params
-    params.require(:scrap_book).permit(:comment,:photo)
+    params.require(:scrap_book).permit(:comment, :photo)
   end
 
 end
