@@ -77,21 +77,21 @@
   <% if !current_user.tenth_keyword.present? %>
 
   <!--理想のテーブルを作成していない場合-->
-    <%= link_to keyword_new_user_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+    <%= link_to keyword_new_user_path, class: "btn btn-lg btn-block btn-outline-primary" do %>
       あなたの理想を示す<br>キーワードを教えてください
     <% end %>
 
   <% elsif !current_user.mission_statement.present? %>
 
   <!--ミッションステートメントを作成していない場合-->
-    <%= link_to mission_statement_new_user_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+    <%= link_to mission_statement_new_user_path, class: "btn btn-lg btn-block btn-outline-primary" do %>
       あなたの人生の指針<br>あなたを示す言葉を教えてください
     <% end %>
 
   <% else %>
 
     <!--目標を作成していない場合-->
-    <%= link_to new_problem_path,class: "btn btn-lg btn-block btn-outline-primary" do %>
+    <%= link_to new_problem_path, class: "btn btn-lg btn-block btn-outline-primary" do %>
       あなたが達成していく目標を<br>教えてください
     <% end %>
 
