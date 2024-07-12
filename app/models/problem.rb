@@ -1,7 +1,7 @@
 class Problem < ApplicationRecord
   belongs_to :user
-  has_many :missions,dependent: :destroy
-  has_many :schedules,dependent: :destroy
+  has_many :missions, dependent: :destroy
+  has_many :schedules, dependent: :destroy
 
   enum progress_status: { progress: 0, finish: 1, pending: 2 }
 
