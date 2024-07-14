@@ -1,7 +1,7 @@
 class Schedule < ApplicationRecord
   belongs_to :user
   belongs_to :problem
-  has_many :plans,dependent: :destroy
+  has_many :plans, dependent: :destroy
 
   # 親モデルを保存するときに、Associationで関連づけた子モデルも一緒に保存する
   accepts_nested_attributes_for :plans, allow_destroy: true
