@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :ideal,dependent: :destroy
-  has_many :problems,dependent: :destroy
-  has_many :schedules,dependent: :destroy
-  has_many :motivations,dependent: :destroy
-  has_many :scrap_books,dependent: :destroy
+  has_one :ideal, dependent: :destroy
+  has_many :problems, dependent: :destroy
+  has_many :schedules, dependent: :destroy
+  has_many :motivations, dependent: :destroy
+  has_many :scrap_books, dependent: :destroy
 
   validates :planner_name, presence: true
 
