@@ -17,6 +17,7 @@
     border-top: solid 2px black;
     border-bottom: solid 2px black;
   }
+
   .cross-frame:before, .cross-frame:after{
     content: '';
     position: absolute;
@@ -26,6 +27,7 @@
     height: calc(100% + 20px);
     background-color: black;
   }
+
   .cross-frame:before {left: 10px;}
   .cross-frame:after {right: 10px;}
   .cross-frame p {
@@ -40,6 +42,7 @@
     top: 0;
     background: #efefef;
   }
+
   .dotted-square-brackets:before, .dotted-square-brackets:after{
     position: absolute;
     top: 0;
@@ -49,18 +52,21 @@
     display: inline-block;
     box-sizing: border-box;
   }
+
   .dotted-square-brackets:before{
     border-left: dotted 2px #15adc1;
     border-top: dotted 2px #15adc1;
     border-bottom: dotted 2px #15adc1;
     left: 0;
   }
+
   .dotted-square-brackets:after{
     border-top: dotted 2px #15adc1;
     border-right: dotted 2px #15adc1;
     border-bottom: dotted 2px #15adc1;
     right: 0;
   }
+
   .dotted-square-brackets p {
       margin: 0;
       padding: 0;
@@ -94,6 +100,7 @@
     border: solid 3px red;
     border-radius: 8px;
   }
+
   .danger-title-frame span {
     position: absolute;
     display: inline-block;
@@ -106,6 +113,7 @@
     color: red;
     font-weight: bold;
   }
+
   .danger-title-frame p {
     margin-top:1rem;
   }
@@ -116,6 +124,7 @@
     background: #f1f1f1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
   }
+
   .sticky-note .sticky-title {
     font-size: 1.2em;
     background: #5fc2f5;
@@ -125,6 +134,7 @@
     font-weight: bold;
     letter-spacing: 0.05em;
   }
+
   .sticky-note .sticky-body {
     padding: 15px 20px;
     margin: 0;
@@ -138,6 +148,7 @@
     box-shadow: 0px 0px 0px 10px #d6ebff;
     border: dashed 2px white;
   }
+
   .cloth p {
       margin: 0;
       padding: 0;
@@ -153,6 +164,7 @@
     margin: 0 0 1em;
     color: #454545;
   }
+
   .masking-tape:after{
     position: absolute;
     content: '';
@@ -163,6 +175,7 @@
     border-color: #ffdb88 #fff #ffdb88;
     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
   }
+
   .masking-tape p {
       margin: 0;
       padding: 0;
@@ -173,14 +186,17 @@
     overflow: auto;
     height: 14rem;
   }
+
   .scroll-radio-buttons {
     overflow: auto;
     height: 17rem;
   }
+
   .scroll-style {
     overflow: auto;
     height: 30rem;
   }
+
   .scroll-page {
     overflow: auto;
     height: 40rem;
