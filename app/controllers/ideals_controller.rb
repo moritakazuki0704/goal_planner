@@ -1,7 +1,7 @@
 class IdealsController < ApplicationController
 
   before_action :not_setting_goals_in_life!
-  before_action :ideal_new, only: [:personality_new,:appearance_new,:lifestyle_new,:spend_time_new,:working_new,:residence_new,:relationship_new,:partner_new,:role_model_new]
+  before_action :ideal_new, only: [:personality_new, :appearance_new, :lifestyle_new, :spend_time_new, :working_new, :residence_new, :relationship_new, :partner_new, :role_model_new]
 
   def personality_new
   end
