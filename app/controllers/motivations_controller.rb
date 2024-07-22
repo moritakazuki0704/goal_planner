@@ -1,7 +1,7 @@
 class MotivationsController < ApplicationController
 
   before_action :not_setting_goals_in_life!
-  before_action :motivation_new, only: [:positive_new,:negative_new,:to_do_new,:want_new]
+  before_action :motivation_new, only: [:positive_new, :negative_new, :to_do_new, :want_new]
 
   def positive_new
   end
