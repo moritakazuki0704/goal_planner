@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :keyword_created_user!, only: [:mission_statement_new,:mission_statement_confirm,:mission_statement_update]
+  before_action :keyword_created_user!, only: [:mission_statement_new, :mission_statement_confirm, :mission_statement_update]
   before_action :user_current, except: [:withdrawal]
 
   def keyword_new
