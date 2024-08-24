@@ -26,7 +26,7 @@
   <% else %>
 
     <!--予定の編集フォーム-->
-    <%= form_with model: @schedule,url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-5 py-3" do |f| %>
+    <%= form_with model: @schedule, url: schedule_path(@schedule), method: :patch, class: "row justify-content-center open-book my-5 py-3" do |f| %>
       <%= render :partial =>'form', :locals => { :f => f, problems: @problems } %>
     <% end %>
 
